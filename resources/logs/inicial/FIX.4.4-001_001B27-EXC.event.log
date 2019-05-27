@@ -28631,3 +28631,149 @@ java.lang.Error: Unresolved compilation problem:
 20190525-16:45:27: Initiated logon request
 20190525-16:45:27: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
 20190525-16:45:27: Received logon
+20190527-22:12:22: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-22:12:22: Session state is not current; resetting FIX.4.4:001/001B27->EXC
+20190527-22:12:22: Created session: FIX.4.4:001/001B27->EXC
+20190527-22:12:22: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-22:12:26: MINA session created: local=/172.16.0.229:52530, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-22:12:26: Initiated logon request
+20190527-22:12:26: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-22:12:26: Received logon
+20190527-22:15:19: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-22:15:19: Created session: FIX.4.4:001/001B27->EXC
+20190527-22:15:19: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-22:15:20: MINA session created: local=/172.16.0.229:52663, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-22:15:21: Initiated logon request
+20190527-22:15:21: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-22:15:21: Received logon
+20190527-22:17:05: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-22:17:05: Created session: FIX.4.4:001/001B27->EXC
+20190527-22:17:05: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-22:17:05: MINA session created: local=/172.16.0.229:52769, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-22:17:07: Initiated logon request
+20190527-22:17:07: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-22:17:07: Received logon
+20190527-22:18:20: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-22:18:20: Created session: FIX.4.4:001/001B27->EXC
+20190527-22:18:21: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-22:18:21: MINA session created: local=/172.16.0.229:52846, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-22:18:22: Initiated logon request
+20190527-22:18:22: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-22:18:22: Received logon
+20190527-22:19:52: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-22:19:52: Created session: FIX.4.4:001/001B27->EXC
+20190527-22:19:52: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-22:19:52: MINA session created: local=/172.16.0.229:52906, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-22:19:53: Initiated logon request
+20190527-22:19:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-22:19:53: Received logon
+20190527-22:20:39: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-22:20:39: Created session: FIX.4.4:001/001B27->EXC
+20190527-22:20:39: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-22:20:39: MINA session created: local=/172.16.0.229:52955, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-22:20:40: Initiated logon request
+20190527-22:20:40: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-22:20:40: Received logon
+20190527-22:24:20: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-22:24:20: Created session: FIX.4.4:001/001B27->EXC
+20190527-22:24:20: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-22:24:20: MINA session created: local=/172.16.0.229:53036, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-22:24:21: Initiated logon request
+20190527-22:24:21: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-22:24:21: Received logon
+20190527-22:25:58: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-22:25:58: Created session: FIX.4.4:001/001B27->EXC
+20190527-22:25:58: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-22:25:58: MINA session created: local=/172.16.0.229:53118, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-22:25:59: Initiated logon request
+20190527-22:25:59: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-22:25:59: Received logon
+20190527-23:18:33: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:18:33: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:18:33: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:18:33: MINA session created: local=/172.16.0.229:54159, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:18:34: Initiated logon request
+20190527-23:18:34: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:18:34: Received logon
+20190527-23:19:54: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:19:54: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:19:55: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:19:55: MINA session created: local=/172.16.0.229:54229, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:19:56: Initiated logon request
+20190527-23:19:56: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:19:56: Received logon
+20190527-23:24:09: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:24:09: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:24:09: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:24:09: MINA session created: local=/172.16.0.229:54339, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:24:10: Initiated logon request
+20190527-23:24:10: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:24:10: Received logon
+20190527-23:26:38: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:26:38: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:26:39: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:26:39: MINA session created: local=/172.16.0.229:54419, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:26:40: Initiated logon request
+20190527-23:26:40: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:26:40: Received logon
+20190527-23:28:45: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:28:45: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:28:45: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:28:45: MINA session created: local=/172.16.0.229:54483, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:28:46: Initiated logon request
+20190527-23:28:46: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:28:46: Received logon
+20190527-23:29:33: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:29:33: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:29:33: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:29:34: MINA session created: local=/172.16.0.229:54530, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:29:35: Initiated logon request
+20190527-23:29:35: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:29:35: Received logon
+20190527-23:30:09: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:30:09: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:30:09: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:30:09: MINA session created: local=/172.16.0.229:54581, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:30:10: Initiated logon request
+20190527-23:30:11: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:30:11: Received logon
+20190527-23:31:43: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:31:43: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:31:43: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:31:44: MINA session created: local=/172.16.0.229:54639, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:31:45: Initiated logon request
+20190527-23:31:45: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:31:45: Received logon
+20190527-23:33:34: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:33:34: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:33:35: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:33:37: Pending connection not established after 2006 ms.
+20190527-23:33:38: MINA session created: local=/172.16.0.229:54712, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:33:54: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:33:54: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:33:55: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:33:55: MINA session created: local=/172.16.0.229:54759, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:33:56: Initiated logon request
+20190527-23:33:56: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:33:56: Received logon
+20190527-23:36:15: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:36:15: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:36:15: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:36:15: MINA session created: local=/172.16.0.229:54831, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:36:16: Initiated logon request
+20190527-23:36:16: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:36:16: Received logon
+20190527-23:39:07: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:39:07: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:39:08: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:39:08: MINA session created: local=/172.16.0.229:54960, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:39:09: Initiated logon request
+20190527-23:39:09: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:39:09: Received logon
+20190527-23:49:02: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-23:49:02: Created session: FIX.4.4:001/001B27->EXC
+20190527-23:49:03: Configured socket addresses for session: [/172.36.2.13:54401]
+20190527-23:49:03: MINA session created: local=/172.16.0.229:55339, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190527-23:49:04: Initiated logon request
+20190527-23:49:04: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190527-23:49:04: Received logon

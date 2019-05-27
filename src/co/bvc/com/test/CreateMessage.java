@@ -37,14 +37,14 @@ import quickfix.fix44.Message.Header;
 
 public class CreateMessage {
 
-	public Message createR(SessionID sessionId, String cid) throws SessionNotFound, SQLException {
+	public Message createR(int i) throws SessionNotFound, SQLException {
 
 		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-				+ "WHERE ID_ESCENARIO = 'FIX_R' and ID_CASE = 1";
+				+ "WHERE ID_CASESEQ =" + i;
 
 		String queryParties = "SELECT linea.ID_ESCENARIO, partes.RQ_PARTYID, partes.RQ_PARTYIDSOURCE, partes.RQ_PARTYROLE\r\n"
 				+ "FROM aut_fix_rfq_datos linea INNER JOIN aut_fix_rfqparty_datos partes\r\n"
-				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ = 1";
+				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ =" + i;
 
 		ResultSet resultset;
 		ResultSet resultSetParties;
@@ -52,7 +52,7 @@ public class CreateMessage {
 			resultset = DataAccess.getQuery(queryMessageR);
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteReqID quoteReqID = new QuoteReqID(cid); // 131
+			QuoteReqID quoteReqID = new QuoteReqID(""+i); // 131
 			QuoteRequest quoteRequest = new QuoteRequest(quoteReqID); // 35 --> R
 			Header header = (Header) quoteRequest.getHeader();
 			header.setField(new BeginString("FIX.4.4")); // 8
@@ -72,7 +72,7 @@ public class CreateMessage {
 
 			QuoteRequest.NoRelatedSym.NoPartyIDs parte = new QuoteRequest.NoRelatedSym.NoPartyIDs();
 
-			// Parties
+//			 Parties
 			while (resultSetParties.next()) {
 				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
 				parte.set(new PartyIDSource('C'));
