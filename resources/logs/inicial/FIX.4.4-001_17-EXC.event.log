@@ -1,0 +1,293 @@
+20190509-14:12:21: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:12:21: Created session: FIX.4.4:001/17->EXC
+20190509-14:12:22: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:12:22: MINA session created: local=/172.16.1.1:54733, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:12:23: Initiated logon request
+20190509-14:12:23: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:12:23: Received logon
+20190509-14:12:31: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:12:31.33056=00157=17131=43085130658=6146=155=TFIC1328042522=M762=RQFQ10=208
+20190509-14:12:31: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:17:49: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:17:49: Created session: FIX.4.4:001/17->EXC
+20190509-14:17:49: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:17:49: MINA session created: local=/172.16.1.1:54998, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:17:51: Initiated logon request
+20190509-14:17:51: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:17:51: Received logon
+20190509-14:17:59: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:17:58.79156=00157=17131=14486032658=6146=155=TFIC1328042522=M762=RQFQ10=237
+20190509-14:17:59: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:26:02: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:26:02: Created session: FIX.4.4:001/17->EXC
+20190509-14:26:02: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:26:02: MINA session created: local=/172.16.1.1:55291, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:26:04: Initiated logon request
+20190509-14:26:04: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:26:04: Received logon
+20190509-14:26:12: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:26:11.75856=00157=17131=46693360658=6146=155=TFIC1328042522=M762=RQFQ10=238
+20190509-14:26:12: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:27:11: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:27:11: Created session: FIX.4.4:001/17->EXC
+20190509-14:27:12: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:27:12: MINA session created: local=/172.16.1.1:55381, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:27:13: Initiated logon request
+20190509-14:27:14: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:27:14: Received logon
+20190509-14:27:21: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:27:21.44556=00157=17131=69465589658=6146=155=TFIC1328042522=M762=RQFQ10=248
+20190509-14:27:21: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:28:59: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:28:59: Created session: FIX.4.4:001/17->EXC
+20190509-14:28:59: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:28:59: MINA session created: local=/172.16.1.1:55417, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:29:01: Initiated logon request
+20190509-14:29:01: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:29:01: Received logon
+20190509-14:29:08: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11035=AG34=249=EXC52=20190509-14:29:08.66856=00157=17131=9008634658=6146=155=TFIC1328042522=M762=RQFQ10=191
+20190509-14:29:08: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:29:43: Disconnecting: Encountered END_OF_STREAM
+20190509-14:34:25: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:34:25: Created session: FIX.4.4:001/17->EXC
+20190509-14:34:25: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:34:25: MINA session created: local=/172.16.1.1:55596, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:34:27: Initiated logon request
+20190509-14:34:27: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:34:27: Received logon
+20190509-14:34:35: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:34:35.28856=00157=17131=68301884658=6146=155=TFIC1328042522=M762=RQFQ10=242
+20190509-14:34:35: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:34:47: Disconnecting: Encountered END_OF_STREAM
+20190509-14:35:05: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:35:05: Created session: FIX.4.4:001/17->EXC
+20190509-14:35:05: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:35:05: MINA session created: local=/172.16.1.1:55666, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:35:07: Initiated logon request
+20190509-14:35:07: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:35:07: Received logon
+20190509-14:35:15: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:35:15.07956=00157=17131=41848097658=6146=155=TFIC1328042522=M762=RQFQ10=242
+20190509-14:35:15: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:35:26: Disconnecting: Encountered END_OF_STREAM
+20190509-14:36:11: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:36:11: Created session: FIX.4.4:001/17->EXC
+20190509-14:36:11: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:36:12: MINA session created: local=/172.16.1.1:55744, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:36:13: Initiated logon request
+20190509-14:36:13: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:36:13: Received logon
+20190509-14:36:21: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:36:21.54556=00157=17131=74332766658=6146=155=TFIC1328042522=M762=RQFQ10=235
+20190509-14:36:21: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:36:26: Disconnecting: Encountered END_OF_STREAM
+20190509-14:37:39: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:37:39: Created session: FIX.4.4:001/17->EXC
+20190509-14:37:39: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:37:39: MINA session created: local=/172.16.1.1:55830, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:37:41: Initiated logon request
+20190509-14:37:41: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:37:41: Received logon
+20190509-14:37:49: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:37:49.31856=00157=17131=16861280658=6146=155=TFIC1328042522=M762=RQFQ10=238
+20190509-14:37:49: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:38:38: Disconnecting: Encountered END_OF_STREAM
+20190509-14:39:35: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:39:35: Created session: FIX.4.4:001/17->EXC
+20190509-14:39:35: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:39:35: MINA session created: local=/172.16.1.1:55927, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:39:37: Initiated logon request
+20190509-14:39:37: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:39:37: Received logon
+20190509-14:39:45: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:39:45.16956=00157=17131=19123217658=6146=155=TFIC1328042522=M762=RQFQ10=234
+20190509-14:39:45: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:48:23: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:48:23: Created session: FIX.4.4:001/17->EXC
+20190509-14:48:24: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:48:24: MINA session created: local=/172.16.1.1:56294, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:48:25: Initiated logon request
+20190509-14:48:25: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:48:25: Received logon
+20190509-14:48:33: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:48:33.56656=00157=17131=64858698658=6146=155=TFIC1328042522=M762=RQFQ10=004
+20190509-14:48:33: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:52:43: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:52:43: Created session: FIX.4.4:001/17->EXC
+20190509-14:52:43: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:52:43: MINA session created: local=/172.16.1.1:56432, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:52:45: Initiated logon request
+20190509-14:52:45: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:52:45: Received logon
+20190509-14:52:53: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:52:53.32256=00157=17131=30165168658=6146=155=TFIC1328042522=M762=RQFQ10=223
+20190509-14:52:53: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:54:28: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:54:28: Created session: FIX.4.4:001/17->EXC
+20190509-14:54:28: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:54:28: MINA session created: local=/172.16.1.1:56505, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:54:30: Initiated logon request
+20190509-14:54:30: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:54:30: Received logon
+20190509-14:54:38: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:54:38.41756=00157=17131=20716042658=6146=155=TFIC1328042522=M762=RQFQ10=225
+20190509-14:54:38: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:57:08: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:57:08: Created session: FIX.4.4:001/17->EXC
+20190509-14:57:08: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:57:08: MINA session created: local=/172.16.1.1:56626, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:57:10: Initiated logon request
+20190509-14:57:10: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:57:10: Received logon
+20190509-14:57:17: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:57:17.91256=00157=17131=20274879658=6146=155=TFIC1328042522=M762=RQFQ10=242
+20190509-14:57:17: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-14:57:44: Disconnecting: Encountered END_OF_STREAM
+20190509-14:57:56: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-14:57:56: Created session: FIX.4.4:001/17->EXC
+20190509-14:57:56: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-14:57:56: MINA session created: local=/172.16.1.1:56700, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-14:57:58: Initiated logon request
+20190509-14:57:58: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-14:57:58: Received logon
+20190509-14:58:05: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-14:58:05.95256=00157=17131=67838881658=6146=155=TFIC1328042522=M762=RQFQ10=254
+20190509-14:58:05: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-15:12:28: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-15:12:28: Created session: FIX.4.4:001/17->EXC
+20190509-15:12:28: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-15:12:28: MINA session created: local=/172.16.1.1:57149, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-15:12:30: Initiated logon request
+20190509-15:12:30: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-15:12:30: Received logon
+20190509-15:12:38: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-15:12:38.35556=00157=17131=32747561658=6146=155=TFIC1328042522=M762=RQFQ10=234
+20190509-15:12:38: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-15:16:17: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-15:16:17: Created session: FIX.4.4:001/17->EXC
+20190509-15:16:17: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-15:16:17: MINA session created: local=/172.16.1.1:57286, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-15:16:19: Initiated logon request
+20190509-15:16:19: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-15:16:19: Received logon
+20190509-15:16:26: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-15:16:26.82056=00157=17131=43678061658=6146=155=TFIT1624072422=M762=RQFQ10=250
+20190509-15:16:26: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-15:17:34: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-15:17:34: Created session: FIX.4.4:001/17->EXC
+20190509-15:17:35: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-15:17:35: MINA session created: local=/172.16.1.1:57349, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-15:17:36: Initiated logon request
+20190509-15:17:36: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-15:17:36: Received logon
+20190509-15:17:44: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-15:17:44.58056=00157=17131=33664337658=6146=155=TFIT1624072422=M762=RQFQ10=254
+20190509-15:17:44: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-15:37:18: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-15:37:18: Created session: FIX.4.4:001/17->EXC
+20190509-15:37:19: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-15:37:19: MINA session created: local=/172.16.1.1:57907, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-15:37:20: Initiated logon request
+20190509-15:37:20: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-15:37:20: Received logon
+20190509-15:37:28: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-15:37:28.49856=00157=17131=73460657658=6146=155=TFIC1328042522=M762=RQFQ10=251
+20190509-15:37:28: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-15:39:24: Disconnecting: Encountered END_OF_STREAM
+20190509-15:39:24: MINA session created: local=/172.16.1.1:57987, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-15:39:25: Initiated logon request
+20190509-15:39:36: Disconnecting: Timed out waiting for logon response
+20190509-18:14:36: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-18:14:36: Created session: FIX.4.4:001/17->EXC
+20190509-18:14:36: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-18:14:36: MINA session created: local=/172.16.1.1:63755, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-18:14:38: Initiated logon request
+20190509-18:14:38: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-18:14:38: Received logon
+20190509-18:14:46: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-18:14:46.60456=00157=17131=60837279658=6146=155=TFIC1328042522=M762=RFQF10=231
+20190509-18:14:46: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-18:16:18: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-18:16:18: Created session: FIX.4.4:001/17->EXC
+20190509-18:16:19: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-18:16:19: MINA session created: local=/172.16.1.1:63888, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-18:16:20: Initiated logon request
+20190509-18:16:20: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-18:16:20: Received logon
+20190509-18:16:28: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-18:16:28.73056=00157=17131=35728540658=6146=155=TFIC1328042522=M762=RFQF10=225
+20190509-18:16:28: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-18:17:47: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-18:17:47: Created session: FIX.4.4:001/17->EXC
+20190509-18:17:47: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-18:17:47: MINA session created: local=/172.16.1.1:63982, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-18:17:49: Initiated logon request
+20190509-18:17:49: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-18:17:49: Received logon
+20190509-18:17:57: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-18:17:57.40856=00157=17131=80699861658=6146=155=TFIC1328042522=M762=RFQF10=243
+20190509-18:17:57: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-18:18:40: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-18:18:40: Created session: FIX.4.4:001/17->EXC
+20190509-18:18:41: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-18:18:41: MINA session created: local=/172.16.1.1:64041, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-18:18:42: Initiated logon request
+20190509-18:18:42: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-18:18:42: Received logon
+20190509-18:18:50: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-18:18:50.97956=00157=17131=26010359658=6146=155=TFIC1328042522=M762=RFQF10=229
+20190509-18:18:50: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-18:19:54: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-18:19:54: Created session: FIX.4.4:001/17->EXC
+20190509-18:19:54: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-18:19:54: MINA session created: local=/172.16.1.1:64106, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-18:19:55: Initiated logon request
+20190509-18:19:56: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-18:19:56: Received logon
+20190509-18:20:04: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-18:20:04.52856=00157=17131=15927396658=6146=155=TFIC1328042522=M762=RFQF10=227
+20190509-18:20:04: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-18:45:02: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-18:45:02: Created session: FIX.4.4:001/17->EXC
+20190509-18:45:03: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-18:45:03: MINA session created: local=/172.16.1.1:64896, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-18:45:04: Initiated logon request
+20190509-18:45:04: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-18:45:04: Received logon
+20190509-18:45:12: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-18:45:12.64756=00157=17131=18883902658=6146=155=TFIC1328042522=M762=RFQF10=232
+20190509-18:45:12: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-18:51:45: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-18:51:45: Created session: FIX.4.4:001/17->EXC
+20190509-18:51:46: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-18:51:46: MINA session created: local=/172.16.1.1:65116, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-18:51:47: Initiated logon request
+20190509-18:51:47: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-18:51:47: Received logon
+20190509-18:51:55: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-18:51:55.56256=00157=17131=55941031658=6146=155=TFIC1328042522=M762=RFQF10=221
+20190509-18:51:55: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-18:52:49: Disconnecting: Encountered END_OF_STREAM
+20190509-18:52:49: MINA session created: local=/172.16.1.1:65177, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-18:52:49: Initiated logon request
+20190509-18:52:49: Disconnecting: Socket exception (/172.36.2.13:54401): java.io.IOException: An existing connection was forcibly closed by the remote host
+20190509-19:08:17: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-19:08:17: Created session: FIX.4.4:001/17->EXC
+20190509-19:08:18: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-19:08:18: MINA session created: local=/172.16.1.1:49341, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-19:08:19: Initiated logon request
+20190509-19:08:19: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-19:08:19: Received logon
+20190509-19:08:27: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-19:08:27.41156=00157=17131=53173524658=6146=155=TFIC1328042522=M762=RFQF10=218
+20190509-19:08:27: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-19:23:32: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-19:23:32: Created session: FIX.4.4:001/17->EXC
+20190509-19:23:33: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-19:23:33: MINA session created: local=/172.16.1.1:49850, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-19:23:34: Initiated logon request
+20190509-19:23:34: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-19:23:34: Received logon
+20190509-19:23:42: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-19:23:42.48356=00157=17131=73199443658=6146=155=TFIC1328042522=M762=RFQF10=231
+20190509-19:23:42: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-20:28:02: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-20:28:02: Created session: FIX.4.4:001/17->EXC
+20190509-20:28:02: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-20:28:02: MINA session created: local=/172.16.1.1:54817, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-20:28:04: Initiated logon request
+20190509-20:28:04: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-20:28:04: Received logon
+20190509-20:28:12: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-20:28:12.43956=00157=17131=64535538658=6146=155=TFIC1328042522=M762=RFQF10=225
+20190509-20:28:12: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-20:29:50: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-20:29:50: Created session: FIX.4.4:001/17->EXC
+20190509-20:29:50: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-20:29:50: MINA session created: local=/172.16.1.1:54861, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-20:29:52: Initiated logon request
+20190509-20:29:52: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-20:29:52: Received logon
+20190509-20:30:00: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-20:30:00.24156=00157=17131=61843719658=6146=155=TFIC1328042522=M762=RFQF10=206
+20190509-20:30:00: Reject sent for Message 2: Out of order repeating group members, field=22:22
+20190509-20:36:59: Session FIX.4.4:001/17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190509-20:36:59: Created session: FIX.4.4:001/17->EXC
+20190509-20:36:59: Configured socket addresses for session: [/172.36.2.13:54401]
+20190509-20:36:59: MINA session created: local=/172.16.1.1:52086, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190509-20:37:01: Initiated logon request
+20190509-20:37:01: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190509-20:37:01: Received logon
+20190509-20:37:09: Rejecting invalid message: quickfix.FieldException: Out of order repeating group members, field=22: 8=FIX.4.49=11135=AG34=249=EXC52=20190509-20:37:09.28456=00157=17131=38726873658=6146=155=TFIC1328042522=M762=RFQF10=234
+20190509-20:37:09: Reject sent for Message 2: Out of order repeating group members, field=22:22
