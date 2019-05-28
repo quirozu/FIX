@@ -1,6 +1,6 @@
 package co.bvc.com.basicfix;
 
-import co.bvc.com.test.TestApplicationImpl;
+import co.bvc.com.test.Adapters;
 import quickfix.Application;
 import quickfix.DefaultMessageFactory;
 import quickfix.FileLogFactory;
@@ -24,9 +24,9 @@ public class BasicFunctions {
 	public static SessionID connecto(String fileConf) {
 		SocketInitiator socketInitiator = null;
 		try {
-			SessionSettings sessionSettings = new SessionSettings("C:\\eclipse_projects\\quickfixbvc1\\resources\\" + fileConf);
+			SessionSettings sessionSettings = new SessionSettings("C:\\Users\\yuliet.chavarria\\Desktop\\quickfixbvc1\\resources\\" + fileConf);
 			
-			Application application = new TestApplicationImpl();
+			Application application = new Adapters();
 			FileStoreFactory fileStoreFactory = new FileStoreFactory(sessionSettings);
 			FileLogFactory fileLogFactory = new FileLogFactory(sessionSettings);
 			MessageFactory messageFactory = new DefaultMessageFactory();

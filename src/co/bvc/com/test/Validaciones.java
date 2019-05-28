@@ -530,12 +530,16 @@ public class Validaciones {
 				+ "WHERE ID_ESCENARIO = 'FIX_8' and ID_CASE = 1 and ID_AFILIADO =" + idAfiliado;
 
 		resultset = DataAccess.getQuery(queryMessageR);
+		
+		
 		ArrayList<String> cad = FragmentarCadena(cadena);
 		String valor;
 		String val;
 		String a = null, b = null, c = null, d = null, e = null, f = null, g = null, h = null, j = null, k = null,
 				l = null, m = null, n = null, o = null;
 		while (resultset.next()) {
+			
+//			switch(resultset.getInt(columnIndex))
 			a = resultset.getString("ER_EXECTYPE");
 			b = resultset.getString("ER_ORDSTATUS");
 			c = resultset.getString("ER_SIDE");
