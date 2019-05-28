@@ -16,6 +16,7 @@ public class Login {
 	private SessionID sessionID1;
 	private SessionID sessionID2;
 	private SessionID sessionID3;
+	private SessionID sessionID4;
 	private double cantidad = 500000000d;
 	
 
@@ -44,13 +45,21 @@ public class Login {
 				System.out.println("Session ID: " + sessionID2);
 			}
 
-//			sessionID3 = BasicFunctions.connecto("sessionSettings2_37.cfg");
-//			if (sessionID3 == null) {
-//				System.out.println("Conexión 3 errada");
-//			} else {
-//				BasicFunctions.logon(sessionID3);
-//				System.out.println("Session ID: " + sessionID3);
-//			}
+			sessionID3 = BasicFunctions.connecto("sessionSettings2_37.cfg");
+			if (sessionID3 == null) {
+				System.out.println("Conexión 3 errada");
+			} else {
+				BasicFunctions.logon(sessionID3);
+				System.out.println("Session ID: " + sessionID3);
+			}
+			
+			sessionID4 = BasicFunctions.connecto("sessionSettings1_19.cfg");
+			if (sessionID4 == null) {
+				System.out.println("Conexión 4 errada");
+			} else {
+				BasicFunctions.logon(sessionID4);
+				System.out.println("Session ID: " + sessionID4);
+			}
 
 			System.out.println("************************************");
 

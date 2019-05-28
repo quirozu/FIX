@@ -657,12 +657,12 @@ public class Validaciones {
 				}
 				break;
 			case "1081":
-				if (cad.get(i).split("=")[1].equals(g)) {
+				if (cad.get(i).split("=")[1].equals(k)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(1081): " + cad.get(i).split("=")[1] + " bd: " + g);
+					System.out.println("iguales:  Execution Report(1081): " + cad.get(i).split("=")[1] + " bd: " + k);
 				} else {
 					System.out
-							.println("diferentes:  Execution Report(1081): " + cad.get(i).split("=")[1] + " bd: " + g);
+							.println("diferentes:  Execution Report(1081): " + cad.get(i).split("=")[1] + " bd: " + k);
 					contadorMalos++;
 				}
 				break;

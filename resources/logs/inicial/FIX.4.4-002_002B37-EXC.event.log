@@ -777,3 +777,10 @@
 20190509-14:09:36: MINA session created: local=/172.16.1.1:54592, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54403
 20190509-14:09:38: Initiated logon request
 20190509-14:09:38: Disconnecting: Encountered END_OF_STREAM
+20190527-20:58:45: Session FIX.4.4:002/002B37->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190527-20:58:45: Session state is not current; resetting FIX.4.4:002/002B37->EXC
+20190527-20:58:45: Created session: FIX.4.4:002/002B37->EXC
+20190527-20:58:45: Configured socket addresses for session: [/172.36.2.13:54403]
+20190527-20:58:45: MINA session created: local=/172.16.1.1:57666, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54403
+20190527-20:58:46: Initiated logon request
+20190527-20:58:46: Disconnecting: Encountered END_OF_STREAM

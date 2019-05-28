@@ -49,7 +49,7 @@ public class TestFix {
 		Thread.sleep(3000);
 		Message mess = new Message();
 		
-		mess = message.createR(inicio.getSessionID1(), inicio.getcIdRandom());
+		mess = message.createR(inicio.getSessionID1());
 		System.out.println("******************************\nMENSAJE R...\n");
 		Session.sendToTarget(mess, inicio.getSessionID1());
 		
@@ -60,7 +60,7 @@ public class TestFix {
 		System.out.println("ESPERANDO CREACIÓN DEL MENSAJE S...\n");
 		Thread.sleep(3000);
 
-		mess = message.createS(inicio.getSessionID2(), inicio.getcIdRandom(), idQuoteReqFound);
+		mess = message.createS(inicio.getSessionID2(), idQuoteReqFound);
 
 		System.out.println("******************************\nMENSAJE S...\n");
 
@@ -73,7 +73,7 @@ public class TestFix {
 		System.out.println("ESPERANDO CREACIÓN DEL MENSAJE AJ...\n");
 		Thread.sleep(3000);
 
-		mess = message.createAJ(inicio.getSessionID1(), inicio.getcIdRandom(), idQuoteReqFound1);
+		mess = message.createAJ(inicio.getSessionID1(), idQuoteReqFound1);
 		Thread.sleep(3000);
 		System.out.println("******************************\nFINAL DE EJECUCION...");
 		

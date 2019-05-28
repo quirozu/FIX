@@ -37,7 +37,7 @@ import quickfix.fix44.Message.Header;
 
 public class CreateMessage {
 
-	public Message createR(SessionID sessionId, String cid) throws SessionNotFound, SQLException {
+	public Message createR(SessionID sessionId) throws SessionNotFound, SQLException {
 
 		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
 				+ "WHERE ID_ESCENARIO = 'FIX_R' and ID_CASE = 1";
@@ -52,7 +52,7 @@ public class CreateMessage {
 			resultset = DataAccess.getQuery(queryMessageR);
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteReqID quoteReqID = new QuoteReqID(cid); // 131
+			QuoteReqID quoteReqID = new QuoteReqID(""+resultset.getInt("ID_CASESEQ")); // 131
 			QuoteRequest quoteRequest = new QuoteRequest(quoteReqID); // 35 --> R
 			Header header = (Header) quoteRequest.getHeader();
 			header.setField(new BeginString("FIX.4.4")); // 8
@@ -161,11 +161,11 @@ public class CreateMessage {
 	 * @throws SessionNotFound
 	 */
 
-	public Message createS(final SessionID sessionId, final String strQuoteId, final String strQReqId)
+	public Message createS(final SessionID sessionId, final String strQReqId)
 			throws SessionNotFound, SQLException {
 
 		System.out.println("******************DATOS RECIBIDOS PARA S....\nSession: \t:" + sessionId
-				+ " - strQuoteId: \t" + strQuoteId + " - strReqId: " + strQReqId);
+				 + " - strReqId: " + strQReqId);
 
 		String queryMessageS = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
 				+ "WHERE ID_ESCENARIO = 'FIX_S' and ID_CASE = 1";
@@ -182,7 +182,7 @@ public class CreateMessage {
 			resultset = DataAccess.getQuery(queryMessageS);
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteID quoteID = new QuoteID(strQuoteId);
+			QuoteID quoteID = new QuoteID(resultset.getString("ID_CASESEQ"));
 			Quote quote = new Quote(quoteID); // 35 --> S
 
 			Header header = (Header) quote.getHeader();
@@ -233,17 +233,14 @@ public class CreateMessage {
 
 
 
-	public static Message createAJ(SessionID sessionId, String strQuoteId, String strQRespId) throws SessionNotFound {
+	public static Message createAJ(SessionID sessionId,  String strQRespId) throws SessionNotFound {
 
 		String queryMessageAJ = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_ESCENARIO = 'FIX_AJ' AND ID_CASE = 1";
-		int stQt = Integer.parseInt(strQuoteId);
-		stQt += 1;
-		String strQuotedID = Integer.toString(stQt);
 		ResultSet resultset;
 		try {
 			resultset = DataAccess.getQuery(queryMessageAJ);
 			while (resultset.next()) {
-				QuoteRespID quoteRespID = new QuoteRespID(strQuotedID);
+				QuoteRespID quoteRespID = new QuoteRespID(resultset.getString("ID_CASESEQ"));
 				QuoteRespType qouteRespType = new QuoteRespType(1);
 				QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
 

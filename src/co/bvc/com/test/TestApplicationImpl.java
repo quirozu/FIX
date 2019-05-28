@@ -111,12 +111,17 @@ public class TestApplicationImpl extends MessageCracker implements Application {
 					message.setField(new Username(listUsers.get(1)));
 					message.setField(new Password(listPass.get(1)));
 					break;
-				case "002B37":
+				case "007B26":
+					System.out.println("User: " + listUsers.get(5));
+					message.setField(new Username(listUsers.get(5)));
+					message.setField(new Password(listPass.get(5)));
+					break;
+					
+				case "010BWN":
 					System.out.println("User: " + listUsers.get(2));
 					message.setField(new Username(listUsers.get(2)));
 					message.setField(new Password(listPass.get(2)));
 					break;
-
 				default:
 					break;
 				}
