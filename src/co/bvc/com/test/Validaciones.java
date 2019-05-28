@@ -12,23 +12,7 @@ public class Validaciones {
 	private String CadenaSPrima;
 	private String CadenaRPrima = "";
 	private String cadenaOcho;
-//	private int contadorBuenos = 0;
-//	private int contadorMalos = 0;
 
-//	public void imput() {
-//		System.out.println("----------------------------------------");
-//		System.out.println("LAS VALIDACIONES CORRECTAS FUERON : " + getContadorBuenos());
-//		System.out.println("LAS VALIDACIONES ERRADAS FUERON : " + getContadorMalos());
-//		System.out.println("TOTAL VALIDACIONES REALIZADAS : " + (getContadorBuenos() + getContadorMalos()));
-//	}
-
-//	public int getContadorBuenos() {
-//		return contadorBuenos;
-//	}
-//
-//	public int getContadorMalos() {
-//		return contadorMalos;
-//	}
 
 	public String getCadenaOcho() {
 		return cadenaOcho;
