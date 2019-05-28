@@ -97,80 +97,80 @@ public class Validaciones {
 
 		while (resultSet.next()) {
 
-			if (resultSet.getString("RQ_SYMBOL") == qr.getString(Symbol.FIELD)) {
+			if (resultSet.getString("RS_SYMBOL") == qr.getString(Symbol.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_SYMBOL"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SYMBOL"),
 						qr.getString(Symbol.FIELD)));
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_SYMBOL"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SYMBOL"),
 						qr.getString(Symbol.FIELD)));
 			}
 
-			if (resultSet.getString("RQ_MSGTYPE") == qr.getString(MsgType.FIELD)) {
+			if (resultSet.getString("RS_MSGTYPE") == qr.getString(MsgType.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_MSGTYPE"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_MSGTYPE"),
 						qr.getString(MsgType.FIELD)));
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_MSGTYPE"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_MSGTYPE"),
 						qr.getString(MsgType.FIELD)));
 
 			}
-			if (resultSet.getString("RQ_SECSUBTYPE") == qr.getString(SecuritySubType.FIELD)) {
+			if (resultSet.getString("RS_SECSUBTYPE") == qr.getString(SecuritySubType.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_SECSUBTYPE"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SECSUBTYPE"),
 						qr.getString(SecuritySubType.FIELD)));
 
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_SECSUBTYPE"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SECSUBTYPE"),
 						qr.getString(SecuritySubType.FIELD)));
 
 			}
 
-			if (resultSet.getString("RQ_SIDE") == qr.getString(Side.FIELD)) {
+			if (resultSet.getString("RS_SIDE") == qr.getString(Side.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_SIDE"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SIDE"),
 						qr.getString(Side.FIELD)));
 
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_SIDE"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SIDE"),
 						qr.getString(Side.FIELD)));
 
 			}
 
 			if (resultSet.getString("RS_ORDERQTY") == qr.getString(OrderQty.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_ORDERQTY"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_ORDERQTY"),
 						qr.getString(OrderQty.FIELD)));
 
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_ORDERQTY"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_ORDERQTY"),
 						qr.getString(OrderQty.FIELD)));
 
 			}
 			if (resultSet.getString("RS_VALIDUNTILTIME") == qr.getString(ValidUntilTime.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_VALIDUNTILTIME"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_VALIDUNTILTIME"),
 						qr.getString(ValidUntilTime.FIELD)));
 
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_VALIDUNTILTIME"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_VALIDUNTILTIME"),
 						qr.getString(ValidUntilTime.FIELD)));
 
 			}
-			if (resultSet.getString("RQ_QUOTERESPID") == qr.getString(QuoteRespID.FIELD)) {
+			if (resultSet.getString("RS_QUOTERESPID") == qr.getString(QuoteRespID.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_QUOTERESPID"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_QUOTERESPID"),
 						qr.getString(QuoteRespID.FIELD)));
 
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_QUOTERESPID"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_QUOTERESPID"),
 						qr.getString(QuoteRespID.FIELD)));
 
 			}
@@ -241,38 +241,38 @@ public class Validaciones {
 
 			}
 
-			if (resultSet.getString("RS_ORDERQTY") == qr.getString(OrderQty.FIELD)) {
+			if (resultSet.getString("RQ_ORDERQTY") == qr.getString(OrderQty.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_ORDERQTY"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_ORDERQTY"),
 						qr.getString(OrderQty.FIELD)));
 
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_ORDERQTY"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_ORDERQTY"),
 						qr.getString(OrderQty.FIELD)));
 
 			}
 
-			if (resultSet.getString("RS_VALIDUNTILTIME") == qr.getString(ValidUntilTime.FIELD)) {
+			if (resultSet.getString("RQ_VALIDUNTILTIME") == qr.getString(ValidUntilTime.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_VALIDUNTILTIME"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_VALIDUNTILTIME"),
 						qr.getString(ValidUntilTime.FIELD)));
 
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_VALIDUNTILTIME"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_VALIDUNTILTIME"),
 						qr.getString(ValidUntilTime.FIELD)));
 
 			}
 
-			if (resultSet.getString("RS_NORELATEDSYM") == qr.getString(NoRelatedSym.FIELD)) {
+			if (resultSet.getString("RQ_NORELATEDSYM") == qr.getString(NoRelatedSym.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_NORELATEDSYM"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_NORELATEDSYM"),
 						qr.getString(NoRelatedSym.FIELD)));
 
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_NORELATEDSYM"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_NORELATEDSYM"),
 						qr.getString(NoRelatedSym.FIELD)));
 
 			}
@@ -289,14 +289,14 @@ public class Validaciones {
 
 			}
 
-			if (resultSet.getString("RS_NOPARTYIDS") == qr.getString(NoPartyIDs.FIELD)) {
+			if (resultSet.getString("RQ_NOPARTYIDS") == qr.getString(NoPartyIDs.FIELD)) {
 				contadorBuenos++;
-				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_NOPARTYIDS"),
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_NOPARTYIDS"),
 						qr.getString(NoPartyIDs.FIELD)));
 
 			} else {
 				contadorMalos++;
-				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_NOPARTYIDS"),
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_NOPARTYIDS"),
 						qr.getString(NoPartyIDs.FIELD)));
 
 			}
