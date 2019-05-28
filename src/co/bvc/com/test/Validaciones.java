@@ -441,100 +441,104 @@ public class Validaciones {
 		System.out.println("TOTAL VALIDACIONES REALIZADAS : " + (contadorBuenos + contadorMalos));
 
 	}
-
-	public void ValidaS() throws SQLException, InterruptedException {
+	
+	public void ValidaS(ResultSet resultSet, QuoteRequest qr, String ID_EJECUCION) throws SQLException, FieldNotFound {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
-		String cadena = getCadenaAI();
-		ResultSet resultset;
-		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-				+ "WHERE ID_ESCENARIO = 'FIX_S' and ID_CASE = 1";
 
-		resultset = DataAccess.getQuery(queryMessageR);
-		ArrayList<String> cad = FragmentarCadena(cadena);
-		String valor;
-		String val;
-		String type = null, symbol = null, subtype = null, side = null, order = null, time = null, latedsym = null,
-				Nopartys = null;
-		while (resultset.next()) {
-			type = resultset.getString("RS_MSGTYPE");
-			symbol = resultset.getString("RS_SYMBOL");
-			subtype = resultset.getString("RS_SECSUBTYPE");
-			side = resultset.getString("RS_SIDE");
-			order = resultset.getString("RS_ORDERQTY");
-			time = resultset.getString("RS_VALIDUNTILTIME");
-//                  latedsym=resultset.getString("RS_NORELATEDSYM");
-//                  Nopartys=resultset.getString("RS_NOPARTYIDS");
-//                  System.out.println("type: "+type+"symbol: "+symbol);        
-		}
 		System.out.println("----------------------------------------");
-		System.out.println("VALIDACION DEL AI CORRESPONDIENTE AL S ENVIADO POR EL RECEPTOR");
+		System.out.println("VALIDACION DEL AI CORRESPONDIENTE AL S ENVIADO POR EL RECEPTOR\n");
 		System.out.println("  \n");
-		for (int i = 0; i < cad.size(); i++) {
-			valor = cad.get(i).split("=")[0];
-			val = cad.get(i).split("=")[1];
-			switch (valor) {
-			case "55":
-				if (cad.get(i).split("=")[1].equals(symbol)) {
-					contadorBuenos++;
-					System.out.println("iguales:  cadena(55): " + cad.get(i).split("=")[1] + " bd: " + symbol);
-				} else {
-					System.out.println("diferentes:  cadena(55): " + cad.get(i).split("=")[1] + " bd: " + symbol);
-					contadorMalos++;
-				}
-				break;
-			case "35":
-				if (cad.get(i).split("=")[1].equals(type)) {
-					contadorBuenos++;
-					System.out.println("iguales:  cadena(35): " + cad.get(i).split("=")[1] + " bd: " + type);
-				} else {
-					System.out.println("diferentes:  cadena(35): " + cad.get(i).split("=")[1] + " bd: " + type);
-					contadorMalos++;
-				}
-				break;
-			case "762":
-				if (cad.get(i).split("=")[1].equals(subtype)) {
-					contadorBuenos++;
-					System.out.println("iguales:  cadena(762): " + cad.get(i).split("=")[1] + " bd: " + subtype);
-				} else {
-					System.out.println("diferentes:  cadena(762): " + cad.get(i).split("=")[1] + " bd: " + subtype);
-					contadorMalos++;
-				}
-				break;
-			case "54":
-				if (cad.get(i).split("=")[1].equals(side)) {
-					contadorBuenos++;
-					System.out.println("iguales:  cadena(54): " + cad.get(i).split("=")[1] + " bd: " + side);
-				} else {
-					System.out.println("diferentes:  cadena(54): " + cad.get(i).split("=")[1] + " bd: " + side);
-					contadorMalos++;
-				}
-				break;
-			case "38":
-				if (cad.get(i).split("=")[1].equals(order)) {
-					contadorBuenos++;
-					System.out.println("iguales:  cadena(38): " + cad.get(i).split("=")[1] + " bd: " + order);
-				} else {
-					System.out.println("diferentes:  cadena(38): " + cad.get(i).split("=")[1] + " bd: " + order);
-					contadorMalos++;
-				}
-				break;
-//			case "52":
-//				if (cad.get(i).split("=")[1].equals(time)) {
-//					System.out.println("iguales:  cadena: " + cad.get(i).split("=")[1] + " symbolbd: " + time);
-//				} else
-//					System.out.println("diferentes:  cadena: " + cad.get(i).split("=")[1] + " symbolbd: " + time);
-//				break;
-			default:
-				break;
+
+		while (resultSet.next()) {
+
+			if (resultSet.getString("RS_SYMBOL") == qr.getString(Symbol.FIELD)) {
+				contadorBuenos++;
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SYMBOL"),
+						qr.getString(Symbol.FIELD)));
+			} else {
+				contadorMalos++;
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SYMBOL"),
+						qr.getString(Symbol.FIELD)));
+			}
+
+			if (resultSet.getString("RS_MSGTYPE") == qr.getString(MsgType.FIELD)) {
+				contadorBuenos++;
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_MSGTYPE"),
+						qr.getString(MsgType.FIELD)));
+			} else {
+				contadorMalos++;
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_MSGTYPE"),
+						qr.getString(MsgType.FIELD)));
+
+			}
+			if (resultSet.getString("RS_SECSUBTYPE") == qr.getString(SecuritySubType.FIELD)) {
+				contadorBuenos++;
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SECSUBTYPE"),
+						qr.getString(SecuritySubType.FIELD)));
+
+			} else {
+				contadorMalos++;
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SECSUBTYPE"),
+						qr.getString(SecuritySubType.FIELD)));
+
+			}
+
+			if (resultSet.getString("RS_SIDE") == qr.getString(Side.FIELD)) {
+				contadorBuenos++;
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SIDE"),
+						qr.getString(Side.FIELD)));
+
+			} else {
+				contadorMalos++;
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_SIDE"),
+						qr.getString(Side.FIELD)));
+
+			}
+
+			if (resultSet.getString("RS_ORDERQTY") == qr.getString(OrderQty.FIELD)) {
+				contadorBuenos++;
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_ORDERQTY"),
+						qr.getString(OrderQty.FIELD)));
+
+			} else {
+				contadorMalos++;
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_ORDERQTY"),
+						qr.getString(OrderQty.FIELD)));
+
+			}
+			if (resultSet.getString("RS_VALIDUNTILTIME") == qr.getString(ValidUntilTime.FIELD)) {
+				contadorBuenos++;
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_VALIDUNTILTIME"),
+						qr.getString(ValidUntilTime.FIELD)));
+
+			} else {
+				contadorMalos++;
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_VALIDUNTILTIME"),
+						qr.getString(ValidUntilTime.FIELD)));
+
+			}
+			if (resultSet.getString("RS_QUOTERESPID") == qr.getString(QuoteRespID.FIELD)) {
+				contadorBuenos++;
+				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_QUOTERESPID"),
+						qr.getString(QuoteRespID.FIELD)));
+
+			} else {
+				contadorMalos++;
+				DataAccess.setQuery(QueryFallido(resultSet, qr, ID_EJECUCION, resultSet.getString("RS_QUOTERESPID"),
+						qr.getString(QuoteRespID.FIELD)));
+
 			}
 		}
+
 		System.out.println("----------------------------------------");
 		System.out.println("LAS VALIDACIONES CORRECTAS FUERON : " + contadorBuenos);
 		System.out.println("LAS VALIDACIONES ERRADAS FUERON : " + contadorMalos);
 		System.out.println("TOTAL VALIDACIONES REALIZADAS : " + (contadorBuenos + contadorMalos));
 
 	}
+
+	
 
 	public void validarOcho() throws SQLException {
 		int contadorBuenos = 0;
