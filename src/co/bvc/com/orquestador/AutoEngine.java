@@ -7,6 +7,7 @@ import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.test.Adapters;
 import co.bvc.com.test.CreateMessage;
 import co.bvc.com.test.Login;
+import co.bvc.com.test.Validaciones;
 import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
@@ -16,22 +17,21 @@ public class AutoEngine {
 
 	   private DataAccess connectionBD = null;
 	   private int nextId;
-	   private Login login= null;
+	   private String Date;
+	   public Login login= null;
 	   Message message = new Message();
-	   
-	   
-	   
 	   CreateMessage createMesage = new CreateMessage();
+	   Validaciones validaciones = new Validaciones();
 	   
 	   //connectionBD = new DataAccess();
 
-	   public AutoEngine(DataAccess connectionBD, Login login) throws SQLException {
+	   public AutoEngine(DataAccess connectionBD, Login login, String date) throws SQLException {
 		   if (connectionBD == null) {
 			   this.connectionBD.Conexion();
 		   }
 		   
 		   this.login = login; 
-		   
+		   this.Date = date;
 	   }
 	   
 	   // metodo que inicia la ejecucion
@@ -51,7 +51,7 @@ public class AutoEngine {
 			
 //			System.out.println("RS "+ rs);
 			
-			//rs.first();
+			rs.first();
 			
 			ejecutar(rs);
 		}
@@ -65,13 +65,12 @@ public class AutoEngine {
 	   
 	   public void ejecutar(ResultSet resultSet) throws SQLException, SessionNotFound, InterruptedException {
 		   		   
-		   resultSet.first();
+//		   resultSet.first();
 		   
 		   String msgType = "";
 		   String afiliado = "";
 		   int escenario = 0;
 
-			   
 			   msgType = resultSet.getString("ID_ESCENARIO");
 			   afiliado = resultSet.getString("ID_AFILIADO");
 			   escenario = resultSet.getInt("ID_CASESEQ");
@@ -79,45 +78,6 @@ public class AutoEngine {
 		   System.out.println("MSGTYPE: " +  msgType + "\nAFILIADO: " +afiliado + "\nESCENARIO: " + escenario);
 		   
 		   enviarMensaje(msgType, resultSet, escenario);
-		   
-//		   switch(msgType) {
-//		   
-//		   case "FIX_R" : 
-//			   
-//			   message = createMesage.createR(escenario, resultSet);
-//			   System.out.println(message);			   
-//			   Session.sendToTarget(message, login.getSessionID1());			   
-//			   Thread.sleep(5000);
-//			   idQuoteReqFound = Adapters.getIDQuoteFound();
-//			   Thread.sleep(5000);
-//				System.out.println("*********************"+ "\n" +"EL VALOR DEL NUEVO ID ES: "+ idQuoteReqFound + "\n"  + "*********************" );
-//			   break;
-			   
-			   			   
-//		   case "FIX_S" : 
-//			   mess = createMesage.createS(escenario);
-//			   System.out.println(mess);
-//			   Session.sendToTarget(mess);
-//			   break;
-//			   
-//			  
-//			case "FIX_AJ" : 
-//				   mess = createMesage.createAJ(escenario);
-//				   System.out.println(mess);
-//				   Session.sendToTarget(mess);
-//				   break;
-//				   
-//				 
-//			case "FIX_Z" : 
-//				   mess = createMesage.createZ(escenario);
-//				   System.out.println(mess);
-//				   Session.sendToTarget(mess);
-//				   break;
-//			   
-//	   default:
-//		   break;
-//
-//		   }
 
 	   }
 	   
@@ -129,14 +89,16 @@ public class AutoEngine {
 		  
 		  case "FIX_R":
 			
+			   System.out.println(resultSet);
 			   message = createMesage.createR(escenario, resultSet);
-			   System.out.println(message);			   
-			   Session.sendToTarget(message, login.getSessionID1());			   
-			   Thread.sleep(5000);
-			   idQuoteReqFound = Adapters.getIDQuoteFound();
-			   Thread.sleep(5000);
-			   System.out.println("*********************"+ "\n" +"EL VALOR DEL NUEVO ID ES: "+ idQuoteReqFound + "\n"  + "*********************" );
-			
+			   Session.sendToTarget(message, login.getSessionID1());
+			   
+//			   String queryPersistencia = "INSERT INTO aut_fix_rfq_cache values (" + login.getSessionID1() +", "
+//			   		+ "SELECT * FROM aut_fix_rfq_datos WHERE ID_CASESEQ = "+ escenario;
+			   
+//			   DataAccess.getQuery(queryPersistencia);
+			   
+			 
 			break;
 			
         case "FIX_S":
@@ -173,6 +135,12 @@ public class AutoEngine {
 		 
 	   }
 	   
+	   //Metodo que extraer el registro en base de datos  
+	   public ResultSet obtenerCache(Session session) {
+		return null;
+		 
+	   }
+	   
 	   
 	   //Metodos get y set del Conexión base de datos
 	   public DataAccess getConnectionBD() {
@@ -184,8 +152,23 @@ public class AutoEngine {
 	     	this.connectionBD = connectionBD;
 	  }
 
-	
+	   public void validarR(Session session, Message message) throws SQLException, InterruptedException {
+		   
+		   //getcache
+		   
+//		   obtenerCache(session);
+//		   validaciones.ValidarRPrima(resultSetCache, message);
+		   
+		   //obtenerSiguienteRegistro()
+		   
+		   //obtenerIdQuote
+		   // generarS
+		   
+		   
+	   }
 	   
-	   
+	   public void validarAI() {
+		   
+	   }
 	   
 }

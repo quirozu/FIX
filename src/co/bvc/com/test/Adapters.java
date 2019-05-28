@@ -372,17 +372,21 @@ public class Adapters extends MessageCracker implements Application {
 	public void onMessage(quickfix.fix44.QuoteRequest message, SessionID sessionID) throws FieldNotFound {
 
 		printMessage("QuoteRequest", sessionID, message);
+		String mess = "" + message;
 		
+		// instanciar AutoEngine
+		// AE.validarR(msg, sId)
+		
+		
+//		validar.setCadenaRPrima(mess);
 
-		try {
-			Thread.sleep(5000);
-			validar.ValidarRPrima(null, message);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//			try {
+//				validar.ValidarRPrima();
+//			} catch (InterruptedException | SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+		
 
 		// System.out.println("*****************\n\tID QuoteRequest: " +
 		// getIDQuoteFound() + "\n-----------------------");

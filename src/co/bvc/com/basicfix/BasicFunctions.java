@@ -24,7 +24,7 @@ public class BasicFunctions {
 	public static SessionID connecto(String fileConf) {
 		SocketInitiator socketInitiator = null;
 		try {
-			SessionSettings sessionSettings = new SessionSettings("C:\\eclipse_projects\\quickfixbvc1\\resources\\" + fileConf);
+			SessionSettings sessionSettings = new SessionSettings("resources\\" + fileConf);
 			
 			Application application = new Adapters();
 			FileStoreFactory fileStoreFactory = new FileStoreFactory(sessionSettings);
@@ -36,7 +36,7 @@ public class BasicFunctions {
 			//System.out.println("ANTES DE LOGON \n"+socketInitiator.getSettings());
 			return sessionID;
 		} catch (Exception e) {
-			System.out.println("Error de conexión."+e.getMessage());
+			System.out.println("Error de conexiï¿½n."+e.getMessage());
 			return null;
 		} 	
 	}
