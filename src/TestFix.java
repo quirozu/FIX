@@ -47,33 +47,33 @@ public class TestFix {
 		autoEngine.iniciarEjecucion();
 	
 		
-		mess = message.createR(inicio.getSessionID1());
-		System.out.println("******************************\nMENSAJE R...\n");
-		Session.sendToTarget(mess, inicio.getSessionID1());
-		
-		Thread.sleep(5000);
-		idQuoteReqFound = TestApplicationImpl.getIDQuoteFound();
-		System.out.println("EL VALOR DEL NUEVO ID ES: " + idQuoteReqFound);
-		System.out.println("******************************\n");
-		System.out.println("ESPERANDO CREACI�N DEL MENSAJE S...\n");
-		Thread.sleep(3000);
-
-		mess = message.createS(inicio.getSessionID2(), idQuoteReqFound);
-
-		System.out.println("******************************\nMENSAJE S...\n");
-
-		Session.sendToTarget(mess, inicio.getSessionID2());
-
-		Thread.sleep(5000);
-		idQuoteReqFound1 = TestApplicationImpl.getIDQuoteFound1();
-		System.out.println("EL VALOR DEL NUEVO ID PARA EL AJ ES : " + idQuoteReqFound1);
-		System.out.println("******************************\n");
-		System.out.println("ESPERANDO CREACI�N DEL MENSAJE AJ...\n");
-		Thread.sleep(3000);
-
-		mess = message.createAJ(inicio.getSessionID1(), idQuoteReqFound1);
-		Thread.sleep(3000);
-		System.out.println("******************************\nFINAL DE EJECUCION...");
+//		mess = message.createR(inicio.getSessionID1());
+//		System.out.println("******************************\nMENSAJE R...\n");
+//		Session.sendToTarget(mess, inicio.getSessionID1());
+//		
+//		Thread.sleep(5000);
+//		idQuoteReqFound = TestApplicationImpl.getIDQuoteFound();
+//		System.out.println("EL VALOR DEL NUEVO ID ES: " + idQuoteReqFound);
+//		System.out.println("******************************\n");
+//		System.out.println("ESPERANDO CREACI�N DEL MENSAJE S...\n");
+//		Thread.sleep(3000);
+//
+//		mess = message.createS(inicio.getSessionID2(), idQuoteReqFound);
+//
+//		System.out.println("******************************\nMENSAJE S...\n");
+//
+//		Session.sendToTarget(mess, inicio.getSessionID2());
+//
+//		Thread.sleep(5000);
+//		idQuoteReqFound1 = TestApplicationImpl.getIDQuoteFound1();
+//		System.out.println("EL VALOR DEL NUEVO ID PARA EL AJ ES : " + idQuoteReqFound1);
+//		System.out.println("******************************\n");
+//		System.out.println("ESPERANDO CREACI�N DEL MENSAJE AJ...\n");
+//		Thread.sleep(3000);
+//
+//		mess = message.createAJ(inicio.getSessionID1(), idQuoteReqFound1);
+//		Thread.sleep(3000);
+//		System.out.println("******************************\nFINAL DE EJECUCION...");
 //		String idQuoteReqFound;
 //		String idQuoteReqFound1;
 //		CreateMessage message = new CreateMessage();

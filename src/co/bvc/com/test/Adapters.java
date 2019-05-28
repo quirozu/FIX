@@ -123,6 +123,11 @@ public class Adapters extends MessageCracker implements Application {
 					message.setField(new Username(listUsers.get(2)));
 					message.setField(new Password(listPass.get(2)));
 					break;
+				case "013B17":
+					System.out.println("User: " + listUsers.get(3));
+					message.setField(new Username(listUsers.get(3)));
+					message.setField(new Password(listPass.get(3)));
+					break;
 				default:
 					break;
 				}
@@ -329,7 +334,7 @@ public class Adapters extends MessageCracker implements Application {
 
 			validar.setCadenaOcho(mess);
 			try {
-				validar.validarOcho("002");
+				validar.validarOcho();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -341,7 +346,7 @@ public class Adapters extends MessageCracker implements Application {
 
 			validar.setCadenaOcho(mess);
 			try {
-				validar.validarOcho("001");
+				validar.validarOcho();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -367,12 +372,11 @@ public class Adapters extends MessageCracker implements Application {
 	public void onMessage(quickfix.fix44.QuoteRequest message, SessionID sessionID) throws FieldNotFound {
 
 		printMessage("QuoteRequest", sessionID, message);
-		String mess = "" + message;
-		validar.setCadenaRPrima(mess);
+		
 
 		try {
 			Thread.sleep(5000);
-			validar.ValidarRPrima();
+			validar.ValidarRPrima(null, message);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

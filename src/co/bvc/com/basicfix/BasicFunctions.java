@@ -24,7 +24,7 @@ public class BasicFunctions {
 	public static SessionID connecto(String fileConf) {
 		SocketInitiator socketInitiator = null;
 		try {
-			SessionSettings sessionSettings = new SessionSettings("C:\\Users\\yuliet.chavarria\\Desktop\\quickfixbvc1\\resources\\" + fileConf);
+			SessionSettings sessionSettings = new SessionSettings("C:\\eclipse_projects\\quickfixbvc1\\resources\\" + fileConf);
 			
 			Application application = new Adapters();
 			FileStoreFactory fileStoreFactory = new FileStoreFactory(sessionSettings);

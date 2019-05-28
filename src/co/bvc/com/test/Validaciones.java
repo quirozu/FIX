@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import co.bvc.com.basicfix.DataAccess;
+import quickfix.fix44.Message;
 
 public class Validaciones {
 
@@ -64,7 +65,7 @@ public class Validaciones {
 		return claveValor1;
 	}
 
-	public void ValidarRPrima() throws InterruptedException, SQLException {
+	public void ValidarRPrima(ResultSet resultseti, Message message) throws InterruptedException, SQLException {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
 		String cadenaPrima = this.CadenaRPrima;
@@ -72,20 +73,21 @@ public class Validaciones {
 		String valorPrima;
 		ArrayList<String> cad = FragmentarCadena1(cadenaPrima);
 		ResultSet resultset;
-		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-				+ "WHERE ID_ESCENARIO = 'FIX_R' and ID_CASE = 1";
+//		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
+//				+ "WHERE ID_ESCENARIO = 'FIX_R' and ID_CASE = 1";
 
-		resultset = DataAccess.getQuery(queryMessageR);
-		String a = null, b = null, c = null, d = null, e = null, f = null, g = null, h = "FIX.4.4", i = "3", j = "EXC";
+		resultset = resultseti ;
+		String symbol = null, msgtypeb = null, secsubtype = null, side = null, orderqty = null, validuntiltime = null, norelatedsymg = null, h = "FIX.4.4", i = "3", j = "EXC";
 
 		while (resultset.next()) {
-			a = resultset.getString("RQ_SYMBOL");
-			b = resultset.getString("RQ_MSGTYPE");
-			c = resultset.getString("RQ_SECSUBTYPE");
-			d = resultset.getString("RQ_SIDE");
-			e = resultset.getString("RS_ORDERQTY");
-			f = resultset.getString("RS_VALIDUNTILTIME");
-			g = resultset.getString("RS_NORELATEDSYM");
+			
+			symbol = resultset.getString("RQ_SYMBOL");
+			msgtypeb = resultset.getString("RQ_MSGTYPE");
+			secsubtype = resultset.getString("RQ_SECSUBTYPE");
+			side = resultset.getString("RQ_SIDE");
+			orderqty = resultset.getString("RS_ORDERQTY");
+			validuntiltime = resultset.getString("RS_VALIDUNTILTIME");
+			norelatedsymg = resultset.getString("RS_NORELATEDSYM");
 		}
 		System.out.println("----------------------------------------");
 		System.out.println("VALIDACION DE R CON R PRIMA");
@@ -95,47 +97,47 @@ public class Validaciones {
 			valorPrima = cad.get(z).split("=")[1];
 			switch (clavePrima) {
 			case "55":
-				if (cad.get(z).split("=")[1].equals(a)) {
+				if (cad.get(z).split("=")[1].equals(symbol)) {
 					contadorBuenos++;
-					System.out.println("iguales:  cadenaPrima(55): " + cad.get(z).split("=")[1] + " cadenaR " + a);
+					System.out.println("iguales:  cadenaPrima(55): " + cad.get(z).split("=")[1] + " cadenaR " + symbol);
 				} else {
-					System.out.println("diferentes:  cadenaPrima(55): " + cad.get(z).split("=")[1] + " cadenaR " + a);
+					System.out.println("diferentes:  cadenaPrima(55): " + cad.get(z).split("=")[1] + " cadenaR " + symbol);
 					contadorMalos++;
 				}
 				break;
 			case "35":
-				if (cad.get(z).split("=")[1].equals(b)) {
+				if (cad.get(z).split("=")[1].equals(msgtypeb)) {
 					contadorBuenos++;
-					System.out.println("iguales:  cadenaPrima(35): " + cad.get(z).split("=")[1] + " cadenaR " + b);
+					System.out.println("iguales:  cadenaPrima(35): " + cad.get(z).split("=")[1] + " cadenaR " + msgtypeb);
 				} else {
-					System.out.println("diferentes:  cadenaPrima(35): " + cad.get(z).split("=")[1] + " cadenaR " + b);
+					System.out.println("diferentes:  cadenaPrima(35): " + cad.get(z).split("=")[1] + " cadenaR " + msgtypeb);
 					contadorMalos++;
 				}
 				break;
 			case "762":
-				if (cad.get(z).split("=")[1].equals(c)) {
+				if (cad.get(z).split("=")[1].equals(secsubtype)) {
 					contadorBuenos++;
-					System.out.println("iguales:  cadenaPrima(762): " + cad.get(z).split("=")[1] + " cadenaR " + c);
+					System.out.println("iguales:  cadenaPrima(762): " + cad.get(z).split("=")[1] + " cadenaR " + secsubtype);
 				} else {
-					System.out.println("diferentes:  cadenaPrima(762): " + cad.get(z).split("=")[1] + " cadenaR " + c);
+					System.out.println("diferentes:  cadenaPrima(762): " + cad.get(z).split("=")[1] + " cadenaR " + secsubtype);
 					contadorMalos++;
 				}
 				break;
 			case "54":
-				if (cad.get(z).split("=")[1].equals(d)) {
+				if (cad.get(z).split("=")[1].equals(side)) {
 					contadorBuenos++;
-					System.out.println("iguales:  cadenaPrima(54): " + cad.get(z).split("=")[1] + " cadenaR " + d);
+					System.out.println("iguales:  cadenaPrima(54): " + cad.get(z).split("=")[1] + " cadenaR " + side);
 				} else {
-					System.out.println("diferentes:  cadenaPrima(54): " + cad.get(z).split("=")[1] + " cadenaR " + d);
+					System.out.println("diferentes:  cadenaPrima(54): " + cad.get(z).split("=")[1] + " cadenaR " + side);
 					contadorMalos++;
 				}
 				break;
 			case "38":
-				if (cad.get(z).split("=")[1].equals(e)) {
+				if (cad.get(z).split("=")[1].equals(orderqty)) {
 					contadorBuenos++;
-					System.out.println("iguales:  cadenaPrima(38): " + cad.get(z).split("=")[1] + " cadenaR " + e);
+					System.out.println("iguales:  cadenaPrima(38): " + cad.get(z).split("=")[1] + " cadenaR " + orderqty);
 				} else {
-					System.out.println("diferentes:  cadenaPrima(38): " + cad.get(z).split("=")[1] + " cadenaR " + e);
+					System.out.println("diferentes:  cadenaPrima(38): " + cad.get(z).split("=")[1] + " cadenaR " + orderqty);
 					contadorMalos++;
 				}
 				break;
@@ -146,11 +148,11 @@ public class Validaciones {
 //					System.out.println("diferentes:  cadenaPrima(52): " + cad.get(z).split("=")[1] + " cadenaR " + f);
 //				break;
 			case "146":
-				if (cad.get(z).split("=")[1].equals(g)) {
+				if (cad.get(z).split("=")[1].equals(norelatedsymg)) {
 					contadorBuenos++;
-					System.out.println("iguales:  cadenaPrima(146): " + cad.get(z).split("=")[1] + " cadenaR " + g);
+					System.out.println("iguales:  cadenaPrima(146): " + cad.get(z).split("=")[1] + " cadenaR " + norelatedsymg);
 				} else {
-					System.out.println("diferentes:  cadenaPrima(146): " + cad.get(z).split("=")[1] + " cadenaR " + g);
+					System.out.println("diferentes:  cadenaPrima(146): " + cad.get(z).split("=")[1] + " cadenaR " + norelatedsymg);
 					contadorMalos++;
 				}
 				break;
@@ -521,13 +523,13 @@ public class Validaciones {
 
 	}
 
-	public void validarOcho(String idAfiliado) throws SQLException {
+	public void validarOcho() throws SQLException {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
 		String cadena = getCadenaOcho();
 		ResultSet resultset;
 		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-				+ "WHERE ID_ESCENARIO = 'FIX_8' and ID_CASE = 1 and ID_AFILIADO =" + idAfiliado;
+				+ "WHERE ID_ESCENARIO = 'FIX_AJ' and ID_CASE = 1 ;";
 
 		resultset = DataAccess.getQuery(queryMessageR);
 		
@@ -557,7 +559,7 @@ public class Validaciones {
 
 		}
 		System.out.println("----------------------------------------");
-		System.out.println("VALIDACION DEL EXECUTION REPORT PARA EL: " + idAfiliado);
+		System.out.println("VALIDACION DEL EXECUTION REPORT " );
 		System.out.println("  \n");
 		for (int i = 0; i < cad.size(); i++) {
 			valor = cad.get(i).split("=")[0];

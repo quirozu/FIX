@@ -17,7 +17,7 @@ public class ParametersRead {
     		 
    public String[] leerConexion() {
 	   try {
-        archivo = new File ("C:\\Users\\yuliet.chavarria\\Desktop\\quickfixbvc1\\resources\\conexion.info");
+        archivo = new File ("C:\\eclipse_projects\\quickfixbvc1\\resources\\conexion.info");
         fr = new FileReader (archivo);
         br = new BufferedReader(fr);
         String linea;
