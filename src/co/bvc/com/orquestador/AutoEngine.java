@@ -16,7 +16,7 @@ public class AutoEngine {
 
 	   private DataAccess connectionBD = null;
 	   private int nextId;
-	   private Login login= null;
+	   public Login login= null;
 	   Message message = new Message();
 	   
 	   
@@ -51,7 +51,7 @@ public class AutoEngine {
 			
 //			System.out.println("RS "+ rs);
 			
-			//rs.first();
+			rs.first();
 			
 			ejecutar(rs);
 		}
@@ -65,13 +65,12 @@ public class AutoEngine {
 	   
 	   public void ejecutar(ResultSet resultSet) throws SQLException, SessionNotFound, InterruptedException {
 		   		   
-		   resultSet.first();
+//		   resultSet.first();
 		   
 		   String msgType = "";
 		   String afiliado = "";
 		   int escenario = 0;
 
-			   
 			   msgType = resultSet.getString("ID_ESCENARIO");
 			   afiliado = resultSet.getString("ID_AFILIADO");
 			   escenario = resultSet.getInt("ID_CASESEQ");
@@ -130,9 +129,8 @@ public class AutoEngine {
 		  case "FIX_R":
 			
 			   message = createMesage.createR(escenario, resultSet);
-			   System.out.println(message);			   
 			   Session.sendToTarget(message, login.getSessionID1());			   
-			   Thread.sleep(5000);
+			   Thread.sleep(8000);
 			   idQuoteReqFound = Adapters.getIDQuoteFound();
 			   Thread.sleep(5000);
 			   System.out.println("*********************"+ "\n" +"EL VALOR DEL NUEVO ID ES: "+ idQuoteReqFound + "\n"  + "*********************" );

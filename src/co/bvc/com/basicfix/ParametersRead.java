@@ -17,7 +17,7 @@ public class ParametersRead {
     		 
    public String[] leerConexion() {
 	   try {
-        archivo = new File ("C:\\Users\\yuliet.chavarria\\Desktop\\quickfixbvc1\\resources\\conexion.info");
+        archivo = new File ("resources\\conexion.info");
         fr = new FileReader (archivo);
         br = new BufferedReader(fr);
         String linea;
@@ -40,7 +40,7 @@ public class ParametersRead {
    
    public String leerConsultas() {
 	   try {
-        archivo = new File ("C:\\Users\\yuliet.chavarria\\Desktop\\quickfixbvc1\\resources\\consulta.info");
+        archivo = new File ("resources\\consulta.info");
         fr = new FileReader (archivo);
         br = new BufferedReader(fr);
         String linea;
