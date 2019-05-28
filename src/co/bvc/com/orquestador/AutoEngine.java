@@ -16,7 +16,7 @@ public class AutoEngine {
 
 	   private DataAccess connectionBD = null;
 	   private int nextId;
-	   Login inicio = new Login();
+	   private Login login= null;
 	   Message message = new Message();
 	   
 	   
@@ -25,10 +25,12 @@ public class AutoEngine {
 	   
 	   //connectionBD = new DataAccess();
 
-	   public AutoEngine(DataAccess connectionBD) throws SQLException {
+	   public AutoEngine(DataAccess connectionBD, Login login) throws SQLException {
 		   if (connectionBD == null) {
 			   this.connectionBD.Conexion();
 		   }
+		   
+		   this.login = login;
 		   
 		   
 	   }
@@ -64,40 +66,30 @@ public class AutoEngine {
 	   
 	   public void ejecutar(ResultSet resultSet) throws SQLException, SessionNotFound, InterruptedException {
 		   
-//		   String queryReg = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_CASESEQ = " + primerId() ;
-		   
-//		   ResultSet rs = DataAccess.getQuery(queryReg);
-		   System.out.println("***********RS**********" + resultSet);
+		   System.out.println("***********RS**********  " + resultSet);
 		   
 		   resultSet.first();
 		   
 		   String msgType = "";
 		   String afiliado = "";
 		   int escenario = 0;
-//		   Session session = null;
-		   
-//		   while(resultSet.next()) {
-			   
+
 			   
 			   msgType = resultSet.getString("ID_ESCENARIO");
 			   afiliado = resultSet.getString("ID_AFILIADO");
 			   escenario = resultSet.getInt("ID_CASESEQ");
-			   
-//		   }
-		   
+
 		   System.out.println("MSGTYPE: " +  msgType + "\nAFILIADO: " +afiliado + "\nESCENARIO: " + escenario);
-		   
-		  // session = getSession(afiliado);
-		   
-//		   session = "FIX.4.4:001/001B27->EXC";
 		   String idQuoteReqFound;	
+		   
+		   
 		   switch(msgType) {
 		   case "FIX_R" : 
 			   
-			   message = createMesage.createR(escenario);
+			   message = createMesage.createR(escenario, resultSet);
 			   System.out.println(message);
 			   
-			   Session.sendToTarget(message, inicio.getSessionID1());
+			   Session.sendToTarget(message, login.getSessionID1());
 			   
 			   Thread.sleep(5000);
 				idQuoteReqFound = Adapters.getIDQuoteFound();
@@ -131,6 +123,30 @@ public class AutoEngine {
 
 		   }
 
+	   }
+	   
+	   public void enviarMensaje(String msgType, ResultSet resultSet) {
+		   
+		  switch (msgType) {
+		case "FIX_R":
+			
+			break;
+			
+        case "FIX_S":
+			
+			break;
+			
+        case "FIX_AJ":
+	
+	        break;
+         case "FIX_Z":
+	
+	        break;
+
+		default:
+			break;
+		}
+		   
 	   }
 	   
 	   

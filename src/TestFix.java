@@ -34,17 +34,15 @@ public class TestFix {
 	public static void setIdFound(String idFound) {
 		TestFix.idFound = idFound;
 	}
-	
-	
 
 	public static void main(String[] args) throws SessionNotFound, InterruptedException, DoNotSend, SQLException, ConfigError, FieldNotFound {
 		bd.Conexion();
-		Login inicio = new Login();
+		Login login = new Login();
 
-		inicio.initiation();
+		login.initiation();
 		
 		Adapters adapters = new Adapters();
-		AutoEngine autoEngine = new AutoEngine(bd);
+		AutoEngine autoEngine = new AutoEngine(bd, login);
 		
 		autoEngine.iniciarEjecucion();
 	
