@@ -1,77 +1,191 @@
-//package co.bvc.com.orquestador;
+package co.bvc.com.orquestador;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import co.bvc.com.basicfix.DataAccess;
+import co.bvc.com.test.Adapters;
+import co.bvc.com.test.CreateMessage;
+import co.bvc.com.test.Login;
+import quickfix.Session;
+import quickfix.SessionID;
+import quickfix.SessionNotFound;
+import quickfix.fix44.Message;
+
+public class AutoEngine {
+
+	   private DataAccess connectionBD = null;
+	   private int nextId;
+	   private Login login= null;
+	   Message message = new Message();
+	   
+	   
+	   
+	   CreateMessage createMesage = new CreateMessage();
+	   
+	   //connectionBD = new DataAccess();
+
+	   public AutoEngine(DataAccess connectionBD, Login login) throws SQLException {
+		   if (connectionBD == null) {
+			   this.connectionBD.Conexion();
+		   }
+		   
+		   this.login = login; 
+		   
+	   }
+	   
+	   // metodo que inicia la ejecucion
+	   public void iniciarEjecucion() throws SQLException, SessionNotFound, InterruptedException {
+		    int primerId = 0;
+			
+			String queryInicio = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos ORDER BY ID_CASESEQ ASC LIMIT 1";
+					
+			ResultSet rs = DataAccess.getQuery(queryInicio);
+			System.out.println("RS "+ rs);
+			
+			while(rs.next()) {
+				primerId = rs.getInt("ID_CASESEQ");
+				System.out.println("*********SALIDA*********"+primerId);
+				
+			}
+			
+//			System.out.println("RS "+ rs);
+			
+			//rs.first();
+			
+			ejecutar(rs);
+		}
+	   
+//	   public void continuarEjecucion(Int idCaseSeq) {
+//		   String queryReg = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_CASESEQ = " + idCaseSeq ;
+//		   ResultSet rs = DataAccess.getQuery(queryReg);
+//		   
+//		   ejecutar(rs); 
+//	   }
+	   
+	   public void ejecutar(ResultSet resultSet) throws SQLException, SessionNotFound, InterruptedException {
+		   		   
+		   resultSet.first();
+		   
+		   String msgType = "";
+		   String afiliado = "";
+		   int escenario = 0;
+
+			   
+			   msgType = resultSet.getString("ID_ESCENARIO");
+			   afiliado = resultSet.getString("ID_AFILIADO");
+			   escenario = resultSet.getInt("ID_CASESEQ");
+
+		   System.out.println("MSGTYPE: " +  msgType + "\nAFILIADO: " +afiliado + "\nESCENARIO: " + escenario);
+		   
+		   enviarMensaje(msgType, resultSet, escenario);
+		   
+//		   switch(msgType) {
+//		   
+//		   case "FIX_R" : 
+//			   
+//			   message = createMesage.createR(escenario, resultSet);
+//			   System.out.println(message);			   
+//			   Session.sendToTarget(message, login.getSessionID1());			   
+//			   Thread.sleep(5000);
+//			   idQuoteReqFound = Adapters.getIDQuoteFound();
+//			   Thread.sleep(5000);
+//				System.out.println("*********************"+ "\n" +"EL VALOR DEL NUEVO ID ES: "+ idQuoteReqFound + "\n"  + "*********************" );
+//			   break;
+			   
+			   			   
+//		   case "FIX_S" : 
+//			   mess = createMesage.createS(escenario);
+//			   System.out.println(mess);
+//			   Session.sendToTarget(mess);
+//			   break;
+//			   
+//			  
+//			case "FIX_AJ" : 
+//				   mess = createMesage.createAJ(escenario);
+//				   System.out.println(mess);
+//				   Session.sendToTarget(mess);
+//				   break;
+//				   
+//				 
+//			case "FIX_Z" : 
+//				   mess = createMesage.createZ(escenario);
+//				   System.out.println(mess);
+//				   Session.sendToTarget(mess);
+//				   break;
+//			   
+//	   default:
+//		   break;
 //
-//import java.sql.ResultSet;
-//import java.sql.SQLException;
-//import java.util.ArrayList;
-//
-//import co.bvc.com.orquestador.files.File;
-//import co.bvc.com.test.Login;
-//import co.bvc.com.test.SendMessage;
-//import co.bvc.com.test.TestApplicationImpl;
-//import quickfix.FieldNotFound;
-//import quickfix.Session;
-//import quickfix.SessionNotFound;
-//import quickfix.fix44.Message;
-//
-//public class AutoEngine {
-//	
-//	SendMessage sendMessage;
-//	Login inicio = new Login();
-//	Message mess = new Message();
-//    SendMessage message = new SendMessage();
-//    
-//	
-//	public void enviarMensajes(ArrayList<ResultSet> datosIn) throws SQLException, FieldNotFound, SessionNotFound, InterruptedException {
-//	
-//		inicio.initiation();
-//	    
-//	    for(int i=0; i<=datosIn.size(); i++) 
-//	    {
-//          while(datosIn.get(i).next()) 
-//          {     
-//        	  String typeMessage = datosIn.get(i).getString("RQ_MSGTYPE");
-////          	  System.out.println(datosIn.get(i).getString("RQ_MSGTYPE"));
-//          	  switch(typeMessage) {
-//          	  
-//          	  case "R":
-//          		  SendR(datosIn.get(i));
-//          		  break;
-//          	  
-//          	  }
-//          
-//          	  
-//          }           
-//		}
-//	
-//	 }
-//	 
-//	
-//	
-//    public void SendR(ResultSet rSet) throws SessionNotFound, SQLException, InterruptedException {
-//    	
-//    	inicio.initiation();
-//    	String idQuoteReqFound;
-//    	
-//    	mess = message.sendR(inicio.getSessionID1(), inicio.getcIdRandom(), rSet);
-//    	Session.sendToTarget(mess, inicio.getSessionID1());
-//    	Thread.sleep(5000);
-//    	idQuoteReqFound = TestApplicationImpl.getIDQuoteFound();
-//    	Thread.sleep(5000);
-//		System.out.println("*********************"+ "\n" +"EL VALOR DEL NUEVO ID ES: "+ idQuoteReqFound + "\n"  + "*********************" );
-//    	File.Write(idQuoteReqFound);
-//   	   	
-//    }
-//    
-//    public void SendS(ResultSet rSet) {
-//    	inicio.initiation();
-//    	
-////    	sendMessage.sendS(inicio.getSessionID2(), inicio.getcIdRandom(), strQReqId, resultset)
-//    	
-//    }
-//
-//
-//	}
-//
-//    
-//	
-//	
+//		   }
+
+	   }
+	   
+	   public void enviarMensaje(String msgType, ResultSet resultSet, int escenario) throws SessionNotFound, SQLException, InterruptedException {
+		   
+		  String idQuoteReqFound;
+		   
+		  switch (msgType) {
+		  
+		  case "FIX_R":
+			
+			   message = createMesage.createR(escenario, resultSet);
+			   System.out.println(message);			   
+			   Session.sendToTarget(message, login.getSessionID1());			   
+			   Thread.sleep(5000);
+			   idQuoteReqFound = Adapters.getIDQuoteFound();
+			   Thread.sleep(5000);
+			   System.out.println("*********************"+ "\n" +"EL VALOR DEL NUEVO ID ES: "+ idQuoteReqFound + "\n"  + "*********************" );
+			
+			break;
+			
+        case "FIX_S":
+        	
+        	
+        	
+			
+			break;
+			
+        case "FIX_AJ":
+	
+	        break;
+         case "FIX_Z":
+	
+	        break;
+
+		default:
+			break;
+		}
+		   
+	   }
+	   
+	   
+	   //Metodo que genera el mensaje R apartir del objeto recibido de BD  
+	   public String generarMensajeR() {
+		   
+		return null;
+		
+	   }
+	   
+	   //Metodo que guarda el registro en base de datos  
+	   public String cargarCache() {
+		return null;
+		 
+	   }
+	   
+	   
+	   //Metodos get y set del Conexión base de datos
+	   public DataAccess getConnectionBD() {
+		   
+		   return connectionBD;
+	   }
+
+	   public void setConnectionBD(DataAccess connectionBD) {
+	     	this.connectionBD = connectionBD;
+	  }
+
+	
+	   
+	   
+	   
+}

@@ -30,9 +30,10 @@ import quickfix.fix44.Logon;
 import quickfix.fix44.MessageCracker;
 import quickfix.fix44.Quote;
 import quickfix.fix44.QuoteRequest;
+import quickfix.fix44.QuoteResponse;
 import quickfix.fix44.QuoteStatusReport;
 
-public class TestApplicationImpl extends MessageCracker implements Application {
+public class Adapters extends MessageCracker implements Application {
 	Login inicio = new Login();
 	Translate translate = new Translate();
 	Validaciones validar = new Validaciones();
@@ -161,13 +162,13 @@ public class TestApplicationImpl extends MessageCracker implements Application {
 
 	}
 
+	
 
 	@Override
 	public void fromAdmin(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {
 //		printMessage("fromAdmin-Input", sessionId, message);
-		// System.out.println("*****************\n fromAdmin - Message : \n" + message +
-		// "\nPara la sessionId: "+ sessionId);
+		// System.out.println("*****************\n fromAdmin - Message : \n" + message +		// "\nPara la sessionId: "+ sessionId);
 
 		try {
 			crack(message, sessionId);
@@ -177,13 +178,64 @@ public class TestApplicationImpl extends MessageCracker implements Application {
 		}
 	}
 
+	
+	// Crear switch para el FromApp
+	
+    
 	@Override
 	public void fromApp(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
+		
+	 String typeMessage = message.getHeader().getString(35);
+		
+	 switch (typeMessage) {
+	
+	 case "R":
+		
+		break;
+		
+	 case "S":
+			
+			break;
+			
+	 case "AI":
+			
+			break;
+			
+	 case "AJ":
+			
+			break;
+
+	 case "8":
+			
+			break;
+		
+	 case "Z":
+			
+			break;
+			
+	 case "0":
+			
+			break;
+			
+	 case "3":
+			
+			break;
+			
+	 case "AG":
+			
+			break;
+
+	default:
+		break;
+	}
+		
 		printMessage("fromApp-Input", sessionId, message);
 
 		if (message instanceof QuoteRequest && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
 
+			printMessage("MENSAJE R_PRIMA ", sessionId, message);
+			
 			setIDQuoteFound(message.getString(131));
 			System.out.println("ID ESTABLECIDO EN " + getIDQuoteFound());
 
@@ -191,52 +243,80 @@ public class TestApplicationImpl extends MessageCracker implements Application {
 
 		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:001/001B27->EXC")) {
 			String mess = "" + message;
+			
+			printMessage("MENSAJE AI PARA SESSION 1 ", sessionId, message);
 
-			validar.setCadenaAI(mess);
-			try {
-				validar.ValidaR();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			validar.setCadenaAI(mess);
+//			try {
+//				validar.ValidaR();
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 
 		}
 
 		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
 			String mess = "" + message;
 
-			validar.setCadenaAI(mess);
-			try {
-				validar.ValidaS();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			printMessage("MENSAJE AI PARA SESSION 2 ", sessionId, message);
+
+			
+//			validar.setCadenaAI(mess);
+//			try {
+//				validar.ValidaS();
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 
 		}
 
 		if (message instanceof Quote && sessionId.toString().equals("FIX.4.4:001/001B27->EXC")) {
-			setIDQuoteFound1(message.getString(117));
-			System.out.println("ID ESTABLECIDO PARA EL MENSAJE AJ " + getIDQuoteFound1());
-			String mess = "" + message;
+			
+			printMessage("MENSAJE Q PARA SESSION 1 ", sessionId, message);
 
-			validar.setCadenaSPrima(mess);
-			try {
-				validar.ValidarSPrima();
-			} catch (SQLException | InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+//			setIDQuoteFound1(message.getString(117));
+//			System.out.println("ID ESTABLECIDO PARA EL MENSAJE AJ " + getIDQuoteFound1());
+//			String mess = "" + message;
+//
+//			validar.setCadenaSPrima(mess);
+//			try {
+//				validar.ValidarSPrima();
+//			} catch (SQLException | InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//
+//			}
+		}
+		
+		if (message instanceof QuoteResponse) {
+			
+			printMessage("MENSAJE AJ ", sessionId, message);
 
-			}
+//			setIDQuoteFound1(message.getString(117));
+//			System.out.println("ID ESTABLECIDO PARA EL MENSAJE AJ " + getIDQuoteFound1());
+//			String mess = "" + message;
+//
+//			validar.setCadenaSPrima(mess);
+//			try {
+//				validar.ValidarSPrima();
+//			} catch (SQLException | InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//
+//			}
 		}
 
 		crack(message, sessionId);
 
-		printMessage("fromApp-Output", sessionId, message);
+		//printMessage("fromApp-Output", sessionId, message);
 	}
+	
+	
 
 	public void onMessage(quickfix.fix44.ExecutionReport message, SessionID sessionID) throws FieldNotFound {
 		if (message instanceof ExecutionReport  && sessionID.toString().equals("FIX.4.4:002/002B35->EXC")) {
@@ -276,11 +356,6 @@ public class TestApplicationImpl extends MessageCracker implements Application {
 		printMessage("QuoteStatusReport", sessionID, message);
 		// System.out.println("*****************\n\tID QuoteStatusReport: " +
 		// getIDQuoteFound() + "\n-----------------------");
-
-	}
-
-	public void onMessage(quickfix.fix44.RFQRequest message, SessionID sessionID) throws FieldNotFound {
-		printMessage("RFQRequest", sessionID, message);
 
 	}
 
