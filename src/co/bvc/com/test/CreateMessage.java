@@ -37,19 +37,18 @@ import quickfix.fix44.Message.Header;
 
 public class CreateMessage {
 
-	public Message createR(int i) throws SessionNotFound, SQLException {
+	public Message createR(int i, ResultSet resultSet) throws SessionNotFound, SQLException {
 
-		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-				+ "WHERE ID_CASESEQ =" + i;
+	
 
 		String queryParties = "SELECT linea.ID_ESCENARIO, partes.RQ_PARTYID, partes.RQ_PARTYIDSOURCE, partes.RQ_PARTYROLE\r\n"
 				+ "FROM aut_fix_rfq_datos linea INNER JOIN aut_fix_rfqparty_datos partes\r\n"
 				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ =" + i;
 
-		ResultSet resultset;
+	
 		ResultSet resultSetParties;
 		try {
-			resultset = DataAccess.getQuery(queryMessageR);
+			
 			resultSetParties = DataAccess.getQuery(queryParties);
 
 			QuoteReqID quoteReqID = new QuoteReqID(""+i); // 131
@@ -58,12 +57,12 @@ public class CreateMessage {
 			header.setField(new BeginString("FIX.4.4")); // 8
 			QuoteRequest.NoRelatedSym noRelatedSym = new QuoteRequest.NoRelatedSym();
 
-			while (resultset.next()) {
-				noRelatedSym.set(new Symbol(resultset.getString("RQ_SYMBOL")));
+			while (resultSet.next()) {
+				noRelatedSym.set(new Symbol(resultSet.getString("RQ_SYMBOL")));
 				noRelatedSym.setField(new SecurityIDSource("M"));
-				noRelatedSym.setField(new OrderQty(resultset.getDouble("RQ_ORDERQTY")));
-				noRelatedSym.setField(new StringField(54, resultset.getString("RQ_SIDE")));
-				noRelatedSym.setField(new SecuritySubType(resultset.getString("RQ_SECSUBTYPE")));
+				noRelatedSym.setField(new OrderQty(resultSet.getDouble("RQ_ORDERQTY")));
+				noRelatedSym.setField(new StringField(54, resultSet.getString("RQ_SIDE")));
+				noRelatedSym.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
 				// noRelatedSym.setField(new StringField(453,
 				// resultset.getString("RQ_NOPARTYIDS")));
 				noRelatedSym.setField(new NoPartyIDs());

@@ -44,7 +44,7 @@ public class TestFix {
 		inicio.initiation();
 		
 		Adapters adapters = new Adapters();
-		AutoEngine autoEngine = new AutoEngine(bd);
+		AutoEngine autoEngine = new AutoEngine(bd, inicio);
 		
 		autoEngine.iniciarEjecucion();
 	

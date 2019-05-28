@@ -24,7 +24,7 @@ public class BasicFunctions {
 	public static SessionID connecto(String fileConf) {
 		SocketInitiator socketInitiator = null;
 		try {
-			SessionSettings sessionSettings = new SessionSettings("C:\\Users\\yuliet.chavarria\\Desktop\\quickfixbvc1\\resources\\" + fileConf);
+			SessionSettings sessionSettings = new SessionSettings("C:\\Users\\Pedro_Mora\\git\\FIX\\resources\\" + fileConf);
 			
 			Application application = new Adapters();
 			FileStoreFactory fileStoreFactory = new FileStoreFactory(sessionSettings);

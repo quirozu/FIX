@@ -16,7 +16,7 @@ public class AutoEngine {
 
 	   private DataAccess connectionBD = null;
 	   private int nextId;
-	   Login inicio = new Login();
+	   private Login login = null;
 	   Message message = new Message();
 	   
 	   
@@ -25,10 +25,11 @@ public class AutoEngine {
 	   
 	   //connectionBD = new DataAccess();
 
-	   public AutoEngine(DataAccess connectionBD) throws SQLException {
+	   public AutoEngine(DataAccess connectionBD, Login login) throws SQLException {
 		   if (connectionBD == null) {
 			   this.connectionBD.Conexion();
 		   }
+		   this.login = login;
 		   
 		   
 	   }
@@ -94,10 +95,10 @@ public class AutoEngine {
 		   switch(msgType) {
 		   case "FIX_R" : 
 			   
-			   message = createMesage.createR(escenario);
+			   message = createMesage.createR(escenario, resultSet);
 			   System.out.println(message);
 			   
-			   Session.sendToTarget(message, inicio.getSessionID1());
+			   Session.sendToTarget(message, this.login.getSessionID1());
 			   
 			   Thread.sleep(5000);
 				idQuoteReqFound = Adapters.getIDQuoteFound();
