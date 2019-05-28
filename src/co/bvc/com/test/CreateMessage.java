@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import quickfix.Session;
 import quickfix.SessionID;
@@ -36,7 +36,8 @@ import quickfix.fix44.Message;
 import quickfix.fix44.Message.Header;
 
 public class CreateMessage {
-
+	
+	
 	public Message createR(int i, ResultSet resultSet) throws SessionNotFound, SQLException {
 
 //		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
@@ -55,7 +56,7 @@ public class CreateMessage {
 			QuoteReqID quoteReqID = new QuoteReqID(""+i); // 131
 			QuoteRequest quoteRequest = new QuoteRequest(quoteReqID); // 35 --> R
 			Header header = (Header) quoteRequest.getHeader();
-			header.setField(new BeginString("FIX.4.4")); // 8
+			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 			QuoteRequest.NoRelatedSym noRelatedSym = new QuoteRequest.NoRelatedSym();
 
 			while (resultSet.next()) {
@@ -64,10 +65,7 @@ public class CreateMessage {
 				noRelatedSym.setField(new OrderQty(resultSet.getDouble("RQ_ORDERQTY")));
 				noRelatedSym.setField(new StringField(54, resultSet.getString("RQ_SIDE")));
 				noRelatedSym.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
-				// noRelatedSym.setField(new StringField(453,
-				// resultset.getString("RQ_NOPARTYIDS")));
 				noRelatedSym.setField(new NoPartyIDs());
-
 			}
 
 			QuoteRequest.NoRelatedSym.NoPartyIDs parte = new QuoteRequest.NoRelatedSym.NoPartyIDs();
@@ -111,7 +109,7 @@ public class CreateMessage {
 			QuoteReqID quoteReqID = new QuoteReqID(cid); // 131
 			QuoteRequest quoteRequest = new QuoteRequest(quoteReqID); // 35 --> R
 			Header header = (Header) quoteRequest.getHeader();
-			header.setField(new BeginString("FIX.4.4")); // 8
+			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 			QuoteRequest.NoRelatedSym noRelatedSym = new QuoteRequest.NoRelatedSym();
 
 			while (resultset.next()) {
@@ -186,7 +184,7 @@ public class CreateMessage {
 			Quote quote = new Quote(quoteID); // 35 --> S
 
 			Header header = (Header) quote.getHeader();
-			header.setField(new BeginString("FIX.4.4")); // 8
+			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
 			quote.setField(new QuoteReqID(strQReqId)); // 131
 
@@ -248,7 +246,7 @@ public class CreateMessage {
 				QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
 
 				Header header = (Header) quoteResponse.getHeader();
-				header.setField(new BeginString("FIX.4.4")); // 8
+				header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
 				quoteResponse.setField(new QuoteID(strQRespId));
 //				quoteResponse.setField(new StringField(49, resultset.getString("ID_AFILIADO")));
@@ -277,7 +275,7 @@ public class CreateMessage {
 
 		QuoteCancel quoteCancel = new QuoteCancel();
 		Header header = (Header) quoteCancel.getHeader();
-		header.setField(new BeginString("FIX.4.4")); // 8
+		header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 		
 		quoteCancel.setField(new QuoteCancelType(5));
 		quoteCancel.setField(new QuoteID(strQuoteId));
