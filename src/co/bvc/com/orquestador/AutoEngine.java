@@ -30,8 +30,7 @@ public class AutoEngine {
 			   this.connectionBD.Conexion();
 		   }
 		   
-		   this.login = login;
-		   
+		   this.login = login; 
 		   
 	   }
 	   
@@ -50,7 +49,7 @@ public class AutoEngine {
 				
 			}
 			
-			System.out.println("RS "+ rs);
+//			System.out.println("RS "+ rs);
 			
 			//rs.first();
 			
@@ -65,9 +64,7 @@ public class AutoEngine {
 //	   }
 	   
 	   public void ejecutar(ResultSet resultSet) throws SQLException, SessionNotFound, InterruptedException {
-		   
-		   System.out.println("***********RS**********  " + resultSet);
-		   
+		   		   
 		   resultSet.first();
 		   
 		   String msgType = "";
@@ -80,22 +77,21 @@ public class AutoEngine {
 			   escenario = resultSet.getInt("ID_CASESEQ");
 
 		   System.out.println("MSGTYPE: " +  msgType + "\nAFILIADO: " +afiliado + "\nESCENARIO: " + escenario);
-		   String idQuoteReqFound;	
 		   
+		   enviarMensaje(msgType, resultSet, escenario);
 		   
-		   switch(msgType) {
-		   case "FIX_R" : 
-			   
-			   message = createMesage.createR(escenario, resultSet);
-			   System.out.println(message);
-			   
-			   Session.sendToTarget(message, login.getSessionID1());
-			   
-			   Thread.sleep(5000);
-				idQuoteReqFound = Adapters.getIDQuoteFound();
-				Thread.sleep(5000);
-				System.out.println("*********************"+ "\n" +"EL VALOR DEL NUEVO ID ES: "+ idQuoteReqFound + "\n"  + "*********************" );
-			   break;
+//		   switch(msgType) {
+//		   
+//		   case "FIX_R" : 
+//			   
+//			   message = createMesage.createR(escenario, resultSet);
+//			   System.out.println(message);			   
+//			   Session.sendToTarget(message, login.getSessionID1());			   
+//			   Thread.sleep(5000);
+//			   idQuoteReqFound = Adapters.getIDQuoteFound();
+//			   Thread.sleep(5000);
+//				System.out.println("*********************"+ "\n" +"EL VALOR DEL NUEVO ID ES: "+ idQuoteReqFound + "\n"  + "*********************" );
+//			   break;
 			   
 			   			   
 //		   case "FIX_S" : 
@@ -117,22 +113,36 @@ public class AutoEngine {
 //				   System.out.println(mess);
 //				   Session.sendToTarget(mess);
 //				   break;
-			   
-	   default:
-		   break;
-
-		   }
+//			   
+//	   default:
+//		   break;
+//
+//		   }
 
 	   }
 	   
-	   public void enviarMensaje(String msgType, ResultSet resultSet) {
+	   public void enviarMensaje(String msgType, ResultSet resultSet, int escenario) throws SessionNotFound, SQLException, InterruptedException {
+		   
+		  String idQuoteReqFound;
 		   
 		  switch (msgType) {
-		case "FIX_R":
+		  
+		  case "FIX_R":
+			
+			   message = createMesage.createR(escenario, resultSet);
+			   System.out.println(message);			   
+			   Session.sendToTarget(message, login.getSessionID1());			   
+			   Thread.sleep(5000);
+			   idQuoteReqFound = Adapters.getIDQuoteFound();
+			   Thread.sleep(5000);
+			   System.out.println("*********************"+ "\n" +"EL VALOR DEL NUEVO ID ES: "+ idQuoteReqFound + "\n"  + "*********************" );
 			
 			break;
 			
         case "FIX_S":
+        	
+        	
+        	
 			
 			break;
 			
