@@ -6,9 +6,6 @@ import co.bvc.com.orquestador.AutoEngine;
 import co.bvc.com.test.Login;
 import co.bvc.com.test.Adapters;
 import co.bvc.com.test.Validaciones;
-import quickfix.ConfigError;
-import quickfix.DoNotSend;
-import quickfix.FieldNotFound;
 import quickfix.SessionNotFound;
 
 public class TestFix {
@@ -27,7 +24,7 @@ public class TestFix {
 		TestFix.idFound = idFound;
 	}
 
-	public static void main(String[] args) throws SessionNotFound, InterruptedException, DoNotSend, SQLException, ConfigError, FieldNotFound {
+	public static void main(String[] args) throws SQLException, SessionNotFound, InterruptedException {
 		bd.Conexion();
 		Login login = new Login();
 
@@ -36,6 +33,7 @@ public class TestFix {
 		Adapters adapters = new Adapters();
 		AutoEngine autoEngine = new AutoEngine(bd, login);
 		
+//		autoEngine.iniciarEjecucion();
 		autoEngine.iniciarEjecucion();	
 
 	}

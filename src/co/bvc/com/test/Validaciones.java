@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
+import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import quickfix.FieldNotFound;
 import quickfix.Session;
 import quickfix.fix44.Message;
@@ -85,18 +86,18 @@ public class Validaciones {
 		return claveValor1;
 	}
 
-	public void ValidarRPrima(ResultSet resultSet, QuoteRequest qr) throws InterruptedException, SQLException, FieldNotFound {
+	public void ValidarRPrima(AutFixRfqDatosCache datosCache, QuoteRequest qr) throws InterruptedException, SQLException, FieldNotFound {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
 		String cadenaPrima = this.CadenaRPrima;
 		String clavePrima;
 		String valorPrima;
 		ArrayList<String> cad = FragmentarCadena1(cadenaPrima);
-//		ResultSet resultset;
-//		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-//				+ "WHERE ID_ESCENARIO = 'FIX_R' and ID_CASE = 1";
+		ResultSet resultSet;
+		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
+				+ "WHERE ID_CASESEQ = "+datosCache.getIdCaseseq();
 
-//		resultset = DataAccess.getQuery(queryMessageR);
+		resultSet = DataAccess.getQuery(queryMessageR);
 		
 		String message = qr.getString(35);
 		
