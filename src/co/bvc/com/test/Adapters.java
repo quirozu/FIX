@@ -35,7 +35,7 @@ import quickfix.fix44.QuoteStatusReport;
 
 public class Adapters extends MessageCracker implements Application {
 	Login inicio = new Login();
-	Translate translate = new Translate();
+//	Translate translate = new Translate();
 	Validaciones validar = new Validaciones();
 
 	private static String IDQuoteFound;
