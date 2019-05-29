@@ -320,24 +320,24 @@ public class Adapters extends MessageCracker implements Application {
 			String mess = "" + message;
 
 			validar.setCadenaOcho(mess);
-			try {
-				validar.validarOcho();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			try {
+//				validar.validarOcho();
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 
 		}
 		if (message instanceof ExecutionReport  && sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
 			String mess = "" + message;
 
 			validar.setCadenaOcho(mess);
-			try {
-				validar.validarOcho();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			try {
+//				validar.validarOcho();
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 
 		}
 		printMessage("ExecutionReport", sessionID, message);

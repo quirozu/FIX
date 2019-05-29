@@ -548,38 +548,43 @@ public class Validaciones {
 
 	}
 
-	public void validarOcho() throws SQLException {
+	public void validarOcho(AutFixRfqDatosCache datosCache, Message qr) throws SQLException {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
-		String cadena = getCadenaOcho();
+		String cadena = ""+qr;
 		ResultSet resultset;
-		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-				+ "WHERE ID_ESCENARIO = 'FIX_AJ' and ID_CASE = 1 ;";
+		
+		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
+				+ datosCache.getIdCaseseq();
 
 		resultset = DataAccess.getQuery(queryMessageR);
 
 		ArrayList<String> cad = FragmentarCadena(cadena);
 		String valor;
 		String val;
-		String a = null, b = null, c = null, d = null, e = null, f = null, g = null, h = null, j = null, k = null,
-				l = null, m = null, n = null, o = null;
+		String execType = null, orderStatus = null, side = null, leaveQty = null, orderQty = null, price = null, grosstradeamt = null, nopartyIds = null, secSubtype = null, reforderIdsCr = null,
+				symbol = null, senderSubId = null, dirtyPrice = null, partyIdsSource = null,idCase=null,idEscenario=null;
+		int idSecuencia=0;
 		while (resultset.next()) {
 
 //			switch(resultset.getInt(columnIndex))
-			a = resultset.getString("ER_EXECTYPE");
-			b = resultset.getString("ER_ORDSTATUS");
-			c = resultset.getString("ER_SIDE");
-			d = resultset.getString("ER_LEAVEQTY");
-			e = resultset.getString("ER_ORDERQTY");
-			f = resultset.getString("ER_PRICE");
-			g = resultset.getString("ER_GROSSTRADEAMT");
-			h = resultset.getString("ER_NOPARTYIDS");
-			j = resultset.getString("ER_SECSUBTYPE");
-			k = resultset.getString("ER_REFORDERIDSCR");
-			l = resultset.getString("ER_SYMBOL");
-			m = resultset.getString("ER_SENDERSUBID");
-			n = resultset.getString("ER_DIRTYPRICE");
-			o = resultset.getString("ER_PARTYIDSOURCE");
+			execType = resultset.getString("ER_EXECTYPE");
+			orderStatus = resultset.getString("ER_ORDSTATUS");
+			side = resultset.getString("ER_SIDE");
+			leaveQty = resultset.getString("ER_LEAVEQTY");
+			orderQty = resultset.getString("ER_ORDERQTY");
+			price = resultset.getString("ER_PRICE");
+			grosstradeamt = resultset.getString("ER_GROSSTRADEAMT");
+			nopartyIds = resultset.getString("ER_NOPARTYIDS");
+			secSubtype = resultset.getString("ER_SECSUBTYPE");
+			reforderIdsCr = resultset.getString("ER_REFORDERIDSCR");
+			symbol = resultset.getString("ER_SYMBOL");
+			senderSubId = resultset.getString("ER_SENDERSUBID");
+			dirtyPrice = resultset.getString("ER_DIRTYPRICE");
+			partyIdsSource = resultset.getString("ER_PARTYIDSOURCE");
+			idCase = resultset.getString("ID_CASE");
+			idSecuencia = resultset.getInt("ID_SECUENCIA");
+			idEscenario = resultset.getString("ID_ESCENARIO");
 
 		}
 		System.out.println("----------------------------------------");
@@ -590,130 +595,186 @@ public class Validaciones {
 			val = cad.get(i).split("=")[1];
 			switch (valor) {
 			case "150":
-				if (cad.get(i).split("=")[1].equals(a)) {
+				if (cad.get(i).split("=")[1].equals(execType)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(150): " + cad.get(i).split("=")[1] + " bd: " + a);
+					System.out.println("iguales:  Execution Report(150): " + cad.get(i).split("=")[1] + " bd: " + execType);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), execType, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(150): " + cad.get(i).split("=")[1] + " bd: " + a);
+					System.out.println("diferentes:  Execution Report(150): " + cad.get(i).split("=")[1] + " bd: " + execType);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), execType, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 					contadorMalos++;
 				}
 				break;
 			case "39":
-				if (cad.get(i).split("=")[1].equals(b)) {
+				if (cad.get(i).split("=")[1].equals(orderStatus)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(39): " + cad.get(i).split("=")[1] + " bd: " + b);
+					System.out.println("iguales:  Execution Report(39): " + cad.get(i).split("=")[1] + " bd: " + orderStatus);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), orderStatus, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(39): " + cad.get(i).split("=")[1] + " bd: " + b);
+					System.out.println("diferentes:  Execution Report(39): " + cad.get(i).split("=")[1] + " bd: " + orderStatus);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), orderStatus, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 					contadorMalos++;
 				}
 				break;
 			case "54":
-				if (cad.get(i).split("=")[1].equals(c)) {
+				if (cad.get(i).split("=")[1].equals(side)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(54): " + cad.get(i).split("=")[1] + " bd: " + c);
+					System.out.println("iguales:  Execution Report(54): " + cad.get(i).split("=")[1] + " bd: " + side);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), side, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(54): " + cad.get(i).split("=")[1] + " bd: " + c);
+					System.out.println("diferentes:  Execution Report(54): " + cad.get(i).split("=")[1] + " bd: " + side);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), side, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 					contadorMalos++;
 				}
 				break;
 			case "151":
-				if (cad.get(i).split("=")[1].equals(d)) {
+				if (cad.get(i).split("=")[1].equals(leaveQty)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(151): " + cad.get(i).split("=")[1] + " bd: " + d);
+					System.out.println("iguales:  Execution Report(151): " + cad.get(i).split("=")[1] + " bd: " + leaveQty);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), leaveQty, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(151): " + cad.get(i).split("=")[1] + " bd: " + d);
+					System.out.println("diferentes:  Execution Report(151): " + cad.get(i).split("=")[1] + " bd: " + leaveQty);
 					contadorMalos++;
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), leaveQty, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				}
 				break;
 			case "38":
-				if (cad.get(i).split("=")[1].equals(e)) {
+				if (cad.get(i).split("=")[1].equals(orderQty)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(38): " + cad.get(i).split("=")[1] + " bd: " + e);
+					System.out.println("iguales:  Execution Report(38): " + cad.get(i).split("=")[1] + " bd: " + orderQty);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), orderQty, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(38): " + cad.get(i).split("=")[1] + " bd: " + e);
+					System.out.println("diferentes:  Execution Report(38): " + cad.get(i).split("=")[1] + " bd: " + orderQty);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), orderQty, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 					contadorMalos++;
 				}
 				break;
 			case "44":
-				if (cad.get(i).split("=")[1].equals(f)) {
+				if (cad.get(i).split("=")[1].equals(price)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(44): " + cad.get(i).split("=")[1] + " bd: " + f);
+					System.out.println("iguales:  Execution Report(44): " + cad.get(i).split("=")[1] + " bd: " + price);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), price, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(44): " + cad.get(i).split("=")[1] + " bd: " + f);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), price, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
+					System.out.println("diferentes:  Execution Report(44): " + cad.get(i).split("=")[1] + " bd: " + price);
 					contadorMalos++;
 				}
 				break;
 			case "387":
-				if (cad.get(i).split("=")[1].equals(g)) {
+				if (cad.get(i).split("=")[1].equals(grosstradeamt)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(387): " + cad.get(i).split("=")[1] + " bd: " + g);
+					System.out.println("iguales:  Execution Report(387): " + cad.get(i).split("=")[1] + " bd: " + grosstradeamt);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), grosstradeamt, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(387): " + cad.get(i).split("=")[1] + " bd: " + g);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), grosstradeamt, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
+					System.out.println("diferentes:  Execution Report(387): " + cad.get(i).split("=")[1] + " bd: " + grosstradeamt);
 					contadorMalos++;
 				}
 				break;
 			case "453":
-				if (cad.get(i).split("=")[1].equals(h)) {
+				if (cad.get(i).split("=")[1].equals(nopartyIds)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(453): " + cad.get(i).split("=")[1] + " bd: " + h);
+					System.out.println("iguales:  Execution Report(453): " + cad.get(i).split("=")[1] + " bd: " + nopartyIds);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), nopartyIds, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(453): " + cad.get(i).split("=")[1] + " bd: " + h);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), nopartyIds, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
+					System.out.println("diferentes:  Execution Report(453): " + cad.get(i).split("=")[1] + " bd: " + nopartyIds);
 					contadorMalos++;
 				}
 				break;
 			case "762":
-				if (cad.get(i).split("=")[1].equals(j)) {
+				if (cad.get(i).split("=")[1].equals(secSubtype)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(762): " + cad.get(i).split("=")[1] + " bd: " + j);
+					System.out.println("iguales:  Execution Report(762): " + cad.get(i).split("=")[1] + " bd: " + secSubtype);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), secSubtype, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(762): " + cad.get(i).split("=")[1] + " bd: " + j);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), secSubtype, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
+					System.out.println("diferentes:  Execution Report(762): " + cad.get(i).split("=")[1] + " bd: " + secSubtype);
 					contadorMalos++;
 				}
 				break;
 			case "1081":
-				if (cad.get(i).split("=")[1].equals(k)) {
+				if (cad.get(i).split("=")[1].equals(reforderIdsCr)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(1081): " + cad.get(i).split("=")[1] + " bd: " + k);
+					System.out.println("iguales:  Execution Report(1081): " + cad.get(i).split("=")[1] + " bd: " + reforderIdsCr);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), reforderIdsCr, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), reforderIdsCr, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 					System.out
-							.println("diferentes:  Execution Report(1081): " + cad.get(i).split("=")[1] + " bd: " + k);
+							.println("diferentes:  Execution Report(1081): " + cad.get(i).split("=")[1] + " bd: " + reforderIdsCr);
 					contadorMalos++;
 				}
 				break;
 			case "55":
-				if (cad.get(i).split("=")[1].equals(l)) {
+				if (cad.get(i).split("=")[1].equals(symbol)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(55): " + cad.get(i).split("=")[1] + " bd: " + l);
+					System.out.println("iguales:  Execution Report(55): " + cad.get(i).split("=")[1] + " bd: " + symbol);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), symbol, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(55): " + cad.get(i).split("=")[1] + " bd: " + l);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), symbol, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
+					System.out.println("diferentes:  Execution Report(55): " + cad.get(i).split("=")[1] + " bd: " + symbol);
 					contadorMalos++;
 				}
 				break;
 			case "50":
-				if (cad.get(i).split("=")[1].equals(m)) {
+				if (cad.get(i).split("=")[1].equals(senderSubId)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(50): " + cad.get(i).split("=")[1] + " bd: " + m);
+					System.out.println("iguales:  Execution Report(50): " + cad.get(i).split("=")[1] + " bd: " + senderSubId);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), senderSubId, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(50): " + cad.get(i).split("=")[1] + " bd: " + m);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), senderSubId, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
+					System.out.println("diferentes:  Execution Report(50): " + cad.get(i).split("=")[1] + " bd: " + senderSubId);
 					contadorMalos++;
 				}
 				break;
 			case "20102":
-				if (cad.get(i).split("=")[1].equals(n)) {
+				if (cad.get(i).split("=")[1].equals(dirtyPrice)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(20102): " + cad.get(i).split("=")[1] + " bd: " + n);
+					System.out.println("iguales:  Execution Report(20102): " + cad.get(i).split("=")[1] + " bd: " + dirtyPrice);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), dirtyPrice, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), dirtyPrice, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 					System.out
-							.println("diferentes:  Execution Report(20102): " + cad.get(i).split("=")[1] + " bd: " + n);
+							.println("diferentes:  Execution Report(20102): " + cad.get(i).split("=")[1] + " bd: " + dirtyPrice);
 					contadorMalos++;
 				}
 				break;
 			case "447":
-				if (cad.get(i).split("=")[1].equals(o)) {
+				if (cad.get(i).split("=")[1].equals(partyIdsSource)) {
 					contadorBuenos++;
-					System.out.println("iguales:  Execution Report(447): " + cad.get(i).split("=")[1] + " bd: " + o);
+					System.out.println("iguales:  Execution Report(447): " + cad.get(i).split("=")[1] + " bd: " + partyIdsSource);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), partyIdsSource, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
 				} else {
-					System.out.println("diferentes:  Execution Report(447): " + cad.get(i).split("=")[1] + " bd: " + o);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), partyIdsSource, cad.get(i).split("=")[1], idEscenario,
+							idCase, idSecuencia);
+					System.out.println("diferentes:  Execution Report(447): " + cad.get(i).split("=")[1] + " bd: " + partyIdsSource);
 					contadorMalos++;
 				}
 				break;
