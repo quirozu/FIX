@@ -1,6 +1,9 @@
 package co.bvc.com.dao.domain;
 
+import java.util.List;
+
 public class AutFixRfqDatosCache {
+	
 	private String receiverSession;
 
 	private int idCaseseq;
@@ -14,7 +17,9 @@ public class AutFixRfqDatosCache {
 	private String fixQuoteReqId;
 
 	private String idAfiliado;
-
+	
+	private long idEjecucion;
+	
 	public AutFixRfqDatosCache() {
 	}
 
@@ -74,4 +79,13 @@ public class AutFixRfqDatosCache {
 		this.fixQuoteReqId = fixQuoteReqId;
 	}
 
+	public long getIdEjecucion() {
+		return idEjecucion;
+	}
+
+	public void setIdEjecucion(long idEjecucion) {
+		this.idEjecucion = idEjecucion;
+	}
+	
+	
 }

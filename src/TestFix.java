@@ -31,10 +31,9 @@ public class TestFix {
 	public static void main(String[] args) throws SQLException, SessionNotFound, InterruptedException {
 		bd.Conexion();
 		Login login = new Login();
-		SimpleDateFormat SDF = new SimpleDateFormat("yyyMMddHmmss");
-		Date dt_1 = new Date();
-		ID_EJECUCION = " "+ SDF.format(dt_1);
-		System.out.println("La fecha actual es : "+ ID_EJECUCION);
+		
+		
+		
 		login.initiation();
 		Adapters adapters = new Adapters();
 		AutoEngine autoEngine = new AutoEngine(bd, login, ID_EJECUCION);
