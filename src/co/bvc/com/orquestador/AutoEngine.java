@@ -160,13 +160,21 @@ public class AutoEngine {
 		   DataAccess.cargarCache(datosCache);
 		 
 	   }
+
+	   
+	   //Metodo que elimina el registro en cache (base de datos)  
+	   public void eliminarDatoCache(String session) throws SQLException {
+		
+		   String queryDelete = "DELETE FROM bvc_automation_db.aut_fix_rfq_cache WHERE RECEIVER_SESSION = "+session;
+		   DataAccess.setQuery(queryDelete);		 
+	   }	   
+	   
 	   
 	   //Metodo que extraer el registro en base de datos  
-	   public AutFixRfqDatosCache obtenerCache(SessionID session) throws SQLException {
+	   public AutFixRfqDatosCache obtenerCache(String session) throws SQLException {
 		
-		String sIdAfiliado = session.toString().substring(8,11);
-		System.out.println("SESS: " + sIdAfiliado);
-		return DataAccess.obtenerCache(sIdAfiliado);
+		System.out.println("SESS: " + session);
+		return DataAccess.obtenerCache(session);
 		 
 	   }
 	   
@@ -181,11 +189,17 @@ public class AutoEngine {
 	     	this.connectionBD = connectionBD;
 	  }
 
-	   public void validarR(SessionID sessionId, quickfix.Message message2) throws SQLException, InterruptedException, FieldNotFound {
+	   public void validarR(SessionID sessionId, quickfix.Message messageIn) throws SQLException, InterruptedException, FieldNotFound {
 		   
+		   // Obtener el ID_AFILIADO de la session.
+			String sIdAfiliado = sessionId.toString().substring(8,11);
 		   //getcache
-		   AutFixRfqDatosCache datosCache = obtenerCache(sessionId);
-		   validaciones.ValidarRPrima(datosCache, (QuoteRequest) message);
+		   AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
+		   validaciones.ValidarRPrima(datosCache, (QuoteRequest) messageIn);
+		   
+
+		   //Eliminar Registro en Cache.
+		   eliminarDatoCache(sIdAfiliado);
 		   
 		   //obtenerSiguienteRegistro()
 		   
@@ -198,6 +212,38 @@ public class AutoEngine {
 	   public void validarAI() {
 		   
 	   }
+	   
+	   
+	   /**
+	    *  Metodo para recuperar el objeto siguiente de la tabla de datos.
+	    * @param idCaseSeqActual
+	    * @return
+	 * @throws SQLException 
+	    */
+	   
+	   public void ejecutarSiguientePaso(int idCaseSeqActual) throws SQLException {
+		   
+		   ResultSet resultSet = null;
+		   String _query = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos ORDER BY ID_CASESEQ ="+ idCaseSeqActual++;
+		   
+		   resultSet = DataAccess.getQuery(_query);
+		   
+		   if (resultSet != null) {
+			   
+			   // seleccionar el siguiente paso a ejecutar.
+			   System.out.println("Continua con el siguiente paso.");
+			   
+		   }else {
+			   //ejecutar reporte.
+			   System.out.println("Generar reporte....");
+			   //Termina ejecucion.
+			   System.out.println("FIN EJECUCION....");
+		   }
+		   
+		   
+		
+	   }
+	   
 	   
 		public static void printMessage(String typeMsg, SessionID sessionId, quickfix.Message message2) throws FieldNotFound {
 			System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sessionId + "\nMENSAJE :"

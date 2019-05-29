@@ -388,3 +388,167 @@ java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.
 	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
 	at java.lang.Thread.run(Thread.java:748)
 
+20190528-23:44:13: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190528-23:44:13: Created session: FIX.4.4:002/002B35->EXC
+20190528-23:44:13: Configured socket addresses for session: [/172.36.2.13:54402]
+20190528-23:44:13: MINA session created: local=/172.16.0.229:61451, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190528-23:44:14: Initiated logon request
+20190528-23:44:14: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190528-23:44:14: Received logon
+20190528-23:45:05: Sent test request TEST
+20190528-23:45:08: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+quickfix.RuntimeError: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:197)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:216)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:197)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:216)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190528-23:45:08: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190528-23:44:47.00056=00210=080
+20190528-23:45:08: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190528-23:44:47.00056=00210=080
+20190528-23:45:08: Sent ResendRequest FROM: 2 TO: 2
+20190528-23:45:08: MsgSeqNum too high, expecting 2 but received 4: 8=FIX.4.49=5835=034=449=EXC52=20190528-23:45:03.39156=002112=TEST10=105
+20190528-23:45:08: Enqueued at pos 4: 8=FIX.4.49=5835=034=449=EXC52=20190528-23:45:03.39156=002112=TEST10=105
+20190528-23:45:08: Already sent ResendRequest FROM: 2 TO: 2.  Not sending another.
+20190528-23:45:08: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190528-23:45:10: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+quickfix.RuntimeError: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:197)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:216)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:197)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:216)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190528-23:45:10: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190528-23:45:06.91856=00236=5123=Y10=103
+20190528-23:45:10: Enqueued at pos 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190528-23:45:06.91856=00236=5123=Y10=103
+20190528-23:45:10: Sent ResendRequest FROM: 2 TO: 2
+20190528-23:45:10: Received SequenceReset FROM: 2 TO: 6
+20190528-23:45:10: Received SequenceReset FROM: 6 TO: 7
+20190528-23:49:02: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190528-23:49:02: Created session: FIX.4.4:002/002B35->EXC
+20190528-23:49:02: Configured socket addresses for session: [/172.36.2.13:54402]
+20190528-23:49:02: MINA session created: local=/172.16.0.229:61553, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190528-23:49:03: Initiated logon request
+20190528-23:49:03: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190528-23:49:03: Received logon
+20190528-23:49:22: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+quickfix.RuntimeError: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:198)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:216)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:198)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:216)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190528-23:49:42: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190528-23:49:37.00056=00210=084
+20190528-23:49:42: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190528-23:49:37.00056=00210=084
+20190528-23:49:42: Sent ResendRequest FROM: 2 TO: 2
+20190528-23:49:42: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190528-23:49:49: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+quickfix.RuntimeError: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:198)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:216)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.fix44.QuoteRequest
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:198)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:216)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190528-23:49:49: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190528-23:49:40.67856=00236=4123=Y10=107
+20190528-23:49:49: Enqueued at pos 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190528-23:49:40.67856=00236=4123=Y10=107
+20190528-23:49:49: Sent ResendRequest FROM: 2 TO: 2
+20190528-23:49:49: Received SequenceReset FROM: 2 TO: 5
+20190528-23:49:49: Received SequenceReset FROM: 5 TO: 6
