@@ -234,8 +234,8 @@ public class Adapters extends MessageCracker implements Application {
 			
 			try {
 				 Thread.sleep(15000);
-				this.inicio.initiation();
-				autoEngine.setLogin(this.inicio);
+//				this.inicio.initiation();
+//				autoEngine.setLogin(this.inicio);
 				autoEngine.validarR(sessionId, message);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -296,8 +296,8 @@ public class Adapters extends MessageCracker implements Application {
 			printMessage("MENSAJE Q PARA SESSION 1 ", sessionId, message);
 
 			try {
-				this.inicio.initiation();
-				autoEngine.setLogin(this.inicio);
+//				this.inicio.initiation();
+//				autoEngine.setLogin(this.inicio);
 				autoEngine.validarS(sessionId, message);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -389,8 +389,8 @@ public class Adapters extends MessageCracker implements Application {
 
 	public void onMessage(quickfix.fix44.QuoteRequest message, SessionID sessionID) throws FieldNotFound {
 
-		printMessage("QuoteRequest", sessionID, message);
-		String mess = "" + message;
+//		printMessage("QuoteRequest", sessionID, message);
+//		String mess = "" + message;
 		
 		// instanciar AutoEngine
 		// AE.validarR(msg, sId)

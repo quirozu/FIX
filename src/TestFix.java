@@ -33,6 +33,7 @@ public class TestFix {
 		
 		
 		
+		
 		login.initiation();
 		Adapters adapters = new Adapters(login);
 		AutoEngine autoEngine = new AutoEngine(bd, login);
