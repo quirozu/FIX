@@ -217,6 +217,8 @@ public class Adapters extends MessageCracker implements Application {
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
 		
 		printMessage("fromApp-Input", sessionId, message);
+		
+		
 
 		if (message instanceof QuoteRequest && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
 

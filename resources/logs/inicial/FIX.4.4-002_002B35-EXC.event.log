@@ -9301,3 +9301,421 @@ java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.
 20190529-00:31:10: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
 20190529-00:31:10: Received logon
 20190529-00:31:15: Reject sent for Message 2: Conditionally Required Field Missing: tag=55
+20190529-00:34:00: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-00:34:00: Created session: FIX.4.4:002/002B35->EXC
+20190529-00:34:00: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-00:34:00: MINA session created: local=/172.16.1.1:50226, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-00:34:01: Initiated logon request
+20190529-00:34:01: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-00:34:01: Received logon
+20190529-00:34:07: Reject sent for Message 2: Conditionally Required Field Missing: tag=55
+20190529-00:35:20: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-00:35:20: Created session: FIX.4.4:002/002B35->EXC
+20190529-00:35:20: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-00:35:20: MINA session created: local=/172.16.1.1:50333, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-00:35:21: Initiated logon request
+20190529-00:35:21: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-00:35:21: Received logon
+20190529-00:35:57: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-00:35:57: Created session: FIX.4.4:002/002B35->EXC
+20190529-00:35:57: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-00:35:57: MINA session created: local=/172.16.1.1:50423, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-00:35:58: Initiated logon request
+20190529-00:35:58: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-00:35:58: Received logon
+20190529-00:36:04: Reject sent for Message 2: Conditionally Required Field Missing: tag=35
+20190529-00:37:55: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-00:37:55: Created session: FIX.4.4:002/002B35->EXC
+20190529-00:37:55: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-00:37:55: MINA session created: local=/172.16.1.1:50556, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-00:37:56: Initiated logon request
+20190529-00:37:56: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-00:37:56: Received logon
+20190529-00:38:01: Reject sent for Message 2: Conditionally Required Field Missing: tag=55
+20190529-00:39:44: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-00:39:44: Created session: FIX.4.4:002/002B35->EXC
+20190529-00:39:44: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-00:39:44: MINA session created: local=/172.16.1.1:50681, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-00:39:45: Initiated logon request
+20190529-00:39:45: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-00:39:45: Received logon
+20190529-00:39:51: Reject sent for Message 2: Conditionally Required Field Missing: tag=55
+20190529-00:47:47: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-00:47:47: Created session: FIX.4.4:002/002B35->EXC
+20190529-00:47:47: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-00:47:47: MINA session created: local=/172.16.1.1:50881, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-00:47:49: Initiated logon request
+20190529-00:47:49: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-00:47:49: Received logon
+20190529-00:47:54: Reject sent for Message 2: Conditionally Required Field Missing: tag=38
+20190529-00:56:21: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-00:56:21: Created session: FIX.4.4:002/002B35->EXC
+20190529-00:56:21: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-00:56:21: MINA session created: local=/172.16.1.1:51105, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-00:56:22: Initiated logon request
+20190529-00:56:22: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-00:56:22: Received logon
+20190529-00:56:27: Reject sent for Message 2: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 3: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 4: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 5: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 6: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 7: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 8: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 9: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 10: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 11: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 12: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 13: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 14: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 15: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 16: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 17: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 18: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 19: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 20: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 21: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 22: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 23: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 24: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 25: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 26: Conditionally Required Field Missing: tag=55
+20190529-00:56:27: Reject sent for Message 27: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 28: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 29: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 30: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 31: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 32: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 33: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 34: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 35: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 36: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 37: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 38: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 39: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 40: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 41: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 42: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 43: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 44: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 45: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 46: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 47: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 48: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 49: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 50: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 51: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 52: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 53: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 54: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 55: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 56: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 57: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 58: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 59: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 60: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 61: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 62: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 63: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 64: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 65: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 66: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 67: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 68: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 69: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 70: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 71: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 72: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 73: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 74: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 75: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 76: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 77: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 78: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 79: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 80: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 81: Conditionally Required Field Missing: tag=55
+20190529-00:56:28: Reject sent for Message 82: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 83: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 84: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 85: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 86: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 87: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 88: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 89: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 90: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 91: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 92: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 93: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 94: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 95: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 96: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 97: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 98: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 99: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 100: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 101: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 102: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 103: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 104: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 105: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 106: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 107: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 108: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 109: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 110: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 111: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 112: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 113: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 114: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 115: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 116: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 117: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 118: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 119: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 120: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 121: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 122: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 123: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 124: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 125: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 126: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 127: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 128: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 129: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 130: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 131: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 132: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 133: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 134: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 135: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 136: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 137: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 138: Conditionally Required Field Missing: tag=55
+20190529-00:56:29: Reject sent for Message 139: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 140: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 141: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 142: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 143: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 144: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 145: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 146: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 147: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 148: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 149: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 150: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 151: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 152: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 153: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 154: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 155: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 156: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 157: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 158: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 159: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 160: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 161: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 162: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 163: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 164: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 165: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 166: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 167: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 168: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 169: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 170: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 171: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 172: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 173: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 174: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 175: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 176: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 177: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 178: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 179: Conditionally Required Field Missing: tag=55
+20190529-00:56:30: Reject sent for Message 180: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 181: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 182: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 183: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 184: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 185: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 186: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 187: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 188: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 189: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 190: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 191: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 192: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 193: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 194: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 195: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 196: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 197: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 198: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 199: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 200: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 201: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 202: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 203: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 204: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 205: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 206: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 207: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 208: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 209: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 210: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 211: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 212: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 213: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 214: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 215: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 216: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 217: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 218: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 219: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 220: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 221: Conditionally Required Field Missing: tag=55
+20190529-00:56:31: Reject sent for Message 222: Conditionally Required Field Missing: tag=55
+20190529-01:03:30: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-01:03:30: Created session: FIX.4.4:002/002B35->EXC
+20190529-01:03:30: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-01:03:30: MINA session created: local=/172.16.1.1:51268, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-01:03:31: Initiated logon request
+20190529-01:03:31: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-01:03:31: Received logon
+20190529-01:03:37: Reject sent for Message 2: Conditionally Required Field Missing: tag=38
+20190529-01:11:48: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-01:11:48: Created session: FIX.4.4:002/002B35->EXC
+20190529-01:11:48: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-01:11:48: MINA session created: local=/172.16.1.1:51627, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-01:11:49: Initiated logon request
+20190529-01:11:49: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-01:11:49: Received logon
+20190529-01:11:54: Reject sent for Message 2: Conditionally Required Field Missing: tag=38
+20190529-01:25:39: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-01:25:39: Created session: FIX.4.4:002/002B35->EXC
+20190529-01:25:39: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-01:25:39: MINA session created: local=/172.16.1.1:52049, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-01:25:40: Initiated logon request
+20190529-01:25:40: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-01:25:40: Received logon
+20190529-01:30:08: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-01:30:08: Created session: FIX.4.4:002/002B35->EXC
+20190529-01:30:08: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-01:30:08: MINA session created: local=/172.16.1.1:52162, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-01:30:09: Initiated logon request
+20190529-01:30:09: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-01:30:09: Received logon
+20190529-12:21:48: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-12:21:48: Created session: FIX.4.4:002/002B35->EXC
+20190529-12:21:48: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-12:21:48: MINA session created: local=/172.16.1.1:52797, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-12:21:50: Initiated logon request
+20190529-12:21:50: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-12:21:50: Received logon
+20190529-12:27:21: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-12:27:21: Created session: FIX.4.4:002/002B35->EXC
+20190529-12:27:21: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-12:27:21: MINA session created: local=/172.16.1.1:53062, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-12:27:22: Initiated logon request
+20190529-12:27:22: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-12:27:22: Received logon
+20190529-12:31:23: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-12:31:23: Created session: FIX.4.4:002/002B35->EXC
+20190529-12:31:23: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-12:31:23: MINA session created: local=/172.16.1.1:53238, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-12:31:25: Initiated logon request
+20190529-12:31:25: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-12:31:25: Received logon
+20190529-12:48:23: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-12:48:23: Created session: FIX.4.4:002/002B35->EXC
+20190529-12:48:23: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-12:48:23: MINA session created: local=/172.16.1.1:53838, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-12:48:24: Initiated logon request
+20190529-12:48:24: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-12:48:24: Received logon
+20190529-12:50:52: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-12:50:52: Created session: FIX.4.4:002/002B35->EXC
+20190529-12:50:52: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-12:50:52: MINA session created: local=/172.16.1.1:53936, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-12:50:53: Initiated logon request
+20190529-12:50:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-12:50:53: Received logon
+20190529-12:55:49: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-12:55:49: Created session: FIX.4.4:002/002B35->EXC
+20190529-12:55:49: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-12:55:49: MINA session created: local=/172.16.1.1:54142, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-12:55:50: Initiated logon request
+20190529-12:55:50: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-12:55:50: Received logon
+20190529-12:57:07: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-12:57:07: Created session: FIX.4.4:002/002B35->EXC
+20190529-12:57:07: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-12:57:07: MINA session created: local=/172.16.1.1:54248, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-12:57:08: Initiated logon request
+20190529-12:57:08: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-12:57:08: Received logon
+20190529-13:10:54: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-13:10:54: Created session: FIX.4.4:002/002B35->EXC
+20190529-13:10:54: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-13:10:54: MINA session created: local=/172.16.1.1:54713, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-13:10:55: Initiated logon request
+20190529-13:10:55: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-13:10:55: Received logon
+20190529-13:47:12: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-13:47:12: Created session: FIX.4.4:002/002B35->EXC
+20190529-13:47:12: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-13:47:12: MINA session created: local=/172.16.1.1:55916, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-13:47:13: Initiated logon request
+20190529-13:47:13: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-13:47:13: Received logon
+20190529-13:51:02: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-13:51:02: Created session: FIX.4.4:002/002B35->EXC
+20190529-13:51:02: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-13:51:04: Pending connection not established after 2021 ms.
+20190529-13:51:05: MINA session created: local=/172.16.1.1:56053, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-13:51:06: Initiated logon request
+20190529-13:51:06: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-13:51:06: Received logon
+20190529-13:58:01: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-13:58:01: Created session: FIX.4.4:002/002B35->EXC
+20190529-13:58:01: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-13:58:01: MINA session created: local=/172.16.1.1:56331, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-13:58:02: Initiated logon request
+20190529-13:58:02: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-13:58:02: Received logon
+20190529-13:59:41: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-13:59:41: Created session: FIX.4.4:002/002B35->EXC
+20190529-13:59:41: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-13:59:41: MINA session created: local=/172.16.1.1:56453, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-13:59:42: Initiated logon request
+20190529-13:59:42: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-13:59:42: Received logon
+20190529-14:04:07: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-14:04:07: Created session: FIX.4.4:002/002B35->EXC
+20190529-14:04:07: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-14:04:07: MINA session created: local=/172.16.1.1:56665, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-14:04:08: Initiated logon request
+20190529-14:04:08: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-14:04:08: Received logon
+20190529-14:20:37: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-14:20:37: Created session: FIX.4.4:002/002B35->EXC
+20190529-14:20:37: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-14:20:37: MINA session created: local=/172.16.1.1:57290, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-14:20:38: Initiated logon request
+20190529-14:20:38: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-14:20:38: Received logon
+20190529-14:25:55: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-14:25:55: Created session: FIX.4.4:002/002B35->EXC
+20190529-14:25:55: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-14:25:55: MINA session created: local=/172.16.1.1:57426, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-14:25:56: Initiated logon request
+20190529-14:25:56: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-14:25:56: Received logon
+20190529-14:27:36: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-14:27:36: Created session: FIX.4.4:002/002B35->EXC
+20190529-14:27:36: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-14:27:36: MINA session created: local=/172.16.1.1:57519, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-14:27:38: Initiated logon request
+20190529-14:27:38: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-14:27:38: Received logon

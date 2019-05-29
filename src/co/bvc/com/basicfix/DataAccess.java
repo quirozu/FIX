@@ -6,9 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.LinkedList;
 
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
+import quickfix.Message;
 
 public class DataAccess {
 
@@ -98,6 +101,42 @@ public class DataAccess {
 
 		}
 		return datosCache;
+
+	}
+
+	public static void cargarLogsExitosos(Message message, String ID_EJECUCION, String clave, String valor,
+			String idEscenario, String idCase, int idSecuencia) throws SQLException {
+
+		PreparedStatement ps = conn.prepareStatement(
+				"INSERT INTO `bvc_automation_db`.`aut_log_ejecucion`(`ID_EJECUCION`, `ID_ESCENARIO`, `COD_CASO`, `ID_SECUENCIA`, `FECHA_EJECUCION`, `ESTADO_EJECUCION`, `DESCRIPCION_VALIDACION`, `MENSAJE`, `CODIGO_ERROR`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		ps.setInt(1, Integer.parseInt(ID_EJECUCION));
+		ps.setString(2, idEscenario);
+		ps.setString(3, idCase);
+		ps.setInt(4, idSecuencia);
+		ps.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
+		ps.setString(6, "EXITOSO");
+		ps.setString(7, clave = valor);
+		ps.setString(8, "");
+		ps.setNull(9, Types.INTEGER);
+		ps.executeUpdate();
+
+	}
+
+	public static void cargarLogsFallidos(Message message, String ID_EJECUCION, String clave, String valor,
+			String idEscenario, String idCase, int idSecuencia) throws SQLException {
+
+		PreparedStatement ps = conn.prepareStatement(
+				"INSERT INTO `bvc_automation_db`.`aut_log_ejecucion` VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		ps.setInt(1, Integer.parseInt(ID_EJECUCION));
+		ps.setString(2, idEscenario);
+		ps.setString(3, idCase);
+		ps.setInt(4, idSecuencia);
+		ps.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
+		ps.setString(6, "FALLIDO");
+		ps.setString(7, clave = valor);
+		ps.setString(8, "");
+		ps.setNull(9, Types.INTEGER);
+		ps.executeUpdate();
 
 	}
 
