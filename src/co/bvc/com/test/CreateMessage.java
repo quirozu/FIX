@@ -4,8 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
 import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
+import co.bvc.com.dao.domain.AutFixRfqDatosCache;
+import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
@@ -37,13 +42,14 @@ import quickfix.fix44.Message.Header;
 
 public class CreateMessage {
 	
-	
-	public Message createR(int i, ResultSet resultSet) throws SessionNotFound, SQLException {
+	public RespuestaConstrucccionMsgFIX createR(int i, ResultSet resultSet) throws SessionNotFound, SQLException {
 
+		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
+		
 //		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
 //				+ "WHERE ID_CASESEQ =" + i;
 
-		String queryParties = "SELECT linea.ID_ESCENARIO, partes.RQ_PARTYID, partes.RQ_PARTYIDSOURCE, partes.RQ_PARTYROLE\r\n"
+		String queryParties = "SELECT linea.ID_ESCENARIO, partes.RQ_PARTYID, partes.RQ_PARTYIDSOURCE, partes.RQ_PARTYROLE, partes.RECEIVER_SESSION\r\n"
 				+ "FROM aut_fix_rfq_datos linea INNER JOIN aut_fix_rfqparty_datos partes\r\n"
 				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ =" + i;
 
@@ -71,21 +77,39 @@ public class CreateMessage {
 //			}
 
 			QuoteRequest.NoRelatedSym.NoPartyIDs parte = new QuoteRequest.NoRelatedSym.NoPartyIDs();
+			List<String> list = new ArrayList<String>();
 
 //			 Parties
 			while (resultSetParties.next()) {
+				
+				
+				String rSession = resultSetParties.getString("RECEIVER_SESSION");
+				
+				if (rSession != null) {
+
+					list.add(rSession);					
+				}
+
+               
+				
 				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
 				parte.set(new PartyIDSource('C'));
 				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
 
 				noRelatedSym.addGroup(parte);
 			}
+			
+			// datosCache.setListSession(list);
 
+			
+			
 			quoteRequest.addGroup(noRelatedSym);
+			respuestaMessage.setMessage(quoteRequest);
+			respuestaMessage.setListSessiones(list);
 
-			System.out.println("******************************\n" + quoteRequest + "**********************************\n");
+			System.out.println("******************************\n" + quoteRequest + "****************\n");
 
-			return quoteRequest;
+			return respuestaMessage;
 
 		} catch (SQLException e) {
 			e.printStackTrace();

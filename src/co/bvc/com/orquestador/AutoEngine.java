@@ -2,9 +2,12 @@ package co.bvc.com.orquestador;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
 
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
+import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import co.bvc.com.test.Adapters;
 import co.bvc.com.test.CreateMessage;
 import co.bvc.com.test.Login;
@@ -90,26 +93,48 @@ public class AutoEngine {
 	   public void enviarMensaje(String msgType, ResultSet resultSet, int escenario) throws SessionNotFound, SQLException, InterruptedException {
 		   
 		  String idQuoteReqFound;
-		   
+		  
+		  RespuestaConstrucccionMsgFIX respConstruccion = new RespuestaConstrucccionMsgFIX();
+		  
+		  
 		  switch (msgType) {
 		  
 		  case "FIX_R":
 			
 			   System.out.println(resultSet);
-			   message = createMesage.createR(escenario, resultSet);
+			   respConstruccion = createMesage.createR(escenario, resultSet);
 			   
-			   // Construir mensaje a cache.
-			   AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
-			   datosCache.setReceiverSession("002");
+			   for (String session: respConstruccion.getListSessiones()) {
+				   
+				
+				   // Construir mensaje a cache.
+				   AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
+				   
+				   datosCache.setReceiverSession(session);
+				   datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
+				   datosCache.setIdCase(resultSet.getInt("ID_CASE"));
+				   datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
+				   datosCache.setEstado(resultSet.getString("ESTADO"));
+				   //datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
+				   datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
+				   		   
+				   cargarCache(datosCache);
+			   }
+			   
+			   String idIAfiliado = resultSet.getString("ID_AFILIADO");
+			   
+			// Construir mensaje a cache de la propia session.
+			   AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();			   
+			   datosCache.setReceiverSession(idIAfiliado);
 			   datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
 			   datosCache.setIdCase(resultSet.getInt("ID_CASE"));
 			   datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
 			   datosCache.setEstado(resultSet.getString("ESTADO"));
 			   //datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
-			   datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
-			   
+			   datosCache.setIdAfiliado(idIAfiliado);
 			   
 			   cargarCache(datosCache);
+			   
 			   Session.sendToTarget(message, login.getSessionID1());
 			   
 			   //idQuoteReqFound = Adapters.getIDQuoteFound();

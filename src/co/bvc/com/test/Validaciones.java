@@ -110,6 +110,7 @@ public class Validaciones {
 			}
 			
 			
+			
 			Rq_Symbol = resultSet.getString("RQ_SYMBOL");
 			Rq_MsgType = resultSet.getString("RQ_MSGTYPE");
 			Rq_SecSubType = resultSet.getString("RQ_SECSUBTYPE");
