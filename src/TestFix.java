@@ -1,6 +1,9 @@
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.orquestador.AutoEngine;
 import co.bvc.com.test.Login;
@@ -15,6 +18,7 @@ public class TestFix {
 	static Adapters testAplication = new Adapters();
 	static ResultSet resultSet1;
 	private static String idFound;
+	static String ID_EJECUCION;
 	
 	public static String getIdFound() {
 		return idFound;
@@ -27,11 +31,13 @@ public class TestFix {
 	public static void main(String[] args) throws SQLException, SessionNotFound, InterruptedException {
 		bd.Conexion();
 		Login login = new Login();
-
+		SimpleDateFormat SDF = new SimpleDateFormat("yyyMMddHmmss");
+		Date dt_1 = new Date();
+		ID_EJECUCION = " "+ SDF.format(dt_1);
+		System.out.println("La fecha actual es : "+ ID_EJECUCION);
 		login.initiation();
-		
 		Adapters adapters = new Adapters();
-		AutoEngine autoEngine = new AutoEngine(bd, login);
+		AutoEngine autoEngine = new AutoEngine(bd, login, ID_EJECUCION);
 		
 //		autoEngine.iniciarEjecucion();
 		autoEngine.iniciarEjecucion();	

@@ -13,31 +13,33 @@ import co.bvc.com.test.CreateMessage;
 import co.bvc.com.test.Login;
 import co.bvc.com.test.Validaciones;
 import quickfix.FieldNotFound;
+import quickfix.Message;
 import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
-import quickfix.fix44.Message;
 import quickfix.fix44.QuoteRequest;
 
 public class AutoEngine {
 
 	   private DataAccess connectionBD = null;
 	   private int nextId;
+	   private String Id_Ejecucion;
 	   public Login login= null;
 	   Message message = new Message();
 	   CreateMessage createMesage = new CreateMessage();
 	   Validaciones validaciones = new Validaciones();
+	   
 	  
 	   
 	   //connectionBD = new DataAccess();
 
-	   public AutoEngine(DataAccess connectionBD, Login login) throws SQLException {
+	   public AutoEngine(DataAccess connectionBD, Login login, String ID_Ejecucion) throws SQLException {
 		   if (connectionBD == null) {
 			   this.connectionBD.Conexion();
 		   }
 		   
 		   this.login = login; 
-		   
+		   this.Id_Ejecucion = ID_Ejecucion;
 	   }
 	   
 	   public AutoEngine() {
@@ -204,7 +206,7 @@ public class AutoEngine {
 	   }
 	   
 	   
-	   //Metodos get y set del Conexión base de datos
+	   //Metodos get y set del Conexiï¿½n base de datos
 	   public DataAccess getConnectionBD() {
 		   
 		   return connectionBD;

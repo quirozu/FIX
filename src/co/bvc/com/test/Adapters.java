@@ -36,7 +36,7 @@ import quickfix.fix44.QuoteStatusReport;
 
 public class Adapters extends MessageCracker implements Application {
 	Login inicio = new Login();
-	Translate translate = new Translate();
+//	Translate translate = new Translate();
 	Validaciones validar = new Validaciones();
 	AutoEngine autoEngine = new AutoEngine();
 
@@ -114,12 +114,22 @@ public class Adapters extends MessageCracker implements Application {
 					message.setField(new Username(listUsers.get(1)));
 					message.setField(new Password(listPass.get(1)));
 					break;
-				case "002B37":
+				case "007B26":
+					System.out.println("User: " + listUsers.get(5));
+					message.setField(new Username(listUsers.get(5)));
+					message.setField(new Password(listPass.get(5)));
+					break;
+					
+				case "010BWN":
 					System.out.println("User: " + listUsers.get(2));
 					message.setField(new Username(listUsers.get(2)));
 					message.setField(new Password(listPass.get(2)));
 					break;
-
+				case "013B17":
+					System.out.println("User: " + listUsers.get(3));
+					message.setField(new Username(listUsers.get(3)));
+					message.setField(new Password(listPass.get(3)));
+					break;
 				default:
 					break;
 				}
@@ -207,6 +217,8 @@ public class Adapters extends MessageCracker implements Application {
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
 		
 		printMessage("fromApp-Input", sessionId, message);
+		
+		
 
 		if (message instanceof QuoteRequest && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
 
@@ -309,7 +321,7 @@ public class Adapters extends MessageCracker implements Application {
 
 			validar.setCadenaOcho(mess);
 			try {
-				validar.validarOcho("002");
+				validar.validarOcho();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -321,7 +333,7 @@ public class Adapters extends MessageCracker implements Application {
 
 			validar.setCadenaOcho(mess);
 			try {
-				validar.validarOcho("001");
+				validar.validarOcho();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -353,7 +365,7 @@ public class Adapters extends MessageCracker implements Application {
 		// AE.validarR(msg, sId)
 		
 		
-		validar.setCadenaRPrima(mess);
+//		validar.setCadenaRPrima(mess);
 
 //			try {
 //				validar.ValidarRPrima();

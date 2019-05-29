@@ -36,7 +36,7 @@ public class BasicFunctions {
 			//System.out.println("ANTES DE LOGON \n"+socketInitiator.getSettings());
 			return sessionID;
 		} catch (Exception e) {
-			System.out.println("Error de conexión."+e.getMessage());
+			System.out.println("Error de conexiï¿½n."+e.getMessage());
 			return null;
 		} 	
 	}

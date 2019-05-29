@@ -12,20 +12,14 @@ import quickfix.SocketInitiator;
 
 public class Login {
 
-	private String cIdRandom;
 	private SessionID sessionID1;
 	private SessionID sessionID2;
 	private SessionID sessionID3;
+	private SessionID sessionID4;
+	private SessionID sessionID5;
 	private double cantidad = 500000000d;
-	
-
-
 
 	public void initiation() {
-
-		cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
-
-		
 
 		try {
 			sessionID1 = BasicFunctions.connecto("sessionSettings1_27.cfg");
@@ -44,20 +38,35 @@ public class Login {
 				System.out.println("Session ID: " + sessionID2);
 			}
 
-//			sessionID3 = BasicFunctions.connecto("sessionSettings2_37.cfg");
-//			if (sessionID3 == null) {
-//				System.out.println("Conexión 3 errada");
-//			} else {
-//				BasicFunctions.logon(sessionID3);
-//				System.out.println("Session ID: " + sessionID3);
-//			}
+			sessionID3 = BasicFunctions.connecto("sessionSettings2_37.cfg");
+			if (sessionID3 == null) {
+				System.out.println("Conexión 3 errada");
+			} else {
+				BasicFunctions.logon(sessionID3);
+				System.out.println("Session ID: " + sessionID3);
+			}
+
+			sessionID4 = BasicFunctions.connecto("sessionSettings1_19.cfg");
+			if (sessionID4 == null) {
+				System.out.println("Conexión 4 errada");
+			} else {
+				BasicFunctions.logon(sessionID4);
+				System.out.println("Session ID: " + sessionID4);
+			}
+			
+			sessionID5 = BasicFunctions.connecto("sessionSettings1_20.cfg");
+			if (sessionID5 == null) {
+				System.out.println("Conexión 4 errada");
+			} else {
+				BasicFunctions.logon(sessionID4);
+				System.out.println("Session ID: " + sessionID5);
+			}
 
 			System.out.println("************************************");
 
 			Thread.sleep(3000);
 
 			// Ejecución
-			System.out.println("INICIO DE FUNCIONES. IdGenered: " + cIdRandom);
 
 			System.out.println("***********************************");
 			System.out.println("Procesando....");
@@ -73,10 +82,6 @@ public class Login {
 
 	}
 
-	public String getcIdRandom() {
-		return cIdRandom;
-	}
-
 	public SessionID getSessionID1() {
 		return sessionID1;
 	}
@@ -88,6 +93,7 @@ public class Login {
 	public SessionID getSessionID3() {
 		return sessionID3;
 	}
+
 	public double getCantidad() {
 		return cantidad;
 	}
