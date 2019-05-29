@@ -18,7 +18,8 @@ public class AutFixRfqDatosCache {
 
 	private String idAfiliado;
 	
-
+	private long idEjecucion;
+	
 	public AutFixRfqDatosCache() {
 	}
 
@@ -76,6 +77,14 @@ public class AutFixRfqDatosCache {
 
 	public void setFixQuoteReqId(String fixQuoteReqId) {
 		this.fixQuoteReqId = fixQuoteReqId;
+	}
+
+	public long getIdEjecucion() {
+		return idEjecucion;
+	}
+
+	public void setIdEjecucion(long idEjecucion) {
+		this.idEjecucion = idEjecucion;
 	}
 	
 	

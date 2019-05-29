@@ -9,7 +9,6 @@ import java.util.List;
 
 import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
-import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import quickfix.Session;
 import quickfix.SessionID;
