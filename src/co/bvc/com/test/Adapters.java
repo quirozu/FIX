@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.xml.bind.SchemaOutputResolver;
 
 import co.bvc.com.basicfix.DataAccess;
+import co.bvc.com.orquestador.AutoEngine;
 import quickfix.Application;
 import quickfix.ConfigError;
 import quickfix.DataDictionary;
@@ -37,6 +38,7 @@ public class Adapters extends MessageCracker implements Application {
 	Login inicio = new Login();
 //	Translate translate = new Translate();
 	Validaciones validar = new Validaciones();
+	AutoEngine autoEngine = new AutoEngine();
 
 	private static String IDQuoteFound;
 	private static String IDQuoteFound1;
@@ -143,8 +145,23 @@ public class Adapters extends MessageCracker implements Application {
 			message.setField(new PossDupFlag(true));
 
 		}
+		
+		try {
+			crack(message, sessionId);
+		} catch (UnsupportedMessageType e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FieldNotFound e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IncorrectTagValue e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		System.out.println("*****************\n toAdmin - SALIDA : \n" + message + "\nPara la sessionId: " + sessionId);
+		
+		
 
 	}
 
@@ -163,11 +180,14 @@ public class Adapters extends MessageCracker implements Application {
 
 		try {
 			printMessage("toApp", sessionId, message);
-			// crack(message, sessionId);
+			 crack(message, sessionId);
 			// printMessage("toApp-Output", sessionId, message);
 		} catch (FieldNotFound e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}
@@ -177,7 +197,7 @@ public class Adapters extends MessageCracker implements Application {
 	@Override
 	public void fromAdmin(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {
-//		printMessage("fromAdmin-Input", sessionId, message);
+		printMessage("fromAdmin-Input", sessionId, message);
 		// System.out.println("*****************\n fromAdmin - Message : \n" + message +		// "\nPara la sessionId: "+ sessionId);
 
 		try {
@@ -196,55 +216,20 @@ public class Adapters extends MessageCracker implements Application {
 	public void fromApp(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
 		
-	 String typeMessage = message.getHeader().getString(35);
-		
-	 switch (typeMessage) {
-	
-	 case "R":
-		
-		break;
-		
-	 case "S":
-			
-			break;
-			
-	 case "AI":
-			
-			break;
-			
-	 case "AJ":
-			
-			break;
-
-	 case "8":
-			
-			break;
-		
-	 case "Z":
-			
-			break;
-			
-	 case "0":
-			
-			break;
-			
-	 case "3":
-			
-			break;
-			
-	 case "AG":
-			
-			break;
-
-	default:
-		break;
-	}
-		
 		printMessage("fromApp-Input", sessionId, message);
 
 		if (message instanceof QuoteRequest && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
 
 			printMessage("MENSAJE R_PRIMA ", sessionId, message);
+			
+			try {
+				autoEngine.validarR(sessionId, message);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 			
 			setIDQuoteFound(message.getString(131));
 			System.out.println("ID ESTABLECIDO EN " + getIDQuoteFound());

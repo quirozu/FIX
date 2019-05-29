@@ -4,34 +4,43 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import co.bvc.com.basicfix.DataAccess;
+import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import co.bvc.com.test.Adapters;
 import co.bvc.com.test.CreateMessage;
 import co.bvc.com.test.Login;
 import co.bvc.com.test.Validaciones;
+import quickfix.FieldNotFound;
+import quickfix.Message;
 import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
-import quickfix.fix44.Message;
+import quickfix.fix44.QuoteRequest;
 
 public class AutoEngine {
 
 	   private DataAccess connectionBD = null;
 	   private int nextId;
-	   private String Date;
+	   private String Id_Ejecucion;
 	   public Login login= null;
 	   Message message = new Message();
 	   CreateMessage createMesage = new CreateMessage();
 	   Validaciones validaciones = new Validaciones();
 	   
+	  
+	   
 	   //connectionBD = new DataAccess();
 
-	   public AutoEngine(DataAccess connectionBD, Login login, String date) throws SQLException {
+	   public AutoEngine(DataAccess connectionBD, Login login, String ID_Ejecucion) throws SQLException {
 		   if (connectionBD == null) {
 			   this.connectionBD.Conexion();
 		   }
 		   
 		   this.login = login; 
-		   this.Date = date;
+		   this.Id_Ejecucion = ID_Ejecucion;
+	   }
+	   
+	   public AutoEngine() {
+		   
 	   }
 	   
 	   // metodo que inicia la ejecucion
@@ -41,11 +50,10 @@ public class AutoEngine {
 			String queryInicio = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos ORDER BY ID_CASESEQ ASC LIMIT 1";
 					
 			ResultSet rs = DataAccess.getQuery(queryInicio);
-			System.out.println("RS "+ rs);
+//			System.out.println("RS "+ rs);
 			
 			while(rs.next()) {
 				primerId = rs.getInt("ID_CASESEQ");
-				System.out.println("*********SALIDA*********"+primerId);
 				
 			}
 			
@@ -91,21 +99,40 @@ public class AutoEngine {
 			
 			   System.out.println(resultSet);
 			   message = createMesage.createR(escenario, resultSet);
+			   
+			   // Construir mensaje a cache.
+			   AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
+			   datosCache.setReceiverSession("002");
+			   datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
+			   datosCache.setIdCase(resultSet.getInt("ID_CASE"));
+			   datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
+			   datosCache.setEstado(resultSet.getString("ESTADO"));
+			   //datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
+			   datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
+			   
+			   
+			   cargarCache(datosCache);
 			   Session.sendToTarget(message, login.getSessionID1());
+			   
+			   //idQuoteReqFound = Adapters.getIDQuoteFound();
+			   //Thread.sleep(5000);
+			   //System.out.println("*********************EL VALOR DEL NUEVO ID ES: "+ idQuoteReqFound + "\n"  + "*********************" );
 			   
 //			   String queryPersistencia = "INSERT INTO aut_fix_rfq_cache values (" + login.getSessionID1() +", "
 //			   		+ "SELECT * FROM aut_fix_rfq_datos WHERE ID_CASESEQ = "+ escenario;
 			   
 //			   DataAccess.getQuery(queryPersistencia);
 			   
+			   
+			   
 			 
 			break;
 			
         case "FIX_S":
         	
-        	
-        	
-			
+//        	 message = createMesage.createS(escenario, resultSet, idQuote);
+//			 cargarCache(resultSet, "002");
+//			 Session.sendToTarget(message, login.getSessionID1());
 			break;
 			
         case "FIX_AJ":
@@ -130,14 +157,18 @@ public class AutoEngine {
 	   }
 	   
 	   //Metodo que guarda el registro en base de datos  
-	   public String cargarCache() {
-		return null;
+	   public void cargarCache(AutFixRfqDatosCache datosCache) throws SQLException {
+		
+		   DataAccess.cargarCache(datosCache);
 		 
 	   }
 	   
 	   //Metodo que extraer el registro en base de datos  
-	   public ResultSet obtenerCache(Session session) {
-		return null;
+	   public AutFixRfqDatosCache obtenerCache(SessionID session) throws SQLException {
+		
+		String sIdAfiliado = session.toString().substring(8,11);
+		System.out.println("SESS: " + sIdAfiliado);
+		return DataAccess.obtenerCache(sIdAfiliado);
 		 
 	   }
 	   
@@ -152,12 +183,11 @@ public class AutoEngine {
 	     	this.connectionBD = connectionBD;
 	  }
 
-	   public void validarR(Session session, Message message) throws SQLException, InterruptedException {
+	   public void validarR(SessionID sessionId, Message message2) throws SQLException, InterruptedException, FieldNotFound {
 		   
 		   //getcache
-		   
-//		   obtenerCache(session);
-//		   validaciones.ValidarRPrima(resultSetCache, message);
+		   AutFixRfqDatosCache datosCache = obtenerCache(sessionId);
+		   validaciones.ValidarRPrima(datosCache, message2, Id_Ejecucion);
 		   
 		   //obtenerSiguienteRegistro()
 		   
@@ -170,5 +200,11 @@ public class AutoEngine {
 	   public void validarAI() {
 		   
 	   }
+	   
+		public static void printMessage(String typeMsg, SessionID sessionId, quickfix.Message message2) throws FieldNotFound {
+			System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sessionId + "\nMENSAJE :"
+					+ message2 + "\n----------------------------");
+
+		}
 	   
 }

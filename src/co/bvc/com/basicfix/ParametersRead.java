@@ -17,7 +17,6 @@ public class ParametersRead {
     		 
    public String[] leerConexion() {
 	   try {
-
         archivo = new File ("resources\\conexion.info");
         fr = new FileReader (archivo);
         br = new BufferedReader(fr);

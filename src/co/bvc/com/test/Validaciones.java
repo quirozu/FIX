@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
+import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import quickfix.FieldNotFound;
+import quickfix.Message;
 import quickfix.Session;
 import quickfix.field.MsgType;
 import quickfix.field.NoPartyIDs;
@@ -17,7 +19,7 @@ import quickfix.field.SecuritySubType;
 import quickfix.field.Side;
 import quickfix.field.Symbol;
 import quickfix.field.ValidUntilTime;
-import quickfix.fix44.Message;
+
 import quickfix.fix44.QuoteRequest;
 
 public class Validaciones {
@@ -26,7 +28,7 @@ public class Validaciones {
 	private String CadenaSPrima;
 	private String cadenaOcho;
 
-	public String QueryExitoso(ResultSet resultSet, QuoteRequest message, String ID_EJECUCION, String clave,
+	public String QueryExitoso(ResultSet resultSet, Message message, String ID_EJECUCION, String clave,
 			String valor) throws SQLException, FieldNotFound {
 		String cadena = "INSERT INTO aut_log_ejecucion VALUES(" + ID_EJECUCION + ","
 				+ resultSet.getString("ID_ESCENARIO") + "," + resultSet.getString("ID_CASE") + ","
@@ -35,7 +37,7 @@ public class Validaciones {
 		return cadena;
 	}
 
-	public String QueryFallido(ResultSet resultSet, QuoteRequest message, String ID_EJECUCION, String clave,
+	public String QueryFallido(ResultSet resultSet, Message message, String ID_EJECUCION, String clave,
 			String valor) throws SQLException, FieldNotFound {
 		String cadena = "INSERT INTO aut_log_ejecucion VALUES(" + ID_EJECUCION + ","
 				+ resultSet.getString("ID_ESCENARIO") + "," + resultSet.getString("ID_CASE") + ","
@@ -87,9 +89,16 @@ public class Validaciones {
 		return claveValor1;
 	}
 
-	public void ValidaR(ResultSet resultSet, QuoteRequest qr, String ID_EJECUCION) throws SQLException, FieldNotFound {
+	public void ValidaAI(AutFixRfqDatosCache datosCache, QuoteRequest qr, String ID_EJECUCION) throws SQLException, FieldNotFound {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
+		
+		ResultSet resultSet;
+
+		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
+				+ datosCache.getIdCaseseq();
+
+		resultSet = DataAccess.getQuery(queryMessageR);
 
 		System.out.println("----------------------------------------");
 		System.out.println("VALIDACION DEL AI CORRESPONDIENTE AL R INICIAL");
@@ -183,10 +192,19 @@ public class Validaciones {
 
 	}
 
-	public void ValidarRPrima(ResultSet resultSet, QuoteRequest qr, String ID_EJECUCION)
+	public void ValidarRPrima(AutFixRfqDatosCache datosCache, Message qr, String ID_EJECUCION)
 			throws InterruptedException, SQLException, FieldNotFound {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
+
+		ResultSet resultSet;
+
+		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
+				+ datosCache.getIdCaseseq();
+		
+		System.out.println("CONSULTA NUEVA " + queryMessageR);
+
+		resultSet = DataAccess.getQuery(queryMessageR);
 
 		String BeginString = Constantes.PROTOCOL_FIX_VERSION, SenderCompID = "EXC";
 
@@ -194,8 +212,10 @@ public class Validaciones {
 		System.out.println("VALIDACION DE R CON R PRIMA");
 		System.out.println("  \n");
 		while (resultSet.next()) {
-
-			if (resultSet.getString("RQ_SYMBOL") == qr.getString(Symbol.FIELD)) {
+			String rt = resultSet.getString("RQ_SYMBOL");
+			System.out.println(rt);
+			System.out.println("Mensaje de Entrada=== "+qr.getString(55));
+			if (resultSet.getString("RQ_SYMBOL").equals(qr.getString(Symbol.FIELD))) {
 				contadorBuenos++;
 				DataAccess.setQuery(QueryExitoso(resultSet, qr, ID_EJECUCION, resultSet.getString("RQ_SYMBOL"),
 						qr.getString(Symbol.FIELD)));
@@ -441,7 +461,7 @@ public class Validaciones {
 		System.out.println("TOTAL VALIDACIONES REALIZADAS : " + (contadorBuenos + contadorMalos));
 
 	}
-	
+
 	public void ValidaS(ResultSet resultSet, QuoteRequest qr, String ID_EJECUCION) throws SQLException, FieldNotFound {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
@@ -537,8 +557,6 @@ public class Validaciones {
 		System.out.println("TOTAL VALIDACIONES REALIZADAS : " + (contadorBuenos + contadorMalos));
 
 	}
-
-	
 
 	public void validarOcho() throws SQLException {
 		int contadorBuenos = 0;

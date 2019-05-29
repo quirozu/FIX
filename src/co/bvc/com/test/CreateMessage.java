@@ -49,24 +49,26 @@ public class CreateMessage {
 
 //		ResultSet resultset;
 		ResultSet resultSetParties;
+		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000)); 
 		try {
 //			resultset = DataAccess.getQuery(queryMessageR);
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteReqID quoteReqID = new QuoteReqID(""+i); // 131
+			QuoteReqID quoteReqID = new QuoteReqID(""+cIdRandom); // 131
 			QuoteRequest quoteRequest = new QuoteRequest(quoteReqID); // 35 --> R
 			Header header = (Header) quoteRequest.getHeader();
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 			QuoteRequest.NoRelatedSym noRelatedSym = new QuoteRequest.NoRelatedSym();
 
-			while (resultSet.next()) {
+//			while (resultSet.next()) {
 				noRelatedSym.set(new Symbol(resultSet.getString("RQ_SYMBOL")));
 				noRelatedSym.setField(new SecurityIDSource("M"));
 				noRelatedSym.setField(new OrderQty(resultSet.getDouble("RQ_ORDERQTY")));
+				//noRelatedSym.setField(new StringField(38, resultSet.getString("RQ_ORDERQTY")));
 				noRelatedSym.setField(new StringField(54, resultSet.getString("RQ_SIDE")));
 				noRelatedSym.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
 				noRelatedSym.setField(new NoPartyIDs());
-			}
+//			}
 
 			QuoteRequest.NoRelatedSym.NoPartyIDs parte = new QuoteRequest.NoRelatedSym.NoPartyIDs();
 
@@ -81,7 +83,7 @@ public class CreateMessage {
 
 			quoteRequest.addGroup(noRelatedSym);
 
-			System.out.println("******************************\n" + quoteRequest);
+			System.out.println("******************************\n" + quoteRequest + "**********************************\n");
 
 			return quoteRequest;
 
