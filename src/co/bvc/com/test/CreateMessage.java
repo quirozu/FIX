@@ -76,11 +76,11 @@ public class CreateMessage {
 //			}
 
 			QuoteRequest.NoRelatedSym.NoPartyIDs parte = new QuoteRequest.NoRelatedSym.NoPartyIDs();
+			
 			List<String> list = new ArrayList<String>();
 
 //			 Parties
 			while (resultSetParties.next()) {
-				
 				
 				String rSession = resultSetParties.getString("RECEIVER_SESSION");
 				
@@ -89,8 +89,6 @@ public class CreateMessage {
 					list.add(rSession);					
 				}
 
-               
-				
 				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
 				parte.set(new PartyIDSource('C'));
 				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
@@ -103,6 +101,7 @@ public class CreateMessage {
 			
 			
 			quoteRequest.addGroup(noRelatedSym);
+			
 			respuestaMessage.setMessage(quoteRequest);
 			respuestaMessage.setListSessiones(list);
 
@@ -184,36 +183,33 @@ public class CreateMessage {
 	 * @throws SessionNotFound
 	 */
 
-	public Message createS(final SessionID sessionId, final String strQReqId)
+	public RespuestaConstrucccionMsgFIX createS(int idCaseseq, ResultSet resultset, String idQuoteRedId)
 			throws SessionNotFound, SQLException {
 
-		System.out.println("******************DATOS RECIBIDOS PARA S....\nSession: \t:" + sessionId
-				 + " - strReqId: " + strQReqId);
+		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
 
-		String queryMessageS = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-				+ "WHERE ID_ESCENARIO = 'FIX_S' and ID_CASE = 1";
-
-		String queryParties = "SELECT linea.ID_ESCENARIO, partes.RQ_PARTYID, partes.RQ_PARTYIDSOURCE, partes.RQ_PARTYROLE\r\n"
+		String queryParties = "SELECT linea.ID_ESCENARIO, partes.RQ_PARTYID, partes.RQ_PARTYIDSOURCE, partes.RQ_PARTYROLE, partes.RECEIVER_SESSION\r\n"
 				+ "FROM aut_fix_rfq_datos linea INNER JOIN aut_fix_rfqparty_datos partes\r\n"
-				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ = 2";
+				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ =" + idCaseseq;
 		// -------------------
 
-		ResultSet resultset;
+//		ResultSet resultset;
 		ResultSet resultSetParties;
+		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000)); 
 
 		try {
-			resultset = DataAccess.getQuery(queryMessageS);
+//			resultset = DataAccess.getQuery(queryMessageS);
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteID quoteID = new QuoteID(resultset.getString("ID_CASESEQ"));
+			QuoteID quoteID = new QuoteID(cIdRandom);
 			Quote quote = new Quote(quoteID); // 35 --> S
 
 			Header header = (Header) quote.getHeader();
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
-			quote.setField(new QuoteReqID(strQReqId)); // 131
+			quote.setField(new QuoteReqID(idQuoteRedId)); // 131
 
-			while (resultset.next()) {
+//			while (resultset.next()) {
 				quote.set(new Symbol(resultset.getString("RQ_SYMBOL")));
 				quote.setField(new SecuritySubType(resultset.getString("RQ_SECSUBTYPE")));
 				quote.setField(new OfferSize(resultset.getDouble("RQ_OFFERSIZE")));
@@ -222,12 +218,20 @@ public class CreateMessage {
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0");
 				LocalDateTime dateTime = LocalDateTime.parse(resultset.getString("RQ_VALIDUNTILTIME"), formatter);
 				quote.setField(new ValidUntilTime(dateTime)); // "20190404-23:00:00";
-			}
+//			}
 
 			// Parties
 			Quote.NoPartyIDs parte = new Quote.NoPartyIDs();
 
+			List<String> list = new ArrayList<String>();
+					
 			while (resultSetParties.next()) {
+				
+				String rSession = resultSetParties.getString("RECEIVER_SESSION");
+				
+				if(rSession != null) {
+					list.add(rSession);
+				}
 				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
 				parte.set(new PartyIDSource('C'));
 				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
@@ -244,7 +248,11 @@ public class CreateMessage {
 			// System.out.println("*********************\n S FORMADO....\n" + quote +
 			// "\n--------------------");
 
-			return quote;
+			respuestaMessage.setListSessiones(list);
+			respuestaMessage.setMessage(quote);
+			
+			
+			return respuestaMessage;
 
 		} catch (SQLException e) {
 			e.printStackTrace();

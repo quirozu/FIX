@@ -15,7 +15,6 @@ public class TestFix {
 
 	public static DataAccess bd = new DataAccess();
 	static Validaciones validar = new Validaciones();
-	static Adapters testAplication = new Adapters();
 	static ResultSet resultSet1;
 	private static String idFound;
 	static String ID_EJECUCION;
@@ -35,8 +34,8 @@ public class TestFix {
 		
 		
 		login.initiation();
-		Adapters adapters = new Adapters();
-		AutoEngine autoEngine = new AutoEngine(bd, login, ID_EJECUCION);
+		Adapters adapters = new Adapters(login);
+		AutoEngine autoEngine = new AutoEngine(bd, login);
 		
 //		autoEngine.iniciarEjecucion();
 		autoEngine.iniciarEjecucion();	
