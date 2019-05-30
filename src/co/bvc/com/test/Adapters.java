@@ -342,8 +342,16 @@ public class Adapters extends MessageCracker implements Application {
 
 			validar.setCadenaOcho(mess);
 			try {
-				validar.validarOcho();
+//				this.inicio.initiation();
+//				autoEngine.setLogin(this.inicio);
+				autoEngine.validarAJ(sessionID, message);
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -354,8 +362,16 @@ public class Adapters extends MessageCracker implements Application {
 
 			validar.setCadenaOcho(mess);
 			try {
-				validar.validarOcho();
+//				this.inicio.initiation();
+//				autoEngine.setLogin(this.inicio);
+				autoEngine.validarAJ(sessionID, message);
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

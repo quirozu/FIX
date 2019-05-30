@@ -4,13 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
-import co.bvc.com.test.Adapters;
 import co.bvc.com.test.CreateMessage;
 import co.bvc.com.test.Login;
 import co.bvc.com.test.Validaciones;
@@ -19,7 +15,6 @@ import quickfix.Message;
 import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
-import quickfix.fix44.QuoteRequest;
 
 public class AutoEngine {
 
@@ -28,9 +23,9 @@ public class AutoEngine {
 	   Message message = new Message();
 
 
-	CreateMessage createMesage = new CreateMessage();
+	   CreateMessage createMesage = new CreateMessage();
 	   Validaciones validaciones = new Validaciones();
-	   
+	   int c=0;
 	  
 	   
 	   //connectionBD = new DataAccess();
@@ -71,7 +66,7 @@ public class AutoEngine {
 			
 			rs.first();
 			
-			enviarMensaje(rs, ID_EJECUCION, null);
+			enviarMensaje(rs, ID_EJECUCION, null, null);
 		}
 	   
 //	   public void continuarEjecucion(Int idCaseSeq) {
@@ -93,7 +88,7 @@ public class AutoEngine {
 //
 //	   }
 	   
-	   public void enviarMensaje( ResultSet resultSet, long Idejecucion, String quoteReqId) throws SessionNotFound, SQLException, InterruptedException {
+	   public void enviarMensaje( ResultSet resultSet, long Idejecucion, String quoteReqId, String quoteId) throws SessionNotFound, SQLException, InterruptedException {
 		   
 		  String msgType;
 		  AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
@@ -113,10 +108,8 @@ public class AutoEngine {
 			   respConstruccion = createMesage.createR(idCaseseq, resultSet);
 			   
 			   for (String session: respConstruccion.getListSessiones()) {
-				   
-				
+		
 				   // Construir mensaje a cache.
-				   
 				   
 				   datosCache.setReceiverSession(session);
 				   datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
@@ -201,6 +194,44 @@ public class AutoEngine {
 			break;
 			
         case "FIX_AJ":
+        	
+        	 System.out.println("************* INGRESA A FIX_AJ ****************");
+        	
+        	respConstruccion = createMesage.createAJ(resultSet, quoteId);
+        	
+//        	 System.out.println("************* INGRESA A FIX_AJ ****************");
+			   for (String session: respConstruccion.getListSessiones()) {
+				   
+				   // Construir mensaje a cache.
+
+				   datosCache.setReceiverSession(session);
+				   datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
+				   datosCache.setIdCase(resultSet.getInt("ID_CASE"));
+				   datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
+				   datosCache.setEstado(resultSet.getString("ESTADO"));
+				   //datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
+				   datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
+				   datosCache.setIdEjecucion(Idejecucion);
+				   		   
+				   cargarCache(datosCache);
+			   }
+			   
+			   idIAfiliado = resultSet.getString("ID_AFILIADO");
+			   
+			// Construir mensaje a cache de la propia session.
+			   		   
+			   datosCache.setReceiverSession(idIAfiliado);
+			   datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
+			   datosCache.setIdCase(resultSet.getInt("ID_CASE"));
+			   datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
+			   datosCache.setEstado(resultSet.getString("ESTADO"));
+			   //datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
+			   datosCache.setIdAfiliado(idIAfiliado);
+			   datosCache.setIdEjecucion(Idejecucion);
+			   
+//			   Session.sendToTarget(respConstruccion.getMessage(), login.getSessionID1());
+			   
+			   cargarCache(datosCache);
 	
 	        break;
          case "FIX_Z":
@@ -224,10 +255,9 @@ public class AutoEngine {
 	   
 	   //Metodo que elimina el registro en cache (base de datos)  
 	   public void eliminarDatoCache(String session) throws SQLException, InterruptedException {
-		
-		   System.out.println("******************SESSION ***************"+session);
-		   Thread.sleep(15000);
-		   String queryDelete = "DELETE FROM bvc_automation_db.aut_fix_rfq_cache WHERE RECEIVER_SESSION = "+session;
+	
+		   String queryDelete = "DELETE FROM bvc_automation_db.aut_fix_rfq_cache WHERE RECEIVER_SESSION = "+ "'"+ session + "'"+";";
+
 		   DataAccess.setQuery(queryDelete);		 
 	   }	   
 	   
@@ -259,7 +289,7 @@ public class AutoEngine {
 		   if(DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
 			   
 			  
-			   ejecutarSiguientePaso(datosCache.getIdCaseseq(), datosCache.getIdEjecucion(), idQuoteReq);
+			   ejecutarSiguientePaso(datosCache.getIdCaseseq(), datosCache.getIdEjecucion(), idQuoteReq, null);
 			
 			   System.out.println("** CONTINUAR ***");
 		   }else {
@@ -291,11 +321,11 @@ public class AutoEngine {
 		   
            String IdAfiliado = datosCache.getIdAfiliado();
 		   
-		   String idQuoteReq = messageIn.getString(131);   
+		   String QuoteId = messageIn.getString(117);   
 		   
 		   if(DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
 			   
-			   //ejecutarSiguientePaso(datosCache.getIdCaseseq(), datosCache.getIdEjecucion(), idQuoteReq);
+			   ejecutarSiguientePaso(datosCache.getIdCaseseq(), datosCache.getIdEjecucion(), null, QuoteId);
 			
 			   System.out.println("** CONTINUAR ***");
 		   }else {
@@ -305,6 +335,34 @@ public class AutoEngine {
 		   
 		   
 	   }
+	   
+	   public void validarAJ(SessionID sessionId, quickfix.Message messageIn) throws InterruptedException, SQLException, FieldNotFound, SessionNotFound {
+		   
+			// Obtener el ID_AFILIADO de la session
+			   String IdContraFirm = sessionId.toString().substring(8,11);
+			   
+			 //getcache
+			   AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
+			   
+			   validaciones.validarOcho(datosCache, messageIn);
+			   
+			   eliminarDatoCache(IdContraFirm);
+			   
+	           String IdAfiliado = datosCache.getIdAfiliado();
+	
+			   if(DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
+				   
+//				   ejecutarSiguientePaso(datosCache.getIdCaseseq(), datosCache.getIdEjecucion(), null, null);
+				
+				   System.out.println("** CONTINUAR ***");
+			   }else {
+				   System.out.println("**** ESPERAR ****");
+			   }
+			   
+			   
+			   
+		   }
+	   
 	   
 	   public void validarAI(SessionID sessionId, quickfix.Message messageIn) throws SQLException, InterruptedException {
 		   
@@ -331,7 +389,7 @@ public class AutoEngine {
 	 * @throws SessionNotFound 
 	    */
 	   
-	   public void ejecutarSiguientePaso(int idCaseSeqActual, long idEjecucion, String quoteReqId) throws SQLException, SessionNotFound, InterruptedException {
+	   public void ejecutarSiguientePaso(int idCaseSeqActual, long idEjecucion, String quoteReqId, String quoteId) throws SQLException, SessionNotFound, InterruptedException {
 		   
 		   int idCaseSeqSiguiente = idCaseSeqActual++;
 		   
@@ -348,9 +406,9 @@ public class AutoEngine {
 		   if (resultSet != null) {
 			   
 			   System.out.println("Continua con el siguiente paso.");
-//			   resultSet.first();
-			   // seleccionar el siguiente paso a ejecutar.
-			   enviarMensaje(resultSet, idEjecucion, quoteReqId);
+			   Thread.sleep(10000);
+			   
+			   enviarMensaje(resultSet, idEjecucion, quoteReqId, quoteId);
 			   
 		   }else {
 			   //ejecutar reporte.
@@ -363,13 +421,6 @@ public class AutoEngine {
 		
 	   }
 	   
-	   public int getEscenario(ResultSet resultSet) throws SQLException {
-		   
-		   int idCaseseq = resultSet.getInt("ID_CASESEQ");
-		   		  
-		return idCaseseq;
-		   
-	   }
 	   
 	   
 		public static void printMessage(String typeMsg, SessionID sessionId, quickfix.Message message2) throws FieldNotFound {
