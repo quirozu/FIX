@@ -68,7 +68,7 @@ public class DataAccess {
 	public static void cargarCache(AutFixRfqDatosCache datosCache) throws SQLException {
 
 		PreparedStatement ps = conn
-				.prepareStatement("INSERT INTO `bvc_automation_db`.`aut_fix_rfq_cache` VALUES (?, ?, ?, ?, ?, ?, ?,?)");
+				.prepareStatement("INSERT INTO `bvc_automation_db`.`aut_fix_rfq_cache` VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, datosCache.getReceiverSession());
 		ps.setInt(2, datosCache.getIdCaseseq());
 		ps.setInt(3, datosCache.getIdCase());

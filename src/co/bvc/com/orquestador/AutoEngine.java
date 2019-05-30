@@ -223,8 +223,10 @@ public class AutoEngine {
 
 	   
 	   //Metodo que elimina el registro en cache (base de datos)  
-	   public void eliminarDatoCache(String session) throws SQLException {
+	   public void eliminarDatoCache(String session) throws SQLException, InterruptedException {
 		
+		   System.out.println("******************SESSION ***************"+session);
+		   Thread.sleep(15000);
 		   String queryDelete = "DELETE FROM bvc_automation_db.aut_fix_rfq_cache WHERE RECEIVER_SESSION = "+session;
 		   DataAccess.setQuery(queryDelete);		 
 	   }	   
@@ -304,7 +306,7 @@ public class AutoEngine {
 		   
 	   }
 	   
-	   public void validarAI(SessionID sessionId, quickfix.Message messageIn) throws SQLException {
+	   public void validarAI(SessionID sessionId, quickfix.Message messageIn) throws SQLException, InterruptedException {
 		   
 		   
 		   System.out.println("*********** VALIDANDO AI ************");
