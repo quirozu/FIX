@@ -9978,3 +9978,10 @@ java.lang.ClassCastException: quickfix.fix44.Message cannot be cast to quickfix.
 20190529-15:54:29: Initiated logon request
 20190529-15:54:30: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
 20190529-15:54:30: Received logon
+20190529-19:08:46: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190529-19:08:46: Created session: FIX.4.4:002/002B35->EXC
+20190529-19:08:46: Configured socket addresses for session: [/172.36.2.13:54402]
+20190529-19:08:46: MINA session created: local=/172.16.1.1:58262, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190529-19:08:47: Initiated logon request
+20190529-19:08:47: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190529-19:08:47: Received logon
