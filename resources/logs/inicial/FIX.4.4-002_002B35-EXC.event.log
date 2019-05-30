@@ -11541,3 +11541,350 @@ java.lang.NullPointerException
 20190529-22:56:27: Processing queued message: 3
 20190529-22:56:27: Received SequenceReset FROM: 4 TO: 5
 >>>>>>> b548a9e7a518ef8bd60a0752a9e0946f2cd49a68
+20190530-13:56:26: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-13:56:26: Session state is not current; resetting FIX.4.4:002/002B35->EXC
+20190530-13:56:26: Created session: FIX.4.4:002/002B35->EXC
+20190530-13:56:26: Configured socket addresses for session: [/172.36.2.13:54402]
+20190530-13:56:26: MINA session created: local=/172.16.1.1:60237, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-13:56:27: Initiated logon request
+20190530-13:56:27: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-13:56:27: Received logon
+20190530-14:12:31: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-14:12:31: Created session: FIX.4.4:002/002B35->EXC
+20190530-14:12:31: Configured socket addresses for session: [/172.36.2.13:54402]
+20190530-14:12:31: MINA session created: local=/172.16.1.1:60762, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:12:32: Initiated logon request
+20190530-14:12:33: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-14:12:33: Received logon
+20190530-14:15:59: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-14:15:59: Created session: FIX.4.4:002/002B35->EXC
+20190530-14:15:59: Configured socket addresses for session: [/172.36.2.13:54402]
+20190530-14:15:59: MINA session created: local=/172.16.1.1:60943, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:16:00: Initiated logon request
+20190530-14:16:00: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-14:16:00: Received logon
+20190530-14:16:21: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:197)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:351)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:260)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:239)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:197)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:351)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:260)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:239)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190530-14:16:34: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190530-14:16:35.00056=00210=069
+20190530-14:16:34: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190530-14:16:35.00056=00210=069
+20190530-14:16:34: Sent ResendRequest FROM: 2 TO: 2
+20190530-14:16:34: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190530-14:16:50: Processing queued message: 3
+20190530-14:16:50: Received SequenceReset FROM: 4 TO: 5
+20190530-14:34:21: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-14:34:21: Created session: FIX.4.4:002/002B35->EXC
+20190530-14:34:21: Configured socket addresses for session: [/172.36.2.13:54402]
+20190530-14:34:21: MINA session created: local=/172.16.1.1:64171, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:34:22: Initiated logon request
+20190530-14:34:22: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-14:34:22: Received logon
+20190530-14:35:13: Sent test request TEST
+20190530-14:35:40: Disconnecting: Timed out waiting for heartbeat
+20190530-14:35:41: MINA session created: local=/172.16.1.1:64282, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:35:41: Initiated logon request
+20190530-14:35:52: Disconnecting: Timed out waiting for logon response
+20190530-14:36:41: MINA session created: local=/172.16.1.1:64320, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:36:41: Initiated logon request
+20190530-14:36:52: Disconnecting: Timed out waiting for logon response
+20190530-14:37:41: MINA session created: local=/172.16.1.1:64358, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:37:42: Initiated logon request
+20190530-14:37:52: Disconnecting: Timed out waiting for logon response
+20190530-14:38:43: MINA session created: local=/172.16.1.1:64405, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:38:43: Initiated logon request
+20190530-14:38:54: Disconnecting: Timed out waiting for logon response
+20190530-14:39:42: MINA session created: local=/172.16.1.1:64447, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:39:43: Initiated logon request
+20190530-14:39:54: Disconnecting: Timed out waiting for logon response
+20190530-14:40:43: MINA session created: local=/172.16.1.1:64493, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:40:43: Initiated logon request
+20190530-14:40:53: Disconnecting: Timed out waiting for logon response
+20190530-14:41:43: MINA session created: local=/172.16.1.1:64526, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:41:43: Initiated logon request
+20190530-14:41:54: Disconnecting: Timed out waiting for logon response
+20190530-14:42:43: MINA session created: local=/172.16.1.1:64556, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:42:44: Initiated logon request
+20190530-14:42:54: Disconnecting: Timed out waiting for logon response
+20190530-14:43:43: MINA session created: local=/172.16.1.1:64578, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:43:44: Initiated logon request
+20190530-14:43:54: Disconnecting: Timed out waiting for logon response
+20190530-14:44:44: MINA session created: local=/172.16.1.1:64607, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:44:44: Initiated logon request
+20190530-14:44:55: Disconnecting: Timed out waiting for logon response
+20190530-14:45:44: MINA session created: local=/172.16.1.1:64645, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:45:45: Initiated logon request
+20190530-14:45:56: Disconnecting: Timed out waiting for logon response
+20190530-14:46:44: MINA session created: local=/172.16.1.1:64669, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:46:45: Initiated logon request
+20190530-14:46:55: Disconnecting: Timed out waiting for logon response
+20190530-14:47:45: MINA session created: local=/172.16.1.1:64709, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:47:45: Initiated logon request
+20190530-14:47:55: Disconnecting: Timed out waiting for logon response
+20190530-14:48:45: MINA session created: local=/172.16.1.1:64730, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:48:45: Initiated logon request
+20190530-14:48:56: Disconnecting: Timed out waiting for logon response
+20190530-14:49:45: MINA session created: local=/172.16.1.1:64751, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:49:46: Initiated logon request
+20190530-14:49:56: Disconnecting: Timed out waiting for logon response
+20190530-14:50:46: MINA session created: local=/172.16.1.1:64776, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:50:46: Initiated logon request
+20190530-14:50:57: Disconnecting: Timed out waiting for logon response
+20190530-14:51:46: MINA session created: local=/172.16.1.1:64809, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:51:46: Initiated logon request
+20190530-14:51:57: Disconnecting: Timed out waiting for logon response
+20190530-14:52:46: MINA session created: local=/172.16.1.1:64851, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:52:47: Initiated logon request
+20190530-14:52:57: Disconnecting: Timed out waiting for logon response
+20190530-14:53:46: MINA session created: local=/172.16.1.1:64873, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:53:47: Initiated logon request
+20190530-14:53:57: Disconnecting: Timed out waiting for logon response
+20190530-14:54:47: MINA session created: local=/172.16.1.1:64898, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:54:47: Initiated logon request
+20190530-14:54:57: Disconnecting: Timed out waiting for logon response
+20190530-14:55:47: MINA session created: local=/172.16.1.1:64918, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:55:48: Initiated logon request
+20190530-14:55:58: Disconnecting: Timed out waiting for logon response
+20190530-14:56:48: MINA session created: local=/172.16.1.1:64941, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:56:48: Initiated logon request
+20190530-14:56:59: Disconnecting: Timed out waiting for logon response
+20190530-14:57:48: MINA session created: local=/172.16.1.1:64968, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:57:48: Initiated logon request
+20190530-14:57:59: Disconnecting: Timed out waiting for logon response
+20190530-14:58:48: MINA session created: local=/172.16.1.1:64990, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:58:49: Initiated logon request
+20190530-14:59:00: Disconnecting: Timed out waiting for logon response
+20190530-14:59:48: MINA session created: local=/172.16.1.1:65016, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-14:59:49: Initiated logon request
+20190530-15:00:00: Disconnecting: Timed out waiting for logon response
+20190530-15:00:49: MINA session created: local=/172.16.1.1:65046, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:00:49: Initiated logon request
+20190530-15:00:59: Disconnecting: Timed out waiting for logon response
+20190530-15:01:49: MINA session created: local=/172.16.1.1:65072, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:01:50: Initiated logon request
+20190530-15:02:01: Disconnecting: Timed out waiting for logon response
+20190530-15:02:49: MINA session created: local=/172.16.1.1:65094, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:02:50: Initiated logon request
+20190530-15:03:00: Disconnecting: Timed out waiting for logon response
+20190530-15:03:50: MINA session created: local=/172.16.1.1:65116, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:03:50: Initiated logon request
+20190530-15:04:01: Disconnecting: Timed out waiting for logon response
+20190530-15:04:50: MINA session created: local=/172.16.1.1:65139, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:04:51: Initiated logon request
+20190530-15:05:01: Disconnecting: Timed out waiting for logon response
+20190530-15:05:50: MINA session created: local=/172.16.1.1:65188, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:05:51: Initiated logon request
+20190530-15:06:01: Disconnecting: Timed out waiting for logon response
+20190530-15:06:51: MINA session created: local=/172.16.1.1:65232, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:06:51: Initiated logon request
+20190530-15:07:02: Disconnecting: Timed out waiting for logon response
+20190530-15:07:51: MINA session created: local=/172.16.1.1:65278, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:07:51: Initiated logon request
+20190530-15:08:01: Disconnecting: Timed out waiting for logon response
+20190530-15:08:51: MINA session created: local=/172.16.1.1:65323, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:08:52: Initiated logon request
+20190530-15:09:03: Disconnecting: Timed out waiting for logon response
+20190530-15:09:51: MINA session created: local=/172.16.1.1:65368, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:09:52: Initiated logon request
+20190530-15:10:03: Disconnecting: Timed out waiting for logon response
+20190530-15:10:52: MINA session created: local=/172.16.1.1:65413, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:10:52: Initiated logon request
+20190530-15:11:03: Disconnecting: Timed out waiting for logon response
+20190530-15:11:52: MINA session created: local=/172.16.1.1:65454, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:11:52: Initiated logon request
+20190530-15:12:02: Disconnecting: Timed out waiting for logon response
+20190530-15:12:52: MINA session created: local=/172.16.1.1:65498, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:12:53: Initiated logon request
+20190530-15:13:03: Disconnecting: Timed out waiting for logon response
+20190530-15:13:53: MINA session created: local=/172.16.1.1:49162, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:13:53: Initiated logon request
+20190530-15:14:04: Disconnecting: Timed out waiting for logon response
+20190530-15:14:53: MINA session created: local=/172.16.1.1:49206, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:14:53: Initiated logon request
+20190530-15:15:04: Disconnecting: Timed out waiting for logon response
+20190530-15:15:53: MINA session created: local=/172.16.1.1:49250, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:15:53: Initiated logon request
+20190530-15:16:04: Disconnecting: Timed out waiting for logon response
+20190530-15:16:53: MINA session created: local=/172.16.1.1:49293, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:16:54: Initiated logon request
+20190530-15:17:04: Disconnecting: Timed out waiting for logon response
+20190530-15:17:53: MINA session created: local=/172.16.1.1:49329, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:17:54: Initiated logon request
+20190530-15:18:05: Disconnecting: Timed out waiting for logon response
+20190530-15:18:54: MINA session created: local=/172.16.1.1:49384, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:18:54: Initiated logon request
+20190530-15:19:04: Disconnecting: Timed out waiting for logon response
+20190530-15:19:54: MINA session created: local=/172.16.1.1:49408, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:19:54: Initiated logon request
+20190530-15:20:05: Disconnecting: Timed out waiting for logon response
+20190530-15:20:54: MINA session created: local=/172.16.1.1:49446, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:20:55: Initiated logon request
+20190530-15:21:05: Disconnecting: Timed out waiting for logon response
+20190530-15:21:54: MINA session created: local=/172.16.1.1:49471, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:21:55: Initiated logon request
+20190530-15:22:06: Disconnecting: Timed out waiting for logon response
+20190530-15:22:55: MINA session created: local=/172.16.1.1:49497, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:22:55: Initiated logon request
+20190530-15:23:06: Disconnecting: Timed out waiting for logon response
+20190530-15:23:55: MINA session created: local=/172.16.1.1:49529, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:23:55: Initiated logon request
+20190530-15:24:05: Disconnecting: Timed out waiting for logon response
+20190530-15:24:55: MINA session created: local=/172.16.1.1:49567, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:24:56: Initiated logon request
+20190530-15:25:07: Disconnecting: Timed out waiting for logon response
+20190530-15:25:55: MINA session created: local=/172.16.1.1:49615, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:25:56: Initiated logon request
+20190530-15:26:07: Disconnecting: Timed out waiting for logon response
+20190530-15:26:56: MINA session created: local=/172.16.1.1:49651, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:26:56: Initiated logon request
+20190530-15:27:06: Disconnecting: Timed out waiting for logon response
+20190530-15:27:56: MINA session created: local=/172.16.1.1:49711, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:27:56: Initiated logon request
+20190530-15:28:07: Disconnecting: Timed out waiting for logon response
+20190530-15:28:56: MINA session created: local=/172.16.1.1:49749, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:28:57: Initiated logon request
+20190530-15:29:07: Disconnecting: Timed out waiting for logon response
+20190530-15:29:56: MINA session created: local=/172.16.1.1:49802, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:29:57: Initiated logon request
+20190530-15:30:07: Disconnecting: Timed out waiting for logon response
+20190530-15:30:57: MINA session created: local=/172.16.1.1:49872, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:30:57: Initiated logon request
+20190530-15:31:08: Disconnecting: Timed out waiting for logon response
+20190530-15:31:57: MINA session created: local=/172.16.1.1:49939, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:31:57: Initiated logon request
+20190530-15:32:08: Disconnecting: Timed out waiting for logon response
+20190530-15:32:57: MINA session created: local=/172.16.1.1:49979, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:32:58: Initiated logon request
+20190530-15:33:08: Disconnecting: Timed out waiting for logon response
+20190530-15:33:58: MINA session created: local=/172.16.1.1:50027, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:33:58: Initiated logon request
+20190530-15:34:09: Disconnecting: Timed out waiting for logon response
+20190530-15:34:58: MINA session created: local=/172.16.1.1:50099, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:34:58: Initiated logon request
+20190530-15:35:09: Disconnecting: Timed out waiting for logon response
+20190530-15:35:58: MINA session created: local=/172.16.1.1:54498, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:35:58: Initiated logon request
+20190530-15:36:09: Disconnecting: Timed out waiting for logon response
+20190530-15:36:58: MINA session created: local=/172.16.1.1:54656, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:36:59: Initiated logon request
+20190530-15:37:09: Disconnecting: Timed out waiting for logon response
+20190530-15:37:59: MINA session created: local=/172.16.1.1:54710, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:37:59: Initiated logon request
+20190530-15:38:10: Disconnecting: Timed out waiting for logon response
+20190530-15:38:59: MINA session created: local=/172.16.1.1:54754, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:38:59: Initiated logon request
+20190530-15:39:10: Disconnecting: Timed out waiting for logon response
+20190530-15:39:59: MINA session created: local=/172.16.1.1:54799, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:39:59: Initiated logon request
+20190530-15:40:09: Disconnecting: Timed out waiting for logon response
+20190530-15:40:59: MINA session created: local=/172.16.1.1:50924, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:41:00: Initiated logon request
+20190530-15:41:11: Disconnecting: Timed out waiting for logon response
+20190530-15:42:00: MINA session created: local=/172.16.1.1:50963, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:42:00: Initiated logon request
+20190530-15:42:11: Disconnecting: Timed out waiting for logon response
+20190530-15:43:00: MINA session created: local=/172.16.1.1:51006, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:43:00: Initiated logon request
+20190530-15:43:10: Disconnecting: Timed out waiting for logon response
+20190530-15:44:00: MINA session created: local=/172.16.1.1:51046, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:44:01: Initiated logon request
+20190530-15:44:12: Disconnecting: Timed out waiting for logon response
+20190530-15:45:00: MINA session created: local=/172.16.1.1:51092, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:45:01: Initiated logon request
+20190530-15:45:11: Disconnecting: Timed out waiting for logon response
+20190530-15:46:01: MINA session created: local=/172.16.1.1:51142, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:46:01: Initiated logon request
+20190530-15:46:12: Disconnecting: Timed out waiting for logon response
+20190530-15:47:01: MINA session created: local=/172.16.1.1:51190, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:47:01: Initiated logon request
+20190530-15:47:12: Disconnecting: Timed out waiting for logon response
+20190530-15:48:01: MINA session created: local=/172.16.1.1:51231, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:48:02: Initiated logon request
+20190530-15:48:12: Disconnecting: Timed out waiting for logon response
+20190530-15:49:01: MINA session created: local=/172.16.1.1:51304, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:49:02: Initiated logon request
+20190530-15:49:13: Disconnecting: Timed out waiting for logon response
+20190530-15:50:02: MINA session created: local=/172.16.1.1:51350, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:50:02: Initiated logon request
+20190530-15:50:13: Disconnecting: Timed out waiting for logon response
+20190530-15:51:02: MINA session created: local=/172.16.1.1:51393, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:51:02: Initiated logon request
+20190530-15:51:12: Disconnecting: Timed out waiting for logon response
+20190530-15:52:02: MINA session created: local=/172.16.1.1:51447, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:52:03: Initiated logon request
+20190530-15:52:14: Disconnecting: Timed out waiting for logon response
+20190530-15:53:02: MINA session created: local=/172.16.1.1:51486, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:53:03: Initiated logon request
+20190530-15:53:13: Disconnecting: Timed out waiting for logon response
+20190530-15:54:03: MINA session created: local=/172.16.1.1:51534, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:54:03: Initiated logon request
+20190530-15:54:13: Disconnecting: Timed out waiting for logon response
+20190530-15:55:03: MINA session created: local=/172.16.1.1:51574, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-15:55:03: Initiated logon request
+20190530-15:55:14: Disconnecting: Timed out waiting for logon response
+20190530-16:42:07: java.net.NoRouteToHostException during connection to /172.36.2.13:54402: java.net.NoRouteToHostException: No route to host: no further information (Next retry in 60000 milliseconds)
+20190530-16:43:52: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-16:43:52: Created session: FIX.4.4:002/002B35->EXC
+20190530-16:43:52: Configured socket addresses for session: [/172.36.2.13:54402]
+20190530-16:43:52: MINA session created: local=/172.16.1.110:51959, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-16:43:53: Initiated logon request
+20190530-16:43:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-16:43:53: Received logon
+20190530-16:44:44: Sent test request TEST
+20190530-16:45:11: Disconnecting: Timed out waiting for heartbeat
+20190530-16:45:12: MINA session created: local=/172.16.1.110:52073, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-16:45:12: Initiated logon request
+20190530-16:45:23: Disconnecting: Timed out waiting for logon response
+20190530-17:01:31: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-17:01:31: Created session: FIX.4.4:002/002B35->EXC
+20190530-17:01:31: Configured socket addresses for session: [/172.36.2.13:54402]
+20190530-17:01:31: MINA session created: local=/172.16.1.110:52549, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-17:01:32: Initiated logon request
+20190530-17:01:32: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-17:01:32: Received logon
+20190530-17:13:01: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-17:13:01: Created session: FIX.4.4:002/002B35->EXC
+20190530-17:13:01: Configured socket addresses for session: [/172.36.2.13:54402]
+20190530-17:13:01: MINA session created: local=/172.16.1.110:52982, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-17:13:02: Initiated logon request
+20190530-17:13:02: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-17:13:02: Received logon
+20190530-17:27:41: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-17:27:41: Created session: FIX.4.4:002/002B35->EXC
+20190530-17:27:41: Configured socket addresses for session: [/172.36.2.13:54402]
+20190530-17:27:41: MINA session created: local=/172.16.1.110:53396, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190530-17:27:42: Initiated logon request
+20190530-17:27:42: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-17:27:42: Received logon

@@ -436,8 +436,7 @@ public class Validaciones {
 		String valor;
 		String val;
 		String type = null, symbol = null, subtype = null, side = null, order = null, time = null, latedsym = null,
-				idCase = null, idEscenario = null, Nopartys = null, settloc = null, execFirm = null, execTrader = null,
-				contraTrader = null;
+				idCase = null, idEscenario = null, Nopartys = null;
 		int idSecuencia = 0;
 		while (resultset.next()) {
 			type = resultset.getString("RS_MSGTYPE");
@@ -448,10 +447,7 @@ public class Validaciones {
 			time = resultset.getString("RS_VALIDUNTILTIME");
 			latedsym = resultset.getString("RS_NORELATEDSYM");
 			Nopartys = resultset.getString("RS_NOPARTYIDS");
-			settloc = resultset.getString("RS_SETTLOC");
-			execFirm = resultset.getString("RS_EXECFIRM");
-			execTrader = resultset.getString("RS_EXECTRADER");
-			contraTrader = resultset.getString("RS_CONTRATRADER");
+			
 			idCase = resultset.getString("ID_CASE");
 			idSecuencia = resultset.getInt("ID_SECUENCIA");
 			idEscenario = resultset.getString("ID_ESCENARIO");

@@ -13,7 +13,7 @@ import quickfix.SocketInitiator;
 public class Login {
 
 	private SessionID sessionID1;
-	private SessionID sessionID2;
+	private static SessionID sessionID2;
 	private SessionID sessionID3;
 	private SessionID sessionID4;
 	private SessionID sessionID5;
@@ -87,7 +87,7 @@ public class Login {
 		return sessionID1;
 	}
 
-	public SessionID getSessionID2() {
+	public static SessionID getSessionID2() {
 		return sessionID2;
 	}
 

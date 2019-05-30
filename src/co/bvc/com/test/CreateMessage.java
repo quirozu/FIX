@@ -250,7 +250,7 @@ public class CreateMessage {
 
 			respuestaMessage.setListSessiones(list);
 			respuestaMessage.setMessage(quote);
-			
+			Session.sendToTarget(respuestaMessage.getMessage(), Login.getSessionID2());
 			
 			return respuestaMessage;
 
