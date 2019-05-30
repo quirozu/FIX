@@ -264,21 +264,29 @@ public class CreateMessage {
 
 
 
-	public static Message createAJ(SessionID sessionId,  String strQRespId) throws SessionNotFound {
+	public static RespuestaConstrucccionMsgFIX createAJ(ResultSet resultset, String strQuoteId) throws SessionNotFound {
 
-		String queryMessageAJ = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_ESCENARIO = 'FIX_AJ' AND ID_CASE = 1";
-		ResultSet resultset;
+		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
+		
+		Login inicio = new Login();
+		
+//		String queryMessageAJ = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_ESCENARIO = 'FIX_AJ' AND ID_CASE = 1";
+		
+//		ResultSet resultset;
 		try {
-			resultset = DataAccess.getQuery(queryMessageAJ);
+//			resultset = DataAccess.getQuery(queryMessageAJ);
 			while (resultset.next()) {
-				QuoteRespID quoteRespID = new QuoteRespID(resultset.getString("ID_CASESEQ"));
-				QuoteRespType qouteRespType = new QuoteRespType(1);
-				QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
+				//QuoteRespID quoteRespID = new QuoteRespID(resultset.getString("ID_CASESEQ"));
+//				QuoteRespID quoteRespID = new QuoteRespID();
+//				QuoteRespType qouteRespType = new QuoteRespType(1);
+//				QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
+				
+				QuoteResponse quoteResponse = new QuoteResponse();
 
 				Header header = (Header) quoteResponse.getHeader();
 				header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
-				quoteResponse.setField(new QuoteID(strQRespId));
+				quoteResponse.setField(new QuoteID(strQuoteId));
 //				quoteResponse.setField(new StringField(49, resultset.getString("ID_AFILIADO")));
 				quoteResponse.setField(new StringField(54, resultset.getString("RQ_SIDE")));
 				quoteResponse.setField(new Symbol(resultset.getString("RQ_SYMBOL")));
@@ -287,9 +295,21 @@ public class CreateMessage {
 //				quoteResponse.setField(new StringField(54, resultset.getString("RQ_RELATEDID")));//?????
 //				quoteResponse.setField(new StringField(694, resultset.getString("RQ_NORELATEDSYM")));
 
-				boolean sent = Session.sendToTarget(quoteResponse, sessionId);
-//				System.out.println("NOS Message Sent : " + sent);
-				return quoteResponse;
+
+				System.out.println("NOS Message Sent : " + quoteResponse);
+				
+				respuestaMessage.setMessage(quoteResponse);
+				
+				List<String> list = new ArrayList<String>();
+				list.add("001");
+				list.add("002");
+				
+				respuestaMessage.setListSessiones(list);
+				
+				Session.sendToTarget(respuestaMessage.getMessage(), inicio.getSessionID1());
+				
+				return respuestaMessage;
+//				return quoteResponse;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

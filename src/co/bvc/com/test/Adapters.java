@@ -341,24 +341,40 @@ public class Adapters extends MessageCracker implements Application {
 			String mess = "" + message;
 
 			validar.setCadenaOcho(mess);
-//			try {
-//				validar.validarOcho();
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+			try {
+//				this.inicio.initiation();
+//				autoEngine.setLogin(this.inicio);
+				autoEngine.validarAJ(sessionID, message);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		}
 		if (message instanceof ExecutionReport  && sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
 			String mess = "" + message;
 
 			validar.setCadenaOcho(mess);
-//			try {
-//				validar.validarOcho();
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+			try {
+//				this.inicio.initiation();
+//				autoEngine.setLogin(this.inicio);
+				autoEngine.validarAJ(sessionID, message);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		}
 		printMessage("ExecutionReport", sessionID, message);
@@ -376,6 +392,9 @@ public class Adapters extends MessageCracker implements Application {
 			try {
 				autoEngine.validarAI(sessionID, message);
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

@@ -587,7 +587,7 @@ public class Validaciones {
 			partyIdsSource = resultset.getString("ER_PARTYIDSOURCE");
 			idCase = resultset.getString("ID_CASE");
 			idSecuencia = resultset.getInt("ID_SECUENCIA");
-			idEscenario = resultset.getString("ID_ESCENARIO");
+			idEscenario = "FIX_8";
 
 		}
 		System.out.println("----------------------------------------");
