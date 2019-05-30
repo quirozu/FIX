@@ -42,7 +42,15 @@ public class Adapters extends MessageCracker implements Application {
 
 	private static String IDQuoteFound;
 	private static String IDQuoteFound1;
+	
+	public Adapters(Login inicio) {
+		this.inicio = inicio;
+	}
 
+	public Adapters() {
+		
+	}	
+	
 	public static String getIDQuoteFound() {
 		return IDQuoteFound;
 	}
@@ -225,10 +233,16 @@ public class Adapters extends MessageCracker implements Application {
 			printMessage("MENSAJE R_PRIMA ", sessionId, message);
 			
 			try {
+				 Thread.sleep(15000);
+//				this.inicio.initiation();
+//				autoEngine.setLogin(this.inicio);
 				autoEngine.validarR(sessionId, message);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -261,11 +275,16 @@ public class Adapters extends MessageCracker implements Application {
 			
 //			validar.setCadenaAI(mess);
 //			try {
-//				validar.ValidaS();
+//				this.inicio.initiation();
+//				autoEngine.setLogin(this.inicio);
+//				autoEngine.validarS(sessionId, message);
 //			} catch (SQLException e) {
 //				// TODO Auto-generated catch block
 //				e.printStackTrace();
 //			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (SessionNotFound e) {
 //				// TODO Auto-generated catch block
 //				e.printStackTrace();
 //			}
@@ -276,18 +295,20 @@ public class Adapters extends MessageCracker implements Application {
 			
 			printMessage("MENSAJE Q PARA SESSION 1 ", sessionId, message);
 
-//			setIDQuoteFound1(message.getString(117));
-//			System.out.println("ID ESTABLECIDO PARA EL MENSAJE AJ " + getIDQuoteFound1());
-//			String mess = "" + message;
-//
-//			validar.setCadenaSPrima(mess);
-//			try {
-//				validar.ValidarSPrima();
-//			} catch (SQLException | InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//
-//			}
+			try {
+//				this.inicio.initiation();
+//				autoEngine.setLogin(this.inicio);
+				autoEngine.validarS(sessionId, message);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		if (message instanceof QuoteResponse) {
@@ -351,6 +372,16 @@ public class Adapters extends MessageCracker implements Application {
 
 	public void onMessage(quickfix.fix44.QuoteStatusReport message, SessionID sessionID) throws FieldNotFound {
 		printMessage("QuoteStatusReport", sessionID, message);
+		
+			try {
+				autoEngine.validarAI(sessionID, message);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		
+		
 		// System.out.println("*****************\n\tID QuoteStatusReport: " +
 		// getIDQuoteFound() + "\n-----------------------");
 
@@ -358,8 +389,8 @@ public class Adapters extends MessageCracker implements Application {
 
 	public void onMessage(quickfix.fix44.QuoteRequest message, SessionID sessionID) throws FieldNotFound {
 
-		printMessage("QuoteRequest", sessionID, message);
-		String mess = "" + message;
+//		printMessage("QuoteRequest", sessionID, message);
+//		String mess = "" + message;
 		
 		// instanciar AutoEngine
 		// AE.validarR(msg, sId)

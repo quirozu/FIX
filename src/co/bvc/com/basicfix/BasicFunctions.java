@@ -21,6 +21,15 @@ public class BasicFunctions {
 		return sLogon;
 	}
 	
+	public static boolean logout(SessionID sessionID) {
+		boolean sLogon = false;
+		
+		Session.lookupSession(sessionID).logout();
+		
+		return sLogon;
+	}
+	
+	
 	public static SessionID connecto(String fileConf) {
 		SocketInitiator socketInitiator = null;
 		try {

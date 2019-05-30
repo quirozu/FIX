@@ -35,6 +35,7 @@ public class RespuestaConstrucccionMsgFIX {
 	public List<String> getListSessiones() {
 		return listSessiones;
 	}
+	
 	public void setListSessiones(List<String> listSessiones) {
 		this.listSessiones = listSessiones;
 	}

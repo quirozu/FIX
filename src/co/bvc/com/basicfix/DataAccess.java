@@ -139,5 +139,28 @@ public class DataAccess {
 		ps.executeUpdate();
 
 	}
+	
+	public static boolean validarContinuidadEjecucion (String session) throws SQLException {
+		
+		String query = "SELECT count(1) as cantidad FROM bvc_automation_db.aut_fix_rfq_cache WHERE  RECEIVER_SESSION <>" + session;
+		
+		ResultSet i = DataAccess.getQuery(query);
+		int cantidadEscenarios = 0;
+		
+		while(i.next()) {
+			
+			cantidadEscenarios = i.getInt("cantidad"); 	
+			System.out.println("*************** CANTIDAD ************** " + cantidadEscenarios);
+			
+		}
+		
+		if(cantidadEscenarios>0) {
+			return false;
+		}
+		
+		
+		return true;
+		
+	}
 
 }

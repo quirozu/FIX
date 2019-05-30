@@ -17,8 +17,7 @@ public class Login {
 	private SessionID sessionID3;
 	private SessionID sessionID4;
 	private SessionID sessionID5;
-	private double cantidad = 500000000d;
-
+	
 	public void initiation() {
 
 		try {
@@ -52,6 +51,8 @@ public class Login {
 			} else {
 				BasicFunctions.logon(sessionID4);
 				System.out.println("Session ID: " + sessionID4);
+				BasicFunctions.logout(sessionID4);
+				System.out.println("Deslogueado");
 			}
 			
 			sessionID5 = BasicFunctions.connecto("sessionSettings1_20.cfg");
@@ -94,8 +95,6 @@ public class Login {
 		return sessionID3;
 	}
 
-	public double getCantidad() {
-		return cantidad;
-	}
+	
 
 }
