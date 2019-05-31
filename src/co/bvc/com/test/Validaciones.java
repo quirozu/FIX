@@ -69,7 +69,6 @@ public class Validaciones {
 
 	public void ValidarRPrima(AutFixRfqDatosCache datosCache, Message qr)
 	
-	      
 			throws InterruptedException, SQLException, FieldNotFound {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
@@ -78,10 +77,7 @@ public class Validaciones {
 		String valorPrima;
 		ArrayList<String> cad = FragmentarCadena1(cadenaPrima);
 		ResultSet resultset;
-		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
-				+ datosCache.getIdCaseseq();
-//		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-//				+ "WHERE ID_ESCENARIO = 'FIX_R' and ID_CASE = 1";
+		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "	+ datosCache.getIdCaseseq();
 
 		resultset = DataAccess.getQuery(queryMessageR);
 		String symbol = null, msgType = null, secSubTypec = null, side = null, orderQty = null, validuntiltime = null,
@@ -265,6 +261,7 @@ public class Validaciones {
 	}
 
 	public void ValidarSPrima(AutFixRfqDatosCache datosCache, Message qr)
+	
 			throws InterruptedException, SQLException {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
@@ -273,8 +270,7 @@ public class Validaciones {
 		String valorPrima;
 		ArrayList<String> cad = FragmentarCadena1(cadenaPrima);
 		ResultSet resultset;
-		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
-				+ datosCache.getIdCaseseq();
+		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "	+ datosCache.getIdCaseseq();
 
 		resultset = DataAccess.getQuery(queryMessageR);
 		String validuntiltime = null, msgType = null, OfferSize = "500000000", secSubType = null, symbol = null,
@@ -294,7 +290,6 @@ public class Validaciones {
 		}
 		System.out.println("----------------------------------------");
 		System.out.println("VALIDACION DE S CON S PRIMA");
-		System.out.println("  \n");
 		for (int z = 0; z < cad.size(); z++) {
 			clavePrima = cad.get(z).split("=")[0];
 			valorPrima = cad.get(z).split("=")[1];

@@ -69,13 +69,13 @@ public class Adapters extends MessageCracker implements Application {
 
 	@Override
 	public void onCreate(SessionID sessionId) {
-		System.out.println("*****************\nonCreate - sessionId: " + sessionId);
+//		System.out.println("*****************\nonCreate - sessionId: " + sessionId);
 
 	}
 
 	@Override
 	public void onLogon(SessionID sessionId) {
-		System.out.println("*****************\nonLogon - sessionId: " + sessionId);
+		//System.out.println("*****************\nonLogon - sessionId: " + sessionId);
 
 	}
 
@@ -168,8 +168,6 @@ public class Adapters extends MessageCracker implements Application {
 		}
 
 		System.out.println("*****************\n toAdmin - SALIDA : \n" + message + "\nPara la sessionId: " + sessionId);
-		
-		
 
 	}
 
@@ -188,7 +186,7 @@ public class Adapters extends MessageCracker implements Application {
 
 		try {
 			printMessage("toApp", sessionId, message);
-			 crack(message, sessionId);
+//			 crack(message, sessionId);
 			// printMessage("toApp-Output", sessionId, message);
 		} catch (FieldNotFound e1) {
 			// TODO Auto-generated catch block
@@ -233,7 +231,7 @@ public class Adapters extends MessageCracker implements Application {
 			printMessage("MENSAJE R_PRIMA ", sessionId, message);
 			
 			try {
-				 Thread.sleep(15000);
+				Thread.sleep(5000);
 				this.inicio.initiation();
 				autoEngine.setLogin(this.inicio);
 				autoEngine.validarR(sessionId, message);
@@ -296,6 +294,7 @@ public class Adapters extends MessageCracker implements Application {
 			printMessage("MENSAJE Q PARA SESSION 1 ", sessionId, message);
 
 			try {
+				Thread.sleep(5000);
 				this.inicio.initiation();
 				autoEngine.setLogin(this.inicio);
 				autoEngine.validarS(sessionId, message);
@@ -445,8 +444,8 @@ public class Adapters extends MessageCracker implements Application {
 	
 
 	public static void printMessage(String typeMsg, SessionID sID, Message msg) throws FieldNotFound {
-		System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sID + "\nMENSAJE :"
-				+ msg + "\n----------------------------");
+		System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sID /* + "\nMENSAJE :"
+				+ msg + "\n----------------------------"*/);
 
 	}
 

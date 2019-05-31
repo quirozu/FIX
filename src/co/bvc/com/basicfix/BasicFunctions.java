@@ -13,6 +13,10 @@ import quickfix.SocketInitiator;
 
 public class BasicFunctions {
 	
+	
+	private static int IdCaseSeg;
+	
+	
 	public static boolean logon(SessionID sessionID) {
 		boolean sLogon = false;
 		
@@ -39,5 +43,13 @@ public class BasicFunctions {
 			System.out.println("Error de conexi�n."+e.getMessage());
 			return null;
 		} 	
+	}
+
+	public static int getIdCaseSeg() {
+		return IdCaseSeg;
+	}
+
+	public static void setIdCaseSeg(int idCaseSeg) {
+		IdCaseSeg = idCaseSeg;
 	}
 }
