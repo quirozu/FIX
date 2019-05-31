@@ -182,10 +182,11 @@ public class CreateMessage {
 	 * @param symbol
 	 * @param strVUT
 	 * @throws SessionNotFound
+	 * @throws InterruptedException 
 	 */
 
 	public RespuestaConstrucccionMsgFIX createS(int idCaseseq, ResultSet resultset, String idQuoteRedId)
-			throws SessionNotFound, SQLException {
+			throws SessionNotFound, SQLException, InterruptedException {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
 
@@ -236,7 +237,6 @@ public class CreateMessage {
 				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
 				parte.set(new PartyIDSource('C'));
 				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
-
 				quote.addGroup(parte);
 			}
 
@@ -251,8 +251,8 @@ public class CreateMessage {
 
 			respuestaMessage.setListSessiones(list);
 			respuestaMessage.setMessage(quote);
-			Session.sendToTarget(respuestaMessage.getMessage(), Login.getSessionID2());
 			
+			Thread.sleep(5000);
 			return respuestaMessage;
 
 		} catch (SQLException e) {
@@ -265,7 +265,7 @@ public class CreateMessage {
 
 
 
-	public static RespuestaConstrucccionMsgFIX createAJ(ResultSet resultset, String strQuoteId) throws SessionNotFound {
+	public static RespuestaConstrucccionMsgFIX createAJ(ResultSet resultset, String strQuoteId) throws SessionNotFound, SQLException {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
 		
@@ -274,11 +274,15 @@ public class CreateMessage {
 //		String queryMessageAJ = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_ESCENARIO = 'FIX_AJ' AND ID_CASE = 1";
 		
 //		ResultSet resultset;
-		try {
+//		try {
 //			resultset = DataAccess.getQuery(queryMessageAJ);
+		
+//		for (int i=1; i<3; i++) {
+			
+			System.out.println("\n ********************INGRESA A CREAR AJ *********************** \n");
 //			while (resultset.next()) {
 				//QuoteRespID quoteRespID = new QuoteRespID(resultset.getString("ID_CASESEQ"));
-				QuoteRespID quoteRespID = new QuoteRespID(strQuoteId.substring(1,8));
+				QuoteRespID quoteRespID = new QuoteRespID(strQuoteId.substring(1, 8));
 				QuoteRespType qouteRespType = new QuoteRespType(resultset.getInt("RQ_QUORESPTYPE"));
 				QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
 				
@@ -286,12 +290,15 @@ public class CreateMessage {
 
 				Header header = (Header) quoteResponse.getHeader();
 				header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
-
+				System.out.println("\n ********************INGRESA A CREAR AJ *********************** \n");
 				quoteResponse.setField(new QuoteID(strQuoteId));
 //				quoteResponse.setField(new StringField(49, resultset.getString("ID_AFILIADO")));
 				quoteResponse.setField(new StringField(54, resultset.getString("RQ_SIDE")));
 				quoteResponse.setField(new Symbol(resultset.getString("RQ_SYMBOL")));
+				System.out.println("\n ********************INGRESA A CREAR AJ *********************** \n");
 				quoteResponse.setField(new StringField(762, resultset.getString("RQ_SECSUBTYPE")));
+				
+				System.out.println("\n ********************INGRESA A CREAR AJ *********************** \n");
 //				quoteResponse.setField(new StringField(50, resultset.getString("RQ_TRADER")));
 //				quoteResponse.setField(new StringField(54, resultset.getString("RQ_RELATEDID")));//?????
 //				quoteResponse.setField(new StringField(694, resultset.getString("RQ_NORELATEDSYM")));
@@ -302,22 +309,30 @@ public class CreateMessage {
 				respuestaMessage.setMessage(quoteResponse);
 				
 				List<String> list = new ArrayList<String>();
+				
 				list.add("001");
 				list.add("002");
-				
+//				if(i==1) {
+//				list.add("001");
+//				}else {
+//				list.add("002");
+//				}
 				respuestaMessage.setListSessiones(list);
 				
-				//Session.sendToTarget(respuestaMessage.getMessage(), inicio.getSessionID1());
+				System.out.println("*************************\n " + respuestaMessage);
+//				Session.sendToTarget(respuestaMessage.getMessage(), inicio.getSessionID1());
 				
-				return respuestaMessage;
+				
 //				return quoteResponse;
 //			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		return respuestaMessage;
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
-		return null;
+//		return null;
 	}
 	
 	public Message createZ(final SessionID sessionId, final String strQuoteId) throws SessionNotFound {
