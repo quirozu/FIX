@@ -12,7 +12,16 @@ import quickfix.SessionSettings;
 import quickfix.SocketInitiator;
 
 public class BasicFunctions {
+	private static int IdCaseSeg;
 	
+	public static int getIdCaseSeg() {
+		return IdCaseSeg;
+	}
+
+	public static void setIdCaseSeg(int idCaseSeg) {
+		IdCaseSeg = idCaseSeg;
+	}
+
 	public static boolean logon(SessionID sessionID) {
 		boolean sLogon = false;
 		

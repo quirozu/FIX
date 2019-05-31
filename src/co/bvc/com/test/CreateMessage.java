@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.bvc.com.basicfix.BasicFunctions;
 import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
@@ -190,9 +191,9 @@ public class CreateMessage {
 
 		String queryParties = "SELECT linea.ID_ESCENARIO, partes.RQ_PARTYID, partes.RQ_PARTYIDSOURCE, partes.RQ_PARTYROLE, partes.RECEIVER_SESSION\r\n"
 				+ "FROM aut_fix_rfq_datos linea INNER JOIN aut_fix_rfqparty_datos partes\r\n"
-				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ =" + idCaseseq;
+				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ =" + BasicFunctions.getIdCaseSeg();
 		// -------------------
-
+		System.out.println("Esta es la consulta +++++++\n"+queryParties);
 //		ResultSet resultset;
 		ResultSet resultSetParties;
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000)); 
@@ -268,20 +269,20 @@ public class CreateMessage {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
 		
-		Login inicio = new Login();
+//		Login inicio = new Login();
 		
 //		String queryMessageAJ = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_ESCENARIO = 'FIX_AJ' AND ID_CASE = 1";
 		
 //		ResultSet resultset;
 		try {
 //			resultset = DataAccess.getQuery(queryMessageAJ);
-			while (resultset.next()) {
+//			while (resultset.next()) {
 				//QuoteRespID quoteRespID = new QuoteRespID(resultset.getString("ID_CASESEQ"));
-//				QuoteRespID quoteRespID = new QuoteRespID();
-//				QuoteRespType qouteRespType = new QuoteRespType(1);
-//				QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
+				QuoteRespID quoteRespID = new QuoteRespID(strQuoteId.substring(1,8));
+				QuoteRespType qouteRespType = new QuoteRespType(resultset.getInt("RQ_QUORESPTYPE"));
+				QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
 				
-				QuoteResponse quoteResponse = new QuoteResponse();
+//				QuoteResponse quoteResponse = new QuoteResponse();
 
 				Header header = (Header) quoteResponse.getHeader();
 				header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
@@ -296,7 +297,7 @@ public class CreateMessage {
 //				quoteResponse.setField(new StringField(694, resultset.getString("RQ_NORELATEDSYM")));
 
 
-				System.out.println("NOS Message Sent : " + quoteResponse);
+				System.out.println("MENSAJE AJ CONSTUIDO " + quoteResponse);
 				
 				respuestaMessage.setMessage(quoteResponse);
 				
@@ -306,11 +307,11 @@ public class CreateMessage {
 				
 				respuestaMessage.setListSessiones(list);
 				
-				Session.sendToTarget(respuestaMessage.getMessage(), inicio.getSessionID1());
+				//Session.sendToTarget(respuestaMessage.getMessage(), inicio.getSessionID1());
 				
 				return respuestaMessage;
 //				return quoteResponse;
-			}
+//			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

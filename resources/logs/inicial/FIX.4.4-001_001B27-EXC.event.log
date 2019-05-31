@@ -31834,3 +31834,1330 @@ java.lang.NullPointerException
 20190530-21:10:49: Received logon
 20190530-21:10:56: MINA session created: local=/172.16.0.229:53615, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
 >>>>>>> aa9ba6235cc81bf1b572dcd3aac663890d54f431
+20190530-21:57:09: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-21:57:09: Created session: FIX.4.4:001/001B27->EXC
+20190530-21:57:09: Configured socket addresses for session: [/172.36.2.13:54401]
+20190530-21:57:09: MINA session created: local=/172.16.1.110:54320, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190530-21:57:10: Initiated logon request
+20190530-21:57:11: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-21:57:11: Received logon
+20190530-22:09:02: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-22:09:02: Created session: FIX.4.4:001/001B27->EXC
+20190530-22:09:03: Configured socket addresses for session: [/172.36.2.13:54401]
+20190530-22:09:03: MINA session created: local=/172.16.1.110:54837, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190530-22:09:04: Initiated logon request
+20190530-22:09:04: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-22:09:04: Received logon
+20190530-22:22:29: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-22:22:29: Created session: FIX.4.4:001/001B27->EXC
+20190530-22:22:29: Configured socket addresses for session: [/172.36.2.13:54401]
+20190530-22:22:30: MINA session created: local=/172.16.1.110:55453, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190530-22:22:31: Initiated logon request
+20190530-22:22:31: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-22:22:31: Received logon
+20190530-22:37:19: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-22:37:19: Created session: FIX.4.4:001/001B27->EXC
+20190530-22:37:19: Configured socket addresses for session: [/172.36.2.13:54401]
+20190530-22:37:19: MINA session created: local=/172.16.1.110:55820, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190530-22:37:20: Initiated logon request
+20190530-22:37:20: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-22:37:20: Received logon
+20190530-22:47:16: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190530-22:47:16: Created session: FIX.4.4:001/001B27->EXC
+20190530-22:47:17: Configured socket addresses for session: [/172.36.2.13:54401]
+20190530-22:47:17: MINA session created: local=/172.16.1.110:56108, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190530-22:47:18: Initiated logon request
+20190530-22:47:18: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190530-22:47:18: Received logon
+20190531-13:28:43: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-13:28:43: Session state is not current; resetting FIX.4.4:001/001B27->EXC
+20190531-13:28:43: Created session: FIX.4.4:001/001B27->EXC
+20190531-13:28:43: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-13:28:43: MINA session created: local=/172.16.1.110:61178, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-13:28:44: Initiated logon request
+20190531-13:28:44: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-13:28:44: Received logon
+20190531-14:00:38: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-14:00:38: Created session: FIX.4.4:001/001B27->EXC
+20190531-14:00:38: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-14:00:39: MINA session created: local=/172.16.1.110:51274, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-14:00:40: Initiated logon request
+20190531-14:00:40: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-14:00:40: Received logon
+20190531-14:32:21: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-14:32:21: Created session: FIX.4.4:001/001B27->EXC
+20190531-14:32:21: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-14:32:22: MINA session created: local=/172.16.1.110:52062, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-14:32:23: Initiated logon request
+20190531-14:32:23: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-14:32:23: Received logon
+20190531-14:40:34: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-14:40:34: Created session: FIX.4.4:001/001B27->EXC
+20190531-14:40:34: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-14:40:34: MINA session created: local=/172.16.1.110:52183, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-14:40:35: Initiated logon request
+20190531-14:40:35: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-14:40:35: Received logon
+20190531-14:42:27: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-14:42:27: Created session: FIX.4.4:001/001B27->EXC
+20190531-14:42:28: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-14:42:28: MINA session created: local=/172.16.1.110:52220, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-14:42:29: Initiated logon request
+20190531-14:42:29: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-14:42:29: Received logon
+20190531-14:47:38: Disconnecting: Encountered END_OF_STREAM
+20190531-14:47:40: MINA session created: local=/172.16.1.110:52315, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-14:47:40: Initiated logon request
+20190531-14:47:50: Disconnecting: Timed out waiting for logon response
+20190531-14:49:03: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-14:49:03: Created session: FIX.4.4:001/001B27->EXC
+20190531-14:49:03: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-14:49:03: MINA session created: local=/172.16.1.110:52392, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-14:49:04: Initiated logon request
+20190531-14:49:04: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-14:49:04: Received logon
+20190531-14:55:50: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-14:55:50: Created session: FIX.4.4:001/001B27->EXC
+20190531-14:55:50: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-14:55:50: MINA session created: local=/172.16.1.110:52494, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-14:55:51: Initiated logon request
+20190531-14:55:51: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-14:55:51: Received logon
+20190531-15:03:15: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-15:03:15: Created session: FIX.4.4:001/001B27->EXC
+20190531-15:03:15: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-15:03:15: MINA session created: local=/172.16.1.110:52581, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:03:16: Initiated logon request
+20190531-15:03:16: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-15:03:16: Received logon
+20190531-15:10:58: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-15:10:58: Created session: FIX.4.4:001/001B27->EXC
+20190531-15:10:58: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-15:10:58: MINA session created: local=/172.16.1.110:52822, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:10:59: Initiated logon request
+20190531-15:10:59: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-15:10:59: Received logon
+20190531-15:12:53: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-15:12:53: Created session: FIX.4.4:001/001B27->EXC
+20190531-15:12:53: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-15:12:53: MINA session created: local=/172.16.1.110:52905, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:12:54: Initiated logon request
+20190531-15:12:54: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-15:12:54: Received logon
+20190531-15:13:43: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:205)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:408)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:330)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:293)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:205)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:408)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:330)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:293)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190531-15:13:57: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=4935=034=449=EXC52=20190531-15:13:56.00056=00110=071
+20190531-15:13:57: Enqueued at pos 4: 8=FIX.4.49=4935=034=449=EXC52=20190531-15:13:56.00056=00110=071
+20190531-15:13:57: Sent ResendRequest FROM: 3 TO: 3
+20190531-15:13:58: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-15:13:59: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarSPrima(Validaciones.java:268)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:320)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:293)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarSPrima(Validaciones.java:268)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:320)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:293)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190531-15:13:59: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=6535=434=443=Y49=EXC52=20190531-15:13:57.21256=00136=5123=Y10=086
+20190531-15:13:59: Enqueued at pos 4: 8=FIX.4.49=6535=434=443=Y49=EXC52=20190531-15:13:57.21256=00136=5123=Y10=086
+20190531-15:13:59: Sent ResendRequest FROM: 3 TO: 3
+20190531-15:13:59: Received SequenceReset FROM: 3 TO: 6
+20190531-15:13:59: Received SequenceReset FROM: 6 TO: 7
+20190531-15:14:29: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-15:37:15: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-15:37:15: Created session: FIX.4.4:001/001B27->EXC
+20190531-15:37:15: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-15:37:15: MINA session created: local=/172.16.1.110:53527, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:37:16: Initiated logon request
+20190531-15:37:16: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-15:37:16: Received logon
+20190531-15:37:42: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:205)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:408)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:330)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:293)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:205)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:408)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:330)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:293)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190531-15:38:02: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=4935=034=449=EXC52=20190531-15:38:03.00056=00110=070
+20190531-15:38:02: Enqueued at pos 4: 8=FIX.4.49=4935=034=449=EXC52=20190531-15:38:03.00056=00110=070
+20190531-15:38:02: Sent ResendRequest FROM: 3 TO: 3
+20190531-15:38:02: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-15:38:02: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarSPrima(Validaciones.java:268)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:320)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:293)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarSPrima(Validaciones.java:268)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:320)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:293)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190531-15:38:02: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=6535=434=443=Y49=EXC52=20190531-15:38:03.05356=00136=5123=Y10=087
+20190531-15:38:02: Enqueued at pos 4: 8=FIX.4.49=6535=434=443=Y49=EXC52=20190531-15:38:03.05356=00136=5123=Y10=087
+20190531-15:38:02: Sent ResendRequest FROM: 3 TO: 3
+20190531-15:38:02: Received SequenceReset FROM: 3 TO: 6
+20190531-15:38:02: Received SequenceReset FROM: 6 TO: 7
+20190531-15:38:32: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-15:42:02: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-15:42:02: Created session: FIX.4.4:001/001B27->EXC
+20190531-15:42:03: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-15:42:03: MINA session created: local=/172.16.1.110:53807, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:42:05: Initiated logon request
+20190531-15:42:05: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-15:42:05: Received logon
+20190531-15:42:15: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-15:42:15: Created session: FIX.4.4:001/001B27->EXC
+20190531-15:42:15: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-15:42:15: MINA session created: local=/172.16.1.110:53845, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:42:16: Initiated logon request
+20190531-15:42:16: Disconnecting: Encountered END_OF_STREAM
+20190531-15:42:16: Received logon
+20190531-15:42:31: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-15:42:31: Created session: FIX.4.4:001/001B27->EXC
+20190531-15:42:31: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-15:42:32: MINA session created: local=/172.16.1.110:53909, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:42:33: Initiated logon request
+20190531-15:42:33: Received logon
+20190531-15:42:46: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:205)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:408)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:330)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:294)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:205)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:408)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:330)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:294)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190531-15:42:46: Disconnecting: Encountered END_OF_STREAM
+20190531-15:43:02: MsgSeqNum too high, expecting 5 but received 6: 8=FIX.4.49=4935=034=649=EXC52=20190531-15:43:03.00056=00110=068
+20190531-15:43:02: Enqueued at pos 6: 8=FIX.4.49=4935=034=649=EXC52=20190531-15:43:03.00056=00110=068
+20190531-15:43:02: Sent ResendRequest FROM: 5 TO: 5
+20190531-15:43:02: ResendRequest for messages FROM 5 TO 5 has been satisfied.
+20190531-15:43:02: Received SequenceReset FROM: 5 TO: 7
+20190531-15:43:02: Received SequenceReset FROM: 7 TO: 8
+20190531-15:43:03: MINA session created: local=/172.16.1.110:53979, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:43:05: Initiated logon request
+20190531-15:43:05: Disconnecting: Encountered END_OF_STREAM
+20190531-15:43:05: Received logon
+20190531-15:43:15: MINA session created: local=/172.16.1.110:54011, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:43:17: Initiated logon request
+20190531-15:43:17: 20190531-15:43:17Disconnecting: Encountered END_OF_STREAM: 
+Received logon
+20190531-15:43:32: MINA session created: local=/172.16.1.110:54047, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:43:33: Initiated logon request
+20190531-15:43:3420190531-15:43:34: Disconnecting: Encountered END_OF_STREAM
+: Received logon
+20190531-15:44:04: MINA session created: local=/172.16.1.110:54089, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:44:06: Initiated logon request
+20190531-15:44:06: Disconnecting: Encountered END_OF_STREAM
+20190531-15:44:06: Received logon
+20190531-15:44:16: MINA session created: local=/172.16.1.110:54120, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:44:18: Initiated logon request
+20190531-15:44:18: Disconnecting: Encountered END_OF_STREAM
+20190531-15:44:18: Received logon
+20190531-15:44:33: MINA session created: local=/172.16.1.110:54155, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-15:44:34: Initiated logon request
+20190531-15:44:35: Disconnecting: Encountered END_OF_STREAM
+20190531-15:44:35: Received logon
+20190531-16:20:11: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:20:11: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:20:11: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:20:11: MINA session created: local=/172.16.1.110:55083, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:20:12: Initiated logon request
+20190531-16:20:12: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-16:20:12: Received logon
+20190531-16:20:23: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:20:23: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:20:23: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:20:23: MINA session created: local=/172.16.1.110:55123, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:20:24: Initiated logon request
+20190531-16:20:24: Disconnecting: Encountered END_OF_STREAM
+20190531-16:20:24: Received logon
+20190531-16:20:48: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:234)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:408)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:330)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:280)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:234)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:408)
+	at co.bvc.com.orquestador.AutoEngine.validarS(AutoEngine.java:330)
+	at co.bvc.com.test.Adapters.fromApp(Adapters.java:280)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190531-16:21:04: MsgSeqNum too high, expecting 4 but received 5: 8=FIX.4.49=4935=034=549=EXC52=20190531-16:21:04.00056=00110=065
+20190531-16:21:04: Enqueued at pos 5: 8=FIX.4.49=4935=034=549=EXC52=20190531-16:21:04.00056=00110=065
+20190531-16:21:04: Sent ResendRequest FROM: 4 TO: 4
+20190531-16:21:04: ResendRequest for messages FROM 4 TO 4 has been satisfied.
+20190531-16:21:09: Processing queued message: 5
+20190531-16:21:09: Received SequenceReset FROM: 6 TO: 7
+20190531-16:21:12: MINA session created: local=/172.16.1.110:55175, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:21:13: Initiated logon request
+20190531-16:21:13: Disconnecting: Encountered END_OF_STREAM
+20190531-16:21:13: Received logon
+20190531-16:21:23: MINA session created: local=/172.16.1.110:55203, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:21:25: Initiated logon request
+20190531-16:21:25: Disconnecting: Encountered END_OF_STREAM
+20190531-16:21:25: Received logon
+20190531-16:22:12: MINA session created: local=/172.16.1.110:55327, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:22:14: Initiated logon request
+20190531-16:22:14: Disconnecting: Encountered END_OF_STREAM
+20190531-16:22:14: Received logon
+20190531-16:25:26: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:25:26: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:25:26: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:25:26: MINA session created: local=/172.16.1.110:55567, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:25:27: Initiated logon request
+20190531-16:25:27: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-16:25:27: Received logon
+20190531-16:25:38: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:25:38: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:25:38: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:25:38: MINA session created: local=/172.16.1.110:55593, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:25:39: Initiated logon request
+20190531-16:25:39: Disconnecting: Encountered END_OF_STREAM
+20190531-16:25:39: Received logon
+20190531-16:25:55: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:25:55: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:25:55: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:25:55: MINA session created: local=/172.16.1.110:54848, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:25:56: Initiated logon request
+20190531-16:25:56: Received logon
+20190531-16:27:36: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:27:36: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:27:36: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:27:36: MINA session created: local=/172.16.1.110:54915, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:27:37: Initiated logon request
+20190531-16:27:37: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-16:27:37: Received logon
+20190531-16:27:50: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:27:50: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:27:50: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:27:50: MINA session created: local=/172.16.1.110:54945, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:27:51: Initiated logon request
+20190531-16:27:51: Disconnecting: Encountered END_OF_STREAM
+20190531-16:27:51: Received logon
+20190531-16:28:15: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:28:15: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:28:15: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:28:15: MINA session created: local=/172.16.1.110:54996, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:28:16: Initiated logon request
+20190531-16:28:16: Received logon
+20190531-16:28:35: Disconnecting: Encountered END_OF_STREAM
+20190531-16:28:36: MsgSeqNum too high, expecting 5 but received 6: 8=FIX.4.49=50535=834=649=EXC52=20190531-16:28:35.91656=00157=001B276=79.31211=019053114=50000000017=122=M31=79.31232=50000000037=038=50000000039=248=2062654=155=TFIC1328042560=20190531-16:28:35.91663=164=2019053175=20190531150=F151=0381=396561000.000762=RFQF828=99880=2019053100000000011080=20190531-000000000044.001081=51623=4.00020102=79.312453=6448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=37448=002447=C452=17448=001FCM001447=C452=36448=DCV447=C452=1010=207
+20190531-16:28:36: Enqueued at pos 6: 8=FIX.4.49=50535=834=649=EXC52=20190531-16:28:35.91656=00157=001B276=79.31211=019053114=50000000017=122=M31=79.31232=50000000037=038=50000000039=248=2062654=155=TFIC1328042560=20190531-16:28:35.91663=164=2019053175=20190531150=F151=0381=396561000.000762=RFQF828=99880=2019053100000000011080=20190531-000000000044.001081=51623=4.00020102=79.312453=6448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=37448=002447=C452=17448=001FCM001447=C452=36448=DCV447=C452=1010=207
+20190531-16:28:36: Sent ResendRequest FROM: 5 TO: 5
+20190531-16:28:36: ResendRequest for messages FROM 5 TO 5 has been satisfied.
+20190531-16:28:36: Received SequenceReset FROM: 5 TO: 6
+20190531-16:28:36: Processing queued message: 6
+20190531-16:28:36: Received SequenceReset FROM: 7 TO: 8
+20190531-16:28:37: MINA session created: local=/172.16.1.110:55049, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:28:38: Initiated logon request
+20190531-16:28:38: Disconnecting: Encountered END_OF_STREAM
+20190531-16:28:38: Received logon
+20190531-16:28:51: MINA session created: local=/172.16.1.110:55082, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:28:52: Initiated logon request
+20190531-16:28:52: Disconnecting: Encountered END_OF_STREAM
+20190531-16:28:52: Received logon
+20190531-16:29:16: MINA session created: local=/172.16.1.110:55104, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:29:17: Initiated logon request
+20190531-16:29:17: Disconnecting: Encountered END_OF_STREAM
+20190531-16:29:17: Received logon
+20190531-16:32:11: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:32:11: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:32:11: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:32:11: MINA session created: local=/172.16.1.110:55186, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:32:12: Initiated logon request
+20190531-16:32:12: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-16:32:12: Received logon
+20190531-16:32:26: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:32:26: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:32:26: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:32:26: MINA session created: local=/172.16.1.110:55212, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:32:27: Initiated logon request
+20190531-16:32:27: Disconnecting: Encountered END_OF_STREAM
+20190531-16:32:27: Received logon
+20190531-16:32:53: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:32:53: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:32:53: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:32:53: MINA session created: local=/172.16.1.110:55270, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:32:54: Initiated logon request
+20190531-16:32:54: Received logon
+20190531-16:33:12: MINA session created: local=/172.16.1.110:55309, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:33:12: Disconnecting: Encountered END_OF_STREAM
+20190531-16:33:13: Initiated logon request
+20190531-16:33:13: Disconnecting: Encountered END_OF_STREAM
+20190531-16:33:13: Received logon
+20190531-16:33:26: MINA session created: local=/172.16.1.110:55351, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:33:28: Initiated logon request
+20190531-16:33:28: Disconnecting: Encountered END_OF_STREAM
+20190531-16:33:28: Received logon
+20190531-16:39:31: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:39:31: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:39:32: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:39:32: MINA session created: local=/172.16.1.110:55458, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:39:33: Initiated logon request
+20190531-16:39:33: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-16:39:33: Received logon
+20190531-16:39:38: Reject sent for Message 2: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 3: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 4: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 5: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 6: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 7: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 8: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 9: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 10: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 11: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 12: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 13: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 14: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 15: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 16: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 17: Conditionally Required Field Missing: tag=117
+20190531-16:39:38: Reject sent for Message 18: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 19: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 20: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 21: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 22: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 23: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 24: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 25: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 26: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 27: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 28: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 29: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 30: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 31: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 32: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 33: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 34: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 35: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 36: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 37: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 38: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 39: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 40: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 41: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 42: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 43: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 44: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 45: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 46: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 47: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 48: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 49: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 50: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 51: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 52: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 53: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 54: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 55: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 56: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 57: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 58: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 59: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 60: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 61: Conditionally Required Field Missing: tag=117
+20190531-16:39:39: Reject sent for Message 62: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 63: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 64: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 65: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 66: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 67: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 68: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 69: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 70: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 71: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 72: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 73: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 74: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 75: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 76: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 77: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 78: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 79: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 80: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 81: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 82: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 83: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 84: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 85: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 86: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 87: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 88: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 89: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 90: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 91: Conditionally Required Field Missing: tag=117
+20190531-16:39:40: Reject sent for Message 92: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 93: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 94: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 95: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 96: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 97: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 98: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 99: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 100: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 101: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 102: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 103: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 104: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 105: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 106: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 107: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 108: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 109: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 110: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 111: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 112: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 113: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 114: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 115: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 116: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 117: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 118: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 119: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 120: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 121: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 122: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 123: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 124: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 125: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 126: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 127: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 128: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 129: Conditionally Required Field Missing: tag=117
+20190531-16:39:41: Reject sent for Message 130: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 131: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 132: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 133: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 134: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 135: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 136: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 137: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 138: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 139: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 140: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 141: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 142: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 143: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 144: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 145: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 146: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 147: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 148: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 149: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 150: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 151: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 152: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 153: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 154: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 155: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 156: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 157: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 158: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 159: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 160: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 161: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 162: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 163: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 164: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 165: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 166: Conditionally Required Field Missing: tag=117
+20190531-16:39:42: Reject sent for Message 167: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 168: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 169: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 170: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 171: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 172: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 173: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 174: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 175: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 176: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 177: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 178: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 179: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 180: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 181: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 182: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 183: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 184: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 185: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 186: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 187: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 188: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 189: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 190: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 191: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 192: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 193: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 194: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 195: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 196: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 197: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 198: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 199: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 200: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 201: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 202: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 203: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 204: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 205: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 206: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 207: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 208: Conditionally Required Field Missing: tag=117
+20190531-16:39:43: Reject sent for Message 209: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 210: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 211: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 212: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 213: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 214: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 215: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 216: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 217: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 218: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 219: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 220: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 221: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 222: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 223: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 224: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 225: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 226: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 227: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 228: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 229: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 230: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 231: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 232: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 233: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 234: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 235: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 236: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 237: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 238: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 239: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 240: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 241: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 242: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 243: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 244: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 245: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 246: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 247: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 248: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 249: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 250: Conditionally Required Field Missing: tag=117
+20190531-16:39:44: Reject sent for Message 251: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 252: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 253: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 254: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 255: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 256: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 257: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 258: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 259: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 260: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 261: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 262: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 263: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 264: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 265: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 266: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 267: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 268: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 269: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 270: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 271: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 272: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 273: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 274: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 275: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 276: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 277: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 278: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 279: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 280: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 281: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 282: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 283: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 284: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 285: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 286: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 287: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 288: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 289: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 290: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 291: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 292: Conditionally Required Field Missing: tag=117
+20190531-16:39:45: Reject sent for Message 293: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 294: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 295: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 296: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 297: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 298: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 299: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 300: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 301: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 302: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 303: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 304: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 305: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 306: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 307: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 308: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 309: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 310: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 311: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 312: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 313: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 314: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 315: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 316: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 317: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 318: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 319: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 320: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 321: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:39:46: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:39:46: Reject sent for Message 322: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:39:46: Reject sent for Message 323: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: MINA session created: local=/172.16.1.110:55486, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:39:46: Reject sent for Message 324: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 325: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 326: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 327: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 328: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 329: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 330: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 331: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 332: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 333: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 334: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 335: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 336: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 337: Conditionally Required Field Missing: tag=117
+20190531-16:39:46: Reject sent for Message 338: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 339: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 340: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 341: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 342: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 343: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 344: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 345: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 346: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 347: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 348: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 349: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 350: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 351: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 352: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 353: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 354: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 355: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 356: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 357: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 358: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 359: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 360: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 361: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 362: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 363: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Reject sent for Message 364: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Initiated logon request
+20190531-16:39:47: Reject sent for Message 365: Conditionally Required Field Missing: tag=117
+20190531-16:39:47: Disconnecting: Encountered END_OF_STREAM
+20190531-16:39:58: Disconnecting: Timed out waiting for logon response
+20190531-16:42:38: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:42:38: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:42:38: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:42:38: MINA session created: local=/172.16.1.110:55623, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:42:40: Initiated logon request
+20190531-16:42:40: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-16:42:40: Received logon
+20190531-16:42:45: Reject sent for Message 2: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 3: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 4: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 5: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 6: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 7: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 8: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 9: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 10: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 11: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 12: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 13: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 14: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 15: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 16: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 17: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 18: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 19: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 20: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 21: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 22: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 23: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 24: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 25: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 26: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 27: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 28: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 29: Conditionally Required Field Missing: tag=117
+20190531-16:42:45: Reject sent for Message 30: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 31: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 32: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 33: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 34: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 35: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 36: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 37: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 38: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 39: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 40: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 41: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 42: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 43: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 44: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 45: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 46: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 47: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 48: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 49: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 50: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 51: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 52: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 53: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 54: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 55: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 56: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 57: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 58: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 59: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 60: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 61: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 62: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 63: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 64: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 65: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 66: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 67: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 68: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 69: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 70: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 71: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 72: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 73: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 74: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 75: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 76: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 77: Conditionally Required Field Missing: tag=117
+20190531-16:42:46: Reject sent for Message 78: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 79: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 80: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 81: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 82: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 83: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 84: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 85: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 86: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 87: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 88: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 89: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 90: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 91: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 92: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 93: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 94: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 95: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 96: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 97: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 98: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 99: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 100: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 101: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 102: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 103: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 104: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 105: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 106: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 107: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 108: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 109: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 110: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 111: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 112: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 113: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 114: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 115: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 116: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 117: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 118: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 119: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 120: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 121: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 122: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 123: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 124: Conditionally Required Field Missing: tag=117
+20190531-16:42:47: Reject sent for Message 125: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 126: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 127: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 128: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 129: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 130: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 131: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 132: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 133: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 134: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 135: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 136: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 137: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 138: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 139: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 140: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 141: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 142: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 143: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 144: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 145: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 146: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 147: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 148: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 149: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 150: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 151: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 152: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 153: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 154: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 155: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 156: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 157: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 158: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 159: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 160: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 161: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 162: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 163: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 164: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 165: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 166: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 167: Conditionally Required Field Missing: tag=117
+20190531-16:42:48: Reject sent for Message 168: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 169: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 170: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 171: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 172: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 173: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 174: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 175: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 176: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 177: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 178: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 179: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 180: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 181: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 182: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 183: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 184: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 185: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 186: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 187: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 188: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 189: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 190: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 191: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 192: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 193: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 194: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 195: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 196: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 197: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 198: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 199: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 200: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 201: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 202: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 203: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 204: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 205: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 206: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 207: Conditionally Required Field Missing: tag=117
+20190531-16:42:49: Reject sent for Message 208: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 209: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 210: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 211: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 212: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 213: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 214: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 215: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 216: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 217: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 218: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 219: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 220: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 221: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 222: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 223: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 224: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 225: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 226: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 227: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 228: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 229: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 230: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 231: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 232: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 233: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 234: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 235: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 236: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 237: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 238: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 239: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 240: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 241: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 242: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 243: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 244: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 245: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 246: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 247: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 248: Conditionally Required Field Missing: tag=117
+20190531-16:42:50: Reject sent for Message 249: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 250: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 251: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 252: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 253: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 254: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 255: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 256: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 257: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 258: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 259: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 260: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 261: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 262: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 263: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 264: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 265: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 266: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 267: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 268: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 269: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 270: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 271: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 272: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 273: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 274: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 275: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 276: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 277: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 278: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 279: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 280: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 281: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 282: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 283: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 284: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 285: Conditionally Required Field Missing: tag=117
+20190531-16:42:51: Reject sent for Message 286: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 287: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 288: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 289: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 290: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 291: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 292: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 293: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 294: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 295: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 296: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 297: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 298: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 299: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 300: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 301: Conditionally Required Field Missing: tag=117
+20190531-16:42:52: Reject sent for Message 302: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 303: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 304: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 305: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 306: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 307: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 308: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:42:53: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:42:53: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:42:53: Reject sent for Message 309: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: MINA session created: local=/172.16.1.110:55649, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:42:53: Reject sent for Message 310: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 311: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 312: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 313: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 314: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 315: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 316: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 317: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 318: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 319: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 320: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 321: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 322: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 323: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 324: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 325: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 326: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 327: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 328: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 329: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 330: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 331: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 332: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 333: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 334: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 335: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 336: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 337: Conditionally Required Field Missing: tag=117
+20190531-16:42:53: Reject sent for Message 338: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 339: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 340: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 341: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 342: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 343: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 344: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 345: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 346: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 347: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 348: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 349: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 350: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 351: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 352: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 353: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Reject sent for Message 354: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Initiated logon request
+20190531-16:42:54: Reject sent for Message 355: Conditionally Required Field Missing: tag=117
+20190531-16:42:54: Disconnecting: Encountered END_OF_STREAM
+20190531-16:43:05: Disconnecting: Timed out waiting for logon response
+20190531-16:47:07: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:47:07: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:47:07: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:47:07: MINA session created: local=/172.16.1.110:55743, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:47:08: Initiated logon request
+20190531-16:47:08: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-16:47:08: Received logon
+20190531-16:47:22: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:47:22: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:47:22: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:47:22: MINA session created: local=/172.16.1.110:55774, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:47:23: Initiated logon request
+20190531-16:47:23: Received logon
+20190531-16:47:23: Disconnecting: Encountered END_OF_STREAM
+20190531-16:47:49: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:47:49: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:47:49: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:47:49: MINA session created: local=/172.16.1.110:55826, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:47:50: Initiated logon request
+20190531-16:47:50: Received logon
+20190531-16:50:53: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:50:53: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:50:54: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:50:54: MINA session created: local=/172.16.1.110:55942, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:50:55: Initiated logon request
+20190531-16:50:55: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-16:50:55: Received logon
+20190531-16:51:08: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:51:08: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:51:08: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:51:08: MINA session created: local=/172.16.1.110:55971, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:51:09: Initiated logon request
+20190531-16:51:09: Disconnecting: Encountered END_OF_STREAM
+20190531-16:51:09: Received logon
+20190531-16:51:35: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:51:35: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:51:35: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:51:35: MINA session created: local=/172.16.1.110:56025, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:51:36: Initiated logon request
+20190531-16:51:36: Received logon
+20190531-16:53:13: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:53:13: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:53:13: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:53:14: MINA session created: local=/172.16.1.110:56086, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:53:15: Initiated logon request
+20190531-16:53:15: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-16:53:15: Received logon
+20190531-16:53:28: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:53:28: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:53:28: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:53:29: MINA session created: local=/172.16.1.110:56118, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:53:30: Initiated logon request
+20190531-16:53:30: Disconnecting: Encountered END_OF_STREAM
+20190531-16:53:30: Received logon
+20190531-16:53:56: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-16:53:56: Created session: FIX.4.4:001/001B27->EXC
+20190531-16:53:56: Configured socket addresses for session: [/172.36.2.13:54401]
+20190531-16:53:56: MINA session created: local=/172.16.1.110:56171, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190531-16:53:57: Initiated logon request
+20190531-16:53:57: Received logon

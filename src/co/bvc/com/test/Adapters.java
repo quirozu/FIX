@@ -233,9 +233,9 @@ public class Adapters extends MessageCracker implements Application {
 			printMessage("MENSAJE R_PRIMA ", sessionId, message);
 			
 			try {
-				 Thread.sleep(15000);
-//				this.inicio.initiation();
-//				autoEngine.setLogin(this.inicio);
+				 Thread.sleep(8000);
+				this.inicio.initiation();
+				autoEngine.setLogin(this.inicio);
 				autoEngine.validarR(sessionId, message);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -257,14 +257,6 @@ public class Adapters extends MessageCracker implements Application {
 			
 			printMessage("MENSAJE AI PARA SESSION 1 ", sessionId, message);
 
-//			validar.setCadenaAI(mess);
-//			try {
-//				validar.ValidaR();
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-
 		}
 
 		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
@@ -273,21 +265,7 @@ public class Adapters extends MessageCracker implements Application {
 			printMessage("MENSAJE AI PARA SESSION 2 ", sessionId, message);
 
 			
-//			validar.setCadenaAI(mess);
-//			try {
-//				this.inicio.initiation();
-//				autoEngine.setLogin(this.inicio);
-//				autoEngine.validarS(sessionId, message);
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (SessionNotFound e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+
 
 		}
 
@@ -296,8 +274,9 @@ public class Adapters extends MessageCracker implements Application {
 			printMessage("MENSAJE Q PARA SESSION 1 ", sessionId, message);
 
 			try {
-//				this.inicio.initiation();
-//				autoEngine.setLogin(this.inicio);
+				Thread.sleep(10000);
+				this.inicio.initiation();
+				autoEngine.setLogin(this.inicio);
 				autoEngine.validarS(sessionId, message);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -310,29 +289,9 @@ public class Adapters extends MessageCracker implements Application {
 				e.printStackTrace();
 			}
 		}
-		
-		if (message instanceof QuoteResponse) {
-			
-			printMessage("MENSAJE AJ ", sessionId, message);
-
-//			setIDQuoteFound1(message.getString(117));
-//			System.out.println("ID ESTABLECIDO PARA EL MENSAJE AJ " + getIDQuoteFound1());
-//			String mess = "" + message;
-//
-//			validar.setCadenaSPrima(mess);
-//			try {
-//				validar.ValidarSPrima();
-//			} catch (SQLException | InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//
-//			}
-		}
-
-		crack(message, sessionId);
-
-		//printMessage("fromApp-Output", sessionId, message);
 	}
+		
+
 	
 	
 
@@ -342,8 +301,9 @@ public class Adapters extends MessageCracker implements Application {
 
 			validar.setCadenaOcho(mess);
 			try {
-//				this.inicio.initiation();
-//				autoEngine.setLogin(this.inicio);
+				Thread.sleep(10000);
+				this.inicio.initiation();
+				autoEngine.setLogin(this.inicio);
 				autoEngine.validarAJ(sessionID, message);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -362,8 +322,9 @@ public class Adapters extends MessageCracker implements Application {
 
 			validar.setCadenaOcho(mess);
 			try {
-//				this.inicio.initiation();
-//				autoEngine.setLogin(this.inicio);
+				Thread.sleep(10000);
+				this.inicio.initiation();
+				autoEngine.setLogin(this.inicio);
 				autoEngine.validarAJ(sessionID, message);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
