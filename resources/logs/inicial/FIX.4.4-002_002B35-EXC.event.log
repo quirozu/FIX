@@ -14067,3 +14067,637 @@ java.lang.NullPointerException
 20190531-17:03:20: Initiated logon request
 20190531-17:03:20: Disconnecting: Encountered END_OF_STREAM
 20190531-17:03:20: Received logon
+20190531-19:57:47: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-19:57:47: Created session: FIX.4.4:002/002B35->EXC
+20190531-19:57:47: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-19:57:48: MINA session created: local=/172.16.0.229:64386, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-19:57:48: Initiated logon request
+20190531-19:57:48: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-19:57:48: Received logon
+20190531-19:57:59: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-19:57:59: Created session: FIX.4.4:002/002B35->EXC
+20190531-19:57:59: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-19:57:59: MINA session created: local=/172.16.0.229:64437, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-19:58:00: Initiated logon request
+20190531-19:58:00: Received logon
+20190531-19:58:29: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=4935=034=449=EXC52=20190531-19:58:21.00056=00210=077
+20190531-19:58:29: Enqueued at pos 4: 8=FIX.4.49=4935=034=449=EXC52=20190531-19:58:21.00056=00210=077
+20190531-19:58:29: Sent ResendRequest FROM: 3 TO: 3
+20190531-19:58:29: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-19:58:29: Received SequenceReset FROM: 3 TO: 5
+20190531-19:58:29: Received SequenceReset FROM: 5 TO: 6
+20190531-19:58:39: Sent test request TEST
+20190531-19:58:48: MINA session created: local=/172.16.0.229:64575, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-19:59:06: Disconnecting: Timed out waiting for heartbeat
+20190531-19:59:48: MINA session created: local=/172.16.0.229:64772, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-19:59:48: Initiated logon request
+20190531-19:59:48: Disconnecting: Encountered END_OF_STREAM
+20190531-19:59:48: MINA session created: local=/172.16.0.229:64815, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-19:59:49: Initiated logon request
+20190531-19:59:49: Received logon
+20190531-19:59:59: Disconnecting: Timed out waiting for logon response
+20190531-20:00:18: MsgSeqNum too high, expecting 9 but received 10: 8=FIX.4.49=5035=034=1049=EXC52=20190531-20:00:10.00056=00210=091
+20190531-20:00:18: Enqueued at pos 10: 8=FIX.4.49=5035=034=1049=EXC52=20190531-20:00:10.00056=00210=091
+20190531-20:00:18: Sent ResendRequest FROM: 9 TO: 9
+20190531-20:00:18: ResendRequest for messages FROM 9 TO 9 has been satisfied.
+20190531-20:00:18: Received SequenceReset FROM: 9 TO: 11
+20190531-20:00:18: Received SequenceReset FROM: 11 TO: 12
+20190531-20:00:48: MINA session created: local=/172.16.0.229:65006, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:00:49: Initiated logon request
+20190531-20:00:49: Disconnecting: Encountered END_OF_STREAM
+20190531-20:00:50: MINA session created: local=/172.16.0.229:65051, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:00:50: Initiated logon request
+20190531-20:00:50: Received logon
+20190531-20:01:00: Disconnecting: Timed out waiting for logon response
+20190531-20:01:19: MsgSeqNum too high, expecting 14 but received 15: 8=FIX.4.49=5035=034=1549=EXC52=20190531-20:01:11.00056=00210=098
+20190531-20:01:19: Enqueued at pos 15: 8=FIX.4.49=5035=034=1549=EXC52=20190531-20:01:11.00056=00210=098
+20190531-20:01:19: Sent ResendRequest FROM: 14 TO: 14
+20190531-20:01:19: ResendRequest for messages FROM 14 TO 14 has been satisfied.
+20190531-20:01:19: Received SequenceReset FROM: 14 TO: 16
+20190531-20:01:19: Received SequenceReset FROM: 16 TO: 17
+20190531-20:01:49: MINA session created: local=/172.16.0.229:65235, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:01:49: Initiated logon request
+20190531-20:01:49: Disconnecting: Encountered END_OF_STREAM
+20190531-20:01:50: MINA session created: local=/172.16.0.229:65280, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:01:51: Initiated logon request
+20190531-20:01:51: Received logon
+20190531-20:02:00: Disconnecting: Timed out waiting for logon response
+20190531-20:02:20: MsgSeqNum too high, expecting 19 but received 20: 8=FIX.4.49=5035=034=2049=EXC52=20190531-20:02:12.00056=00210=096
+20190531-20:02:20: Enqueued at pos 20: 8=FIX.4.49=5035=034=2049=EXC52=20190531-20:02:12.00056=00210=096
+20190531-20:02:20: Sent ResendRequest FROM: 19 TO: 19
+20190531-20:02:20: ResendRequest for messages FROM 19 TO 19 has been satisfied.
+20190531-20:02:20: Received SequenceReset FROM: 19 TO: 21
+20190531-20:02:20: Received SequenceReset FROM: 21 TO: 22
+20190531-20:02:49: MINA session created: local=/172.16.0.229:65452, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:02:49: Initiated logon request
+20190531-20:02:49: Disconnecting: Encountered END_OF_STREAM
+20190531-20:02:50: MINA session created: local=/172.16.0.229:65476, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:02:52: Initiated logon request
+20190531-20:02:52: Received logon
+20190531-20:03:00: Disconnecting: Timed out waiting for logon response
+20190531-20:03:11: MsgSeqNum too high, expecting 23 but received 24: 8=FIX.4.49=29435=AI34=2449=EXC52=20190531-20:03:03.28656=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=67179357131=20190531-000000000055.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=024
+20190531-20:03:11: Enqueued at pos 24: 8=FIX.4.49=29435=AI34=2449=EXC52=20190531-20:03:03.28656=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=67179357131=20190531-000000000055.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=024
+20190531-20:03:11: Sent ResendRequest FROM: 23 TO: 23
+20190531-20:03:11: ResendRequest for messages FROM 23 TO 23 has been satisfied.
+20190531-20:03:11: Received SequenceReset FROM: 23 TO: 24
+20190531-20:03:11: Processing queued message: 24
+20190531-20:03:49: MINA session created: local=/172.16.0.229:49301, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:03:50: Initiated logon request
+20190531-20:03:51: MINA session created: local=/172.16.0.229:49305, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:03:57: Sent test request TEST
+20190531-20:04:01: Disconnecting: Timed out waiting for logon response
+20190531-20:04:24: Disconnecting: Timed out waiting for heartbeat
+20190531-20:04:50: MINA session created: local=/172.16.0.229:49496, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:04:51: MINA session created: local=/172.16.0.229:49498, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:04:51: Initiated logon request
+20190531-20:04:51: Initiated logon request
+20190531-20:05:02: Disconnecting: Timed out waiting for logon response
+20190531-20:05:02: Disconnecting: Timed out waiting for logon response
+20190531-20:05:36: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-20:05:36: Created session: FIX.4.4:002/002B35->EXC
+20190531-20:05:36: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-20:05:37: MINA session created: local=/172.16.0.229:49781, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:05:38: Initiated logon request
+20190531-20:05:38: Received logon
+20190531-20:05:51: MINA session created: local=/172.16.0.229:49940, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:05:51: MINA session created: local=/172.16.0.229:49942, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:05:51: Initiated logon request
+20190531-20:05:51: Disconnecting: Encountered END_OF_STREAM
+20190531-20:05:52: Initiated logon request
+20190531-20:06:02: Disconnecting: Timed out waiting for logon response
+20190531-20:06:03: Disconnecting: Timed out waiting for logon response
+20190531-20:06:37: MINA session created: local=/172.16.0.229:50199, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:06:39: Initiated logon request
+20190531-20:06:39: Received logon
+20190531-20:06:51: MINA session created: local=/172.16.0.229:50292, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:06:51: MINA session created: local=/172.16.0.229:50294, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:06:52: Initiated logon request
+20190531-20:06:52: Disconnecting: Encountered END_OF_STREAM
+20190531-20:06:52: Initiated logon request
+20190531-20:07:03: Disconnecting: Timed out waiting for logon response
+20190531-20:07:03: Disconnecting: Timed out waiting for logon response
+20190531-20:07:38: MINA session created: local=/172.16.0.229:50545, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:07:40: Initiated logon request
+20190531-20:07:40: Received logon
+20190531-20:07:52: MINA session created: local=/172.16.0.229:50635, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:07:52: MINA session created: local=/172.16.0.229:50637, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:07:52: Initiated logon request
+20190531-20:07:52: Disconnecting: Encountered END_OF_STREAM
+20190531-20:07:52: Initiated logon request
+20190531-20:08:03: Disconnecting: Timed out waiting for logon response
+20190531-20:08:03: Disconnecting: Timed out waiting for logon response
+20190531-20:08:38: MINA session created: local=/172.16.0.229:50899, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:08:41: Initiated logon request
+20190531-20:08:41: Received logon
+20190531-20:08:52: MINA session created: local=/172.16.0.229:50992, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:08:52: MINA session created: local=/172.16.0.229:50994, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:08:52: Initiated logon request
+20190531-20:08:52: Disconnecting: Encountered END_OF_STREAM
+20190531-20:08:53: Initiated logon request
+20190531-20:09:03: Disconnecting: Timed out waiting for logon response
+20190531-20:09:04: Disconnecting: Timed out waiting for logon response
+20190531-20:09:39: MINA session created: local=/172.16.0.229:51249, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:09:42: Initiated logon request
+20190531-20:09:42: Received logon
+20190531-20:09:53: MINA session created: local=/172.16.0.229:51338, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:09:53: MINA session created: local=/172.16.0.229:51340, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:09:53: Initiated logon request
+20190531-20:09:53: Disconnecting: Encountered END_OF_STREAM
+20190531-20:09:53: Initiated logon request
+20190531-20:10:04: Disconnecting: Timed out waiting for logon response
+20190531-20:10:04: Disconnecting: Timed out waiting for logon response
+20190531-20:10:39: MINA session created: local=/172.16.0.229:51592, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:10:43: Initiated logon request
+20190531-20:10:43: Received logon
+20190531-20:10:53: MINA session created: local=/172.16.0.229:51684, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:10:53: Initiated logon request
+20190531-20:10:53: Disconnecting: Encountered END_OF_STREAM
+20190531-20:10:54: MINA session created: local=/172.16.0.229:51705, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:10:54: Initiated logon request
+20190531-20:11:04: Disconnecting: Timed out waiting for logon response
+20190531-20:11:05: Disconnecting: Timed out waiting for logon response
+20190531-20:11:40: MINA session created: local=/172.16.0.229:51934, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:11:44: Initiated logon request
+20190531-20:11:44: Received logon
+20190531-20:11:53: MINA session created: local=/172.16.0.229:52025, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:11:53: Initiated logon request
+20190531-20:11:53: Disconnecting: Encountered END_OF_STREAM
+20190531-20:11:54: MINA session created: local=/172.16.0.229:52046, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:11:54: Initiated logon request
+20190531-20:12:04: Disconnecting: Timed out waiting for logon response
+20190531-20:12:05: Disconnecting: Timed out waiting for logon response
+20190531-20:12:40: MINA session created: local=/172.16.0.229:52282, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:12:45: Initiated logon request
+20190531-20:12:45: Received logon
+20190531-20:12:53: MINA session created: local=/172.16.0.229:52370, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:12:54: MINA session created: local=/172.16.0.229:52374, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:12:54: Initiated logon request
+20190531-20:12:54: Disconnecting: Encountered END_OF_STREAM
+20190531-20:12:55: Initiated logon request
+20190531-20:13:05: Disconnecting: Timed out waiting for logon response
+20190531-20:13:06: Disconnecting: Timed out waiting for logon response
+20190531-20:13:09: quickfix.SessionException Logon state is not valid for message (MsgType=AI)
+20190531-20:13:09: Already disconnected: Verifying message failed: quickfix.SessionException: Logon state is not valid for message (MsgType=AI)
+20190531-20:13:13: Received SequenceReset FROM: 33 TO: 26
+20190531-20:13:13: Invalid SequenceReset: newSequence=26 < expected=33
+20190531-20:13:13: quickfix.SessionException: Tried to send a reject while not logged on: Value is incorrect (out of range) for this tag (field 36)
+quickfix.RuntimeError: quickfix.SessionException: Tried to send a reject while not logged on: Value is incorrect (out of range) for this tag (field 36)
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: quickfix.SessionException: Tried to send a reject while not logged on: Value is incorrect (out of range) for this tag (field 36)
+	at quickfix.Session.generateReject(Session.java:1532)
+	at quickfix.Session.generateReject(Session.java:1518)
+	at quickfix.Session.nextSequenceReset(Session.java:1479)
+	at quickfix.Session.next(Session.java:1018)
+	... 6 more
+Cause: Tried to send a reject while not logged on: Value is incorrect (out of range) for this tag (field 36)
+quickfix.SessionException: Tried to send a reject while not logged on: Value is incorrect (out of range) for this tag (field 36)
+	at quickfix.Session.generateReject(Session.java:1532)
+	at quickfix.Session.generateReject(Session.java:1518)
+	at quickfix.Session.nextSequenceReset(Session.java:1479)
+	at quickfix.Session.next(Session.java:1018)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190531-20:13:14: quickfix.SessionException Logon state is not valid for message (MsgType=0)
+20190531-20:13:14: Already disconnected: Verifying message failed: quickfix.SessionException: Logon state is not valid for message (MsgType=0)
+20190531-20:13:14: Already disconnected: Received logon response before sending request
+20190531-20:13:14: Already disconnected: Received logon response before sending request
+20190531-20:13:14: Already disconnected: Received logon response before sending request
+20190531-20:13:14: Already disconnected: Received logon response before sending request
+20190531-20:13:14: Already disconnected: Received logon response before sending request
+20190531-20:13:14: Already disconnected: Received logon response before sending request
+20190531-20:13:14: Already disconnected: Received logon response before sending request
+20190531-20:13:14: Already disconnected: Received logon response before sending request
+20190531-20:13:14: Already disconnected: Received logon response before sending request
+20190531-20:13:40: MINA session created: local=/172.16.0.229:52631, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:13:46: Initiated logon request
+20190531-20:13:46: Received logon
+20190531-20:13:54: MINA session created: local=/172.16.0.229:52719, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:13:54: Initiated logon request
+20190531-20:13:54: Disconnecting: Encountered END_OF_STREAM
+20190531-20:13:54: MINA session created: local=/172.16.0.229:52740, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:13:55: Initiated logon request
+20190531-20:13:55: Received logon
+20190531-20:14:05: Disconnecting: Timed out waiting for logon response
+20190531-20:14:24: MsgSeqNum too high, expecting 35 but received 57: 8=FIX.4.49=5035=034=5749=EXC52=20190531-20:14:16.00056=00210=113
+20190531-20:14:24: Enqueued at pos 57: 8=FIX.4.49=5035=034=5749=EXC52=20190531-20:14:16.00056=00210=113
+20190531-20:14:24: Sent ResendRequest FROM: 35 TO: 56
+20190531-20:14:24: Received SequenceReset FROM: 35 TO: 58
+20190531-20:14:24: Received SequenceReset FROM: 58 TO: 59
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:33: Already disconnected: Received logon response before sending request
+20190531-20:14:41: MINA session created: local=/172.16.0.229:52957, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:14:47: Initiated logon request
+20190531-20:14:47: Disconnecting: Encountered END_OF_STREAM
+20190531-20:14:47: Received logon
+20190531-20:14:55: MINA session created: local=/172.16.0.229:53065, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:14:55: MINA session created: local=/172.16.0.229:53066, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:14:55: Initiated logon request
+20190531-20:14:55: Disconnecting: Encountered END_OF_STREAM
+20190531-20:14:55: Received logon
+20190531-20:14:56: Initiated logon request
+20190531-20:14:56: Disconnecting: Encountered END_OF_STREAM
+20190531-20:14:56: Received logon
+20190531-20:15:25: MsgSeqNum too high, expecting 38 but received 62: 8=FIX.4.49=5035=034=6249=EXC52=20190531-20:15:17.00056=00210=111
+20190531-20:15:25: Enqueued at pos 62: 8=FIX.4.49=5035=034=6249=EXC52=20190531-20:15:17.00056=00210=111
+20190531-20:15:25: Sent ResendRequest FROM: 38 TO: 61
+20190531-20:15:25: Received SequenceReset FROM: 38 TO: 63
+20190531-20:15:25: Received SequenceReset FROM: 63 TO: 64
+20190531-20:15:41: MINA session created: local=/172.16.0.229:53304, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:15:48: Initiated logon request
+20190531-20:15:48: Disconnecting: Encountered END_OF_STREAM
+20190531-20:15:48: Received logon
+20190531-20:15:55: MINA session created: local=/172.16.0.229:53414, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:15:55: MINA session created: local=/172.16.0.229:53415, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:15:56: Initiated logon request
+20190531-20:15:56: Disconnecting: Encountered END_OF_STREAM
+20190531-20:15:56: Received logon
+20190531-20:15:57: Initiated logon request
+20190531-20:15:57: Disconnecting: Encountered END_OF_STREAM
+20190531-20:15:57: Received logon
+20190531-20:16:41: MINA session created: local=/172.16.0.229:53644, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:16:49: Initiated logon request
+20190531-20:16:49: Disconnecting: Encountered END_OF_STREAM
+20190531-20:16:49: Received logon
+20190531-20:16:55: MINA session created: local=/172.16.0.229:53754, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:16:55: MINA session created: local=/172.16.0.229:53755, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:16:58: Initiated logon request
+20190531-20:16:58: Disconnecting: Encountered END_OF_STREAM
+20190531-20:16:58: Received logon
+20190531-20:16:58: Initiated logon request
+20190531-20:16:58: Disconnecting: Encountered END_OF_STREAM
+20190531-20:16:58: Received logon
+20190531-20:25:58: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-20:25:58: Created session: FIX.4.4:002/002B35->EXC
+20190531-20:25:58: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-20:25:58: MINA session created: local=/172.16.0.229:54206, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:25:59: Initiated logon request
+20190531-20:25:59: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-20:25:59: Received logon
+20190531-20:26:10: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-20:26:10: Created session: FIX.4.4:002/002B35->EXC
+20190531-20:26:10: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-20:26:10: MINA session created: local=/172.16.0.229:54315, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:26:11: Initiated logon request
+20190531-20:26:11: Received logon
+20190531-20:26:40: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=29335=AI34=449=EXC52=20190531-20:26:31.46556=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=70194408131=20190531-000000000056.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=223
+20190531-20:26:40: Enqueued at pos 4: 8=FIX.4.49=29335=AI34=449=EXC52=20190531-20:26:31.46556=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=70194408131=20190531-000000000056.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=223
+20190531-20:26:40: Sent ResendRequest FROM: 3 TO: 3
+20190531-20:26:40: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-20:26:40: Received SequenceReset FROM: 3 TO: 4
+20190531-20:26:40: Processing queued message: 4
+20190531-20:26:40: Received SequenceReset FROM: 5 TO: 6
+20190531-20:26:45: Disconnecting: Encountered END_OF_STREAM
+20190531-20:26:55: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-20:26:55: Created session: FIX.4.4:002/002B35->EXC
+20190531-20:26:55: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-20:26:55: MINA session created: local=/172.16.0.229:54529, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:26:56: Initiated logon request
+20190531-20:26:56: Disconnecting: Encountered END_OF_STREAM
+20190531-20:26:56: Received logon
+20190531-20:26:58: MINA session created: local=/172.16.0.229:54675, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:27:00: Initiated logon request
+20190531-20:27:00: Disconnecting: Encountered END_OF_STREAM
+20190531-20:27:00: Received logon
+20190531-20:27:10: MINA session created: local=/172.16.0.229:54781, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:27:12: Initiated logon request
+20190531-20:27:12: Disconnecting: Encountered END_OF_STREAM
+20190531-20:27:12: Received logon
+20190531-20:27:41: MsgSeqNum too high, expecting 6 but received 9: 8=FIX.4.49=4935=034=949=EXC52=20190531-20:27:33.00056=00210=073
+20190531-20:27:41: Enqueued at pos 9: 8=FIX.4.49=4935=034=949=EXC52=20190531-20:27:33.00056=00210=073
+20190531-20:27:41: Sent ResendRequest FROM: 6 TO: 8
+20190531-20:27:41: Received SequenceReset FROM: 6 TO: 10
+20190531-20:27:41: Received SequenceReset FROM: 10 TO: 11
+20190531-20:27:55: MINA session created: local=/172.16.0.229:54893, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:27:57: Initiated logon request
+20190531-20:27:57: Disconnecting: Encountered END_OF_STREAM
+20190531-20:27:57: Received logon
+20190531-20:27:58: MINA session created: local=/172.16.0.229:54998, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:28:01: Initiated logon request
+20190531-20:28:01: Disconnecting: Encountered END_OF_STREAM
+20190531-20:28:01: Received logon
+20190531-20:28:10: MINA session created: local=/172.16.0.229:55105, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:28:13: Initiated logon request
+20190531-20:28:13: Disconnecting: Encountered END_OF_STREAM
+20190531-20:28:13: Received logon
+20190531-20:28:55: MINA session created: local=/172.16.0.229:55234, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:28:58: Initiated logon request
+20190531-20:28:58: Disconnecting: Encountered END_OF_STREAM
+20190531-20:28:58: Received logon
+20190531-20:28:59: MINA session created: local=/172.16.0.229:55279, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:29:02: Initiated logon request
+20190531-20:29:02: Disconnecting: Encountered END_OF_STREAM
+20190531-20:29:02: Received logon
+20190531-20:29:10: MINA session created: local=/172.16.0.229:55428, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:29:14: Initiated logon request
+20190531-20:29:14: Disconnecting: Encountered END_OF_STREAM
+20190531-20:29:14: Received logon
+20190531-20:29:57: MINA session created: local=/172.16.0.229:55550, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:29:59: Initiated logon request
+20190531-20:29:59: Disconnecting: Encountered END_OF_STREAM
+20190531-20:29:59: Received logon
+20190531-20:29:59: MINA session created: local=/172.16.0.229:55616, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:30:03: Initiated logon request
+20190531-20:30:03: Disconnecting: Encountered END_OF_STREAM
+20190531-20:30:03: Received logon
+20190531-20:30:10: MINA session created: local=/172.16.0.229:55765, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:30:15: Initiated logon request
+20190531-20:30:15: Disconnecting: Encountered END_OF_STREAM
+20190531-20:30:15: Received logon
+20190531-20:30:59: MINA session created: local=/172.16.0.229:55882, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:31:00: MINA session created: local=/172.16.0.229:55885, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:31:00: Initiated logon request
+20190531-20:31:00: Disconnecting: Encountered END_OF_STREAM
+20190531-20:31:00: Received logon
+20190531-20:31:04: Initiated logon request
+20190531-20:31:04: Disconnecting: Encountered END_OF_STREAM
+20190531-20:31:04: Received logon
+20190531-20:31:12: MINA session created: local=/172.16.0.229:56094, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:31:16: Initiated logon request
+20190531-20:31:16: Disconnecting: Encountered END_OF_STREAM
+20190531-20:31:16: Received logon
+20190531-20:44:55: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-20:44:55: Created session: FIX.4.4:002/002B35->EXC
+20190531-20:44:55: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-20:44:55: MINA session created: local=/172.16.0.229:56444, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:44:57: Initiated logon request
+20190531-20:44:57: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-20:44:57: Received logon
+20190531-20:45:07: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-20:45:07: Created session: FIX.4.4:002/002B35->EXC
+20190531-20:45:07: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-20:45:07: MINA session created: local=/172.16.0.229:56547, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:45:08: Initiated logon request
+20190531-20:45:08: Received logon
+20190531-20:45:37: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=29335=AI34=449=EXC52=20190531-20:45:28.96556=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=34585009131=20190531-000000000057.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=237
+20190531-20:45:37: Enqueued at pos 4: 8=FIX.4.49=29335=AI34=449=EXC52=20190531-20:45:28.96556=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=34585009131=20190531-000000000057.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=237
+20190531-20:45:37: Sent ResendRequest FROM: 3 TO: 3
+20190531-20:45:37: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-20:45:37: Received SequenceReset FROM: 3 TO: 4
+20190531-20:45:37: Processing queued message: 4
+20190531-20:45:37: Received SequenceReset FROM: 5 TO: 6
+20190531-20:45:42: Disconnecting: Encountered END_OF_STREAM
+20190531-20:45:42: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-20:45:42: Created session: FIX.4.4:002/002B35->EXC
+20190531-20:45:42: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-20:45:42: MINA session created: local=/172.16.0.229:56727, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:45:43: Initiated logon request
+20190531-20:45:43: Disconnecting: Encountered END_OF_STREAM
+20190531-20:45:43: Received logon
+20190531-20:45:56: MINA session created: local=/172.16.0.229:56894, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:45:57: Initiated logon request
+20190531-20:45:57: Disconnecting: Encountered END_OF_STREAM
+20190531-20:45:57: Received logon
+20190531-20:46:07: MINA session created: local=/172.16.0.229:57020, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:46:09: Initiated logon request
+20190531-20:46:09: Disconnecting: Encountered END_OF_STREAM
+20190531-20:46:09: Received logon
+20190531-20:49:10: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-20:49:10: Created session: FIX.4.4:002/002B35->EXC
+20190531-20:49:10: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-20:49:10: MINA session created: local=/172.16.0.229:57203, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:49:11: Initiated logon request
+20190531-20:49:11: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-20:49:11: Received logon
+20190531-20:49:21: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-20:49:21: Created session: FIX.4.4:002/002B35->EXC
+20190531-20:49:21: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-20:49:21: MINA session created: local=/172.16.0.229:57310, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:49:22: Initiated logon request
+20190531-20:49:22: Received logon
+20190531-20:49:52: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=29335=AI34=449=EXC52=20190531-20:49:43.95256=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=62286577131=20190531-000000000058.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=244
+20190531-20:49:52: Enqueued at pos 4: 8=FIX.4.49=29335=AI34=449=EXC52=20190531-20:49:43.95256=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=62286577131=20190531-000000000058.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=244
+20190531-20:49:52: Sent ResendRequest FROM: 3 TO: 3
+20190531-20:49:52: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-20:49:52: Received SequenceReset FROM: 3 TO: 4
+20190531-20:49:52: Processing queued message: 4
+20190531-20:49:53: Received SequenceReset FROM: 5 TO: 6
+20190531-20:49:57: Disconnecting: Encountered END_OF_STREAM
+20190531-20:49:57: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-20:49:57: Created session: FIX.4.4:002/002B35->EXC
+20190531-20:49:57: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-20:50:01: MINA session created: local=/172.16.0.229:57561, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:50:01: Initiated logon request
+20190531-20:50:01: Disconnecting: Encountered END_OF_STREAM
+20190531-20:50:01: Received logon
+20190531-20:50:10: MINA session created: local=/172.16.0.229:57671, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:50:12: Initiated logon request
+20190531-20:50:12: Disconnecting: Encountered END_OF_STREAM
+20190531-20:50:12: Received logon
+20190531-20:50:21: MINA session created: local=/172.16.0.229:57774, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:50:23: Initiated logon request
+20190531-20:50:23: Disconnecting: Encountered END_OF_STREAM
+20190531-20:50:23: Received logon
+20190531-20:50:53: MsgSeqNum too high, expecting 6 but received 9: 8=FIX.4.49=4935=034=949=EXC52=20190531-20:50:45.00056=00210=072
+20190531-20:50:53: Enqueued at pos 9: 8=FIX.4.49=4935=034=949=EXC52=20190531-20:50:45.00056=00210=072
+20190531-20:50:53: Sent ResendRequest FROM: 6 TO: 8
+20190531-20:50:53: Received SequenceReset FROM: 6 TO: 10
+20190531-20:50:53: Received SequenceReset FROM: 10 TO: 11
+20190531-20:51:01: MINA session created: local=/172.16.0.229:57891, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:51:02: Initiated logon request
+20190531-20:51:02: Disconnecting: Encountered END_OF_STREAM
+20190531-20:51:02: Received logon
+20190531-20:51:11: MINA session created: local=/172.16.0.229:58002, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:51:13: Initiated logon request
+20190531-20:51:13: Disconnecting: Encountered END_OF_STREAM
+20190531-20:51:13: Received logon
+20190531-20:51:22: MINA session created: local=/172.16.0.229:58104, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-20:51:24: Initiated logon request
+20190531-20:51:24: Disconnecting: Encountered END_OF_STREAM
+20190531-20:51:24: Received logon
+20190531-21:04:52: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-21:04:52: Created session: FIX.4.4:002/002B35->EXC
+20190531-21:04:52: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-21:04:52: MINA session created: local=/172.16.0.229:58458, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:04:53: Initiated logon request
+20190531-21:04:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-21:04:53: Received logon
+20190531-21:05:04: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-21:05:04: Created session: FIX.4.4:002/002B35->EXC
+20190531-21:05:04: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-21:05:04: MINA session created: local=/172.16.0.229:58616, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:05:05: Initiated logon request
+20190531-21:05:05: Received logon
+20190531-21:05:34: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=29335=AI34=449=EXC52=20190531-21:05:25.41956=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=19601664131=20190531-000000000060.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=218
+20190531-21:05:34: Enqueued at pos 4: 8=FIX.4.49=29335=AI34=449=EXC52=20190531-21:05:25.41956=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=19601664131=20190531-000000000060.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=218
+20190531-21:05:34: Sent ResendRequest FROM: 3 TO: 3
+20190531-21:05:34: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-21:05:34: Received SequenceReset FROM: 3 TO: 4
+20190531-21:05:34: Processing queued message: 4
+20190531-21:05:34: Received SequenceReset FROM: 5 TO: 6
+20190531-21:05:39: Disconnecting: Encountered END_OF_STREAM
+20190531-21:05:39: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-21:05:39: Created session: FIX.4.4:002/002B35->EXC
+20190531-21:05:39: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-21:05:39: MINA session created: local=/172.16.0.229:58770, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:05:40: Initiated logon request
+20190531-21:05:40: Disconnecting: Encountered END_OF_STREAM
+20190531-21:05:40: Received logon
+20190531-21:05:53: MINA session created: local=/172.16.0.229:58930, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:05:54: Initiated logon request
+20190531-21:05:54: Disconnecting: Encountered END_OF_STREAM
+20190531-21:05:54: Received logon
+20190531-21:06:04: MINA session created: local=/172.16.0.229:59063, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:06:06: Initiated logon request
+20190531-21:06:06: Disconnecting: Encountered END_OF_STREAM
+20190531-21:06:06: Received logon
+20190531-21:06:36: MsgSeqNum too high, expecting 6 but received 9: 8=FIX.4.49=4935=034=949=EXC52=20190531-21:06:27.00056=00210=074
+20190531-21:06:36: Enqueued at pos 9: 8=FIX.4.49=4935=034=949=EXC52=20190531-21:06:27.00056=00210=074
+20190531-21:06:36: Sent ResendRequest FROM: 6 TO: 8
+20190531-21:06:36: Received SequenceReset FROM: 6 TO: 10
+20190531-21:06:36: Received SequenceReset FROM: 10 TO: 11
+20190531-21:06:39: MINA session created: local=/172.16.0.229:59192, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:06:41: Initiated logon request
+20190531-21:06:41: Disconnecting: Encountered END_OF_STREAM
+20190531-21:06:41: Received logon
+20190531-21:06:53: MINA session created: local=/172.16.0.229:59306, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:06:55: Initiated logon request
+20190531-21:06:55: Disconnecting: Encountered END_OF_STREAM
+20190531-21:06:55: Received logon
+20190531-21:09:49: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-21:09:49: Created session: FIX.4.4:002/002B35->EXC
+20190531-21:09:49: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-21:09:49: MINA session created: local=/172.16.0.229:59529, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:09:50: Initiated logon request
+20190531-21:09:50: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-21:09:50: Received logon
+20190531-21:10:01: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-21:10:01: Created session: FIX.4.4:002/002B35->EXC
+20190531-21:10:01: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-21:10:01: MINA session created: local=/172.16.0.229:59639, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:10:02: Initiated logon request
+20190531-21:10:02: Received logon
+20190531-21:10:32: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=4935=034=449=EXC52=20190531-21:10:23.00056=00210=060
+20190531-21:10:32: Enqueued at pos 4: 8=FIX.4.49=4935=034=449=EXC52=20190531-21:10:23.00056=00210=060
+20190531-21:10:32: Sent ResendRequest FROM: 3 TO: 3
+20190531-21:10:32: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-21:10:32: Received SequenceReset FROM: 3 TO: 5
+20190531-21:10:32: Received SequenceReset FROM: 5 TO: 6
+20190531-21:10:38: Disconnecting: Encountered END_OF_STREAM
+20190531-21:10:38: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-21:10:38: Created session: FIX.4.4:002/002B35->EXC
+20190531-21:10:38: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-21:10:38: MINA session created: local=/172.16.0.229:59842, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:10:39: Initiated logon request
+20190531-21:10:39: Disconnecting: Encountered END_OF_STREAM
+20190531-21:10:39: Received logon
+20190531-21:10:49: MINA session created: local=/172.16.0.229:60015, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:10:51: Initiated logon request
+20190531-21:10:51: Disconnecting: Encountered END_OF_STREAM
+20190531-21:10:51: Received logon
+20190531-21:11:01: MINA session created: local=/172.16.0.229:60145, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:11:03: Initiated logon request
+20190531-21:11:03: Disconnecting: Encountered END_OF_STREAM
+20190531-21:11:03: Received logon
+20190531-21:16:31: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-21:16:31: Created session: FIX.4.4:002/002B35->EXC
+20190531-21:16:31: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-21:16:31: MINA session created: local=/172.16.0.229:60500, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:16:32: Initiated logon request
+20190531-21:16:32: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190531-21:16:32: Received logon
+20190531-21:16:42: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-21:16:42: Created session: FIX.4.4:002/002B35->EXC
+20190531-21:16:42: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-21:16:42: MINA session created: local=/172.16.0.229:60593, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:16:43: Initiated logon request
+20190531-21:16:43: Received logon
+20190531-21:17:13: MsgSeqNum too high, expecting 3 but received 4: 8=FIX.4.49=29335=AI34=449=EXC52=20190531-21:17:04.55256=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=40441802131=20190531-000000000062.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=208
+20190531-21:17:13: Enqueued at pos 4: 8=FIX.4.49=29335=AI34=449=EXC52=20190531-21:17:04.55256=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=40441802131=20190531-000000000062.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=208
+20190531-21:17:13: Sent ResendRequest FROM: 3 TO: 3
+20190531-21:17:13: ResendRequest for messages FROM 3 TO 3 has been satisfied.
+20190531-21:17:13: Received SequenceReset FROM: 3 TO: 4
+20190531-21:17:13: Processing queued message: 4
+20190531-21:17:14: Received SequenceReset FROM: 5 TO: 6
+20190531-21:17:18: Disconnecting: Encountered END_OF_STREAM
+20190531-21:17:18: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190531-21:17:18: Created session: FIX.4.4:002/002B35->EXC
+20190531-21:17:18: Configured socket addresses for session: [/172.36.2.13:54402]
+20190531-21:17:18: MINA session created: local=/172.16.0.229:60831, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:17:19: Initiated logon request
+20190531-21:17:19: Disconnecting: Encountered END_OF_STREAM
+20190531-21:17:19: Received logon
+20190531-21:17:31: MINA session created: local=/172.16.0.229:60971, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:17:33: Initiated logon request
+20190531-21:17:33: Disconnecting: Encountered END_OF_STREAM
+20190531-21:17:33: Received logon
+20190531-21:17:43: MINA session created: local=/172.16.0.229:61101, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:17:44: Initiated logon request
+20190531-21:17:44: Disconnecting: Encountered END_OF_STREAM
+20190531-21:17:44: Received logon
+20190531-21:18:14: MsgSeqNum too high, expecting 6 but received 9: 8=FIX.4.49=4935=034=949=EXC52=20190531-21:18:06.00056=00210=074
+20190531-21:18:14: Enqueued at pos 9: 8=FIX.4.49=4935=034=949=EXC52=20190531-21:18:06.00056=00210=074
+20190531-21:18:14: Sent ResendRequest FROM: 6 TO: 8
+20190531-21:18:14: Received SequenceReset FROM: 6 TO: 10
+20190531-21:18:14: Received SequenceReset FROM: 10 TO: 11
+20190531-21:18:18: MINA session created: local=/172.16.0.229:61243, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:18:20: Initiated logon request
+20190531-21:18:20: Disconnecting: Encountered END_OF_STREAM
+20190531-21:18:20: Received logon
+20190531-21:18:31: MINA session created: local=/172.16.0.229:61354, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:18:34: Initiated logon request
+20190531-21:18:34: Disconnecting: Encountered END_OF_STREAM
+20190531-21:18:34: Received logon
+20190531-21:18:43: MINA session created: local=/172.16.0.229:61461, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:18:45: Initiated logon request
+20190531-21:18:45: Disconnecting: Encountered END_OF_STREAM
+20190531-21:18:45: Received logon
+20190531-21:19:18: MINA session created: local=/172.16.0.229:61571, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:19:21: Initiated logon request
+20190531-21:19:21: Disconnecting: Encountered END_OF_STREAM
+20190531-21:19:21: Received logon
+20190531-21:19:32: MINA session created: local=/172.16.0.229:61678, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:19:35: Initiated logon request
+20190531-21:19:35: Disconnecting: Encountered END_OF_STREAM
+20190531-21:19:35: Received logon
+20190531-21:19:43: MINA session created: local=/172.16.0.229:61789, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:19:46: Initiated logon request
+20190531-21:19:46: Disconnecting: Encountered END_OF_STREAM
+20190531-21:19:46: Received logon
+20190531-21:20:19: MINA session created: local=/172.16.0.229:61900, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:20:22: Initiated logon request
+20190531-21:20:22: Disconnecting: Encountered END_OF_STREAM
+20190531-21:20:22: Received logon
+20190531-21:20:32: MINA session created: local=/172.16.0.229:62007, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:20:36: Initiated logon request
+20190531-21:20:36: Disconnecting: Encountered END_OF_STREAM
+20190531-21:20:36: Received logon
+20190531-21:20:44: MINA session created: local=/172.16.0.229:62112, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:20:47: Initiated logon request
+20190531-21:20:47: Disconnecting: Encountered END_OF_STREAM
+20190531-21:20:47: Received logon
+20190531-21:21:19: MINA session created: local=/172.16.0.229:62222, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:21:23: Initiated logon request
+20190531-21:21:23: Disconnecting: Encountered END_OF_STREAM
+20190531-21:21:23: Received logon
+20190531-21:21:32: MINA session created: local=/172.16.0.229:62333, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:21:37: Initiated logon request
+20190531-21:21:37: Disconnecting: Encountered END_OF_STREAM
+20190531-21:21:37: Received logon
+20190531-21:21:44: MINA session created: local=/172.16.0.229:62440, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190531-21:21:48: Initiated logon request
+20190531-21:21:48: Disconnecting: Encountered END_OF_STREAM
+20190531-21:21:48: Received logon

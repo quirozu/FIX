@@ -335,25 +335,28 @@ public class Adapters extends MessageCracker implements Application {
 	
 	
 
-	public void onMessage(quickfix.fix44.ExecutionReport message, SessionID sessionID) throws FieldNotFound {
-		if (message instanceof ExecutionReport  && sessionID.toString().equals("FIX.4.4:002/002B35->EXC")) {
-			String mess = "" + message;
-
-			validar.setCadenaOcho(mess);
-			try {
-//				this.inicio.initiation();
-//				autoEngine.setLogin(this.inicio);
-				autoEngine.validarAJ(sessionID, message);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SessionNotFound e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	public void onMessage(ExecutionReport message, SessionID sessionID) throws FieldNotFound {
+		if (message instanceof ExecutionReport) {
+			
+			printMessage("OCHO", sessionID, message);
+			
+//			String mess = "" + message;
+//
+//			validar.setCadenaOcho(mess);
+//			try {
+////				this.inicio.initiation();
+////				autoEngine.setLogin(this.inicio);
+//				autoEngine.validarAJ(sessionID, message);
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (SessionNotFound e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 
 		}
 		if (message instanceof ExecutionReport  && sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {

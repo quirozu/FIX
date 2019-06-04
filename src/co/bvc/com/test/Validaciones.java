@@ -557,6 +557,9 @@ public class Validaciones {
 	
 
 	public void validarOcho(AutFixRfqDatosCache datosCache, Message qr) throws SQLException {
+		
+		
+		System.out.println("***********VALIDAR OCHO *********************");
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
 		String cadena = "" + qr;
@@ -574,7 +577,7 @@ public class Validaciones {
 				grosstradeamt = null, nopartyIds = null, secSubtype = null, reforderIdsCr = null, symbol = null,
 				senderSubId = null, dirtyPrice = null, partyIdsSource = null, idCase = null, idEscenario = null;
 		int idSecuencia = 0;
-		while (resultset.next()) {
+//		while (resultset.next()) {
 
 //			switch(resultset.getInt(columnIndex))
 			execType = resultset.getString("ER_EXECTYPE");
@@ -595,7 +598,7 @@ public class Validaciones {
 			idSecuencia = resultset.getInt("ID_SECUENCIA");
 			idEscenario = "FIX_8";
 
-		}
+//		}
 		System.out.println("----------------------------------------");
 		System.out.println("VALIDACION DEL EXECUTION REPORT ");
 		System.out.println("  \n");

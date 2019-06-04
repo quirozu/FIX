@@ -264,7 +264,7 @@ public class CreateMessage {
 
 
 
-	public static RespuestaConstrucccionMsgFIX createAJ(ResultSet resultset, String strQuoteId) throws SessionNotFound, SQLException {
+	public RespuestaConstrucccionMsgFIX createAJ(ResultSet resultset, String strQuoteId) throws SessionNotFound, SQLException {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
 		
@@ -311,14 +311,10 @@ public class CreateMessage {
 				
 				list.add("001");
 				list.add("002");
-//				if(i==1) {
-//				list.add("001");
-//				}else {
-//				list.add("002");
-//				}
+
 				respuestaMessage.setListSessiones(list);
 				
-				System.out.println("*************************\n " + respuestaMessage);
+				System.out.println("*************FSDFDSFF******\n " + respuestaMessage.getMessage());
 //				Session.sendToTarget(respuestaMessage.getMessage(), inicio.getSessionID1());
 				
 				

@@ -161,7 +161,7 @@ public class AutoEngine {
         	 respConstruccion = createMesage.createS(idCaseseq, resultSet, quoteReqId);
 			   
         	 System.out.println("************* INGRESA A FIX_S **************** ");
-        	 System.out.println("*********************** " + resultSet + "*********************** ");
+        	
 			   for (String session: respConstruccion.getListSessiones()) {
 				   
 				   // Construir mensaje a cache.
@@ -205,7 +205,6 @@ public class AutoEngine {
 			
         case "FIX_AJ":
         	
-        	Thread.sleep(10000);
         	 System.out.println("************* INGRESA A FIX_AJ ****************");
         	
         	respConstruccion = createMesage.createAJ(resultSet, quoteId);
@@ -320,7 +319,7 @@ public class AutoEngine {
 	   
 	   public void validarS(SessionID sessionId, quickfix.Message messageIn) throws InterruptedException, SQLException, FieldNotFound, SessionNotFound {
 		   
-		   System.out.println("***************************************************************");
+		   
 		   System.out.println("INGRESA A VALIDAR S");
 		// Obtener el ID_AFILIADO de la session
 		   String IdContraFirm = sessionId.toString().substring(8,11);
@@ -329,8 +328,7 @@ public class AutoEngine {
 		   AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
 		   
 		   validaciones.ValidarSPrima(datosCache, messageIn);
-		   System.out.println("*******************************************");
-		   System.out.println("TERMINA VALIDACION DE S");
+
 		   eliminarDatoCache(IdContraFirm);
 		   
            String IdAfiliado = datosCache.getIdAfiliado();
@@ -342,7 +340,7 @@ public class AutoEngine {
 			   
 			   ejecutarSiguientePaso(datosCache.getIdCaseseq(), datosCache.getIdEjecucion(), null, QuoteId);
 			
-			   System.out.println("** CONTINUAR ***");
+			   System.out.println("***** CONTINUAR ***");
 		   }else {
 			   System.out.println("**** ESPERAR ****");
 		   }
@@ -359,7 +357,9 @@ public class AutoEngine {
 			 //getcache
 			   AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
 			   
+			   System.out.println("*************INGRESA A VALIDAR OCHO*******************");
 			   validaciones.validarOcho(datosCache, messageIn);
+			   System.out.println("*************SALE DE VALIDAR OCHO*******************");
 			   
 			   eliminarDatoCache(IdContraFirm);
 			   
