@@ -18,7 +18,7 @@ public class CreateReport {
 	static DataAccess conexiona = new DataAccess();
 
 	@SuppressWarnings("static-access")
-	public void maina() throws SQLException, IOException {
+	public static void maina() throws SQLException, IOException {
 
 		// Connection connection = null;
 		// DB_Connection obj_DB_Connection=new();

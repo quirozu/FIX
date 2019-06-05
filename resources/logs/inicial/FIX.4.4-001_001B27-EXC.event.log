@@ -34227,3 +34227,51 @@ java.lang.NullPointerException
 20190605-19:18:39: Initiated logon request
 20190605-19:18:39: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
 20190605-19:18:39: Received logon
+20190605-20:26:05: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190605-20:26:05: Created session: FIX.4.4:001/001B27->EXC
+20190605-20:26:05: Configured socket addresses for session: [/172.36.2.13:54401]
+20190605-20:26:05: MINA session created: local=/172.16.1.1:60708, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190605-20:26:06: Initiated logon request
+20190605-20:26:06: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190605-20:26:06: Received logon
+20190605-20:35:52: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190605-20:35:52: Created session: FIX.4.4:001/001B27->EXC
+20190605-20:35:52: Configured socket addresses for session: [/172.36.2.13:54401]
+20190605-20:35:52: MINA session created: local=/172.16.1.1:60818, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190605-20:35:53: Initiated logon request
+20190605-20:35:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190605-20:35:53: Received logon
+20190605-20:41:52: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190605-20:41:52: Created session: FIX.4.4:001/001B27->EXC
+20190605-20:41:52: Configured socket addresses for session: [/172.36.2.13:54401]
+20190605-20:41:52: MINA session created: local=/172.16.1.1:60904, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190605-20:41:53: Initiated logon request
+20190605-20:41:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190605-20:41:53: Received logon
+20190605-20:46:58: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190605-20:46:58: Created session: FIX.4.4:001/001B27->EXC
+20190605-20:46:59: Configured socket addresses for session: [/172.36.2.13:54401]
+20190605-20:46:59: MINA session created: local=/172.16.1.1:60994, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190605-20:47:00: Initiated logon request
+20190605-20:47:00: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190605-20:47:00: Received logon
+20190605-20:47:19: Rejecting invalid message: quickfix.FieldException: Required tag missing, field=38: 8=FIX.4.49=15235=AG34=549=EXC52=20190605-20:47:18.66856=00157=001B2758=(962): Deposito no fue ingresada131=52860664658=99146=155=TFIT16280428762=RFQF22=M10=127
+20190605-20:47:19: Reject sent for Message 5: Required tag missing, field=38:38
+20190605-20:51:08: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190605-20:51:08: Created session: FIX.4.4:001/001B27->EXC
+20190605-20:51:08: Configured socket addresses for session: [/172.36.2.13:54401]
+20190605-20:51:08: MINA session created: local=/172.16.1.1:61079, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190605-20:51:09: Initiated logon request
+20190605-20:51:09: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190605-20:51:09: Received logon
+20190605-20:51:28: Rejecting invalid message: quickfix.FieldException: Required tag missing, field=38: 8=FIX.4.49=15235=AG34=549=EXC52=20190605-20:51:28.00356=00157=001B2758=(962): Deposito no fue ingresada131=35029084658=99146=155=TFIT16280428762=RFQF22=M10=100
+20190605-20:51:28: Reject sent for Message 5: Required tag missing, field=38:38
+20190605-21:06:16: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190605-21:06:16: Created session: FIX.4.4:001/001B27->EXC
+20190605-21:06:16: Configured socket addresses for session: [/172.36.2.13:54401]
+20190605-21:06:16: MINA session created: local=/172.16.1.1:61255, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190605-21:06:17: Initiated logon request
+20190605-21:06:17: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190605-21:06:17: Received logon
+20190605-21:06:36: Rejecting invalid message: quickfix.FieldException: Required tag missing, field=38: 8=FIX.4.49=15235=AG34=549=EXC52=20190605-21:06:36.71156=00157=001B2758=(962): Deposito no fue ingresada131=44372751658=99146=155=TFIT16280428762=RFQF22=M10=108
+20190605-21:06:36: Reject sent for Message 5: Required tag missing, field=38:38

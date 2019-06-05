@@ -212,12 +212,12 @@ public class Validaciones {
 				if (cad.get(z).split("=")[1].equals(beginString)) {
 					contadorBuenos++;
 					System.out.println(
-							"iguales:  cadenaPrima(146): " + cad.get(z).split("=")[1] + " cadenaR " + beginString);
+							"iguales:  cadenaPrima(8): " + cad.get(z).split("=")[1] + " cadenaR " + beginString);
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), beginString,
 							cad.get(z).split("=")[1], id_Escenario, idCase, idSecuencia);
 				} else {
 					System.out.println(
-							"diferentes:  cadenaPrima(146): " + cad.get(z).split("=")[1] + " cadenaR " + beginString);
+							"diferentes:  cadenaPrima(8): " + cad.get(z).split("=")[1] + " cadenaR " + beginString);
 					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), beginString,
 							cad.get(z).split("=")[1], id_Escenario, idCase, idSecuencia);
 					contadorMalos++;
@@ -227,12 +227,12 @@ public class Validaciones {
 				if (cad.get(z).split("=")[1].equals(noPartyId)) {
 					contadorBuenos++;
 					System.out.println(
-							"iguales:  cadenaPrima(146): " + cad.get(z).split("=")[1] + " cadenaR " + noPartyId);
+							"iguales:  cadenaPrima(453): " + cad.get(z).split("=")[1] + " cadenaR " + noPartyId);
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), noPartyId, cad.get(z).split("=")[1],
 							id_Escenario, idCase, idSecuencia);
 				} else {
 					System.out.println(
-							"diferentes:  cadenaPrima(146): " + cad.get(z).split("=")[1] + " cadenaR " + noPartyId);
+							"diferentes:  cadenaPrima(453): " + cad.get(z).split("=")[1] + " cadenaR " + noPartyId);
 					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), noPartyId, cad.get(z).split("=")[1],
 							id_Escenario, idCase, idSecuencia);
 					contadorMalos++;
@@ -242,12 +242,12 @@ public class Validaciones {
 				if (cad.get(z).split("=")[1].equals(SenderCompID)) {
 					contadorBuenos++;
 					System.out.println(
-							"iguales:  cadenaPrima(146): " + cad.get(z).split("=")[1] + " cadenaR " + SenderCompID);
+							"iguales:  cadenaPrima(49): " + cad.get(z).split("=")[1] + " cadenaR " + SenderCompID);
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), SenderCompID,
 							cad.get(z).split("=")[1], id_Escenario, idCase, idSecuencia);
 				} else {
 					System.out.println(
-							"diferentes:  cadenaPrima(146): " + cad.get(z).split("=")[1] + " cadenaR " + SenderCompID);
+							"diferentes:  cadenaPrima(49): " + cad.get(z).split("=")[1] + " cadenaR " + SenderCompID);
 					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), SenderCompID,
 							cad.get(z).split("=")[1], id_Escenario, idCase, idSecuencia);
 					contadorMalos++;
@@ -305,12 +305,12 @@ public class Validaciones {
 			case "55":
 				if (cad.get(z).split("=")[1].equals(symbol)) {
 					contadorBuenos++;
-					System.out.println("iguales:  cadenaPrima(52): " + cad.get(z).split("=")[1] + " cadenaS " + symbol);
+					System.out.println("iguales:  cadenaPrima(55): " + cad.get(z).split("=")[1] + " cadenaS " + symbol);
 					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), symbol, cad.get(z).split("=")[1],
 							idEscenario, idCase, idSecuencia);
 				} else {
 					System.out.println(
-							"diferentes:  cadenaPrima(52): " + cad.get(z).split("=")[1] + " cadenaS " + symbol);
+							"diferentes:  cadenaPrima(55): " + cad.get(z).split("=")[1] + " cadenaS " + symbol);
 					DataAccess.cargarLogsFallidos(messageIn, datosCache.getIdEjecucion(), symbol, cad.get(z).split("=")[1],
 							idEscenario, idCase, idSecuencia);
 					contadorMalos++;
@@ -320,12 +320,12 @@ public class Validaciones {
 				if (cad.get(z).split("=")[1].equals(secSubType)) {
 					contadorBuenos++;
 					System.out.println(
-							"iguales:  cadenaPrima(52): " + cad.get(z).split("=")[1] + " cadenaS " + secSubType);
+							"iguales:  cadenaPrima(762): " + cad.get(z).split("=")[1] + " cadenaS " + secSubType);
 					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), secSubType, cad.get(z).split("=")[1],
 							idEscenario, idCase, idSecuencia);
 				} else {
 					System.out.println(
-							"diferentes:  cadenaPrima(52): " + cad.get(z).split("=")[1] + " cadenaS " + secSubType);
+							"diferentes:  cadenaPrima(762): " + cad.get(z).split("=")[1] + " cadenaS " + secSubType);
 					DataAccess.cargarLogsFallidos(messageIn, datosCache.getIdEjecucion(), secSubType, cad.get(z).split("=")[1],
 							idEscenario, idCase, idSecuencia);
 					contadorMalos++;

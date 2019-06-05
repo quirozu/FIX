@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -14,7 +15,7 @@ import quickfix.SessionNotFound;
 
 public class TestFix {
 
-	public static void main(String[] args) throws SQLException, SessionNotFound, InterruptedException {
+	public static void main(String[] args) throws SQLException, SessionNotFound, InterruptedException, IOException {
 		AutoEngine autoEngine = new AutoEngine();
 		autoEngine.iniciarEjecucion();	
 

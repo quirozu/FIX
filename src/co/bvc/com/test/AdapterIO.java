@@ -1,5 +1,6 @@
 package co.bvc.com.test;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -186,6 +187,9 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
 				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
 			BasicFunctions.setQuoteReqId(message.getString(131));
@@ -204,6 +208,9 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
 				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 
 		}
@@ -216,6 +223,9 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (SQLException | InterruptedException e) {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -232,6 +242,9 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -260,6 +273,9 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
 				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 
 		}
@@ -273,6 +289,9 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 

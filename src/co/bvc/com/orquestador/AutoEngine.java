@@ -1,5 +1,6 @@
 package co.bvc.com.orquestador;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -8,6 +9,7 @@ import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import co.bvc.com.test.CreateMessage;
+import co.bvc.com.test.CreateReport;
 import co.bvc.com.test.Validaciones;
 import quickfix.FieldNotFound;
 import quickfix.Session;
@@ -20,7 +22,7 @@ public class AutoEngine {
 	CreateMessage createMesage = new CreateMessage();
 
 	// metodo que inicia la ejecucion
-	public void iniciarEjecucion() throws SQLException, SessionNotFound, InterruptedException {
+	public void iniciarEjecucion() throws SQLException, SessionNotFound, InterruptedException, IOException {
 
 		BasicFunctions.createConn();
 		int firsIdCaseSec = BasicFunctions.getFirtsIdCaseSeq();
@@ -35,31 +37,31 @@ public class AutoEngine {
 		}
 	}
 
-	int caso = 1;
-
-	public void ejecutarSiguientePaso() throws SQLException, SessionNotFound, InterruptedException {
+	int caso =1;
+	public void ejecutarSiguientePaso() throws SQLException, SessionNotFound, InterruptedException, IOException {
 
 		System.out.println("ID_CASESEQ: " + BasicFunctions.getIdCaseSeq());
 		ResultSet rsDatos = DataAccess.datosMensaje(BasicFunctions.getIdCaseSeq());
-		int cantidad = 0;
 		while (rsDatos.next()) {
-			caso++;
-
-			int idCase = rsDatos.getInt("ID_CASE");
-
-			cantidad = DataAccess.finDeEjecucion(idCase);
+			
 			BasicFunctions.setIdCase(rsDatos.getInt("ID_CASE"));
 			System.out.println("Continua con el siguiente paso.");
 			enviarMensaje(rsDatos);
+			Thread.sleep(5000);
 			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
-			Thread.sleep(8000);
-			if (caso == cantidad) {
-
-				System.out.println("##################### FIN DE LA EJECUCION ############################# ");
-
+			System.out.println("++++++++++++++++ SECUENCIA ++++++++ "+ BasicFunctions.getIdCaseSeq());
+			if (caso<BasicFunctions.getIdCase()) {
+				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
+				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+				caso++;
+				System.out.println("Generar reporte....");
+				CreateReport.maina();
 			}
+			
+			
 		}
-		System.out.println("Generar reporte....");
+		
 		System.out.println("FIN EJECUCION....");
 	}
 
@@ -219,7 +221,7 @@ public class AutoEngine {
 	}
 
 	public void validarR(SessionID sessionId, Message messageIn)
-			throws SQLException, InterruptedException, FieldNotFound, SessionNotFound {
+			throws SQLException, InterruptedException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("************************");
 		System.out.println("** INGRESA A validarR **");
@@ -255,7 +257,7 @@ public class AutoEngine {
 	}
 
 	public void validarS(SessionID sessionId, Message messageIn)
-			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound {
+			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("************************");
 		System.out.println("** INGRESA A validarS **");
@@ -291,7 +293,7 @@ public class AutoEngine {
 	}
 
 	public void validarAJ(SessionID sessionId, Message messageIn)
-			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound {
+			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("*************************");
 		System.out.println("** INGRESA A validarAJ **");
@@ -310,6 +312,7 @@ public class AutoEngine {
 		String IdAfiliado = datosCache.getIdAfiliado();
 
 		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
+			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
 
 		} else {
@@ -320,7 +323,7 @@ public class AutoEngine {
 	}
 
 	public void validarAI(SessionID sessionId, Message messageIn)
-			throws SQLException, InterruptedException, SessionNotFound {
+			throws SQLException, InterruptedException, SessionNotFound, IOException {
 
 		System.out.println("*************************");
 		System.out.println("** INGRESA A validarAI **");
