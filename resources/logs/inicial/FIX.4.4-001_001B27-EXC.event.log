@@ -34192,3 +34192,17 @@ java.lang.NullPointerException
 20190605-15:06:24: Initiated logon request
 20190605-15:06:24: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
 20190605-15:06:24: Received logon
+20190605-16:27:47: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190605-16:27:47: Created session: FIX.4.4:001/001B27->EXC
+20190605-16:27:48: Configured socket addresses for session: [/172.36.2.13:54401]
+20190605-16:27:48: MINA session created: local=/172.16.1.1:60325, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190605-16:27:49: Initiated logon request
+20190605-16:27:49: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190605-16:27:49: Received logon
+20190605-16:30:31: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190605-16:30:31: Created session: FIX.4.4:001/001B27->EXC
+20190605-16:30:31: Configured socket addresses for session: [/172.36.2.13:54401]
+20190605-16:30:31: MINA session created: local=/172.16.1.1:60380, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190605-16:30:32: Initiated logon request
+20190605-16:30:32: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190605-16:30:32: Received logon

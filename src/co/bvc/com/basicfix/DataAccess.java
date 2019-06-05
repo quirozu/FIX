@@ -193,4 +193,23 @@ public class DataAccess {
 
 		return true;
 	}
+
+	public static int finDeEjecucion(int idCase) throws SQLException {
+
+		String idcase = "SELECT count(1) as cantidad FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_CASE =" + idCase;
+
+		ResultSet count = DataAccess.getQuery(idcase);
+
+		int cantidadIdCase = 0;
+
+		while (count.next()) {
+
+			cantidadIdCase = count.getInt("cantidad");
+
+
+		}
+
+		return cantidadIdCase;
+
+	}
 }
