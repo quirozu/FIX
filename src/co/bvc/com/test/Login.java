@@ -4,8 +4,12 @@ import co.bvc.com.basicfix.BasicFunctions;
 import quickfix.Application;
 import quickfix.ConfigError;
 import quickfix.DefaultMessageFactory;
+import quickfix.FileLogFactory;
+import quickfix.FileStoreFactory;
 import quickfix.MemoryStoreFactory;
+import quickfix.MessageFactory;
 import quickfix.ScreenLogFactory;
+import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionSettings;
 import quickfix.SocketInitiator;
@@ -13,27 +17,32 @@ import quickfix.SocketInitiator;
 public class Login {
 
 	private SessionID sessionID1;
-	private static SessionID sessionID2;
+	private SessionID sessionID2;
 	private SessionID sessionID3;
 	private SessionID sessionID4;
 	private SessionID sessionID5;
+	private Application application;
 	
 	public void initiation() {
+		
+		application = BasicFunctions.getAdapterIO();		
 
 		try {
-			sessionID1 = BasicFunctions.connecto("sessionSettings1_27.cfg");
+			sessionID1 = startSession("sessionSettings1_27.cfg");
 			if (sessionID1 == null) {
 				System.out.println("Conexión 1 errada");
 			} else {
-				BasicFunctions.logon(sessionID1);
+				Session.lookupSession(sessionID1).logon();
+				//BasicFunctions.logon(sessionID1);
 				System.out.println("Session ID: " + sessionID1);
 			}
 
-			sessionID2 = BasicFunctions.connecto("sessionSettings2_35.cfg");
+			sessionID2 = startSession("sessionSettings2_35.cfg");
 			if (sessionID2 == null) {
 				System.out.println("Conexión 2 errada");
 			} else {
-				BasicFunctions.logon(sessionID2);
+				Session.lookupSession(sessionID2).logon();
+//				BasicFunctions.logon(sessionID2);
 				System.out.println("Session ID: " + sessionID2);
 			}
 
@@ -63,16 +72,13 @@ public class Login {
 //				System.out.println("Session ID: " + sessionID5);
 //			}
 
-			System.out.println("************************************");
+//			System.out.println("************************************");
 
 			Thread.sleep(3000);
 
-			// Ejecución
-
-			System.out.println("***********************************");
-			System.out.println("Procesando....");
-			Thread.sleep(3000);
-			System.out.println("***********************************");
+			System.out.println("*************************************");
+			System.out.println("***  SESIONES CREADAS E INICIADAS ***");
+			System.out.println("*************************************");
 
 		} catch (Exception exp) {
 			exp.printStackTrace();
@@ -87,7 +93,7 @@ public class Login {
 		return sessionID1;
 	}
 
-	public static SessionID getSessionID2() {
+	public SessionID getSessionID2() {
 		return sessionID2;
 	}
 
@@ -95,6 +101,34 @@ public class Login {
 		return sessionID3;
 	}
 
+	public SessionID getSessionID4() {
+		return sessionID4;
+	}
+	public SessionID getSessionID5() {
+		return sessionID5;
+	}
+
+	private SessionID startSession(String fileConf) {
+		SocketInitiator socketInitiator = null;
+		try {
+			SessionSettings sessionSettings = new SessionSettings("resources\\" + fileConf);
+			
+			FileStoreFactory fileStoreFactory = new FileStoreFactory(sessionSettings);
+			FileLogFactory fileLogFactory = new FileLogFactory(sessionSettings);
+			MessageFactory messageFactory = new DefaultMessageFactory();
+			socketInitiator = new SocketInitiator(application, fileStoreFactory, sessionSettings, fileLogFactory, messageFactory);
+			
+			//Se ejecuta onCreate de AdapterIO
+			socketInitiator.start(); 
+			SessionID sessionID = socketInitiator.getSessions().get(0);
+
+			return sessionID;
+		} catch (Exception e) {
+			System.out.println("Error de conexion INET. Mensaje: "+e.getMessage());
+			return null;
+		} 	
+	}
+	
 	
 
 }

@@ -1,6 +1,13 @@
 package co.bvc.com.basicfix;
 
-import co.bvc.com.test.Adapters;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
+import co.bvc.com.test.AdapterIO;
+import co.bvc.com.test.Login;
 import quickfix.Application;
 import quickfix.DefaultMessageFactory;
 import quickfix.FileLogFactory;
@@ -12,51 +19,137 @@ import quickfix.SessionSettings;
 import quickfix.SocketInitiator;
 
 public class BasicFunctions {
-	private static int IdCaseSeg;
-	
-	public static int getIdCaseSeg() {
-		return IdCaseSeg;
+
+	private static Connection conn;
+	private static Login login;
+	private static String quoteReqId;
+	private static String quoteId;
+	private static long idEjecution;
+	private static int idCaseSeq;
+	private static AdapterIO adapterIO;
+//	private static RespuestaConstrucccionMsgFIX cache;
+
+	public static Connection getConn() {
+		return conn;
 	}
 
-	public static void setIdCaseSeg(int idCaseSeg) {
-		IdCaseSeg = idCaseSeg;
+	public static void setConn(Connection conn) {
+		BasicFunctions.conn = conn;
 	}
 
-	public static boolean logon(SessionID sessionID) {
-		boolean sLogon = false;
-		
-		Session.lookupSession(sessionID).logon();
-		
-		return sLogon;
+	public static Login getLogin() {
+		return login;
+	}
+
+	public static void setLogin(Login login) {
+		BasicFunctions.login = login;
+	}
+
+	public static String getQuoteReqId() {
+		return quoteReqId;
+	}
+
+	public static void setQuoteReqId(String quoteReqId) {
+		BasicFunctions.quoteReqId = quoteReqId;
+	}
+
+	public static String getQuoteId() {
+		return quoteId;
+	}
+
+	public static void setQuoteId(String quoteId) {
+		BasicFunctions.quoteId = quoteId;
+	}
+
+	public static long getIdEjecution() {
+		return idEjecution;
+	}
+
+	public static void setIdEjecution(long idEjecution) {
+		BasicFunctions.idEjecution = idEjecution;
+	}
+
+	public static int getIdCaseSeq() {
+		return idCaseSeq;
+	}
+
+	public static void setIdCaseSeq(int idCaseSeq) {
+		BasicFunctions.idCaseSeq = idCaseSeq;
+	}
+
+	public static AdapterIO getAdapterIO() {
+		return adapterIO;
+	}
+
+	public static void setAdapterIO(AdapterIO adapterIO) {
+		BasicFunctions.adapterIO = adapterIO;
 	}
 	
-	public static boolean logout(SessionID sessionID) {
-		boolean sLogon = false;
+//	public static RespuestaConstrucccionMsgFIX getCache() {
+//		return cache;
+//	}
+//
+//	public static void setCache(RespuestaConstrucccionMsgFIX cache) {
+//		BasicFunctions.cache = cache;
+//	}
+
+	/**
+	 * Crea la conexión a la db y se la asigna a la variable conn de BasicFunctions
+	 * 
+	 * @return
+	 */
+	public static boolean createConn() {
+		boolean retorno = false;
+
+		//
+		BasicFunctions.conn = DataAccess.getConnection();
+		if (BasicFunctions.conn != null) {
+			retorno = true;
+		}
+
+		return retorno;
+	}
+
+	/**
+	 * Se crea el adaptador y las sessiones y el login con el motor de INET
+	 * 
+	 * @return
+	 */
+	public static void createLogin() {
+		if (BasicFunctions.adapterIO == null) {
+			BasicFunctions.adapterIO = new AdapterIO();
 		
-		Session.lookupSession(sessionID).logout();
+		}
+
+		if (BasicFunctions.login == null) {
+			BasicFunctions.login = new Login();
+			BasicFunctions.login.initiation();
+		}
+	}
+
+	public static void startVariables() {
+		SimpleDateFormat SDF = new SimpleDateFormat("yyyMMddHmmss");
+		long id_ejecution = Long.parseLong(SDF.format(new Date()));
+		System.out.println("ID_EJECUCION GENERADO : " + id_ejecution);
+
+		BasicFunctions.setIdEjecution(id_ejecution);
 		
-		return sLogon;
 	}
 	
+	public static int getFirtsIdCaseSeq() throws SQLException {
+		int firstIdDB = DataAccess.getFirstIdCaseSeq();
+		return firstIdDB;
+	}
+
 	
-	public static SessionID connecto(String fileConf) {
-		SocketInitiator socketInitiator = null;
-		try {
-			SessionSettings sessionSettings = new SessionSettings("resources\\" + fileConf);
-			
-			Application application = new Adapters();
-			FileStoreFactory fileStoreFactory = new FileStoreFactory(sessionSettings);
-			FileLogFactory fileLogFactory = new FileLogFactory(sessionSettings);
-			MessageFactory messageFactory = new DefaultMessageFactory();
-			socketInitiator = new SocketInitiator(application, fileStoreFactory, sessionSettings, fileLogFactory, messageFactory);
-			socketInitiator.start(); // Llama onCreate
-			SessionID sessionID = socketInitiator.getSessions().get(0);
-			//System.out.println("ANTES DE LOGON \n"+socketInitiator.getSettings());
-			return sessionID;
-		} catch (Exception e) {
-			System.out.println("Error de conexiï¿½n."+e.getMessage());
-			return null;
-		} 	
+	public static void imprimir(String vari) {
+		System.out.println("\n#####################\nCLASE: "+ vari.getClass()+ "VARIABLE: "+ vari + "\n#####################");
+	}
+	public static void imprimir(int vari) {
+		System.out.println("\n#####################\nVARIABLE ENTERA: "+ vari + "\n#####################");
+	}
+	public static void imprimir(boolean vari) {
+		System.out.println("\n#####################\nVARIABLE BOOLEAN: "+ vari + "\n#####################");
+	}
 
 }
-	}

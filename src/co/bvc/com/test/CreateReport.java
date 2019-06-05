@@ -1,4 +1,4 @@
-package co.bvc.com.basicfix;
+package co.bvc.com.test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +12,9 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class LogsReport {
+import co.bvc.com.basicfix.DataAccess;
+
+public class CreateReport {
 	static DataAccess conexiona = new DataAccess();
 
 	@SuppressWarnings("static-access")

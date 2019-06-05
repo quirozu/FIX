@@ -1,7 +1,5 @@
 package co.bvc.com.dao.domain;
 
-import java.util.List;
-
 public class AutFixRfqDatosCache {
 	
 	private String receiverSession;
