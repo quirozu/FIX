@@ -21,7 +21,6 @@ public class RespuestaConstrucccionMsgFIX {
 	}
 	
 	public RespuestaConstrucccionMsgFIX(Message message, List<String> listSessiones) {
-		super();
 		this.message = message;
 		this.listSessiones = listSessiones;
 	}

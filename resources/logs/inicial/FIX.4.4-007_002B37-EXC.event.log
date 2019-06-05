@@ -1,6 +1,0 @@
-20190527-21:22:18: Session FIX.4.4:007/002B37->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
-20190527-21:22:18: Created session: FIX.4.4:007/002B37->EXC
-20190527-21:22:18: Configured socket addresses for session: [/172.36.2.13:55401]
-20190527-21:22:18: MINA session created: local=/172.16.1.1:59747, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:55401
-20190527-21:22:19: Initiated logon request
-20190527-21:22:19: Disconnecting: Encountered END_OF_STREAM
