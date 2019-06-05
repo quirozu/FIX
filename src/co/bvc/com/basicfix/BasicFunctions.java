@@ -27,7 +27,16 @@ public class BasicFunctions {
 	private static long idEjecution;
 	private static int idCaseSeq;
 	private static AdapterIO adapterIO;
+	private static int idCase;
 //	private static RespuestaConstrucccionMsgFIX cache;
+
+	public static int getIdCase() {
+		return idCase;
+	}
+
+	public static void setIdCase(int d) {
+		BasicFunctions.idCase = d;
+	}
 
 	public static Connection getConn() {
 		return conn;

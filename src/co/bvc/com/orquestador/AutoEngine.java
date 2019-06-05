@@ -40,6 +40,7 @@ public class AutoEngine {
 		ResultSet rsDatos = DataAccess.datosMensaje(BasicFunctions.getIdCaseSeq());
 		
 			while (rsDatos.next()) {
+				BasicFunctions.setIdCase(rsDatos.getInt("ID_CASE"));
 				System.out.println("Continua con el siguiente paso.");
 				enviarMensaje(rsDatos);
 				Thread.sleep(5000);

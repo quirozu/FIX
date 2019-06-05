@@ -22,29 +22,28 @@ public class DataAccess {
 	private static String PORT;
 	private static Connection conn = null;
 
-	 public static Connection getConnection(){
-	      try{
-	         if( conn == null ){
-	        	ParametersRead p = new ParametersRead();
-	     		String[] lineas = p.leerConexion();
-	     		_usuario = lineas[0].split("=")[1].trim();
-	     		_pwd = lineas[1].split("=")[1].trim();
-	     		_db = lineas[2].split("=")[1].trim();
-	     		HOST = lineas[3].split("=")[1].trim();
-	     		PORT = lineas[4].split("=")[1].trim();
-	     		String driver = "com.mysql.jdbc.Driver";
-	     		String _url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + _db;
-	            Class.forName(driver);
-	            conn = DriverManager.getConnection(_url, _usuario, _pwd);
-	            System.out.println("Conectionesfull");
-	         }
-	     }
-	     catch(ClassNotFoundException | SQLException ex){
-	        ex.printStackTrace();
-	     }
-	     return conn;
-	 }
-	
+	public static Connection getConnection() {
+		try {
+			if (conn == null) {
+				ParametersRead p = new ParametersRead();
+				String[] lineas = p.leerConexion();
+				_usuario = lineas[0].split("=")[1].trim();
+				_pwd = lineas[1].split("=")[1].trim();
+				_db = lineas[2].split("=")[1].trim();
+				HOST = lineas[3].split("=")[1].trim();
+				PORT = lineas[4].split("=")[1].trim();
+				String driver = "com.mysql.jdbc.Driver";
+				String _url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + _db;
+				Class.forName(driver);
+				conn = DriverManager.getConnection(_url, _usuario, _pwd);
+				System.out.println("Conectionesfull");
+			}
+		} catch (ClassNotFoundException | SQLException ex) {
+			ex.printStackTrace();
+		}
+		return conn;
+	}
+
 	public static ResultSet getQuery(String _query) throws SQLException {
 		Statement state = null;
 		ResultSet resultSet = null;
@@ -56,28 +55,28 @@ public class DataAccess {
 		}
 		return resultSet;
 	}
-	
+
 	public static int getFirstIdCaseSeq() throws SQLException {
-		
+
 		String queryInicio = "SELECT ID_CASESEQ FROM bvc_automation_db.aut_fix_rfq_datos ORDER BY ID_CASESEQ ASC LIMIT 1";
 		ResultSet rs = DataAccess.getQuery(queryInicio);
 		int idCaseSeq = -1;
-		
-		while(rs.next()) {
-			
+
+		while (rs.next()) {
+
 			idCaseSeq = rs.getInt("ID_CASESEQ");
 			BasicFunctions.setIdCaseSeq(idCaseSeq);
 			BasicFunctions.imprimir(idCaseSeq);
-			
+
 		}
 		return idCaseSeq;
 	}
-	
+
 	public static ResultSet datosMensaje(int idCaseSeq) throws SQLException {
-		
+
 		String queryDatos = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_CASESEQ=" + idCaseSeq;
 		ResultSet rsDatos = DataAccess.getQuery(queryDatos);
-		
+
 		return rsDatos;
 	}
 
@@ -94,8 +93,8 @@ public class DataAccess {
 
 	public static void cargarCache(AutFixRfqDatosCache datosCache) throws SQLException {
 
-		PreparedStatement ps = conn
-				.prepareStatement("INSERT INTO `bvc_automation_db`.`aut_fix_rfq_cache` VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+		PreparedStatement ps = conn.prepareStatement(
+				"INSERT INTO `bvc_automation_db`.`aut_fix_rfq_cache` VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 		ps.setString(1, datosCache.getReceiverSession());
 		ps.setInt(2, datosCache.getIdCaseseq());
 		ps.setInt(3, datosCache.getIdCase());
@@ -144,13 +143,13 @@ public class DataAccess {
 		ps.setInt(4, idSecuencia);
 		ps.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
 		ps.setString(6, "EXITOSO");
-		ps.setString(7, clave +"= "+ valor);
+		ps.setString(7, clave + "= " + valor);
 		ps.setString(8, "");
 		ps.setNull(9, Types.INTEGER);
 		ps.executeUpdate();
 
 	}
-	
+
 	public static void limpiarCache() throws SQLException {
 		String strQueryLimpiar = "DELETE FROM `bvc_automation_db`.`aut_fix_rfq_cache` WHERE  RECEIVER_SESSION <> ''";
 		setQuery(strQueryLimpiar);
@@ -167,30 +166,31 @@ public class DataAccess {
 		ps.setInt(4, idSecuencia);
 		ps.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
 		ps.setString(6, "FALLIDO");
-		ps.setString(7, clave +"= "+ valor);
+		ps.setString(7, clave + "= " + valor);
 		ps.setString(8, message.toString());
 		ps.setNull(9, Types.INTEGER);
 		ps.executeUpdate();
 
 	}
-	
-	public static boolean validarContinuidadEjecucion (String session) throws SQLException {
-		
+
+	public static boolean validarContinuidadEjecucion(String session) throws SQLException {
+
 //		String query = "SELECT count(1) as cantidad FROM bvc_automation_db.aut_fix_rfq_cache WHERE  RECEIVER_SESSION <>" + session;
 		String query = "SELECT count(1) as cantidad FROM bvc_automation_db.aut_fix_rfq_cache";
-		
+
 		ResultSet i = DataAccess.getQuery(query);
 		int cantidadEscenarios = 0;
-		
-		while(i.next()) {
-			cantidadEscenarios = i.getInt("cantidad"); 	
-			System.out.println("*************** CANTIDAD MENSAJES POR VALIDAR: " + cantidadEscenarios + "\n*********************");
+
+		while (i.next()) {
+			cantidadEscenarios = i.getInt("cantidad");
+			System.out.println(
+					"*************** CANTIDAD MENSAJES POR VALIDAR: " + cantidadEscenarios + "\n*********************");
 		}
-		
-		if(cantidadEscenarios>0) {
+
+		if (cantidadEscenarios > 0) {
 			return false;
 		}
-		
+
 		return true;
 	}
 }

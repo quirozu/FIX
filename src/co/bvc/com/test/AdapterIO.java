@@ -61,7 +61,6 @@ public class AdapterIO extends MessageCracker implements Application {
 	@Override
 	public void toAdmin(Message message, SessionID sessionId) {
 		
-		System.out.println("ESTE ES EL ID QUE ME LLEGA ANTES DE    "+sessionId );
 		try {
 			printMessage("toAdmin - ENTRADA", sessionId,  message);
 		} catch (FieldNotFound e1) {
