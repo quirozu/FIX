@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.xml.bind.SchemaOutputResolver;
 
+import co.bvc.com.basicfix.BasicFunctions;
+import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.orquestador.AutoEngine;
 import quickfix.Application;
@@ -34,48 +36,19 @@ import quickfix.fix44.QuoteRequest;
 import quickfix.fix44.QuoteResponse;
 import quickfix.fix44.QuoteStatusReport;
 
-public class Adapters extends MessageCracker implements Application {
-	Login inicio = new Login();
-//	Translate translate = new Translate();
-	Validaciones validar = new Validaciones();
+public class AdapterIO extends MessageCracker implements Application {
+
 	AutoEngine autoEngine = new AutoEngine();
-
-	private static String IDQuoteFound;
-	private static String IDQuoteFound1;
-	
-	public Adapters(Login inicio) {
-		this.inicio = inicio;
-	}
-
-	public Adapters() {
-		
-	}	
-	
-	public static String getIDQuoteFound() {
-		return IDQuoteFound;
-	}
-
-	public static void setIDQuoteFound(String iDQuoteFound) {
-		IDQuoteFound = iDQuoteFound;
-	}
-
-	public static String getIDQuoteFound1() {
-		return IDQuoteFound1;
-	}
-
-	public static void setIDQuoteFound1(String iDQuoteFound1) {
-		IDQuoteFound1 = iDQuoteFound1;
-	}
 
 	@Override
 	public void onCreate(SessionID sessionId) {
-//		System.out.println("*****************\nonCreate - sessionId: " + sessionId);
+		System.out.println("*****************\nonCreate - sessionId: " + sessionId);
 
 	}
 
 	@Override
 	public void onLogon(SessionID sessionId) {
-		//System.out.println("*****************\nonLogon - sessionId: " + sessionId);
+		System.out.println("*****************\nonLogon - sessionId: " + sessionId);
 
 	}
 
@@ -88,7 +61,7 @@ public class Adapters extends MessageCracker implements Application {
 	@Override
 	public void toAdmin(Message message, SessionID sessionId) {
 		try {
-			printMessage("toAdmin - ENTRADA", sessionId, message);
+			printMessage("toAdmin - ENTRADA", sessionId,  message);
 		} catch (FieldNotFound e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -102,7 +75,7 @@ public class Adapters extends MessageCracker implements Application {
 				ArrayList<String> listUsers = new ArrayList<String>();
 				ArrayList<String> listPass = new ArrayList<String>();
 				ArrayList<String> listID = new ArrayList<String>();
-				DataAccess d = new DataAccess();
+
 				ResultSet resultSet = DataAccess.getQuery("select A.USUARIO , A.CLAVE, A.ID_USUARIO\r\n"
 						+ "from bvc_automation_db.AUT_USUARIO A\r\n"
 						+ "inner join bvc_automation_db.aut_negociadores B\r\n" + "on A.ID_USUARIO = B.ID_USUARIO ");
@@ -157,155 +130,110 @@ public class Adapters extends MessageCracker implements Application {
 		try {
 			crack(message, sessionId);
 		} catch (UnsupportedMessageType e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (FieldNotFound e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IncorrectTagValue e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		System.out.println("*****************\n toAdmin - SALIDA : \n" + message + "\nPara la sessionId: " + sessionId);
-
+		
 	}
 
-
-
-//		setIDQuoteFound(message.getString(131));
-
-		// System.out.println("*****************\n\tID QuoteRequest: " +
-		// getIDQuoteFound() + "\n-----------------------");
-
-//		printMessage("fromAdmin-Output", sessionId, message);
-	
 
 	@Override
 	public void toApp(Message message, SessionID sessionId) throws DoNotSend {
 
 		try {
 			printMessage("toApp", sessionId, message);
-//			 crack(message, sessionId);
-			// printMessage("toApp-Output", sessionId, message);
+//			crack(message, sessionId);
 		} catch (FieldNotFound e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
-
-	
 
 	@Override
 	public void fromAdmin(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {
-		printMessage("fromAdmin-Input", sessionId, message);
-		// System.out.println("*****************\n fromAdmin - Message : \n" + message +		// "\nPara la sessionId: "+ sessionId);
-
+		
+		printMessage("fromAdmin-Input", sessionId,  message);
+		
 		try {
 			crack(message, sessionId);
 		} catch (UnsupportedMessageType e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
 	
-	// Crear switch para el FromApp
-	
-    
 	@Override
 	public void fromApp(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
 		
 		printMessage("fromApp-Input", sessionId, message);
-		
-		
 
-		if (message instanceof QuoteRequest && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
+		if (message instanceof QuoteRequest && sessionId.toString().equals(Constantes.RQ_TRADER002)) {
 
 			printMessage("MENSAJE R_PRIMA ", sessionId, message);
 			
 			try {
-				Thread.sleep(5000);
-				this.inicio.initiation();
-				autoEngine.setLogin(this.inicio);
+				 Thread.sleep(5000);
 				autoEngine.validarR(sessionId, message);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
-			
-			setIDQuoteFound(message.getString(131));
-			System.out.println("ID ESTABLECIDO EN " + getIDQuoteFound());
+			BasicFunctions.setQuoteReqId(message.getString(131));
+//			setIDQuoteFound(message.getString(131));
+			System.out.println("\nID ESTABLECIDO EN " + BasicFunctions.getQuoteReqId());
 
 		}
 
-		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:001/001B27->EXC")) {
-			String mess = "" + message;
-			
+		if (message instanceof QuoteStatusReport && sessionId.toString().equals(Constantes.RQ_TRADER001)) {
+
 			printMessage("MENSAJE AI PARA SESSION 1 ", sessionId, message);
-
-//			validar.setCadenaAI(mess);
-//			try {
-//				validar.ValidaR();
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-
-		}
-
-		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
-			String mess = "" + message;
-
-			printMessage("MENSAJE AI PARA SESSION 2 ", sessionId, message);
-
 			
-//			validar.setCadenaAI(mess);
-//			try {
-//				this.inicio.initiation();
-//				autoEngine.setLogin(this.inicio);
-//				autoEngine.validarS(sessionId, message);
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (SessionNotFound e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-
-		}
-
-		if (message instanceof Quote && sessionId.toString().equals("FIX.4.4:001/001B27->EXC")) {
-			
-			printMessage("MENSAJE Q PARA SESSION 1 ", sessionId, message);
-
 			try {
-				Thread.sleep(5000);
-				this.inicio.initiation();
-				autoEngine.setLogin(this.inicio);
-				autoEngine.validarS(sessionId, message);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+				autoEngine.validarAI(sessionId, message);
+			} catch (SQLException | InterruptedException e) {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
-				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
+		if (message instanceof QuoteStatusReport && sessionId.toString().equals(Constantes.RQ_TRADER002)) {
+
+			printMessage("MENSAJE AI PARA SESSION 2 ", sessionId, message);
+			try {
+				autoEngine.validarAI(sessionId, message);
+			} catch (SQLException | InterruptedException e) {
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			}
+			
+		}
+
+		if (message instanceof Quote && sessionId.toString().equals(Constantes.RQ_TRADER001)) {
+			
+			printMessage("MENSAJE S_PRIMA PARA SESSION 1 ", sessionId, message);
+
+			try {
+				autoEngine.validarS(sessionId, message);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
 				e.printStackTrace();
 			}
 		}
@@ -314,73 +242,43 @@ public class Adapters extends MessageCracker implements Application {
 			
 			printMessage("MENSAJE AJ ", sessionId, message);
 
-//			setIDQuoteFound1(message.getString(117));
-//			System.out.println("ID ESTABLECIDO PARA EL MENSAJE AJ " + getIDQuoteFound1());
-//			String mess = "" + message;
-//
-//			validar.setCadenaSPrima(mess);
-//			try {
-//				validar.ValidarSPrima();
-//			} catch (SQLException | InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//
-//			}
 		}
 
 		crack(message, sessionId);
-
-		//printMessage("fromApp-Output", sessionId, message);
 	}
 	
 	
 
 	public void onMessage(ExecutionReport message, SessionID sessionID) throws FieldNotFound {
-		if (message instanceof ExecutionReport) {
-			
-			printMessage("OCHO", sessionID, message);
-			
-//			String mess = "" + message;
-//
-//			validar.setCadenaOcho(mess);
-//			try {
-////				this.inicio.initiation();
-////				autoEngine.setLogin(this.inicio);
-//				autoEngine.validarAJ(sessionID, message);
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (SessionNotFound e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
+		if (sessionID.toString().equals(Constantes.RQ_TRADER002)) {
 
-		}
-		if (message instanceof ExecutionReport  && sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
-			String mess = "" + message;
+			printMessage("MENSAJE ER PARA 002 ", sessionID, message);
 
-			validar.setCadenaOcho(mess);
 			try {
-//				this.inicio.initiation();
-//				autoEngine.setLogin(this.inicio);
 				autoEngine.validarAJ(sessionID, message);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 		}
-		printMessage("ExecutionReport", sessionID, message);
+		if (sessionID.toString().equals(Constantes.RQ_TRADER001)) {
+			
+			printMessage("MENSAJE ER PARA 001 ", sessionID, message);
+			try {
+				autoEngine.validarAJ(sessionID, message);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			}
 
+		}
 	}
 
 	public void onMessage(quickfix.fix44.QuoteStatusRequest message, SessionID sessionID) throws FieldNotFound {
@@ -391,67 +289,26 @@ public class Adapters extends MessageCracker implements Application {
 	public void onMessage(quickfix.fix44.QuoteStatusReport message, SessionID sessionID) throws FieldNotFound {
 		printMessage("QuoteStatusReport", sessionID, message);
 		
-			try {
-				autoEngine.validarAI(sessionID, message);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
-		
-		
-		// System.out.println("*****************\n\tID QuoteStatusReport: " +
-		// getIDQuoteFound() + "\n-----------------------");
-
 	}
 
 	public void onMessage(quickfix.fix44.QuoteRequest message, SessionID sessionID) throws FieldNotFound {
-
-		printMessage("QuoteRequest", sessionID, message);
-		String mess = "" + message;
-		
-		// instanciar AutoEngine
-		// AE.validarR(msg, sId)
-		
-		
-//		validar.setCadenaRPrima(mess);
-
-//			try {
-//				validar.ValidarRPrima();
-//			} catch (InterruptedException | SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-		
-
-		// System.out.println("*****************\n\tID QuoteRequest: " +
-		// getIDQuoteFound() + "\n-----------------------");
 
 	}
 
 	public void onMessage(quickfix.fix44.Quote message, SessionID sessionID) throws FieldNotFound {
 
 		printMessage("Quote", sessionID, message);
-
 	}
 
 	public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {
 
 		printMessage("QuoteCancel", sessionID, message);
-
 	}
-
 	
-
+	
 	public static void printMessage(String typeMsg, SessionID sID, Message msg) throws FieldNotFound {
-		System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sID /* + "\nMENSAJE :"
-				+ msg + "\n----------------------------"*/);
+		System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sID + "\nMENSAJE :"
+				+ msg + "\n----------------------------");
 
 	}
-
-	
-
 }
