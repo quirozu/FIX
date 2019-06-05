@@ -26,6 +26,7 @@ public class AutoEngine {
 		int firsIdCaseSec = BasicFunctions.getFirtsIdCaseSeq();
 
 		if (firsIdCaseSec > 0) {
+			BasicFunctions.startVariables();
 			BasicFunctions.createLogin();
 			DataAccess.limpiarCache();
 			ejecutarSiguientePaso();
@@ -50,8 +51,8 @@ public class AutoEngine {
 			BasicFunctions.setIdCase(rsDatos.getInt("ID_CASE"));
 			System.out.println("Continua con el siguiente paso.");
 			enviarMensaje(rsDatos);
-			Thread.sleep(5000);
 			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
+			Thread.sleep(8000);
 			if (caso == cantidad) {
 
 				System.out.println("##################### FIN DE LA EJECUCION ############################# ");
