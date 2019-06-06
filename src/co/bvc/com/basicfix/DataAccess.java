@@ -21,7 +21,7 @@ public class DataAccess {
 	private static String HOST;
 	private static String PORT;
 	private static Connection conn = null;
-
+	
 	public static Connection getConnection() {
 		try {
 			if (conn == null) {
@@ -56,9 +56,12 @@ public class DataAccess {
 		return resultSet;
 	}
 
-	public static int getFirstIdCaseSeq() throws SQLException {
+	public static int getFirstIdCaseSeq(int escenarioEjecucion) throws SQLException {
 
-		String queryInicio = "SELECT ID_CASESEQ FROM bvc_automation_db.aut_fix_rfq_datos ORDER BY ID_CASESEQ ASC LIMIT 1";
+		String queryInicio = "SELECT ID_CASESEQ FROM bvc_automation_db.aut_fix_rfq_datos"
+				+ " WHERE ID_CASE= "+escenarioEjecucion+" ORDER BY ID_CASESEQ ASC LIMIT 1";
+		System.out.println(queryInicio);
+		
 		ResultSet rs = DataAccess.getQuery(queryInicio);
 		int idCaseSeq = -1;
 
