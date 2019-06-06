@@ -34275,3 +34275,11 @@ java.lang.NullPointerException
 20190605-21:06:17: Received logon
 20190605-21:06:36: Rejecting invalid message: quickfix.FieldException: Required tag missing, field=38: 8=FIX.4.49=15235=AG34=549=EXC52=20190605-21:06:36.71156=00157=001B2758=(962): Deposito no fue ingresada131=44372751658=99146=155=TFIT16280428762=RFQF22=M10=108
 20190605-21:06:36: Reject sent for Message 5: Required tag missing, field=38:38
+20190606-14:29:00: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190606-14:29:00: Session state is not current; resetting FIX.4.4:001/001B27->EXC
+20190606-14:29:00: Created session: FIX.4.4:001/001B27->EXC
+20190606-14:29:00: Configured socket addresses for session: [/172.36.2.13:54401]
+20190606-14:29:00: MINA session created: local=/172.16.1.1:52228, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190606-14:29:01: Initiated logon request
+20190606-14:29:01: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190606-14:29:01: Received logon

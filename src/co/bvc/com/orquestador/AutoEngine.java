@@ -312,7 +312,7 @@ public class AutoEngine {
 		String IdAfiliado = datosCache.getIdAfiliado();
 
 		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
-			ejecutarSiguientePaso();
+//			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
 
 		} else {
