@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.sql.Types;
-import java.util.LinkedList;
 
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import quickfix.Message;
@@ -55,30 +54,6 @@ public class DataAccess {
 			e.printStackTrace();
 		}
 		return resultSet;
-	}
-	
-	public static int getFirstIdCaseSeq() throws SQLException {
-		
-		String queryInicio = "SELECT ID_CASESEQ FROM bvc_automation_db.aut_fix_rfq_datos ORDER BY ID_CASESEQ ASC LIMIT 1";
-		ResultSet rs = DataAccess.getQuery(queryInicio);
-		int idCaseSeq = -1;
-		
-		while(rs.next()) {
-			
-			idCaseSeq = rs.getInt("ID_CASESEQ");
-			BasicFunctions.setIdCaseSeq(idCaseSeq);
-			BasicFunctions.imprimir(idCaseSeq);
-			
-		}
-		return idCaseSeq;
-	}
-	
-	public static ResultSet datosMensaje(int idCaseSeq) throws SQLException {
-		
-		String queryDatos = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_CASESEQ=" + idCaseSeq;
-		ResultSet rsDatos = DataAccess.getQuery(queryDatos);
-		
-		return rsDatos;
 	}
 
 	public static int getFirstIdCaseSeq() throws SQLException {
@@ -175,11 +150,6 @@ public class DataAccess {
 
 	}
 	
-	public static void limpiarCache() throws SQLException {
-		String strQueryLimpiar = "DELETE FROM `bvc_automation_db`.`aut_fix_rfq_cache` WHERE  RECEIVER_SESSION <> ''";
-		setQuery(strQueryLimpiar);
-	}
-
 	public static void limpiarCache() throws SQLException {
 		String strQueryLimpiar = "DELETE FROM `bvc_automation_db`.`aut_fix_rfq_cache` WHERE  RECEIVER_SESSION <> ''";
 		setQuery(strQueryLimpiar);

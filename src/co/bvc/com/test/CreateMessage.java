@@ -5,14 +5,15 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import co.bvc.com.basicfix.BasicFunctions;
 import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
-import quickfix.Session;
-import quickfix.SessionID;
 import quickfix.SessionNotFound;
 import quickfix.StringField;
 import quickfix.field.BeginString;
@@ -231,4 +232,20 @@ public class CreateMessage {
 
 	}
 
+	public String seleccionRPrima(Map<String, String> rPrima) {
+		
+		Iterator<Map.Entry<String, String>> iterator = rPrima.entrySet().iterator();
+		String ultimoRPrima = "";
+		
+		while(iterator.hasNext()) {
+			Map.Entry<String, String> entry = iterator.next();
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+			
+			ultimoRPrima = entry.getValue();
+		}
+		
+		return ultimoRPrima;
+		
+	}
+	
 }

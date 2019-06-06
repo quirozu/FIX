@@ -9,6 +9,7 @@ import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import co.bvc.com.test.CreateMessage;
+import co.bvc.com.test.CreateReport;
 import co.bvc.com.test.Validaciones;
 import quickfix.FieldNotFound;
 import quickfix.Session;
@@ -21,7 +22,7 @@ public class AutoEngine {
 	CreateMessage createMesage = new CreateMessage();
 
 	// metodo que inicia la ejecucion
-	public void iniciarEjecucion() throws SQLException, SessionNotFound, InterruptedException {
+	public void iniciarEjecucion() throws SQLException, SessionNotFound, InterruptedException, IOException {
 
 		BasicFunctions.createConn();
 		int firsIdCaseSec = BasicFunctions.getFirtsIdCaseSeq();
@@ -114,13 +115,19 @@ public class AutoEngine {
 
 		case "FIX_S":
 
+//			String quoteReqId = BasicFunctions.getQuoteReqId();
+
+//			respConstruccion = createMesage.createS(resultSet, quoteReqId);
+			
 			System.out.println("*********************");
 			System.out.println("** INGRESA A FIX_S **");
 			System.out.println("*********************");
 
-			String quoteReqId = BasicFunctions.getQuoteReqId();
+			String idAfiliado = resultSet.getString("ID_AFILIADO");
+			String quoteReqId = BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado);
 
 			respConstruccion = createMesage.createS(resultSet, quoteReqId);
+			
 
 			System.out.println("************* INGRESA A FIX_S ****************");
 			for (String session : respConstruccion.getListSessiones()) {
@@ -216,7 +223,7 @@ public class AutoEngine {
 	}
 
 	public void validarR(SessionID sessionId, Message messageIn)
-			throws SQLException, InterruptedException, FieldNotFound, SessionNotFound {
+			throws SQLException, InterruptedException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("************************");
 		System.out.println("** INGRESA A VALIDAR R **");
@@ -235,8 +242,8 @@ public class AutoEngine {
 
 		String IdAfiliado = datosCache.getIdAfiliado();
 
-		String idQuoteReq = messageIn.getString(131);
-		BasicFunctions.setQuoteReqId(idQuoteReq);
+//		String idQuoteReq = messageIn.getString(131);
+//		BasicFunctions.setQuoteReqId(idQuoteReq);
 
 		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
 
@@ -252,7 +259,7 @@ public class AutoEngine {
 	}
 
 	public void validarS(SessionID sessionId, Message messageIn)
-			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound {
+			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("************************");
 		System.out.println("** INGRESA A VALIDAR S **");

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import co.bvc.com.test.AdapterIO;
@@ -22,18 +24,27 @@ public class BasicFunctions {
 
 	private static Connection conn;
 	private static Login login;
-	private static String quoteReqId;
+	private static Map<String, String> quoteReqId = new HashMap<String, String>();
 	private static String quoteId;
 	private static long idEjecution;
 	private static int idCaseSeq;
 	private static AdapterIO adapterIO;
 	private static int idCase;
+	
 //	private static RespuestaConstrucccionMsgFIX cache;
+
+	public static Map<String, String> getQuoteReqId() {
+		return quoteReqId;
+	}
+
+	public static void setQuoteReqId(Map<String, String> quoteReqId) {
+		BasicFunctions.quoteReqId = quoteReqId;
+	}
 
 	public static int getIdCase() {
 		return idCase;
 	}
-
+	
 	public static void setIdCase(int d) {
 		BasicFunctions.idCase = d;
 	}
@@ -54,13 +65,6 @@ public class BasicFunctions {
 		BasicFunctions.login = login;
 	}
 
-	public static String getQuoteReqId() {
-		return quoteReqId;
-	}
-
-	public static void setQuoteReqId(String quoteReqId) {
-		BasicFunctions.quoteReqId = quoteReqId;
-	}
 
 	public static String getQuoteId() {
 		return quoteId;
@@ -160,5 +164,16 @@ public class BasicFunctions {
 	public static void imprimir(boolean vari) {
 		System.out.println("\n#####################\nVARIABLE BOOLEAN: "+ vari + "\n#####################");
 	}
+
+	public static void addQuoteReqId(String k, String v) {
+		
+		BasicFunctions.quoteReqId.put(k, v);
+	}
+
+	public static String getQuoteReqIdOfAfiliado(String afiliado) {
+		
+		return BasicFunctions.quoteReqId.get(afiliado);
+	}
+
 
 }

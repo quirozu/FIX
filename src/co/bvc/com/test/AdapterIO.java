@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.bind.SchemaOutputResolver;
 
 import co.bvc.com.basicfix.BasicFunctions;
+import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.orquestador.AutoEngine;
 import quickfix.Application;
@@ -173,6 +176,8 @@ public class AdapterIO extends MessageCracker implements Application {
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
 		
 		printMessage("fromApp-Input", sessionId, message);
+		
+		Map<String, String> QuoteReqId = new HashMap<String, String>();
 
 		if (message instanceof QuoteRequest && sessionId.toString().equals(Constantes.RQ_TRADER002)) {
 
@@ -192,13 +197,18 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			}
 			
-			BasicFunctions.setQuoteReqId(message.getString(131));
+			QuoteReqId.put(sessionId.toString(), message.getString(131));
+			
+			BasicFunctions.setQuoteReqId(QuoteReqId);
+//			BasicFunctions.setQuoteReqId(sessionId.toString(), message.getString(131));
+			
+//			BasicFunctions.setQuoteReqId(message.getString(131));
 //			setIDQuoteFound(message.getString(131));
 			System.out.println("\nID ESTABLECIDO EN " + BasicFunctions.getQuoteReqId());
 
 		}
 
-		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:001/001B27->EXC")) {
+		if (message instanceof QuoteStatusReport && sessionId.toString().equals(Constantes.RQ_TRADER001)) {
 
 			printMessage("MENSAJE AI PARA SESSION 1 ", sessionId, message);
 			
@@ -215,7 +225,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		}
 
-		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
+		if (message instanceof QuoteStatusReport && sessionId.toString().equals(Constantes.RQ_TRADER002)) {
 
 			printMessage("MENSAJE AI PARA SESSION 2 ", sessionId, message);
 			try {
@@ -261,7 +271,7 @@ public class AdapterIO extends MessageCracker implements Application {
 	
 
 	public void onMessage(ExecutionReport message, SessionID sessionID) throws FieldNotFound {
-		if (sessionID.toString().equals("FIX.4.4:002/002B35->EXC")) {
+		if (sessionID.toString().equals(Constantes.RQ_TRADER002)) {
 
 			printMessage("MENSAJE ER PARA 002 ", sessionID, message);
 
@@ -279,7 +289,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			}
 
 		}
-		if (sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
+		if (sessionID.toString().equals(Constantes.RQ_TRADER001)) {
 			
 			printMessage("MENSAJE ER PARA 001 ", sessionID, message);
 			try {
