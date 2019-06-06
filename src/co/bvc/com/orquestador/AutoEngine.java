@@ -26,6 +26,7 @@ public class AutoEngine {
 
 		BasicFunctions.createConn();
 		int firsIdCaseSec = BasicFunctions.getFirtsIdCaseSeq(escenarioEjecucion);
+		BasicFunctions.setEscenarioPrueba(escenarioEjecucion);
 
 		if (firsIdCaseSec > 0) {
 			BasicFunctions.startVariables();
@@ -37,7 +38,7 @@ public class AutoEngine {
 		}
 	}
 
-	int caso =1;
+	int caso = BasicFunctions.getEscenarioPrueba();
 	public void ejecutarSiguientePaso() throws SQLException, SessionNotFound, InterruptedException, IOException {
 
 		System.out.println("ID_CASESEQ: " + BasicFunctions.getIdCaseSeq());
@@ -122,8 +123,9 @@ public class AutoEngine {
 			System.out.println("** INGRESA A FIX_S **");
 			System.out.println("*********************");
 
-			String quoteReqId = BasicFunctions.getQuoteReqId();
-
+			String idAfiliado = resultSet.getString("ID_AFILIADO");
+			String quoteReqId = BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado);
+			
 			respConstruccion = createMesage.createS(resultSet, quoteReqId);
 
 			System.out.println("************* INGRESA A FIX_S ****************");
@@ -241,7 +243,8 @@ public class AutoEngine {
 		String IdAfiliado = datosCache.getIdAfiliado();
 
 		String idQuoteReq = messageIn.getString(131);
-		BasicFunctions.setQuoteReqId(idQuoteReq);
+		
+		BasicFunctions.addQuoteReqId(IdAfiliado, idQuoteReq);
 
 		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
 
