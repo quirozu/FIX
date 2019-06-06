@@ -3,6 +3,7 @@ package co.bvc.com.orquestador;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Iterator;
 
 import co.bvc.com.basicfix.BasicFunctions;
 import co.bvc.com.basicfix.DataAccess;
@@ -26,6 +27,7 @@ public class AutoEngine {
 
 		BasicFunctions.createConn();
 		int firsIdCaseSec = BasicFunctions.getFirtsIdCaseSeq(escenarioEjecucion);
+		BasicFunctions.setEscenarioPrueba(escenarioEjecucion);
 
 		if (firsIdCaseSec > 0) {
 			BasicFunctions.startVariables();
@@ -37,7 +39,7 @@ public class AutoEngine {
 		}
 	}
 
-	int caso =1;
+	int caso = BasicFunctions.getEscenarioPrueba();
 	public void ejecutarSiguientePaso() throws SQLException, SessionNotFound, InterruptedException, IOException {
 
 		System.out.println("ID_CASESEQ: " + BasicFunctions.getIdCaseSeq());
@@ -122,8 +124,18 @@ public class AutoEngine {
 			System.out.println("** INGRESA A FIX_S **");
 			System.out.println("*********************");
 
-			String quoteReqId = BasicFunctions.getQuoteReqId();
-
+			String idAfiliado = resultSet.getString("ID_AFILIADO");
+			
+			Iterator<String> it = BasicFunctions.getQuoteReqId().keySet().iterator();
+			while(it.hasNext()){
+			  String key = (String) it.next();
+			  System.out.println("Clave: " + key + " -> Valor: " + BasicFunctions.getQuoteReqId().get(key));
+			}
+			
+			String quoteReqId = BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado);
+			
+			System.out.println("AFILIADO: " +  idAfiliado + " QUOTERQID: " + quoteReqId);
+			
 			respConstruccion = createMesage.createS(resultSet, quoteReqId);
 
 			System.out.println("************* INGRESA A FIX_S ****************");
@@ -238,12 +250,13 @@ public class AutoEngine {
 		// Eliminar Registro en Cache.
 		eliminarDatoCache(IdContraFirm);
 
-		String IdAfiliado = datosCache.getIdAfiliado();
+//		String IdAfiliado = datosCache.getIdAfiliado();
+//
+//		String idQuoteReq = messageIn.getString(131);
+//		
+		//BasicFunctions.addQuoteReqId(IdAfiliado, idQuoteReq);
 
-		String idQuoteReq = messageIn.getString(131);
-		BasicFunctions.setQuoteReqId(idQuoteReq);
-
-		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
+		if (DataAccess.validarContinuidadEjecucion()) {
 
 			ejecutarSiguientePaso();
 
@@ -274,12 +287,12 @@ public class AutoEngine {
 
 		eliminarDatoCache(IdContraFirm);
 
-		String IdAfiliado = datosCache.getIdAfiliado();
+//		String IdAfiliado = datosCache.getIdAfiliado();
 
 		String quoteId = messageIn.getString(117);
 		BasicFunctions.setQuoteId(quoteId);
 
-		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
+		if (DataAccess.validarContinuidadEjecucion()) {
 
 			ejecutarSiguientePaso();
 
@@ -309,10 +322,10 @@ public class AutoEngine {
 
 		eliminarDatoCache(IdContraFirm);
 
-		String IdAfiliado = datosCache.getIdAfiliado();
+//		String IdAfiliado = datosCache.getIdAfiliado();
 
-		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
-//			ejecutarSiguientePaso();
+		if (DataAccess.validarContinuidadEjecucion()) {
+			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
 
 		} else {
@@ -336,9 +349,9 @@ public class AutoEngine {
 
 		// Eliminar Registro en Cache.
 		eliminarDatoCache(sIdAfiliado);
-		String IdAfiliado = datosCache.getIdAfiliado();
+//		String IdAfiliado = datosCache.getIdAfiliado();
 
-		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
+		if (DataAccess.validarContinuidadEjecucion()) {
 
 			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
