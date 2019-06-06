@@ -1,5 +1,6 @@
 package co.bvc.com.test;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -7,7 +8,6 @@ import java.util.ArrayList;
 import javax.xml.bind.SchemaOutputResolver;
 
 import co.bvc.com.basicfix.BasicFunctions;
-import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.orquestador.AutoEngine;
 import quickfix.Application;
@@ -39,6 +39,7 @@ import quickfix.fix44.QuoteStatusReport;
 public class AdapterIO extends MessageCracker implements Application {
 
 	AutoEngine autoEngine = new AutoEngine();
+	
 
 	@Override
 	public void onCreate(SessionID sessionId) {
@@ -60,10 +61,10 @@ public class AdapterIO extends MessageCracker implements Application {
 
 	@Override
 	public void toAdmin(Message message, SessionID sessionId) {
+		
 		try {
 			printMessage("toAdmin - ENTRADA", sessionId,  message);
 		} catch (FieldNotFound e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		System.out.println("*****************\ntoAdmin - ENTRADA");
@@ -116,10 +117,8 @@ public class AdapterIO extends MessageCracker implements Application {
 				}
 
 			} catch (FieldNotFound e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -188,6 +187,9 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
 				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
 			BasicFunctions.setQuoteReqId(message.getString(131));
@@ -196,7 +198,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		}
 
-		if (message instanceof QuoteStatusReport && sessionId.toString().equals(Constantes.RQ_TRADER001)) {
+		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:001/001B27->EXC")) {
 
 			printMessage("MENSAJE AI PARA SESSION 1 ", sessionId, message);
 			
@@ -206,11 +208,14 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
 				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 
 		}
 
-		if (message instanceof QuoteStatusReport && sessionId.toString().equals(Constantes.RQ_TRADER002)) {
+		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
 
 			printMessage("MENSAJE AI PARA SESSION 2 ", sessionId, message);
 			try {
@@ -218,6 +223,9 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (SQLException | InterruptedException e) {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -235,6 +243,9 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
 				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		
@@ -250,7 +261,7 @@ public class AdapterIO extends MessageCracker implements Application {
 	
 
 	public void onMessage(ExecutionReport message, SessionID sessionID) throws FieldNotFound {
-		if (sessionID.toString().equals(Constantes.RQ_TRADER002)) {
+		if (sessionID.toString().equals("FIX.4.4:002/002B35->EXC")) {
 
 			printMessage("MENSAJE ER PARA 002 ", sessionID, message);
 
@@ -262,10 +273,13 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
 				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 
 		}
-		if (sessionID.toString().equals(Constantes.RQ_TRADER001)) {
+		if (sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
 			
 			printMessage("MENSAJE ER PARA 001 ", sessionID, message);
 			try {
@@ -275,6 +289,9 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 

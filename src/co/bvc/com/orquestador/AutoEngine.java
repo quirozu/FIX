@@ -1,5 +1,6 @@
 package co.bvc.com.orquestador;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -33,40 +34,33 @@ public class AutoEngine {
 			System.out.println("NO HAY DATOS EN LA BASE DE DATOS...");
 		}
 	}
-	
-//	int caso=1;
-	public void ejecutarSiguientePaso() throws SQLException, SessionNotFound, InterruptedException {
 
-		System.out.println("ID_CASESEQ: " +BasicFunctions.getIdCaseSeq());
+	int caso =1;
+	public void ejecutarSiguientePaso() throws SQLException, SessionNotFound, InterruptedException, IOException {
+
+		System.out.println("ID_CASESEQ: " + BasicFunctions.getIdCaseSeq());
 		ResultSet rsDatos = DataAccess.datosMensaje(BasicFunctions.getIdCaseSeq());
-
-//		int cantidad =0;
-		
 		while (rsDatos.next()) {
-//			caso++;
-//			int idCase = rsDatos.getInt("ID_CASE");
-//			cantidad = DataAccess.finDeEjecucion(idCase);
-	
+			
+			BasicFunctions.setIdCase(rsDatos.getInt("ID_CASE"));
 			System.out.println("Continua con el siguiente paso.");
 			enviarMensaje(rsDatos);
 			Thread.sleep(5000);
-			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);		
-			
-			System.out.println("Generar reporte....");
-			System.out.println("FIN EJECUCION....");			
+			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
+			System.out.println("++++++++++++++++ SECUENCIA ++++++++ "+ BasicFunctions.getIdCaseSeq());
+			if (caso<BasicFunctions.getIdCase()) {
+				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
+				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+				caso++;
+				System.out.println("Generar reporte....");
+				CreateReport.maina();
+			}
 			
 			
 		}
 		
-//		if(caso == cantidad) {
-//			
-//			Thread.sleep(10000);
-//			System.out.println("#############################\n#### FIN DE LA EJECUCION ####\n############################# ");
-//		} 
-//		
-		
-			
-		
+		System.out.println("FIN EJECUCION....");
 	}
 
 	public void enviarMensaje(ResultSet resultSet) throws SessionNotFound, SQLException, InterruptedException {
@@ -74,7 +68,6 @@ public class AutoEngine {
 		String msgType;
 		AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
 		msgType = resultSet.getString("ID_ESCENARIO");
-	
 		RespuestaConstrucccionMsgFIX respConstruccion = new RespuestaConstrucccionMsgFIX();
 
 		switch (msgType) {
@@ -84,7 +77,6 @@ public class AutoEngine {
 			System.out.println("*********************");
 			System.out.println("** INGRESA A FIX_R **");
 			System.out.println("*********************");
-			
 			respConstruccion = createMesage.createR(resultSet);
 
 			for (String session : respConstruccion.getListSessiones()) {
@@ -115,18 +107,17 @@ public class AutoEngine {
 			datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
 
 			cargarCache(datosCache);
-			
-			Session.sendToTarget(respConstruccion.getMessage(), BasicFunctions.getLogin().getSessionID1());
 
+			Session.sendToTarget(respConstruccion.getMessage(), BasicFunctions.getLogin().getSessionID1());
 
 			break;
 
 		case "FIX_S":
-			
+
 			System.out.println("*********************");
 			System.out.println("** INGRESA A FIX_S **");
 			System.out.println("*********************");
-			
+
 			String quoteReqId = BasicFunctions.getQuoteReqId();
 
 			respConstruccion = createMesage.createS(resultSet, quoteReqId);
@@ -169,7 +160,7 @@ public class AutoEngine {
 			System.out.println("**********************");
 			System.out.println("** INGRESA A FIX_AJ **");
 			System.out.println("**********************");
-			
+
 			String quoteId = BasicFunctions.getQuoteId();
 
 			respConstruccion = createMesage.createAJ(resultSet, quoteId);
@@ -189,19 +180,10 @@ public class AutoEngine {
 				cargarCache(datosCache);
 			}
 
-			   Session.sendToTarget(respConstruccion.getMessage(), BasicFunctions.getLogin().getSessionID1());
+			Session.sendToTarget(respConstruccion.getMessage(), BasicFunctions.getLogin().getSessionID1());
 
 			break;
 		case "FIX_Z":
-			
-//			System.out.println("**********************");
-//			System.out.println("** INGRESA A FIX_Z **");
-//			System.out.println("**********************");
-//			
-//			String quoteIdZ = BasicFunctions.getQuoteId(); 
-//			
-//			respConstruccion = createMesage.createZ(quoteIdZ);
-//			
 
 			break;
 
@@ -209,7 +191,6 @@ public class AutoEngine {
 			break;
 		}
 
-		
 	}
 
 	// Metodo que guarda el registro en base de datos
@@ -301,16 +282,16 @@ public class AutoEngine {
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
-		
-		System.out.println("*********** SALIENDO DE VALIDAR S ************");
+
+		System.out.println("*********** SALIENDO DE validarS ************");
 
 	}
 
 	public void validarAJ(SessionID sessionId, Message messageIn)
-			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound {
+			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("*************************");
-		System.out.println("** INGRESA A VALIDAR AJ **");
+		System.out.println("** INGRESA A validarAJ **");
 		System.out.println("*************************");
 		// Obtener el ID_AFILIADO de la session
 		String IdContraFirm = sessionId.toString().substring(8, 11);
@@ -326,21 +307,23 @@ public class AutoEngine {
 		String IdAfiliado = datosCache.getIdAfiliado();
 
 		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
+			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
 
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
-		
+
 		System.out.println("*********** SALIENDO DE validarAJ ************");
 	}
 
-	public void validarAI(SessionID sessionId, Message messageIn) throws SQLException, InterruptedException, SessionNotFound {
+	public void validarAI(SessionID sessionId, Message messageIn)
+			throws SQLException, InterruptedException, SessionNotFound, IOException {
 
 		System.out.println("*************************");
-		System.out.println("** INGRESA A VALIDAR AI **");
+		System.out.println("** INGRESA A validarAI **");
 		System.out.println("*************************");
-		
+
 		String sIdAfiliado = sessionId.toString().substring(8, 11);
 		AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
 		Validaciones validaciones = new Validaciones();
@@ -353,7 +336,7 @@ public class AutoEngine {
 		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
 
 			ejecutarSiguientePaso();
-			System.out.println("**** CONTINUAR ***");
+			System.out.println("** CONTINUAR ***");
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
@@ -374,15 +357,9 @@ public class AutoEngine {
 
 //	   public void ejecutarSiguientePaso(int idCaseSeqActual, long idEjecucion, String quoteReqId, String quoteId) throws SQLException, SessionNotFound, InterruptedException {
 
-	public static void printMessage(String typeMsg, SessionID sessionId, Message message)
-			throws FieldNotFound {
+	public static void printMessage(String typeMsg, SessionID sessionId, Message message) throws FieldNotFound {
 		System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sessionId
 				+ "\nMENSAJE :" + message + "\n----------------------------");
 
 	}
-
-	
-	
-	
-	
 }

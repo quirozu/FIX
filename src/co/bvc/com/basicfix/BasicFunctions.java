@@ -27,7 +27,16 @@ public class BasicFunctions {
 	private static long idEjecution;
 	private static int idCaseSeq;
 	private static AdapterIO adapterIO;
+	private static int idCase;
 //	private static RespuestaConstrucccionMsgFIX cache;
+
+	public static int getIdCase() {
+		return idCase;
+	}
+
+	public static void setIdCase(int d) {
+		BasicFunctions.idCase = d;
+	}
 
 	public static Connection getConn() {
 		return conn;
@@ -94,7 +103,7 @@ public class BasicFunctions {
 //	}
 
 	/**
-	 * Crea la conexión a la db y se la asigna a la variable conn de BasicFunctions
+	 * Crea la conexiï¿½n a la db y se la asigna a la variable conn de BasicFunctions
 	 * 
 	 * @return
 	 */
