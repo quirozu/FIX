@@ -16172,3 +16172,208 @@ java.lang.NullPointerException
 20190606-14:22:21: Initiated logon request
 20190606-14:22:21: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
 20190606-14:22:21: Received logon
+20190606-17:46:15: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190606-17:46:15: Created session: FIX.4.4:002/002B35->EXC
+20190606-17:46:15: Configured socket addresses for session: [/172.36.2.9:54402]
+20190606-17:46:15: MINA session created: local=/192.168.94.186:58042, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.9:54402
+20190606-17:46:16: Initiated logon request
+20190606-17:46:16: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190606-17:46:16: Received logon
+20190606-17:49:43: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190606-17:49:43: Created session: FIX.4.4:002/002B35->EXC
+20190606-17:49:43: Configured socket addresses for session: [/172.36.2.9:54402]
+20190606-17:49:43: MINA session created: local=/192.168.94.186:58124, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.9:54402
+20190606-17:49:44: Initiated logon request
+20190606-17:49:44: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190606-17:49:44: Received logon
+20190606-17:49:52: java.lang.NullPointerException: Null field values are not allowed.
+quickfix.RuntimeError: java.lang.NullPointerException: Null field values are not allowed.
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException: Null field values are not allowed.
+	at quickfix.FieldMap.setField(FieldMap.java:305)
+	at co.bvc.com.test.CreateMessage.createS(CreateMessage.java:130)
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:129)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:50)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:251)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:186)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: Null field values are not allowed.
+java.lang.NullPointerException: Null field values are not allowed.
+	at quickfix.FieldMap.setField(FieldMap.java:305)
+	at co.bvc.com.test.CreateMessage.createS(CreateMessage.java:130)
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:129)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:50)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:251)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:186)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190606-17:50:16: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190605-17:50:17.00056=00210=073
+20190606-17:50:16: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190605-17:50:17.00056=00210=073
+20190606-17:50:16: Sent ResendRequest FROM: 2 TO: 2
+20190606-17:50:17: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190606-17:50:22: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:238)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:186)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:238)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:186)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190606-17:50:22: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190606-17:50:17.01556=00236=4123=Y10=088
+20190606-17:50:22: Enqueued at pos 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190606-17:50:17.01556=00236=4123=Y10=088
+20190606-17:50:22: Sent ResendRequest FROM: 2 TO: 2
+20190606-17:50:22: Received SequenceReset FROM: 2 TO: 5
+20190606-17:50:22: Received SequenceReset FROM: 5 TO: 6
+20190606-17:59:22: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190606-17:59:22: Created session: FIX.4.4:002/002B35->EXC
+20190606-17:59:22: Configured socket addresses for session: [/172.36.2.9:54402]
+20190606-17:59:22: MINA session created: local=/192.168.94.186:58253, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.9:54402
+20190606-17:59:23: Initiated logon request
+20190606-17:59:23: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190606-17:59:23: Received logon
+20190606-17:59:31: java.lang.NullPointerException: Null field values are not allowed.
+quickfix.RuntimeError: java.lang.NullPointerException: Null field values are not allowed.
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException: Null field values are not allowed.
+	at quickfix.FieldMap.setField(FieldMap.java:305)
+	at co.bvc.com.test.CreateMessage.createS(CreateMessage.java:130)
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:131)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:50)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:253)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:186)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: Null field values are not allowed.
+java.lang.NullPointerException: Null field values are not allowed.
+	at quickfix.FieldMap.setField(FieldMap.java:305)
+	at co.bvc.com.test.CreateMessage.createS(CreateMessage.java:130)
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:131)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:50)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:253)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:186)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190606-18:05:05: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190606-18:05:05: Created session: FIX.4.4:002/002B35->EXC
+20190606-18:05:05: Configured socket addresses for session: [/172.36.2.9:54402]
+20190606-18:05:05: MINA session created: local=/192.168.94.186:58368, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.9:54402
+20190606-18:05:06: Initiated logon request
+20190606-18:05:06: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190606-18:05:06: Received logon
+20190606-18:05:14: java.lang.NullPointerException: Null field values are not allowed.
+quickfix.RuntimeError: java.lang.NullPointerException: Null field values are not allowed.
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NullPointerException: Null field values are not allowed.
+	at quickfix.FieldMap.setField(FieldMap.java:305)
+	at co.bvc.com.test.CreateMessage.createS(CreateMessage.java:130)
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:139)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:51)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:261)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:186)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: Null field values are not allowed.
+java.lang.NullPointerException: Null field values are not allowed.
+	at quickfix.FieldMap.setField(FieldMap.java:305)
+	at co.bvc.com.test.CreateMessage.createS(CreateMessage.java:130)
+	at co.bvc.com.orquestador.AutoEngine.enviarMensaje(AutoEngine.java:139)
+	at co.bvc.com.orquestador.AutoEngine.ejecutarSiguientePaso(AutoEngine.java:51)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:261)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:186)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Unknown Source)
+
+20190606-18:43:13: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190606-18:43:13: Created session: FIX.4.4:002/002B35->EXC
+20190606-18:43:13: Configured socket addresses for session: [/172.36.2.9:54402]
+20190606-18:43:13: MINA session created: local=/192.168.94.186:58777, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.9:54402
+20190606-18:43:14: Initiated logon request
+20190606-18:43:14: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190606-18:43:14: Received logon
+20190606-18:55:39: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190606-18:55:39: Created session: FIX.4.4:002/002B35->EXC
+20190606-18:55:39: Configured socket addresses for session: [/172.36.2.9:54402]
+20190606-18:55:39: MINA session created: local=/192.168.94.186:58922, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.9:54402
+20190606-18:55:40: Initiated logon request
+20190606-18:55:40: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190606-18:55:40: Received logon

@@ -179,7 +179,13 @@ public class AdapterIO extends MessageCracker implements Application {
 
 			printMessage("MENSAJE R_PRIMA ", sessionId, message);
 			
+			
+//			setIDQuoteFound(message.getString(131));
 			String idAfiliado = sessionId.toString().substring(8,11);
+			BasicFunctions.addQuoteReqId(idAfiliado, message.getString(131));
+			
+			System.out.println("\nID ESTABLECIDO EN " + BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado));
+
 			
 			try {
 				 Thread.sleep(5000);
@@ -195,11 +201,6 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			}
 			
-
-//			setIDQuoteFound(message.getString(131));
-			BasicFunctions.addQuoteReqId(idAfiliado, message.getString(131));
-			
-			System.out.println("\nID ESTABLECIDO EN " + BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado));
 
 		}
 

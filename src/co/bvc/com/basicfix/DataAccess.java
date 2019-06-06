@@ -176,7 +176,7 @@ public class DataAccess {
 
 	}
 
-	public static boolean validarContinuidadEjecucion(String session) throws SQLException {
+	public static boolean validarContinuidadEjecucion() throws SQLException {
 
 //		String query = "SELECT count(1) as cantidad FROM bvc_automation_db.aut_fix_rfq_cache WHERE  RECEIVER_SESSION <>" + session;
 		String query = "SELECT count(1) as cantidad FROM bvc_automation_db.aut_fix_rfq_cache";
