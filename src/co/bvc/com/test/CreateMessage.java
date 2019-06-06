@@ -51,6 +51,7 @@ public class CreateMessage {
 				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ ="
 				+ BasicFunctions.getIdCaseSeq();
 
+		System.out.println("++++++++++++++++++++++++++++++++ ES ESTE +++++++++++++++++  "+ BasicFunctions.getIdCaseSeq());
 		ResultSet resultSetParties;
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 		try {
@@ -86,6 +87,12 @@ public class CreateMessage {
 
 				noRelatedSym.addGroup(parte);
 			}
+//			QuoteRequest.NoRelatedSym.NoPartyIDs partie2 = new QuoteRequest.NoRelatedSym.NoPartyIDs();
+//			partie2.set(new PartyID("DCV"));
+//			partie2.set(new PartyIDSource('C'));
+//			partie2.set(new PartyRole(10));
+//			
+//			noRelatedSym.addGroup(partie2);
 
 			quoteRequest.addGroup(noRelatedSym);
 
