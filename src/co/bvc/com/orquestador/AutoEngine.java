@@ -22,10 +22,10 @@ public class AutoEngine {
 	CreateMessage createMesage = new CreateMessage();
 
 	// metodo que inicia la ejecucion
-	public void iniciarEjecucion() throws SQLException, SessionNotFound, InterruptedException, IOException {
+	public void iniciarEjecucion(int escenarioEjecucion) throws SQLException, SessionNotFound, InterruptedException, IOException {
 
 		BasicFunctions.createConn();
-		int firsIdCaseSec = BasicFunctions.getFirtsIdCaseSeq();
+		int firsIdCaseSec = BasicFunctions.getFirtsIdCaseSeq(escenarioEjecucion);
 
 		if (firsIdCaseSec > 0) {
 			BasicFunctions.startVariables();

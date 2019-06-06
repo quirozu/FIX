@@ -145,8 +145,8 @@ public class BasicFunctions {
 		
 	}
 	
-	public static int getFirtsIdCaseSeq() throws SQLException {
-		int firstIdDB = DataAccess.getFirstIdCaseSeq();
+	public static int getFirtsIdCaseSeq(int escenarioEjecucion) throws SQLException {
+		int firstIdDB = DataAccess.getFirstIdCaseSeq(escenarioEjecucion);
 		return firstIdDB;
 	}
 
