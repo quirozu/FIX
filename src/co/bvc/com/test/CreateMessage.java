@@ -214,11 +214,12 @@ public class CreateMessage {
 		return null;
 	}
 
-	public Message createZ(final SessionID sessionId, final String strQuoteId) throws SessionNotFound {
+	public RespuestaConstrucccionMsgFIX createZ(String strQuoteId) throws SessionNotFound {
 
-		System.out.println("******************DATOS RECIBIDOS PARA Z....\nSession: \t:" + sessionId
-				+ " - strQuoteId: \t" + strQuoteId);
-
+//		System.out.println("******************DATOS RECIBIDOS PARA Z....\nSession: \t:" + sessionId
+//				+ " - strQuoteId: \t" + strQuoteId);
+		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
+		
 		QuoteCancel quoteCancel = new QuoteCancel();
 		Header header = (Header) quoteCancel.getHeader();
 		header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
@@ -226,7 +227,7 @@ public class CreateMessage {
 		quoteCancel.setField(new QuoteCancelType(5));
 		quoteCancel.setField(new QuoteID(strQuoteId));
 
-		return quoteCancel;
+		return respuestaMessage;
 
 	}
 

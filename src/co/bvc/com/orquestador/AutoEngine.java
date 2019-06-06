@@ -34,33 +34,37 @@ public class AutoEngine {
 		}
 	}
 	
-	int caso=1;
+//	int caso=1;
 	public void ejecutarSiguientePaso() throws SQLException, SessionNotFound, InterruptedException {
 
 		System.out.println("ID_CASESEQ: " +BasicFunctions.getIdCaseSeq());
 		ResultSet rsDatos = DataAccess.datosMensaje(BasicFunctions.getIdCaseSeq());
 
-		int cantidad =0;
+//		int cantidad =0;
 		
 		while (rsDatos.next()) {
-			caso++;
-			int idCase = rsDatos.getInt("ID_CASE");
-			cantidad = DataAccess.finDeEjecucion(idCase);
+//			caso++;
+//			int idCase = rsDatos.getInt("ID_CASE");
+//			cantidad = DataAccess.finDeEjecucion(idCase);
+	
 			System.out.println("Continua con el siguiente paso.");
 			enviarMensaje(rsDatos);
 			Thread.sleep(5000);
 			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);		
 			
 			System.out.println("Generar reporte....");
-			System.out.println("FIN EJECUCION....");	
+			System.out.println("FIN EJECUCION....");			
 			
-			if(caso==cantidad) {
-				Thread.sleep(5000);
-				System.out.println("#############################\n#### FIN DE LA EJECUCION ####\n############################# ");
-			} 
 			
-		
 		}
+		
+//		if(caso == cantidad) {
+//			
+//			Thread.sleep(10000);
+//			System.out.println("#############################\n#### FIN DE LA EJECUCION ####\n############################# ");
+//		} 
+//		
+		
 			
 		
 	}
@@ -189,6 +193,15 @@ public class AutoEngine {
 
 			break;
 		case "FIX_Z":
+			
+//			System.out.println("**********************");
+//			System.out.println("** INGRESA A FIX_Z **");
+//			System.out.println("**********************");
+//			
+//			String quoteIdZ = BasicFunctions.getQuoteId(); 
+//			
+//			respConstruccion = createMesage.createZ(quoteIdZ);
+//			
 
 			break;
 
@@ -340,7 +353,7 @@ public class AutoEngine {
 		if (DataAccess.validarContinuidadEjecucion(IdAfiliado)) {
 
 			ejecutarSiguientePaso();
-			System.out.println("** CONTINUAR ***");
+			System.out.println("**** CONTINUAR ***");
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}

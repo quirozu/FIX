@@ -181,34 +181,34 @@ public class DataAccess {
 		
 		ResultSet i = DataAccess.getQuery(query);
 		int cantidadEscenarios = 0;
+		int idCase = 0;
+		int j = 0;
 		
 		while(i.next()) {
+			idCase = i.getInt("ID_CASE");
 			cantidadEscenarios = i.getInt("cantidad"); 	
 			System.out.println("*************** CANTIDAD MENSAJES POR VALIDAR: " + cantidadEscenarios + "\n*********************");
+
 		}
-		
-		if(cantidadEscenarios>0) {
-			return false;
-		}
+
 		
 		return true;
 	}
 	
-    public static int finDeEjecucion(int idCase) throws SQLException {
-		
-		String idcase = "SELECT count(1) as cantidad FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_CASE =" + idCase;
-		
-		ResultSet count = DataAccess.getQuery(idcase);
-		
-		int cantidadIdCase = 0;
-		
-		while(count.next()) {
-			cantidadIdCase = count.getInt("cantidad");
-			//System.out.println("*********************** CANTIDAD DE MENSAJES ***********************"+ cantidadIdCase);
-		}
-		
-		return cantidadIdCase;
-		
-		
-	}
+//    public static int finDeEjecucion(int idCase) throws SQLException {
+//		
+//		String idcase = "SELECT count(1) as cantidad FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_CASE =" + idCase;
+//		
+//		ResultSet count = DataAccess.getQuery(idcase);
+//		
+//		int cantidadIdCase = 0;
+//		
+//		while(count.next()) {
+//			cantidadIdCase = count.getInt("cantidad");
+//			//System.out.println("*********************** CANTIDAD DE MENSAJES ***********************"+ cantidadIdCase);
+//		}
+//		
+//		return cantidadIdCase;
+//		
+//	}
 }
