@@ -1040,3 +1040,1017 @@ java.lang.NullPointerException
 20190607-14:58:29: Received SequenceReset FROM: 5 TO: 6
 20190607-14:58:58: ResendRequest for messages FROM 2 TO 2 has been satisfied.
 >>>>>>> 069492ed1c47821f77e483ed6a9d34242fbb67bb
+20190607-19:00:28: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:00:28: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:00:28: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:00:28: MINA session created: local=/172.16.0.229:49722, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:00:29: Initiated logon request
+20190607-19:00:29: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:00:29: Received logon
+20190607-19:04:02: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:04:02: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:04:02: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:04:02: MINA session created: local=/172.16.0.229:49957, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:04:04: Initiated logon request
+20190607-19:04:04: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:04:04: Received logon
+20190607-19:04:11: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:250)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:250)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:04:36: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-19:04:36.00056=00210=077
+20190607-19:04:36: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-19:04:36.00056=00210=077
+20190607-19:04:36: Sent ResendRequest FROM: 2 TO: 2
+20190607-19:04:36: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190607-19:04:41: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:250)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:250)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:04:41: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190607-19:04:36.04356=00236=4123=Y10=092
+20190607-19:04:41: Enqueued at pos 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190607-19:04:36.04356=00236=4123=Y10=092
+20190607-19:04:41: Sent ResendRequest FROM: 2 TO: 2
+20190607-19:04:41: Received SequenceReset FROM: 2 TO: 5
+20190607-19:04:41: Received SequenceReset FROM: 5 TO: 6
+20190607-19:05:52: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:05:52: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:05:52: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:05:52: MINA session created: local=/172.16.0.229:50081, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:05:53: Initiated logon request
+20190607-19:05:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:05:53: Received logon
+20190607-19:06:00: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:250)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:250)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:13:30: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:13:30: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:13:30: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:13:30: MINA session created: local=/172.16.0.229:50349, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:13:31: Initiated logon request
+20190607-19:13:31: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:13:31: Received logon
+20190607-19:13:39: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:250)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:250)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:21:04: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:21:04: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:21:04: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:21:04: MINA session created: local=/172.16.0.229:50639, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:21:05: Initiated logon request
+20190607-19:21:05: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:21:05: Received logon
+20190607-19:21:13: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:252)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:252)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:21:28: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:21:28: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:21:28: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:21:30: MINA session created: local=/172.16.0.229:50747, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:21:31: Initiated logon request
+20190607-19:21:31: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:21:31: Received logon
+20190607-19:21:40: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:252)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:252)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:27:49: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:27:49: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:27:49: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:27:50: MINA session created: local=/172.16.0.229:50934, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:27:53: Initiated logon request
+20190607-19:27:53: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:27:53: Received logon
+20190607-19:28:00: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:252)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:252)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:28:52: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:28:52: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:28:52: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:28:54: MINA session created: local=/172.16.0.229:51047, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:28:55: Initiated logon request
+20190607-19:28:55: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:28:55: Received logon
+20190607-19:29:04: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:251)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:251)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:29:58: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:29:58: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:29:58: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:29:59: MINA session created: local=/172.16.0.229:51159, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:29:59: Initiated logon request
+20190607-19:29:59: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:29:59: Received logon
+20190607-19:30:09: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:251)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:251)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:30:36: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-19:30:32.00056=00210=072
+20190607-19:30:36: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-19:30:32.00056=00210=072
+20190607-19:30:36: Sent ResendRequest FROM: 2 TO: 2
+20190607-19:30:36: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190607-19:33:17: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:33:17: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:33:17: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:33:17: MINA session created: local=/172.16.0.229:51400, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:33:18: Initiated logon request
+20190607-19:33:18: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:33:18: Received logon
+20190607-19:33:28: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:251)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:251)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:33:51: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-19:33:51.00056=00210=076
+20190607-19:33:51: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-19:33:51.00056=00210=076
+20190607-19:33:51: Sent ResendRequest FROM: 2 TO: 2
+20190607-19:33:51: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190607-19:33:57: Processing queued message: 3
+20190607-19:33:57: Received SequenceReset FROM: 4 TO: 5
+20190607-19:44:04: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:44:04: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:44:04: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:44:04: MINA session created: local=/172.16.0.229:51743, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:44:05: Initiated logon request
+20190607-19:44:05: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:44:05: Received logon
+20190607-19:45:06: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:45:06: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:45:06: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:45:07: MINA session created: local=/172.16.0.229:51877, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:45:08: Initiated logon request
+20190607-19:45:08: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:45:08: Received logon
+20190607-19:45:15: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:251)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:251)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-19:54:05: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-19:54:05: Created session: FIX.4.4:002/002B35->EXC
+20190607-19:54:05: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-19:54:05: MINA session created: local=/172.16.0.229:52064, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-19:54:07: Initiated logon request
+20190607-19:54:07: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-19:54:07: Received logon
+20190607-19:54:14: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-20:00:35: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-20:00:35: Created session: FIX.4.4:002/002B35->EXC
+20190607-20:00:35: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-20:00:35: MINA session created: local=/172.16.0.229:52296, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-20:00:37: Initiated logon request
+20190607-20:00:37: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-20:00:37: Received logon
+20190607-20:00:44: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-20:01:09: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-20:01:09.00056=00210=066
+20190607-20:01:09: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-20:01:09.00056=00210=066
+20190607-20:01:09: Sent ResendRequest FROM: 2 TO: 2
+20190607-20:01:09: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190607-20:01:14: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-20:01:14: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190607-20:01:09.03056=00236=4123=Y10=077
+20190607-20:01:14: Enqueued at pos 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190607-20:01:09.03056=00236=4123=Y10=077
+20190607-20:01:14: Sent ResendRequest FROM: 2 TO: 2
+20190607-20:01:14: Received SequenceReset FROM: 2 TO: 5
+20190607-20:01:14: Received SequenceReset FROM: 5 TO: 6
+20190607-20:04:03: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-20:04:03: Created session: FIX.4.4:002/002B35->EXC
+20190607-20:04:03: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-20:04:03: MINA session created: local=/172.16.0.229:52460, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-20:04:04: Initiated logon request
+20190607-20:04:04: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-20:04:04: Received logon
+20190607-20:04:11: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-20:04:36: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-20:04:36.00056=00210=069
+20190607-20:04:36: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-20:04:36.00056=00210=069
+20190607-20:04:36: Sent ResendRequest FROM: 2 TO: 2
+20190607-20:04:36: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190607-20:04:41: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-20:04:41: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190607-20:04:36.09756=00236=4123=Y10=093
+20190607-20:04:41: Enqueued at pos 3: 8=FIX.4.49=6535=434=343=Y49=EXC52=20190607-20:04:36.09756=00236=4123=Y10=093
+20190607-20:04:41: Sent ResendRequest FROM: 2 TO: 2
+20190607-20:04:41: Received SequenceReset FROM: 2 TO: 5
+20190607-20:04:41: Received SequenceReset FROM: 5 TO: 6
+20190607-20:05:18: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-20:05:18: Created session: FIX.4.4:002/002B35->EXC
+20190607-20:05:18: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-20:05:18: MINA session created: local=/172.16.0.229:52532, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-20:05:21: Initiated logon request
+20190607-20:05:23: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-20:05:23: Received logon
+20190607-20:05:31: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:254)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:254)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-20:41:06: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-20:41:06: Created session: FIX.4.4:002/002B35->EXC
+20190607-20:41:06: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-20:41:06: MINA session created: local=/172.16.0.229:53130, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-20:41:07: Initiated logon request
+20190607-20:41:08: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-20:41:08: Received logon
+20190607-20:41:18: Disconnecting: Encountered END_OF_STREAM
+20190607-20:42:21: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-20:42:21: Created session: FIX.4.4:002/002B35->EXC
+20190607-20:42:21: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-20:42:21: MINA session created: local=/172.16.0.229:53346, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-20:42:22: Initiated logon request
+20190607-20:42:22: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-20:42:22: Received logon
+20190607-20:42:51: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-20:42:51: Created session: FIX.4.4:002/002B35->EXC
+20190607-20:42:51: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-20:42:51: MINA session created: local=/172.16.0.229:53475, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-20:42:52: Initiated logon request
+20190607-20:42:52: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-20:42:52: Received logon
+20190607-20:42:59: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:254)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:254)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-20:43:21: Disconnecting: Encountered END_OF_STREAM
+20190607-20:44:19: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-20:44:19: Created session: FIX.4.4:002/002B35->EXC
+20190607-20:44:19: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-20:44:19: MINA session created: local=/172.16.0.229:53688, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-20:44:20: Initiated logon request
+20190607-20:44:20: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-20:44:20: Received logon
+20190607-20:44:27: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:254)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:254)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-20:54:10: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-20:54:10: Created session: FIX.4.4:002/002B35->EXC
+20190607-20:54:10: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-20:54:10: MINA session created: local=/172.16.0.229:53934, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-20:54:11: Initiated logon request
+20190607-20:54:11: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-20:54:11: Received logon
+20190607-20:54:19: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-20:54:43: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-20:54:43.00056=00210=072
+20190607-20:54:43: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-20:54:43.00056=00210=072
+20190607-20:54:43: Sent ResendRequest FROM: 2 TO: 2
+20190607-20:54:43: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190607-20:55:19: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-20:55:19: Created session: FIX.4.4:002/002B35->EXC
+20190607-20:55:19: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-20:55:19: MINA session created: local=/172.16.0.229:54055, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-20:55:20: Initiated logon request
+20190607-20:55:20: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-20:55:20: Received logon
+20190607-20:55:27: java.lang.NullPointerException
+quickfix.RuntimeError: java.lang.NullPointerException
+	at quickfix.Session.next(Session.java:1130)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	... 6 more
+Cause: null
+java.lang.NullPointerException
+	at co.bvc.com.test.Validaciones.ValidarRPrima(Validaciones.java:83)
+	at co.bvc.com.orquestador.AutoEngine.validarR(AutoEngine.java:255)
+	at co.bvc.com.test.AdapterIO.fromApp(AdapterIO.java:188)
+	at quickfix.Session.fromCallback(Session.java:1818)
+	at quickfix.Session.verify(Session.java:1762)
+	at quickfix.Session.verify(Session.java:1833)
+	at quickfix.Session.next(Session.java:1030)
+	at quickfix.Session.next(Session.java:1173)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$SessionMessageEvent.processMessage(SingleThreadedEventHandlingStrategy.java:151)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.block(SingleThreadedEventHandlingStrategy.java:101)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy.lambda$blockInThread$0(SingleThreadedEventHandlingStrategy.java:133)
+	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
+	at java.lang.Thread.run(Thread.java:748)
+
+20190607-20:55:52: MsgSeqNum too high, expecting 2 but received 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-20:55:52.00056=00210=073
+20190607-20:55:52: Enqueued at pos 3: 8=FIX.4.49=4935=034=349=EXC52=20190607-20:55:52.00056=00210=073
+20190607-20:55:52: Sent ResendRequest FROM: 2 TO: 2
+20190607-20:55:52: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190607-20:59:11: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-20:59:11: Created session: FIX.4.4:002/002B35->EXC
+20190607-20:59:11: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-20:59:11: MINA session created: local=/172.16.0.229:54196, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-20:59:15: Initiated logon request
+20190607-20:59:16: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-20:59:16: Received logon
+20190607-21:31:58: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:31:58: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:31:58: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:31:58: MINA session created: local=/172.16.0.229:52617, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:31:59: Initiated logon request
+20190607-21:31:59: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:31:59: Received logon
+20190607-21:32:37: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:32:37: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:32:37: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:32:37: MINA session created: local=/172.16.0.229:52751, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:32:39: Initiated logon request
+20190607-21:32:39: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:32:39: Received logon
+20190607-21:33:01: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:33:01: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:33:01: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:33:01: MINA session created: local=/172.16.0.229:52825, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:33:02: Initiated logon request
+20190607-21:33:02: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:33:02: Received logon
+20190607-21:33:38: Disconnecting: Encountered END_OF_STREAM
+20190607-21:34:43: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:34:43: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:34:43: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:34:43: MINA session created: local=/172.16.0.229:53053, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:34:44: Initiated logon request
+20190607-21:34:44: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:34:44: Received logon
+20190607-21:35:36: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:35:36: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:35:36: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:35:36: MINA session created: local=/172.16.0.229:53176, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:35:37: Initiated logon request
+20190607-21:35:37: Disconnecting: Encountered END_OF_STREAM
+20190607-21:35:37: Received logon
+20190607-21:36:17: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:36:17: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:36:17: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:36:17: MINA session created: local=/172.16.0.229:53377, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:36:18: Initiated logon request
+20190607-21:36:19: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:36:19: Received logon
+20190607-21:37:17: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:37:17: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:37:17: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:37:17: MINA session created: local=/172.16.0.229:53512, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:37:18: Initiated logon request
+20190607-21:37:18: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:37:18: Received logon
+20190607-21:41:50: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:41:50: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:41:50: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:41:50: MINA session created: local=/172.16.0.229:53703, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:41:52: Initiated logon request
+20190607-21:41:52: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:41:52: Received logon
+20190607-21:44:10: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:44:10: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:44:10: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:44:10: MINA session created: local=/172.16.0.229:53841, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:44:11: Initiated logon request
+20190607-21:44:11: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:44:11: Received logon
+20190607-21:51:27: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:51:27: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:51:27: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:51:27: MINA session created: local=/172.16.0.229:53994, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:51:28: Initiated logon request
+20190607-21:51:29: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:51:29: Received logon
+20190607-21:51:49: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:51:49: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:51:49: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:51:49: MINA session created: local=/172.16.0.229:54128, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:51:50: Initiated logon request
+20190607-21:51:50: Disconnecting: Encountered END_OF_STREAM
+20190607-21:51:50: Received logon
+20190607-21:52:06: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:52:06: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:52:06: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:52:09: MINA session created: local=/172.16.0.229:54357, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:52:14: Initiated logon request
+20190607-21:52:14: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:52:14: Received logon
+20190607-21:52:48: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-21:52:48: Created session: FIX.4.4:002/002B35->EXC
+20190607-21:52:48: Configured socket addresses for session: [/172.36.2.13:54402]
+20190607-21:52:48: MINA session created: local=/172.16.0.229:54431, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190607-21:52:49: Initiated logon request
+20190607-21:52:49: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-21:52:49: Received logon

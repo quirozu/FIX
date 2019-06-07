@@ -2,16 +2,12 @@ package co.bvc.com.test;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import co.bvc.com.basicfix.BasicFunctions;
 import quickfix.Application;
-import quickfix.ConfigError;
 import quickfix.DefaultMessageFactory;
 import quickfix.FileLogFactory;
 import quickfix.FileStoreFactory;
-import quickfix.MemoryStoreFactory;
 import quickfix.MessageFactory;
-import quickfix.ScreenLogFactory;
 import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionSettings;
@@ -47,7 +43,7 @@ public class Login {
 		try {
 			sessionID1 = startSession("sessionSettings1_27.cfg");
 			if (sessionID1 == null) {
-				System.out.println("Conexi�n 1 errada");
+				System.out.println("Conexion 1 errada");
 			} else {
 				Session.lookupSession(sessionID1).logon();
 				mapSessiones.put(sessionID1.getSenderCompID(), sessionID1);
@@ -57,7 +53,7 @@ public class Login {
 
 			sessionID2 = startSession("sessionSettings2_35.cfg");
 			if (sessionID2 == null) {
-				System.out.println("Conexi�n 2 errada");
+				System.out.println("Conexion 2 errada");
 			} else {
 				Session.lookupSession(sessionID2).logon();
 //				BasicFunctions.logon(sessionID2);
@@ -68,7 +64,7 @@ public class Login {
 
 			sessionID3 = startSession("sessionSettings2_37.cfg");
 			if (sessionID3 == null) {
-				System.out.println("Conexi�n 3 errada");
+				System.out.println("Conexion 3 errada");
 			} else {
 				Session.lookupSession(sessionID3).logon();
 				
@@ -79,7 +75,7 @@ public class Login {
 
 			sessionID4 = startSession("sessionSettings1_19.cfg");
 			if (sessionID4 == null) {
-				System.out.println("Conexi�n 4 errada");
+				System.out.println("Conexion 4 errada");
 			} else {
 				Session.lookupSession(sessionID4).logon();
 				
@@ -90,7 +86,7 @@ public class Login {
 			
 			sessionID5 = startSession("sessionSettings1_20.cfg");
 			if (sessionID5 == null) {
-				System.out.println("Conexi�n 5 errada");
+				System.out.println("Conexion 5 errada");
 			} else {
 				Session.lookupSession(sessionID5).logon();
 				
