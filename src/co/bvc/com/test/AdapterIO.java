@@ -39,7 +39,6 @@ import quickfix.fix44.QuoteStatusReport;
 public class AdapterIO extends MessageCracker implements Application {
 
 	AutoEngine autoEngine = new AutoEngine();
-	
 
 	@Override
 	public void onCreate(SessionID sessionId) {
@@ -61,9 +60,9 @@ public class AdapterIO extends MessageCracker implements Application {
 
 	@Override
 	public void toAdmin(Message message, SessionID sessionId) {
-		
+
 		try {
-			printMessage("toAdmin - ENTRADA", sessionId,  message);
+			printMessage("toAdmin - ENTRADA", sessionId, message);
 		} catch (FieldNotFound e1) {
 			e1.printStackTrace();
 		}
@@ -103,7 +102,7 @@ public class AdapterIO extends MessageCracker implements Application {
 					message.setField(new Username(listUsers.get(5)));
 					message.setField(new Password(listPass.get(5)));
 					break;
-					
+
 				case "010BWN":
 					System.out.println("User: " + listUsers.get(2));
 					message.setField(new Username(listUsers.get(2)));
@@ -127,7 +126,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			message.setField(new PossDupFlag(true));
 
 		}
-		
+
 		try {
 			crack(message, sessionId);
 		} catch (UnsupportedMessageType e) {
@@ -139,9 +138,8 @@ public class AdapterIO extends MessageCracker implements Application {
 		}
 
 		System.out.println("*****************\n toAdmin - SALIDA : \n" + message + "\nPara la sessionId: " + sessionId);
-		
-	}
 
+	}
 
 	@Override
 	public void toApp(Message message, SessionID sessionId) throws DoNotSend {
@@ -160,37 +158,33 @@ public class AdapterIO extends MessageCracker implements Application {
 	@Override
 	public void fromAdmin(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {
-		
-		printMessage("fromAdmin-Input", sessionId,  message);
-		
+
+		printMessage("fromAdmin-Input", sessionId, message);
+
 		try {
 			crack(message, sessionId);
 		} catch (UnsupportedMessageType e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void fromApp(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
-		
+
 		printMessage("fromApp-Input", sessionId, message);
 
-//		if (message instanceof QuoteRequest && sessionId.toString().equals("FIX.4.4:002/002B35->EXC")) {
 		if (message instanceof QuoteRequest) {
 
 			printMessage("MENSAJE R_PRIMA ", sessionId, message);
-			
-			
-//			setIDQuoteFound(message.getString(131));
-			String idAfiliado = sessionId.toString().substring(8,11);
+
+			String idAfiliado = sessionId.toString().substring(8, 11);
 			BasicFunctions.addQuoteReqId(idAfiliado, message.getString(131));
-			
+
 			System.out.println("\nID ESTABLECIDO EN " + BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado));
 
-			
 			try {
-				 Thread.sleep(5000);
+				Thread.sleep(5000);
 				autoEngine.validarR(sessionId, message);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -202,14 +196,13 @@ public class AdapterIO extends MessageCracker implements Application {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 
 		}
 
 		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:001/001B27->EXC")) {
 
 			printMessage("MENSAJE AI PARA SESSION 1 ", sessionId, message);
-			
+
 			try {
 				autoEngine.validarAI(sessionId, message);
 			} catch (SQLException | InterruptedException e) {
@@ -236,11 +229,11 @@ public class AdapterIO extends MessageCracker implements Application {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
 
 		if (message instanceof Quote && sessionId.toString().equals("FIX.4.4:001/001B27->EXC")) {
-			
+
 			printMessage("MENSAJE S_PRIMA PARA SESSION 1 ", sessionId, message);
 
 			try {
@@ -256,17 +249,15 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			}
 		}
-		
+
 		if (message instanceof QuoteResponse) {
-			
+
 			printMessage("MENSAJE AJ ", sessionId, message);
 
 		}
 
 		crack(message, sessionId);
 	}
-	
-	
 
 	public void onMessage(ExecutionReport message, SessionID sessionID) throws FieldNotFound {
 		if (sessionID.toString().equals("FIX.4.4:002/002B35->EXC")) {
@@ -288,7 +279,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		}
 		if (sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
-			
+
 			printMessage("MENSAJE ER PARA 001 ", sessionID, message);
 			try {
 				autoEngine.validarAJ(sessionID, message);
@@ -313,7 +304,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 	public void onMessage(quickfix.fix44.QuoteStatusReport message, SessionID sessionID) throws FieldNotFound {
 		printMessage("QuoteStatusReport", sessionID, message);
-		
+
 	}
 
 	public void onMessage(quickfix.fix44.QuoteRequest message, SessionID sessionID) throws FieldNotFound {
@@ -329,8 +320,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		printMessage("QuoteCancel", sessionID, message);
 	}
-	
-	
+
 	public static void printMessage(String typeMsg, SessionID sID, Message msg) throws FieldNotFound {
 		System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sID + "\nMENSAJE :"
 				+ msg + "\n----------------------------");

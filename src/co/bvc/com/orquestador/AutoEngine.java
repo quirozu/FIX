@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
 import co.bvc.com.basicfix.BasicFunctions;
+import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
@@ -52,14 +53,14 @@ public class AutoEngine {
 			Thread.sleep(5000);
 			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
 			System.out.println("++++++++++++++++ SECUENCIA ++++++++ "+ BasicFunctions.getIdCaseSeq());
-			if (caso<BasicFunctions.getIdCase()) {
-				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
-				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-				caso++;
-				System.out.println("Generar reporte....");
-				CreateReport.maina();
-			}
+//			if (caso<BasicFunctions.getIdCase()) {
+//				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+//				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
+//				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+//				caso++;
+//				System.out.println("Generar reporte....");
+//				CreateReport.maina();
+//			}
 			
 			
 		}
@@ -212,8 +213,7 @@ public class AutoEngine {
 	}
 
 	// Metodo que guarda el registro en base de datos
-	public void cargarCache(AutFixRfqDatosCache datosCache) throws SQLException {
-
+	public void cargarCache(AutFixRfqDatosCache datosCache) throws SQLException, InterruptedException {
 		DataAccess.cargarCache(datosCache);
 	}
 
@@ -259,8 +259,7 @@ public class AutoEngine {
 		//BasicFunctions.addQuoteReqId(IdAfiliado, idQuoteReq);
 
 		if (DataAccess.validarContinuidadEjecucion()) {
-
-			ejecutarSiguientePaso();
+//			ejecutarSiguientePaso();
 
 			System.out.println("** CONTINUAR ***");
 		} else {
@@ -295,7 +294,6 @@ public class AutoEngine {
 		BasicFunctions.setQuoteId(quoteId);
 
 		if (DataAccess.validarContinuidadEjecucion()) {
-
 			ejecutarSiguientePaso();
 
 			System.out.println("** CONTINUAR ***");
@@ -354,8 +352,7 @@ public class AutoEngine {
 //		String IdAfiliado = datosCache.getIdAfiliado();
 
 		if (DataAccess.validarContinuidadEjecucion()) {
-
-			ejecutarSiguientePaso();
+//			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
 		} else {
 			System.out.println("**** ESPERAR ****");
@@ -365,21 +362,18 @@ public class AutoEngine {
 
 	}
 
-	/**
-	 * Metodo para recuperar el objeto siguiente de la tabla de datos.
-	 * 
-	 * @param idCaseSeqActual
-	 * @return
-	 * @throws SQLException
-	 * @throws InterruptedException
-	 * @throws SessionNotFound
-	 */
+	
 
-//	   public void ejecutarSiguientePaso(int idCaseSeqActual, long idEjecucion, String quoteReqId, String quoteId) throws SQLException, SessionNotFound, InterruptedException {
 
 	public static void printMessage(String typeMsg, SessionID sessionId, Message message) throws FieldNotFound {
 		System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sessionId
 				+ "\nMENSAJE :" + message + "\n----------------------------");
 
+	}
+	
+	public String SelectSessionID (ResultSet resultset) throws SQLException {
+		String IDSelessioned = (Constantes.PROTOCOL_FIX_VERSION + resultset.getString("ID_AFILIADO")+"/"+resultset.getString("RQ_TRADER")+"->EXC");
+		
+		return IDSelessioned;
 	}
 }
