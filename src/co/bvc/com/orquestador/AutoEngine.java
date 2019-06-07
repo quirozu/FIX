@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
-
 import co.bvc.com.basicfix.BasicFunctions;
 import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
@@ -12,6 +11,7 @@ import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import co.bvc.com.test.CreateMessage;
 import co.bvc.com.test.CreateReport;
+import co.bvc.com.test.Login;
 import co.bvc.com.test.Validaciones;
 import quickfix.FieldNotFound;
 import quickfix.Session;
@@ -114,15 +114,14 @@ public class AutoEngine {
 			datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
 
 			cargarCache(datosCache);
-			
-			System.out.println("++++++++++++++++++++++"+BasicFunctions.getLogin().getSessionID3());
-			Session.sendToTarget(respConstruccion.getMessage(), BasicFunctions.getLogin().getSessionID3());
-		
-			
+
+			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
+
 			break;
 
 		case "FIX_S":
-			Thread.sleep(5000);
+
+			
 			System.out.println("*********************");
 			System.out.println("** INGRESA A FIX_S **");
 			System.out.println("*********************");
@@ -138,7 +137,7 @@ public class AutoEngine {
 			String quoteReqId = BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado);
 			
 			System.out.println("AFILIADO: " +  idAfiliado + " QUOTERQID: " + quoteReqId);
-			
+
 			respConstruccion = createMesage.createS(resultSet, quoteReqId);
 
 			System.out.println("************* INGRESA A FIX_S ****************");
@@ -169,11 +168,8 @@ public class AutoEngine {
 			datosCache.setIdAfiliado(idIAfiliado);
 			datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
 
-			
-				Session.sendToTarget(respConstruccion.getMessage(), BasicFunctions.getLogin().getSessionID2());
-			
-			
-			
+			cargarCache(datosCache);
+			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
 			break;
 
 		case "FIX_AJ":
@@ -183,6 +179,8 @@ public class AutoEngine {
 			System.out.println("**********************");
 
 			String quoteId = BasicFunctions.getQuoteId();
+			
+			idIAfiliado = resultSet.getString("ID_AFILIADO");
 
 			respConstruccion = createMesage.createAJ(resultSet, quoteId);
 
@@ -201,7 +199,7 @@ public class AutoEngine {
 				cargarCache(datosCache);
 			}
 
-			Session.sendToTarget(respConstruccion.getMessage(), BasicFunctions.getLogin().getSessionID1());
+			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
 
 			break;
 		case "FIX_Z":

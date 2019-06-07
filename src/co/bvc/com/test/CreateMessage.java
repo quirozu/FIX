@@ -41,6 +41,8 @@ import quickfix.fix44.Message;
 import quickfix.fix44.Message.Header;
 
 public class CreateMessage {
+	
+
 
 	public RespuestaConstrucccionMsgFIX createR(ResultSet resultSet) throws SessionNotFound, SQLException {
 
@@ -112,7 +114,7 @@ public class CreateMessage {
 		return null;
 	}
 
-	public RespuestaConstrucccionMsgFIX createS(ResultSet resultset, String strQuoteReqId)
+	public RespuestaConstrucccionMsgFIX createS(ResultSet resultset, String strQuoteReqId) 
 			throws SessionNotFound, SQLException {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();

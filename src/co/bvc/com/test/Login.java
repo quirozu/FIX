@@ -1,7 +1,7 @@
 package co.bvc.com.test;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import co.bvc.com.basicfix.BasicFunctions;
 import quickfix.Application;
@@ -25,52 +25,78 @@ public class Login {
 	private SessionID sessionID4;
 	private SessionID sessionID5;
 	private Application application;
-	
-	public void initiation() {		
+    private String SessionID;
+    private static Map<String, SessionID> mapSessiones = new HashMap<String, SessionID>();
+
+    public static void addSession(String k, SessionID v) {
+    	mapSessiones.put(k, v);
+   	}
+
+    public static SessionID getSessionOfAfiliado(String afiliado) {
+    	return mapSessiones.get(afiliado);
+   	}
+
+//	public void setSessionID(String sessionID) {
+//		SessionID = sessionID;
+//	}
+
+	public void initiation() {
 		
 		application = BasicFunctions.getAdapterIO();		
 
 		try {
 			sessionID1 = startSession("sessionSettings1_27.cfg");
 			if (sessionID1 == null) {
-				System.out.println("Conexión 1 errada");
+				System.out.println("Conexiï¿½n 1 errada");
 			} else {
 				Session.lookupSession(sessionID1).logon();
+				mapSessiones.put(sessionID1.getSenderCompID(), sessionID1);
 				//BasicFunctions.logon(sessionID1);
-				System.out.println("Session ID: " + sessionID1);
+				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID1.getSenderCompID() + " VALOR: " + sessionID1);
 			}
 
 			sessionID2 = startSession("sessionSettings2_35.cfg");
 			if (sessionID2 == null) {
-				System.out.println("Conexión 2 errada");
+				System.out.println("Conexiï¿½n 2 errada");
 			} else {
 				Session.lookupSession(sessionID2).logon();
 //				BasicFunctions.logon(sessionID2);
-				System.out.println("Session ID: " + sessionID2);
+				mapSessiones.put(sessionID2.getSenderCompID(), sessionID2);
+
+				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID2.getSenderCompID() + " VALOR: " + sessionID2);
 			}
 
 			sessionID3 = startSession("sessionSettings2_37.cfg");
 			if (sessionID3 == null) {
-				System.out.println("Conexión 3 errada");
+				System.out.println("Conexiï¿½n 3 errada");
 			} else {
 				Session.lookupSession(sessionID3).logon();
-				System.out.println("Session ID: " + sessionID3);
+				
+				mapSessiones.put(sessionID3.getSenderCompID(), sessionID3);
+
+				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID3.getSenderCompID() + " VALOR: " + sessionID3);
 			}
 
 			sessionID4 = startSession("sessionSettings1_19.cfg");
 			if (sessionID4 == null) {
-				System.out.println("Conexión 4 errada");
+				System.out.println("Conexiï¿½n 4 errada");
 			} else {
 				Session.lookupSession(sessionID4).logon();
-				System.out.println("Session ID: " + sessionID4);
+				
+				mapSessiones.put(sessionID4.getSenderCompID(), sessionID4);
+
+				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID4.getSenderCompID() + " VALOR: " + sessionID4);
 			}
 			
 			sessionID5 = startSession("sessionSettings1_20.cfg");
 			if (sessionID5 == null) {
-				System.out.println("Conexión 5 errada");
+				System.out.println("Conexiï¿½n 5 errada");
 			} else {
 				Session.lookupSession(sessionID5).logon();
-				System.out.println("Session ID: " + sessionID5);
+				
+				mapSessiones.put(sessionID5.getSenderCompID(), sessionID5);
+
+				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID5.getSenderCompID() + " VALOR: " + sessionID5);
 			}
 
 			System.out.println("************************************");
@@ -108,6 +134,12 @@ public class Login {
 	public SessionID getSessionID5() {
 		return sessionID5;
 	}
+	
+	public String getSessionID(String Afiliado) {
+		return SessionID;
+	}
+	
+
 
 	private SessionID startSession(String fileConf) {
 		SocketInitiator socketInitiator = null;
@@ -130,5 +162,4 @@ public class Login {
 		} 	
 	}
 	
-
 }
