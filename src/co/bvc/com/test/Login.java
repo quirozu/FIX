@@ -1,5 +1,8 @@
 package co.bvc.com.test;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import co.bvc.com.basicfix.BasicFunctions;
 import quickfix.Application;
 import quickfix.ConfigError;
@@ -23,7 +26,7 @@ public class Login {
 	private SessionID sessionID5;
 	private Application application;
 	
-	public void initiation() {
+	public void initiation() {		
 		
 		application = BasicFunctions.getAdapterIO();		
 
@@ -126,7 +129,6 @@ public class Login {
 			return null;
 		} 	
 	}
-	
 	
 
 }
