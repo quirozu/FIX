@@ -163,3 +163,10 @@ java.lang.NullPointerException
 	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
 	at java.lang.Thread.run(Thread.java:748)
 
+20190607-17:05:58: Session FIX.4.4:010/010BWN->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-17:05:58: Created session: FIX.4.4:010/010BWN->EXC
+20190607-17:05:58: Configured socket addresses for session: [/172.36.2.13:54519]
+20190607-17:05:58: MINA session created: local=/172.16.0.229:64786, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54519
+20190607-17:05:59: Initiated logon request
+20190607-17:05:59: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-17:05:59: Received logon

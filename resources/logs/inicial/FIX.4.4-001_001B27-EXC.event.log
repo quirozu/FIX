@@ -210,3 +210,12 @@ java.lang.NullPointerException
 	at quickfix.mina.SingleThreadedEventHandlingStrategy$ThreadAdapter$RunnableWrapper.run(SingleThreadedEventHandlingStrategy.java:244)
 	at java.lang.Thread.run(Thread.java:748)
 
+20190607-17:05:57: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190607-17:05:57: Created session: FIX.4.4:001/001B27->EXC
+20190607-17:05:57: Configured socket addresses for session: [/172.36.2.13:54401]
+20190607-17:05:58: MINA session created: local=/172.16.0.229:64703, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54401
+20190607-17:05:59: Initiated logon request
+20190607-17:05:59: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190607-17:05:59: Received logon
+20190607-17:06:19: Rejecting invalid message: quickfix.FieldException: Required tag missing, field=38: 8=FIX.4.49=15235=AG34=549=EXC52=20190607-17:06:19.72856=00157=001B2758=(962): Deposito no fue ingresada131=75330286658=99146=155=TFIT16280428762=RFQF22=M10=125
+20190607-17:06:19: Reject sent for Message 5: Required tag missing, field=38:38

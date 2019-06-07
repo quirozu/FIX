@@ -83,9 +83,9 @@ public class Login {
 			} else {
 				Session.lookupSession(sessionID4).logon();
 				
-				mapSessiones.put(sessionID3.getSenderCompID(), sessionID3);
+				mapSessiones.put(sessionID4.getSenderCompID(), sessionID4);
 
-				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID3.getSenderCompID() + " VALOR: " + sessionID3);
+				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID4.getSenderCompID() + " VALOR: " + sessionID4);
 			}
 			
 			sessionID5 = startSession("sessionSettings1_20.cfg");
