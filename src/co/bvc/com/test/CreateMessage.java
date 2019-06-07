@@ -5,12 +5,14 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import co.bvc.com.basicfix.BasicFunctions;
 import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
+import quickfix.FieldNotFound;
 import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
@@ -30,6 +32,7 @@ import quickfix.field.QuoteRespID;
 import quickfix.field.QuoteRespType;
 import quickfix.field.SecurityIDSource;
 import quickfix.field.SecuritySubType;
+import quickfix.field.SenderCompID;
 import quickfix.field.Side;
 import quickfix.field.Symbol;
 import quickfix.field.ValidUntilTime;
@@ -44,7 +47,7 @@ public class CreateMessage {
 	
 
 
-	public RespuestaConstrucccionMsgFIX createR(ResultSet resultSet) throws SessionNotFound, SQLException {
+	public RespuestaConstrucccionMsgFIX createR(ResultSet resultSet) throws SessionNotFound, SQLException, FieldNotFound {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
 
@@ -75,7 +78,8 @@ public class CreateMessage {
 			QuoteRequest.NoRelatedSym.NoPartyIDs parte = new QuoteRequest.NoRelatedSym.NoPartyIDs();
 
 			List<String> list = new ArrayList<String>();
-
+			String idAfiliado = resultSet.getString(SenderCompID.FIELD);
+			list.add(idAfiliado);
 			// Parties
 			while (resultSetParties.next()) {
 				String rSession = resultSetParties.getString("RECEIVER_SESSION");
@@ -89,6 +93,17 @@ public class CreateMessage {
 
 				noRelatedSym.addGroup(parte);
 			}
+			if(noRelatedSym.getInt(NoPartyIDs.FIELD) == 1){
+				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
+				list.clear();
+				Iterator<String> it = Login.getMapSessiones().keySet().iterator();
+				
+				while(it.hasNext()){
+				 idAfiliado = it.next();
+				 list.add(idAfiliado);
+				 System.out.println("Nuevo Afiliado: " + idAfiliado + " -> Session: " + Login.getMapSessiones().get(idAfiliado));
+				}
+				}
 //			QuoteRequest.NoRelatedSym.NoPartyIDs partie2 = new QuoteRequest.NoRelatedSym.NoPartyIDs();
 //			partie2.set(new PartyID("DCV"));
 //			partie2.set(new PartyIDSource('C'));
