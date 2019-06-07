@@ -174,7 +174,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		if (message instanceof QuoteRequest) {
 
-			printMessage("MENSAJE R_PRIMA ", sessionId, message);
+//			printMessage("MENSAJE R_PRIMA ", sessionId, message);
 
 			String idAfiliado = sessionId.toString().substring(8, 11);
 			BasicFunctions.addQuoteReqId(idAfiliado, message.getString(131));
@@ -197,9 +197,9 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		}
 
-		if (message instanceof QuoteStatusReport && sessionId.toString().equals("FIX.4.4:001/001B27->EXC")) {
+		if (message instanceof QuoteStatusReport ) {
 
-			printMessage("MENSAJE AI PARA SESSION 1 ", sessionId, message);
+			printMessage("MENSAJE AI  ", sessionId, message);
 
 			try {
 				autoEngine.validarAI(sessionId, message);

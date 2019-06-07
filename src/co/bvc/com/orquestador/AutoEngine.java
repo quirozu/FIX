@@ -115,8 +115,8 @@ public class AutoEngine {
 
 			cargarCache(datosCache);
 			
-			System.out.println("++++++++++++++++++++++"+BasicFunctions.getLogin().getSessionID1());
-			Session.sendToTarget(respConstruccion.getMessage(), BasicFunctions.getLogin().getSessionID1());
+			System.out.println("++++++++++++++++++++++"+BasicFunctions.getLogin().getSessionID3());
+			Session.sendToTarget(respConstruccion.getMessage(), BasicFunctions.getLogin().getSessionID3());
 		
 			
 			break;
@@ -229,7 +229,7 @@ public class AutoEngine {
 	}
 
 	// Metodo que extraer el registro en base de datos
-	public AutFixRfqDatosCache obtenerCache(String session) throws SQLException {
+	public AutFixRfqDatosCache obtenerCache(String session) throws SQLException, InterruptedException {
 
 		System.out.println("SESS: " + session);
 		return DataAccess.obtenerCache(session);
