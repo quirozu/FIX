@@ -85,6 +85,8 @@ public class AdapterIO extends MessageCracker implements Application {
 					listPass.add(resultSet.getString("CLAVE"));
 					listID.add(resultSet.getString("ID_USUARIO"));
 				}
+				
+				
 				switch (negociador) {
 				case "001B27":
 					System.out.println("User: " + listUsers.get(0));

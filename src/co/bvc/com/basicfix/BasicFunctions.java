@@ -31,6 +31,7 @@ public class BasicFunctions {
 	private static AdapterIO adapterIO;
 	private static int idCase;
 	private static int escenarioPrueba;
+	
 //	private static RespuestaConstrucccionMsgFIX cache;
 
 	public static int getIdCase() {
@@ -65,11 +66,8 @@ public class BasicFunctions {
 //	public static void setQuoteReqId(String quoteReqId) {
 //		BasicFunctions.quoteReqId = quoteReqId;
 //	}
-
-	public static Map<String, String> getQuoteReqId() {
-		return quoteReqId;
-	}
-
+	
+	// Metodo de QuoteReqId
 	public static void addQuoteReqId(String k, String v) {
 		BasicFunctions.quoteReqId.put(k, v);
 	}
@@ -82,6 +80,10 @@ public class BasicFunctions {
 		BasicFunctions.quoteReqId = quoteReqId;
 	}
 
+	public static Map<String, String> getQuoteReqId() {
+		return quoteReqId;
+	}
+	
 	public static String getQuoteId() {
 		return quoteId;
 	}
