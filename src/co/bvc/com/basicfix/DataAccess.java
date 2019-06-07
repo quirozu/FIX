@@ -110,8 +110,8 @@ public class DataAccess {
 
 	}
 
-	public static AutFixRfqDatosCache obtenerCache(String session) throws SQLException {
-
+	public static AutFixRfqDatosCache obtenerCache(String session) throws SQLException, InterruptedException {
+		Thread.sleep(5000);
 		AutFixRfqDatosCache datosCache = null;
 		String queryInicio = "SELECT * FROM bvc_automation_db.aut_fix_rfq_cache WHERE  RECEIVER_SESSION = " + session;
 		ResultSet rs = DataAccess.getQuery(queryInicio);

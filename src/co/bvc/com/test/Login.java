@@ -21,24 +21,24 @@ public class Login {
 	private SessionID sessionID4;
 	private SessionID sessionID5;
 	private Application application;
-    private String SessionID;
-    private static Map<String, SessionID> mapSessiones = new HashMap<String, SessionID>();
+	private String SessionID;
+	private static Map<String, SessionID> mapSessiones = new HashMap<String, SessionID>();
 
-    public static void addSession(String k, SessionID v) {
-    	mapSessiones.put(k, v);
-   	}
+	public static void addSession(String k, SessionID v) {
+		mapSessiones.put(k, v);
+	}
 
-    public static SessionID getSessionOfAfiliado(String afiliado) {
-    	return mapSessiones.get(afiliado);
-   	}
+	public static SessionID getSessionOfAfiliado(String afiliado) {
+		return mapSessiones.get(afiliado);
+	}
 
 //	public void setSessionID(String sessionID) {
 //		SessionID = sessionID;
 //	}
 
 	public void initiation() {
-		
-		application = BasicFunctions.getAdapterIO();		
+
+		application = BasicFunctions.getAdapterIO();
 
 		try {
 			sessionID1 = startSession("sessionSettings1_27.cfg");
@@ -47,8 +47,9 @@ public class Login {
 			} else {
 				Session.lookupSession(sessionID1).logon();
 				mapSessiones.put(sessionID1.getSenderCompID(), sessionID1);
-				//BasicFunctions.logon(sessionID1);
-				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID1.getSenderCompID() + " VALOR: " + sessionID1);
+				// BasicFunctions.logon(sessionID1);
+				System.out.println(
+						"SESSION ADICIONADA. CLAVE: " + sessionID1.getSenderCompID() + " VALOR: " + sessionID1);
 			}
 
 			sessionID2 = startSession("sessionSettings2_35.cfg");
@@ -59,7 +60,8 @@ public class Login {
 //				BasicFunctions.logon(sessionID2);
 				mapSessiones.put(sessionID2.getSenderCompID(), sessionID2);
 
-				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID2.getSenderCompID() + " VALOR: " + sessionID2);
+				System.out.println(
+						"SESSION ADICIONADA. CLAVE: " + sessionID2.getSenderCompID() + " VALOR: " + sessionID2);
 			}
 
 			sessionID3 = startSession("sessionSettings2_37.cfg");
@@ -67,10 +69,11 @@ public class Login {
 				System.out.println("Conexion 3 errada");
 			} else {
 				Session.lookupSession(sessionID3).logon();
-				
+
 				mapSessiones.put(sessionID3.getSenderCompID(), sessionID3);
 
-				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID3.getSenderCompID() + " VALOR: " + sessionID3);
+				System.out.println(
+						"SESSION ADICIONADA. CLAVE: " + sessionID3.getSenderCompID() + " VALOR: " + sessionID3);
 			}
 
 			sessionID4 = startSession("sessionSettings1_19.cfg");
@@ -78,21 +81,23 @@ public class Login {
 				System.out.println("Conexion 4 errada");
 			} else {
 				Session.lookupSession(sessionID4).logon();
-				
+
 				mapSessiones.put(sessionID4.getSenderCompID(), sessionID4);
 
-				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID4.getSenderCompID() + " VALOR: " + sessionID4);
+				System.out.println(
+						"SESSION ADICIONADA. CLAVE: " + sessionID4.getSenderCompID() + " VALOR: " + sessionID4);
 			}
-			
+
 			sessionID5 = startSession("sessionSettings1_20.cfg");
 			if (sessionID5 == null) {
 				System.out.println("Conexion 5 errada");
 			} else {
 				Session.lookupSession(sessionID5).logon();
-				
+
 				mapSessiones.put(sessionID5.getSenderCompID(), sessionID5);
 
-				System.out.println("SESSION ADICIONADA. CLAVE: " + sessionID5.getSenderCompID() + " VALOR: " + sessionID5);
+				System.out.println(
+						"SESSION ADICIONADA. CLAVE: " + sessionID5.getSenderCompID() + " VALOR: " + sessionID5);
 			}
 
 			System.out.println("************************************");
@@ -112,6 +117,14 @@ public class Login {
 
 	}
 
+	public static Map<String, SessionID> getMapSessiones() {
+		return mapSessiones;
+	}
+
+	public static void setMapSessiones(Map<String, SessionID> mapSessiones) {
+		Login.mapSessiones = mapSessiones;
+	}
+
 	public SessionID getSessionID1() {
 		return sessionID1;
 	}
@@ -127,35 +140,35 @@ public class Login {
 	public SessionID getSessionID4() {
 		return sessionID4;
 	}
+
 	public SessionID getSessionID5() {
 		return sessionID5;
 	}
-	
+
 	public String getSessionID(String Afiliado) {
 		return SessionID;
 	}
-	
-
 
 	private SessionID startSession(String fileConf) {
 		SocketInitiator socketInitiator = null;
 		try {
 			SessionSettings sessionSettings = new SessionSettings("resources\\" + fileConf);
-			
+
 			FileStoreFactory fileStoreFactory = new FileStoreFactory(sessionSettings);
 			FileLogFactory fileLogFactory = new FileLogFactory(sessionSettings);
 			MessageFactory messageFactory = new DefaultMessageFactory();
-			socketInitiator = new SocketInitiator(application, fileStoreFactory, sessionSettings, fileLogFactory, messageFactory);
-			
-			//Se ejecuta onCreate de AdapterIO
-			socketInitiator.start(); 
+			socketInitiator = new SocketInitiator(application, fileStoreFactory, sessionSettings, fileLogFactory,
+					messageFactory);
+
+			// Se ejecuta onCreate de AdapterIO
+			socketInitiator.start();
 			SessionID sessionID = socketInitiator.getSessions().get(0);
 
 			return sessionID;
 		} catch (Exception e) {
-			System.out.println("Error de conexion INET. Mensaje: "+e.getMessage());
+			System.out.println("Error de conexion INET. Mensaje: " + e.getMessage());
 			return null;
-		} 	
+		}
 	}
-	
+
 }
