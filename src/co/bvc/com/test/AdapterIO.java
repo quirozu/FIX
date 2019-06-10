@@ -31,6 +31,7 @@ import quickfix.field.Password;
 import quickfix.field.PossDupFlag;
 import quickfix.field.TransactTime;
 import quickfix.field.Username;
+import quickfix.fix44.QuoteCancel;
 import quickfix.fix44.ExecutionReport;
 import quickfix.fix44.Logon;
 import quickfix.fix44.MessageCracker;
@@ -203,7 +204,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			
 //			BasicFunctions.setQuoteReqId(message.getString(131));
 //			setIDQuoteFound(message.getString(131));
-			System.out.println("\nID ESTABLECIDO EN " + BasicFunctions.getQuoteReqId());
+			System.out.println("\nID ESTABLECIDO EN MENSAJE R_PRIMA " + BasicFunctions.getQuoteReqId());
 
 		}
 
@@ -250,6 +251,11 @@ public class AdapterIO extends MessageCracker implements Application {
 
 			printMessage("MENSAJE AJ ", sessionId, message);
 
+		}
+		
+		if(message instanceof QuoteCancel) {
+			printMessage("ZZZZZZZ... ", sessionId, message);
+			
 		}
 
 		crack(message, sessionId);
@@ -326,7 +332,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			String idAfiliado = sessionID.toString().substring(8, 11);
 			BasicFunctions.addQuoteReqId(idAfiliado, message.getString(131));
 
-			System.out.println("\nID ESTABLECIDO EN " + BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado));
+			System.out.println("\nID ESTABLECIDO EN R_PRIMA " + BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado));
 
 			try {
 				Thread.sleep(5000);
@@ -365,9 +371,20 @@ public class AdapterIO extends MessageCracker implements Application {
 		}
 	}
 
+//	public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {
+//
+//		printMessage("QuoteCancel", sessionID, message);
+//		
+//	}
+	
 	public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {
 
-		printMessage("QuoteCancel", sessionID, message);
+		if (message instanceof QuoteCancel && sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
+			
+			printMessage("QuoteCancel de PEDRO", sessionID, message);
+		}
+		
+		
 	}
 
 	public static void printMessage(String typeMsg, SessionID sID, Message msg) throws FieldNotFound {

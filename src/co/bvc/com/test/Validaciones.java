@@ -642,6 +642,8 @@ public class Validaciones {
 			case "54":
 				if (cad.get(i).split("=")[1].equals(side)) {
 					contadorBuenos++;
+					
+//					comparar(cad.get(i).split("=")[1],side);
 					System.out.println("iguales:  Execution Report(54): " + cad.get(i).split("=")[1] + " bd: " + side);
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), side, cad.get(i).split("=")[1],
 							idEscenario, idCase, idSecuencia);
@@ -814,6 +816,85 @@ public class Validaciones {
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia);
 					System.out.println("diferentes:  Execution Report(447): " + cad.get(i).split("=")[1] + " bd: "
 							+ partyIdsSource);
+					contadorMalos++;
+				}
+				break;
+
+			default:
+				break;
+			}
+		}
+		
+		System.out.println("----------------------------------------");
+		System.out.println("---------------------");
+		System.out.println("-- VALIDACIONES ER --");
+		System.out.println("LAS VALIDACIONES CORRECTAS FUERON : " + contadorBuenos);
+		System.out.println("LAS VALIDACIONES ERRADAS FUERON : " + contadorMalos);
+		System.out.println("TOTAL VALIDACIONES REALIZADAS : " + (contadorBuenos + contadorMalos));
+
+	}
+	
+	public void validarZ(AutFixRfqDatosCache datosCache, Message qr) throws SQLException {
+		
+		System.out.println("\n*************************** Ingresa a validar a Z \n***************************");
+		int contadorBuenos = 0;
+		int contadorMalos = 0;
+		String cadena = "" + qr;
+		ResultSet resultset;
+
+		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
+				+ datosCache.getIdCaseseq();
+
+		resultset = DataAccess.getQuery(queryMessageR);
+
+		ArrayList<String> cad = FragmentarCadena(cadena);
+		String valor;
+		String val;
+		String quoteId = null, quoteCancelType = null, idCase = null, idEscenario = null;
+		int idSecuencia = 0;
+		while (resultset.next()) {
+
+//			switch(resultset.getInt(columnIndex))
+			quoteId = resultset.getString("RQ_QUOTEID");
+			quoteCancelType = resultset.getString("RQ_QUOCANCTYPE");
+			idEscenario = "FIX_8";
+
+		}
+		System.out.println("----------------------------------------");
+		System.out.println("VALIDACION DEL EXECUTION REPORT \n");
+
+		for (int i = 0; i < cad.size(); i++) {
+			valor = cad.get(i).split("=")[0];
+			val = cad.get(i).split("=")[1];
+			switch (valor) {
+			case "117":
+				if (cad.get(i).split("=")[1].equals(quoteId)) {
+					contadorBuenos++;
+					System.out.println(
+							"iguales:  Execution Report(117): " + cad.get(i).split("=")[1] + " bd: " + quoteId);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), quoteId, cad.get(i).split("=")[1],
+							idEscenario, idCase, idSecuencia);
+				} else {
+					System.out.println(
+							"diferentes:  Execution Report(117): " + cad.get(i).split("=")[1] + " bd: " + quoteId);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), quoteId, cad.get(i).split("=")[1],
+							idEscenario, idCase, idSecuencia);
+					contadorMalos++;
+				}
+				break;
+			case "298":
+				if (cad.get(i).split("=")[1].equals(quoteCancelType)) {
+					contadorBuenos++;
+					
+//					comparar(cad.get(i).split("=")[1],side);
+					System.out.println("iguales:  Execution Report(298): " + cad.get(i).split("=")[1] + " bd: " + quoteCancelType);
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), quoteCancelType, cad.get(i).split("=")[1],
+							idEscenario, idCase, idSecuencia);
+				} else {
+					System.out
+							.println("diferentes:  Execution Report(298): " + cad.get(i).split("=")[1] + " bd: " + quoteCancelType);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), quoteCancelType, cad.get(i).split("=")[1],
+							idEscenario, idCase, idSecuencia);
 					contadorMalos++;
 				}
 				break;

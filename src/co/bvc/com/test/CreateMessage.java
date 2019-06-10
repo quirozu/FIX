@@ -79,7 +79,7 @@ public class CreateMessage {
 			QuoteRequest.NoRelatedSym.NoPartyIDs parte = new QuoteRequest.NoRelatedSym.NoPartyIDs();
 
 			List<String> list = new ArrayList<String>();
-			String idAfiliado = resultSet.getString(SenderCompID.FIELD);
+			String idAfiliado = resultSet.getString("ID_AFILIADO");
 			list.add(idAfiliado);
 			// Parties
 			while (resultSetParties.next()) {
@@ -142,6 +142,10 @@ public class CreateMessage {
 
 		ResultSet resultSetParties;
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
+		
+		BasicFunctions.setQuoteIdGenered(cIdRandom);
+		
+		System.out.println("QUOTE ID GENERADO: " + BasicFunctions.getQuoteIdGenered());
 
 		try {
 			resultSetParties = DataAccess.getQuery(queryParties);
@@ -239,19 +243,40 @@ public class CreateMessage {
 		return null;
 	}
 
-	public Message createZ(final SessionID sessionId, final String strQuoteId) throws SessionNotFound {
+	public RespuestaConstrucccionMsgFIX createZ(final SessionID sessionId, final String strQuoteId) throws SessionNotFound {
+		
 
-		System.out.println("******************DATOS RECIBIDOS PARA Z....\nSession: \t:" + sessionId
+		System.out.println("------------------------------\nDATOS RECIBIDOS PARA Z....\nSession: " + sessionId
 				+ " - strQuoteId: \t" + strQuoteId);
+		
+		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
 
 		QuoteCancel quoteCancel = new QuoteCancel();
 		Header header = (Header) quoteCancel.getHeader();
 		header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
-		quoteCancel.setField(new QuoteCancelType(5));
+		quoteCancel.setField(new QuoteCancelType(5));//RQ_QUOTECANCTYPE
 		quoteCancel.setField(new QuoteID(strQuoteId));
+		
+		System.out.println("Nos Message Sent : " + quoteCancel); 
+		
+		respuestaMessage.setMessage(quoteCancel);
+		
+		List<String> list = new ArrayList<String>();
+//		list.add(sessionId.toString().substring(8,11));
+		
+		
+		list.add("001");
+		list.add("002");
 
-		return quoteCancel;
+		respuestaMessage.setListSessiones(list);
+
+		System.out.println("****************");
+		System.out.println("** Z CREADO  **");
+		System.out.println(quoteCancel);
+		System.out.println("****************");
+
+		return respuestaMessage;
 
 	}
 

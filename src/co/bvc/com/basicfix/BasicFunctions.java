@@ -26,6 +26,7 @@ public class BasicFunctions {
 	private static Login login;
 	private static Map<String, String> quoteReqId = new HashMap<String, String>();
 	private static String quoteId;
+	private static String quoteIdGenered;
 	private static long idEjecution;
 	private static int idCaseSeq;
 	private static AdapterIO adapterIO;
@@ -90,6 +91,14 @@ public class BasicFunctions {
 
 	public static void setQuoteId(String quoteId) {
 		BasicFunctions.quoteId = quoteId;
+	}
+
+	public static String getQuoteIdGenered() {
+		return quoteIdGenered;
+	}
+
+	public static void setQuoteIdGenered(String quoteIdGenered) {
+		BasicFunctions.quoteIdGenered = quoteIdGenered;
 	}
 
 	public static long getIdEjecution() {

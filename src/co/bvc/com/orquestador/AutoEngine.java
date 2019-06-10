@@ -44,6 +44,7 @@ public class AutoEngine {
 	}
 
 	int caso = BasicFunctions.getEscenarioPrueba();
+	
 	public void ejecutarSiguientePaso() throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
 
 		System.out.println("ID_CASESEQ: " + BasicFunctions.getIdCaseSeq());
@@ -107,18 +108,6 @@ public class AutoEngine {
 			}
 
 			String idIAfiliado = resultSet.getString("ID_AFILIADO");
-//
-//			// Construir mensaje a cache de la propia session.
-//			datosCache.setReceiverSession(idIAfiliado);
-//			datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
-//			datosCache.setIdCase(resultSet.getInt("ID_CASE"));
-//			datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
-//			datosCache.setEstado(resultSet.getString("ESTADO"));
-//			// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
-//			datosCache.setIdAfiliado(idIAfiliado);
-//			datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
-//
-//			cargarCache(datosCache);
 
 			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
 
@@ -216,8 +205,30 @@ public class AutoEngine {
 			
 			idIAfiliado = resultSet.getString("ID_AFILIADO");
 			
-            message = createMesage.createZ(Login.getSessionOfAfiliado(idIAfiliado), BasicFunctions.getQuoteId());
-            Session.sendToTarget(message, Login.getSessionOfAfiliado(idIAfiliado));
+			respConstruccion = createMesage.createZ(Login.getSessionOfAfiliado(idIAfiliado), BasicFunctions.getQuoteIdGenered());
+			
+			System.out.println("ID DE Z " + BasicFunctions.getQuoteIdGenered());
+			
+			for (String session : respConstruccion.getListSessiones()) {
+
+				// Construir mensaje a cache.
+				System.out.println("\n************************ INGRESA AL FOR \n************************ " + session);
+				datosCache.setReceiverSession(session);
+				datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
+				datosCache.setIdCase(resultSet.getInt("ID_CASE"));
+				datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
+				datosCache.setEstado(resultSet.getString("ESTADO"));
+				// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
+				datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
+				datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
+
+				cargarCache(datosCache);
+				
+				System.out.println("\n************************ SALE DEL FOR \n************************");
+			}
+	
+			
+            Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
 
 			break;
 
@@ -256,7 +267,6 @@ public class AutoEngine {
 		System.out.println("** INGRESA A VALIDAR R **");
 		System.out.println("************************");
 		
-		System.out.println("##################################  Session: " + sessionId + "Message: " + messageIn);
 		// Obtener el ID_AFILIADO de la session.
 		String IdContraFirm = sessionId.toString().substring(8, 11);
 		Validaciones validaciones = new Validaciones();
@@ -285,7 +295,7 @@ public class AutoEngine {
 			System.out.println("**** ESPERAR ****");
 		}
 
-		System.out.println("*********** SALIENDO DE validarR ************");
+		System.out.println("*********** SALIENDO DE VALIDAR R ************");
 
 	}
 
@@ -293,7 +303,7 @@ public class AutoEngine {
 			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("************************");
-		System.out.println("** INGRESA A validarS **");
+		System.out.println("** INGRESA A VALIDAR S **");
 		System.out.println("************************");
 
 		// Obtener el ID_AFILIADO de la session
@@ -321,7 +331,7 @@ public class AutoEngine {
 			System.out.println("**** ESPERAR ****");
 		}
 
-		System.out.println("*********** SALIENDO DE validarS ************");
+		System.out.println("*********** SALIENDO DE VALIDAR S ************");
 
 	}
 
@@ -329,7 +339,7 @@ public class AutoEngine {
 			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("*************************");
-		System.out.println("** INGRESA A validarAJ **");
+		System.out.println("** INGRESA A VALIDAR AJ **");
 		System.out.println("*************************");
 		// Obtener el ID_AFILIADO de la session
 		String IdContraFirm = sessionId.toString().substring(8, 11);
@@ -352,14 +362,15 @@ public class AutoEngine {
 			System.out.println("**** ESPERAR ****");
 		}
 
-		System.out.println("*********** SALIENDO DE validarAJ ************");
+		System.out.println("*********** SALIENDO DE VALIDAR AJ ************");
 	}
 
 	public void validarAI(SessionID sessionId, Message messageIn)
 			throws SQLException, InterruptedException, SessionNotFound, IOException, FieldNotFound {
 
 		System.out.println("*************************");
-		System.out.println("** INGRESA A validarAI **");
+		System.out.println("** INGRESA A VALIDAR AI **");
+		System.out.println("************************* \n NUMERO DE LA SESSION "+ sessionId.toString().substring(8, 11) +"\n");
 		System.out.println("*************************");
 
 		String sIdAfiliado = sessionId.toString().substring(8, 11);
@@ -378,15 +389,33 @@ public class AutoEngine {
 			System.out.println("**** ESPERAR ****");
 		}
 
-		System.out.println("*********** SALIENDO DE validarAI ************");
+		System.out.println("*********** SALIENDO DE VALIDAR AI ************");
 
 	}
 
-	public void validarZ(SessionID sessionId, Message messageIn) {
+	public void validarZ(SessionID sessionId, Message messageIn) throws SQLException, InterruptedException, SessionNotFound, IOException, FieldNotFound {
 		
 		System.out.println("*************************");
-		System.out.println("** INGRESA A validarAI **");
+		System.out.println("** INGRESA A VALIDAR Z **");
 		System.out.println("*************************");
+				
+		String sIdAfiliado = sessionId.toString().substring(8, 11);
+		AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
+		Validaciones validaciones = new Validaciones();
+		validaciones.validarZ(datosCache, (quickfix.fix44.Message) messageIn);
+		
+		// Eliminar Registro en Cache.
+		eliminarDatoCache(sIdAfiliado);
+		
+		if (DataAccess.validarContinuidadEjecucion()) {
+//			ejecutarSiguientePaso();
+			System.out.println("** CONTINUAR ***");
+		} else {
+			System.out.println("**** ESPERAR ****");
+		}
+
+		System.out.println("*********** SALIENDO DE VALIDAR Z ************");
+		Thread.sleep(5000);
 	}
 
 
