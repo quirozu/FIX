@@ -2085,3 +2085,16 @@ java.lang.NullPointerException
 20190607-21:54:23: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
 20190607-21:54:23: Received logon
 >>>>>>> ca8b6fd13021438c8902d768218507fa06f95332
+20190610-13:12:16: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190610-13:12:16: Session state is not current; resetting FIX.4.4:002/002B35->EXC
+20190610-13:12:16: Created session: FIX.4.4:002/002B35->EXC
+20190610-13:12:16: Configured socket addresses for session: [/172.36.2.13:54402]
+20190610-13:12:18: java.net.ConnectException during connection to /172.36.2.13:54402: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190610-13:13:20: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190610-13:13:20: Created session: FIX.4.4:002/002B35->EXC
+20190610-13:13:20: Configured socket addresses for session: [/172.36.2.13:54402]
+20190610-13:13:22: java.net.ConnectException during connection to /172.36.2.13:54402: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190610-13:15:15: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190610-13:15:15: Created session: FIX.4.4:002/002B35->EXC
+20190610-13:15:15: Configured socket addresses for session: [/172.36.2.13:54402]
+20190610-13:15:20: java.net.ConnectException during connection to /172.36.2.13:54402: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
