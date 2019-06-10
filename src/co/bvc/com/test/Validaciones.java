@@ -101,12 +101,12 @@ public class Validaciones {
 			idCase = resultset.getString("ID_CASE");
 			idSecuencia = resultset.getInt("ID_SECUENCIA");
 			noPartyId = resultset.getString("RQ_NOPARTYIDS");
+
 			id_Escenario = resultset.getString("ID_ESCENARIO");
 		}
 		System.out.println("----------------------------------------");
 		System.out.println("VALIDACION DE R CON R PRIMA");
 		System.out.println("  \n");
-		
 		for (int z = 0; z < cad.size(); z++) {
 			clavePrima = cad.get(z).split("=")[0];
 			valorPrima = cad.get(z).split("=")[1];

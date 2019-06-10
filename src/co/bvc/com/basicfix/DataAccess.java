@@ -192,9 +192,10 @@ public class DataAccess {
 
 		if (cantidadEscenarios > 0) {
 			return false;
-		}
+		}else {
 
 		return true;
+		}
 	}
 
 

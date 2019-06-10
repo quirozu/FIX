@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
-
-import javax.naming.spi.DirStateFactory.Result;
-
 import co.bvc.com.basicfix.BasicFunctions;
 import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
@@ -20,6 +17,8 @@ import quickfix.FieldNotFound;
 import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
+import quickfix.field.SenderSubID;
+import quickfix.field.TargetCompID;
 import quickfix.Message;
 
 public class AutoEngine {
@@ -77,8 +76,6 @@ public class AutoEngine {
 		AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
 		msgType = resultSet.getString("ID_ESCENARIO");
 
-		Message message;
-		
 		RespuestaConstrucccionMsgFIX respConstruccion = new RespuestaConstrucccionMsgFIX();
 
 		switch (msgType) {
@@ -107,7 +104,7 @@ public class AutoEngine {
 			}
 
 			String idIAfiliado = resultSet.getString("ID_AFILIADO");
-//
+
 //			// Construir mensaje a cache de la propia session.
 //			datosCache.setReceiverSession(idIAfiliado);
 //			datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
@@ -140,13 +137,11 @@ public class AutoEngine {
 			}
 			
 			String quoteReqId = BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado);
-		
+			
 			System.out.println("AFILIADO: " +  idAfiliado + " QUOTERQID: " + quoteReqId);
 
 			respConstruccion = createMesage.createS(resultSet, quoteReqId);
 
-			System.out.println("************* INGRESA A FIX_S ****************");
-			
 			for (String session : respConstruccion.getListSessiones()) {
 
 				// Construir mensaje a cache.
@@ -156,7 +151,8 @@ public class AutoEngine {
 				datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
 				datosCache.setEstado(resultSet.getString("ESTADO"));
 				// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
-				datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
+//				datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
+				datosCache.setIdAfiliado(session);
 				datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
 
 				cargarCache(datosCache);
@@ -209,15 +205,6 @@ public class AutoEngine {
 
 			break;
 		case "FIX_Z":
-			
-			System.out.println("**********************");
-			System.out.println("** INGRESA A FIX_Z **");
-			System.out.println("**********************");
-			
-			idIAfiliado = resultSet.getString("ID_AFILIADO");
-			
-            message = createMesage.createZ(Login.getSessionOfAfiliado(idIAfiliado), BasicFunctions.getQuoteId());
-            Session.sendToTarget(message, Login.getSessionOfAfiliado(idIAfiliado));
 
 			break;
 
@@ -253,34 +240,38 @@ public class AutoEngine {
 			throws SQLException, InterruptedException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("************************");
-		System.out.println("** INGRESA A VALIDAR R **");
+		System.out.println("** INGRESA A validarR **");
 		System.out.println("************************");
-		
-		System.out.println("##################################  Session: " + sessionId + "Message: " + messageIn);
+
 		// Obtener el ID_AFILIADO de la session.
 		String IdContraFirm = sessionId.toString().substring(8, 11);
 		Validaciones validaciones = new Validaciones();
+		
+//		//Se valida si R_prima llega al mismo iniciador
+//		String targetCompId = messageIn.getHeader().getString(TargetCompID.FIELD);
+//		System.out.println("TARGET COMP ID: " +targetCompId+ " IDCONTRAFIRM: "+ IdContraFirm);
+//		if(IdContraFirm == messageIn.getHeader().getString(TargetCompID.FIELD)) {
+//			IdContraFirm += "R";
+//			System.out.println("VALOR DE TARGETCOMPID:"+ messageIn.getHeader().getString(TargetCompID.FIELD));
+//		}
 
 		// getcache
 		AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
 		validaciones.ValidarRPrima(datosCache, (quickfix.fix44.Message) messageIn);
-		Thread.sleep(5000);
 
 		// Eliminar Registro en Cache.
 		eliminarDatoCache(IdContraFirm);
 
 		String IdAfiliado = datosCache.getIdAfiliado();
-//
+
 		String idQuoteReq = messageIn.getString(131);
-//		
+		
 		BasicFunctions.addQuoteReqId(IdAfiliado, idQuoteReq);
 
 		if (DataAccess.validarContinuidadEjecucion()) {
-
 			ejecutarSiguientePaso();
 
 			System.out.println("** CONTINUAR ***");
-	
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
@@ -313,7 +304,6 @@ public class AutoEngine {
 		BasicFunctions.setQuoteId(quoteId);
 
 		if (DataAccess.validarContinuidadEjecucion()) {
-			
 			ejecutarSiguientePaso();
 
 			System.out.println("** CONTINUAR ***");
@@ -368,11 +358,11 @@ public class AutoEngine {
 		validaciones.validaAI(datosCache, (quickfix.fix44.Message) messageIn);
 
 		// Eliminar Registro en Cache.
-		eliminarDatoCache(sIdAfiliado);
+		eliminarDatoCache(sIdAfiliado+"R");
 //		String IdAfiliado = datosCache.getIdAfiliado();
 
 		if (DataAccess.validarContinuidadEjecucion()) {
-			ejecutarSiguientePaso();
+//			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
 		} else {
 			System.out.println("**** ESPERAR ****");
@@ -382,12 +372,7 @@ public class AutoEngine {
 
 	}
 
-	public void validarZ(SessionID sessionId, Message messageIn) {
-		
-		System.out.println("*************************");
-		System.out.println("** INGRESA A validarAI **");
-		System.out.println("*************************");
-	}
+	
 
 
 	public static void printMessage(String typeMsg, SessionID sessionId, Message message) throws FieldNotFound {
@@ -395,5 +380,10 @@ public class AutoEngine {
 				+ "\nMENSAJE :" + message + "\n----------------------------");
 
 	}
-
+	
+	public String SelectSessionID (ResultSet resultset) throws SQLException {
+		String IDSelessioned = (Constantes.PROTOCOL_FIX_VERSION + resultset.getString("ID_AFILIADO")+"/"+resultset.getString("RQ_TRADER")+"->EXC");
+		
+		return IDSelessioned;
+	}
 }
