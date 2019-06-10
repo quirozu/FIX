@@ -20,7 +20,6 @@ public class DataAccess {
 	private static String HOST;
 	private static String PORT;
 	private static Connection conn = null;
-<<<<<<< HEAD
 	
 	public static Connection getConnection() {
 		try {
@@ -44,32 +43,6 @@ public class DataAccess {
 		return conn;
 	}
 
-=======
-
-	 public static Connection getConnection(){
-	      try{
-	         if( conn == null ){
-	        	ParametersRead p = new ParametersRead();
-	     		String[] lineas = p.leerConexion();
-	     		_usuario = lineas[0].split("=")[1].trim();
-	     		_pwd = lineas[1].split("=")[1].trim();
-	     		_db = lineas[2].split("=")[1].trim();
-	     		HOST = lineas[3].split("=")[1].trim();
-	     		PORT = lineas[4].split("=")[1].trim();
-	     		String driver = "com.mysql.jdbc.Driver";
-	     		String _url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + _db;
-	            Class.forName(driver);
-	            conn = DriverManager.getConnection(_url, _usuario, _pwd);
-	            System.out.println("Conectionesfull");
-	         }
-	     }
-	     catch(ClassNotFoundException | SQLException ex){
-	        ex.printStackTrace();
-	     }
-	     return conn;
-	 }
-	
->>>>>>> c6c656196ec2c91aaad3bb7dcad54df1faff29f8
 	public static ResultSet getQuery(String _query) throws SQLException {
 		Statement state = null;
 		ResultSet resultSet = null;
@@ -178,7 +151,7 @@ public class DataAccess {
 		ps.executeUpdate();
 
 	}
-	
+
 	public static void limpiarCache() throws SQLException {
 		String strQueryLimpiar = "DELETE FROM `bvc_automation_db`.`aut_fix_rfq_cache` WHERE  RECEIVER_SESSION <> ''";
 		setQuery(strQueryLimpiar);

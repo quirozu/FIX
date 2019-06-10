@@ -34,6 +34,7 @@ public class AutoEngine {
 		BasicFunctions.setEscenarioPrueba(escenarioEjecucion);
 
 		if (firsIdCaseSec > 0) {
+			BasicFunctions.startVariables();
 			BasicFunctions.createLogin();
 			DataAccess.limpiarCache();
 			ejecutarSiguientePaso();
@@ -75,6 +76,9 @@ public class AutoEngine {
 		String msgType;
 		AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
 		msgType = resultSet.getString("ID_ESCENARIO");
+
+		Message message;
+		
 		RespuestaConstrucccionMsgFIX respConstruccion = new RespuestaConstrucccionMsgFIX();
 
 		switch (msgType) {
@@ -84,6 +88,7 @@ public class AutoEngine {
 			System.out.println("*********************");
 			System.out.println("** INGRESA A FIX_R **");
 			System.out.println("*********************");
+
 			respConstruccion = createMesage.createR(resultSet);
 
 			for (String session : respConstruccion.getListSessiones()) {
@@ -121,19 +126,24 @@ public class AutoEngine {
 
 		case "FIX_S":
 
-//			String quoteReqId = BasicFunctions.getQuoteReqId();
-
-//			respConstruccion = createMesage.createS(resultSet, quoteReqId);
-			
+			DataAccess.limpiarCache();
 			System.out.println("*********************");
 			System.out.println("** INGRESA A FIX_S **");
 			System.out.println("*********************");
 
 			String idAfiliado = resultSet.getString("ID_AFILIADO");
+			
+			Iterator<String> it = BasicFunctions.getQuoteReqId().keySet().iterator();
+			while(it.hasNext()){
+			  String key = (String) it.next();
+			  System.out.println("Clave: " + key + " -> Valor: " + BasicFunctions.getQuoteReqId().get(key));
+			}
+			
 			String quoteReqId = BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado);
+		
+			System.out.println("AFILIADO: " +  idAfiliado + " QUOTERQID: " + quoteReqId);
 
 			respConstruccion = createMesage.createS(resultSet, quoteReqId);
-			
 
 			System.out.println("************* INGRESA A FIX_S ****************");
 			
@@ -218,7 +228,7 @@ public class AutoEngine {
 	}
 
 	// Metodo que guarda el registro en base de datos
-	public void cargarCache(AutFixRfqDatosCache datosCache) throws SQLException {
+	public void cargarCache(AutFixRfqDatosCache datosCache) throws SQLException, InterruptedException {
 		DataAccess.cargarCache(datosCache);
 	}
 
@@ -246,6 +256,7 @@ public class AutoEngine {
 		System.out.println("** INGRESA A VALIDAR R **");
 		System.out.println("************************");
 		
+		System.out.println("##################################  Session: " + sessionId + "Message: " + messageIn);
 		// Obtener el ID_AFILIADO de la session.
 		String IdContraFirm = sessionId.toString().substring(8, 11);
 		Validaciones validaciones = new Validaciones();
@@ -259,9 +270,10 @@ public class AutoEngine {
 		eliminarDatoCache(IdContraFirm);
 
 		String IdAfiliado = datosCache.getIdAfiliado();
-
-//		String idQuoteReq = messageIn.getString(131);
-//		BasicFunctions.setQuoteReqId(idQuoteReq);
+//
+		String idQuoteReq = messageIn.getString(131);
+//		
+		BasicFunctions.addQuoteReqId(IdAfiliado, idQuoteReq);
 
 		if (DataAccess.validarContinuidadEjecucion()) {
 
@@ -273,7 +285,7 @@ public class AutoEngine {
 			System.out.println("**** ESPERAR ****");
 		}
 
-		System.out.println("*********** SALIENDO DE VALIDAR R ************");
+		System.out.println("*********** SALIENDO DE validarR ************");
 
 	}
 
@@ -281,9 +293,9 @@ public class AutoEngine {
 			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("************************");
-		System.out.println("** INGRESA A VALIDAR S **");
+		System.out.println("** INGRESA A validarS **");
 		System.out.println("************************");
-		
+
 		// Obtener el ID_AFILIADO de la session
 		String IdContraFirm = sessionId.toString().substring(8, 11);
 		Validaciones validaciones = new Validaciones();
@@ -366,7 +378,7 @@ public class AutoEngine {
 			System.out.println("**** ESPERAR ****");
 		}
 
-		System.out.println("*********** SALIENDO DE VALIDAR AI ************");
+		System.out.println("*********** SALIENDO DE validarAI ************");
 
 	}
 

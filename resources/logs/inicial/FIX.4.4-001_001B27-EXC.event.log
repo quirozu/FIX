@@ -3144,3 +3144,11 @@ java.lang.NullPointerException
 20190605-21:06:36: Reject sent for Message 5: Required tag missing, field=38:38
 >>>>>>> configuration
 >>>>>>> c6c656196ec2c91aaad3bb7dcad54df1faff29f8
+20190610-13:38:29: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190610-13:38:29: Created session: FIX.4.4:001/001B27->EXC
+20190610-13:38:29: Configured socket addresses for session: [/172.36.2.13:54401]
+20190610-13:38:30: java.net.ConnectException during connection to /172.36.2.13:54401: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190610-13:38:56: Session FIX.4.4:001/001B27->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190610-13:38:56: Created session: FIX.4.4:001/001B27->EXC
+20190610-13:38:56: Configured socket addresses for session: [/172.36.2.13:54401]
+20190610-13:38:57: java.net.ConnectException during connection to /172.36.2.13:54401: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)

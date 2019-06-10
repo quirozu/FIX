@@ -1,14 +1,7 @@
 
 import java.io.IOException;
 import java.sql.SQLException;
-<<<<<<< HEAD
 import java.util.Scanner;
-=======
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import co.bvc.com.basicfix.BasicFunctions;
-import co.bvc.com.basicfix.DataAccess;
->>>>>>> c6c656196ec2c91aaad3bb7dcad54df1faff29f8
 import co.bvc.com.orquestador.AutoEngine;
 import quickfix.FieldNotFound;
 import quickfix.SessionNotFound;

@@ -30,25 +30,14 @@ public class BasicFunctions {
 	private static int idCaseSeq;
 	private static AdapterIO adapterIO;
 	private static int idCase;
-<<<<<<< HEAD
 	private static int escenarioPrueba;
-=======
->>>>>>> c6c656196ec2c91aaad3bb7dcad54df1faff29f8
 	
 //	private static RespuestaConstrucccionMsgFIX cache;
-
-	public static Map<String, String> getQuoteReqId() {
-		return quoteReqId;
-	}
-
-	public static void setQuoteReqId(Map<String, String> quoteReqId) {
-		BasicFunctions.quoteReqId = quoteReqId;
-	}
 
 	public static int getIdCase() {
 		return idCase;
 	}
-	
+
 	public static void setIdCase(int d) {
 		BasicFunctions.idCase = d;
 	}
@@ -70,7 +59,6 @@ public class BasicFunctions {
 	}
 	
 
-<<<<<<< HEAD
 //	public static String getQuoteReqId() {
 //		return quoteReqId;
 //	}
@@ -91,8 +79,6 @@ public class BasicFunctions {
 	public static void setQuoteReqId(Map<String, String> quoteReqId) {
 		BasicFunctions.quoteReqId = quoteReqId;
 	}
-=======
->>>>>>> c6c656196ec2c91aaad3bb7dcad54df1faff29f8
 
 	public static Map<String, String> getQuoteReqId() {
 		return quoteReqId;
@@ -147,7 +133,7 @@ public class BasicFunctions {
 	}
 
 	/**
-	 * Crea la conexiï¿½n a la db y se la asigna a la variable conn de BasicFunctions
+	 * Crea la conexión a la db y se la asigna a la variable conn de BasicFunctions
 	 * 
 	 * @return
 	 */
@@ -204,16 +190,5 @@ public class BasicFunctions {
 	public static void imprimir(boolean vari) {
 		System.out.println("\n#####################\nVARIABLE BOOLEAN: "+ vari + "\n#####################");
 	}
-
-	public static void addQuoteReqId(String k, String v) {
-		
-		BasicFunctions.quoteReqId.put(k, v);
-	}
-
-	public static String getQuoteReqIdOfAfiliado(String afiliado) {
-		
-		return BasicFunctions.quoteReqId.get(afiliado);
-	}
-
 
 }

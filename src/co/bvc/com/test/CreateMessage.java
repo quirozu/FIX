@@ -14,6 +14,8 @@ import co.bvc.com.basicfix.BasicFunctions;
 import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
+import quickfix.FieldNotFound;
+import quickfix.SessionID;
 import quickfix.SessionNotFound;
 import quickfix.StringField;
 import quickfix.field.BeginString;
@@ -237,12 +239,11 @@ public class CreateMessage {
 		return null;
 	}
 
-	public RespuestaConstrucccionMsgFIX createZ(String strQuoteId) throws SessionNotFound {
+	public Message createZ(final SessionID sessionId, final String strQuoteId) throws SessionNotFound {
 
-//		System.out.println("******************DATOS RECIBIDOS PARA Z....\nSession: \t:" + sessionId
-//				+ " - strQuoteId: \t" + strQuoteId);
-		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
-		
+		System.out.println("******************DATOS RECIBIDOS PARA Z....\nSession: \t:" + sessionId
+				+ " - strQuoteId: \t" + strQuoteId);
+
 		QuoteCancel quoteCancel = new QuoteCancel();
 		Header header = (Header) quoteCancel.getHeader();
 		header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
@@ -250,24 +251,8 @@ public class CreateMessage {
 		quoteCancel.setField(new QuoteCancelType(5));
 		quoteCancel.setField(new QuoteID(strQuoteId));
 
-		return respuestaMessage;
+		return quoteCancel;
 
 	}
 
-	public String seleccionRPrima(Map<String, String> rPrima) {
-		
-		Iterator<Map.Entry<String, String>> iterator = rPrima.entrySet().iterator();
-		String ultimoRPrima = "";
-		
-		while(iterator.hasNext()) {
-			Map.Entry<String, String> entry = iterator.next();
-			System.out.println(entry.getKey() + ":" + entry.getValue());
-			
-			ultimoRPrima = entry.getValue();
-		}
-		
-		return ultimoRPrima;
-		
-	}
-	
 }
