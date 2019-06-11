@@ -80,7 +80,7 @@ public class CreateMessage {
 			List<String> list = new ArrayList<String>();
 			String idAfiliado = resultSet.getString("ID_AFILIADO");
 			list.add(idAfiliado);
-			// Parties
+//			 Parties
 			while (resultSetParties.next()) {
 				String rSession = resultSetParties.getString("RECEIVER_SESSION");
 				if (rSession != null) {
@@ -96,20 +96,17 @@ public class CreateMessage {
 			if(noRelatedSym.getInt(NoPartyIDs.FIELD) == 1){
 				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
 				list.clear();
-				Iterator<String> it = Login.getMapSessiones().keySet().iterator();
+				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
 				
-				while(it.hasNext()){
-				 idAfiliado = it.next();
-				 list.add(idAfiliado);
-				 System.out.println("Nuevo Afiliado: " + idAfiliado + " -> Session: " + Login.getMapSessiones().get(idAfiliado));
+				while(itSessiones.hasNext()){
+				 String idAfiliadoMap = itSessiones.next();
+				 list.add(idAfiliadoMap);
+				 System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: " + Login.getMapSessiones().get(idAfiliadoMap));
 				}
-				}
-//			QuoteRequest.NoRelatedSym.NoPartyIDs partie2 = new QuoteRequest.NoRelatedSym.NoPartyIDs();
-//			partie2.set(new PartyID("DCV"));
-//			partie2.set(new PartyIDSource('C'));
-//			partie2.set(new PartyRole(10));
-//			
-//			noRelatedSym.addGroup(partie2);
+				//Se asigna Session+r Para validar R prima al inicializador
+				list.add(idAfiliado+"R");				
+					
+			}
 
 			quoteRequest.addGroup(noRelatedSym);
 

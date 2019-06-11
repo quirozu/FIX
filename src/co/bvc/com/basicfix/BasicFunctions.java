@@ -6,19 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import co.bvc.com.test.AdapterIO;
 import co.bvc.com.test.Login;
-import quickfix.Application;
-import quickfix.DefaultMessageFactory;
-import quickfix.FileLogFactory;
-import quickfix.FileStoreFactory;
-import quickfix.MessageFactory;
-import quickfix.Session;
-import quickfix.SessionID;
-import quickfix.SessionSettings;
-import quickfix.SocketInitiator;
+
 
 public class BasicFunctions {
 
@@ -142,7 +132,7 @@ public class BasicFunctions {
 	}
 
 	/**
-	 * Crea la conexión a la db y se la asigna a la variable conn de BasicFunctions
+	 * Crea la conexiï¿½n a la db y se la asigna a la variable conn de BasicFunctions
 	 * 
 	 * @return
 	 */
