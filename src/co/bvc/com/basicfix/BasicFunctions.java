@@ -25,6 +25,7 @@ public class BasicFunctions {
 	private static Connection conn;
 	private static Login login;
 	private static Map<String, String> quoteReqId = new HashMap<String, String>();
+	private static String quoteIdGenered;
 	private static String quoteId;
 	private static long idEjecution;
 	private static int idCaseSeq;
@@ -84,6 +85,14 @@ public class BasicFunctions {
 		return quoteReqId;
 	}
 	
+	public static String getQuoteIdGenered() {
+		return quoteIdGenered;
+	}
+
+	public static void setQuoteIdGenered(String quoteIdGenered) {
+		BasicFunctions.quoteIdGenered = quoteIdGenered;
+	}
+
 	public static String getQuoteId() {
 		return quoteId;
 	}

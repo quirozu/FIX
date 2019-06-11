@@ -4,15 +4,10 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import javax.xml.bind.SchemaOutputResolver;
-
 import co.bvc.com.basicfix.BasicFunctions;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.orquestador.AutoEngine;
 import quickfix.Application;
-import quickfix.ConfigError;
-import quickfix.DataDictionary;
 import quickfix.DoNotSend;
 import quickfix.FieldNotFound;
 import quickfix.IncorrectDataFormat;
@@ -22,16 +17,14 @@ import quickfix.RejectLogon;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
 import quickfix.UnsupportedMessageType;
-import quickfix.field.ClOrdID;
-import quickfix.field.OrdStatus;
 import quickfix.field.Password;
 import quickfix.field.PossDupFlag;
-import quickfix.field.TransactTime;
 import quickfix.field.Username;
 import quickfix.fix44.ExecutionReport;
 import quickfix.fix44.Logon;
 import quickfix.fix44.MessageCracker;
 import quickfix.fix44.Quote;
+import quickfix.fix44.QuoteCancel;
 import quickfix.fix44.QuoteRequest;
 import quickfix.fix44.QuoteResponse;
 import quickfix.fix44.QuoteStatusReport;
@@ -309,8 +302,13 @@ public class AdapterIO extends MessageCracker implements Application {
 	}
 
 	public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {
+		
+		if(message instanceof QuoteCancel) {
 
+			System.out.println("Ingresa a validar a Z ");
 		printMessage("QuoteCancel", sessionID, message);
+		
+		}
 	}
 
 	public static void printMessage(String typeMsg, SessionID sID, Message msg) throws FieldNotFound {
