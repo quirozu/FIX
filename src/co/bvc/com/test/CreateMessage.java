@@ -96,6 +96,7 @@ public class CreateMessage {
 			}
 			if(noRelatedSym.getInt(NoPartyIDs.FIELD) == 1){
 				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
+				BasicFunctions.setAllMarket(true);
 				list.clear();
 				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
 				
@@ -164,16 +165,34 @@ public class CreateMessage {
 
 			List<String> list = new ArrayList<String>();
 
-			while (resultSetParties.next()) {
-				String rSession = resultSetParties.getString("RECEIVER_SESSION");
-				if (rSession != null) {
-					list.add(rSession);
+			
+			
+			String idAfiliado = resultset.getString("ID_AFILIADO");
+			
+			if(BasicFunctions.isAllMarket()){
+				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
+				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
+				
+				while(itSessiones.hasNext()){
+				 String idAfiliadoMap = itSessiones.next();
+				 list.add(idAfiliadoMap);
+				 System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: " + Login.getMapSessiones().get(idAfiliadoMap));
 				}
-				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
-				parte.set(new PartyIDSource('C'));
-				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
+				//Se asigna Session+r Para validar R prima al inicializador
+				list.add(idAfiliado+"S");				
+					
+			}else {
+				while (resultSetParties.next()) {
+					String rSession = resultSetParties.getString("RECEIVER_SESSION");
+					if (rSession != null) {
+						list.add(rSession);
+					}
+					parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
+					parte.set(new PartyIDSource('C'));
+					parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
 
-				quote.addGroup(parte);
+					quote.addGroup(parte);
+				}
 			}
 
 			respuestaMessage.setListSessiones(list);

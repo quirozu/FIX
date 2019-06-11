@@ -164,19 +164,19 @@ public class AutoEngine {
 
 			idIAfiliado = resultSet.getString("ID_AFILIADO");
 
-			// Construir mensaje a cache de la propia session.
-			datosCache.setReceiverSession(idIAfiliado);
-			datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
-			datosCache.setIdCase(resultSet.getInt("ID_CASE"));
-			datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
-			datosCache.setEstado(resultSet.getString("ESTADO"));
-			// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
-			datosCache.setIdAfiliado(idIAfiliado);
-			datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
-
-			cargarCache(datosCache);
+//			// Construir mensaje a cache de la propia session.
+//			datosCache.setReceiverSession(idIAfiliado);
+//			datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
+//			datosCache.setIdCase(resultSet.getInt("ID_CASE"));
+//			datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
+//			datosCache.setEstado(resultSet.getString("ESTADO"));
+//			// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
+//			datosCache.setIdAfiliado(idIAfiliado);
+//			datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
+//
+//			cargarCache(datosCache);
 			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
-			break;
+		
 
 		case "FIX_AJ":
 

@@ -32,8 +32,17 @@ public class BasicFunctions {
 	private static int idCase;
 	private static int escenarioPrueba;
 	private static String iniciator;
+	private static boolean allMarket = false;
 	
 //	private static RespuestaConstrucccionMsgFIX cache;
+
+	public static boolean isAllMarket() {
+		return allMarket;
+	}
+
+	public static void setAllMarket(boolean allMarket) {
+		BasicFunctions.allMarket = allMarket;
+	}
 
 	public static String getIniciator() {
 		return iniciator;
