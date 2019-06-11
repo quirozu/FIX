@@ -135,7 +135,7 @@ public class DataAccess {
 	}
 
 	public static void cargarLogsExitosos(Message message, long ID_EJECUCION, String clave, String valor,
-			String idEscenario, String idCase, int idSecuencia) throws SQLException {
+			String idEscenario, String idCase, int idSecuencia, String clavePrima) throws SQLException {
 
 		PreparedStatement ps = conn.prepareStatement(
 				"INSERT INTO `bvc_automation_db`.`aut_log_ejecucion`(`ID_EJECUCION`, `ID_ESCENARIO`, `COD_CASO`, `ID_SECUENCIA`, `FECHA_EJECUCION`, `ESTADO_EJECUCION`, `DESCRIPCION_VALIDACION`, `MENSAJE`, `CODIGO_ERROR`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -145,7 +145,7 @@ public class DataAccess {
 		ps.setInt(4, idSecuencia);
 		ps.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
 		ps.setString(6, "EXITOSO");
-		ps.setString(7, clave + "= " + valor);
+		ps.setString(7, "(" + clavePrima + ") MSG: " + clave + " BD: " + valor);
 		ps.setString(8, "");
 		ps.setNull(9, Types.INTEGER);
 		ps.executeUpdate();
@@ -158,7 +158,7 @@ public class DataAccess {
 	}
 
 	public static void cargarLogsFallidos(Message message, long ID_EJECUCION, String clave, String valor,
-			String idEscenario, String idCase, int idSecuencia) throws SQLException {
+			String idEscenario, String idCase, int idSecuencia, String clavePrima) throws SQLException {
 
 		PreparedStatement ps = conn.prepareStatement(
 				"INSERT INTO `bvc_automation_db`.`aut_log_ejecucion` (`ID_EJECUCION`, `ID_ESCENARIO`, `COD_CASO`, `ID_SECUENCIA`, `FECHA_EJECUCION`, `ESTADO_EJECUCION`, `DESCRIPCION_VALIDACION`, `MENSAJE`, `CODIGO_ERROR`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -168,7 +168,7 @@ public class DataAccess {
 		ps.setInt(4, idSecuencia);
 		ps.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
 		ps.setString(6, "FALLIDO");
-		ps.setString(7, clave + "= " + valor);
+		ps.setString(7, "(" + clavePrima + ") MSG: " + clave + " BD: " + valor);
 		ps.setString(8, message.toString());
 		ps.setNull(9, Types.INTEGER);
 		ps.executeUpdate();

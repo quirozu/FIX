@@ -57,7 +57,6 @@ public class CreateMessage {
 				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ ="
 				+ BasicFunctions.getIdCaseSeq();
 
-		System.out.println(" -------------------------\n ES ESTE" + BasicFunctions.getIdCaseSeq()+ "\n------------------------- ");
 		ResultSet resultSetParties;
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 		try {
@@ -275,8 +274,6 @@ public class CreateMessage {
 		System.out.println("** Z CREADO  **");
 		System.out.println(quoteCancel);
 		System.out.println("****************");
-
-		System.out.println("######################\n MENSAJE DE Z "+respuestaMessage.getMessage());
 		
 		return respuestaMessage;
 	}

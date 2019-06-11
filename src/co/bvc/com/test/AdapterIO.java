@@ -253,10 +253,10 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		}
 		
-		if(message instanceof QuoteCancel) {
-			printMessage("ZZZZZZZ... ", sessionId, message);
-			
-		}
+//		if(message instanceof QuoteCancel) {
+//			printMessage("ZZZZZZZ... ", sessionId, message);
+//			
+//		}
 
 		crack(message, sessionId);
 	}
@@ -377,11 +377,23 @@ public class AdapterIO extends MessageCracker implements Application {
 //		
 //	}
 	
+//	public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {
+//
+//		printMessage("QuoteCancel", sessionID, message);
+//	}
+	
 	public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {
 
 		if (message instanceof QuoteCancel && sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
 			
 			printMessage("QuoteCancel de PEDRO", sessionID, message);
+			
+			try {
+				autoEngine.validarZ(sessionID, message);
+			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		

@@ -77,8 +77,6 @@ public class AutoEngine {
 		String msgType;
 		AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
 		msgType = resultSet.getString("ID_ESCENARIO");
-
-		Message message;
 		
 		RespuestaConstrucccionMsgFIX respConstruccion = new RespuestaConstrucccionMsgFIX();
 
@@ -197,6 +195,7 @@ public class AutoEngine {
 			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
 
 			break;
+			
 		case "FIX_Z":
 			
 			System.out.println("**********************");
@@ -227,7 +226,6 @@ public class AutoEngine {
 				System.out.println("\n************************ SALE DEL FOR \n************************");
 			}
 	
-			
             Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
 
 			break;
@@ -288,7 +286,6 @@ public class AutoEngine {
 		if (DataAccess.validarContinuidadEjecucion()) {
 			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
-			Thread.sleep(10000);	
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
@@ -324,7 +321,6 @@ public class AutoEngine {
 			
 			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
-			Thread.sleep(10000);
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
@@ -355,7 +351,6 @@ public class AutoEngine {
 		if (DataAccess.validarContinuidadEjecucion()) {
 			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
-			Thread.sleep(10000);
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
@@ -383,7 +378,6 @@ public class AutoEngine {
 		if (DataAccess.validarContinuidadEjecucion()) {
 			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
-			Thread.sleep(10000);
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
@@ -396,6 +390,7 @@ public class AutoEngine {
 		
 		System.out.println("*************************");
 		System.out.println("** INGRESA A VALIDAR Z **");
+		System.out.println("************************* \n NUMERO DE LA SESSION "+ sessionId.toString().substring(8, 11) +"\n");
 		System.out.println("*************************");
 				
 		String sIdAfiliado = sessionId.toString().substring(8, 11);
@@ -409,13 +404,9 @@ public class AutoEngine {
 		if (DataAccess.validarContinuidadEjecucion()) {
 //			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
-			Thread.sleep(10000);
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
-
-		System.out.println("*********** SALIENDO DE VALIDAR Z ************");
-		Thread.sleep(5000);
 	}
 
 
