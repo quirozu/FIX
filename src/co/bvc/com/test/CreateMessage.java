@@ -60,9 +60,10 @@ public class CreateMessage {
 		ResultSet resultSetParties;
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 		try {
+			BasicFunctions.setIniciator(resultSet.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteReqID quoteReqID = new QuoteReqID(cIdRandom); // 131
+			QuoteReqID quoteReqID = new QuoteReqID(BasicFunctions.getIdEjecution()+"_R"); // 131
 			QuoteRequest quoteRequest = new QuoteRequest(quoteReqID); // 35 --> R
 			Header header = (Header) quoteRequest.getHeader();
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
@@ -142,7 +143,7 @@ public class CreateMessage {
 		try {
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteID quoteID = new QuoteID(cIdRandom);
+			QuoteID quoteID = new QuoteID(BasicFunctions.getIdEjecution()+"_S");
 			Quote quote = new Quote(quoteID); // 35 --> S
 
 			Header header = (Header) quote.getHeader();
@@ -199,7 +200,7 @@ public class CreateMessage {
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 
 		try {
-			QuoteRespID quoteRespID = new QuoteRespID(cIdRandom);
+			QuoteRespID quoteRespID = new QuoteRespID(BasicFunctions.getIdEjecution()+"_AJ");
 			QuoteRespType qouteRespType = new QuoteRespType(resultset.getInt("RQ_QUORESPTYPE"));
 			QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
 

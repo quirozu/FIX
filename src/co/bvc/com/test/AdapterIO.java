@@ -122,7 +122,7 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			}
 
-			message.setField(new PossDupFlag(true));
+//			message.setField(new PossDupFlag(true));
 
 		}
 
@@ -171,8 +171,27 @@ public class AdapterIO extends MessageCracker implements Application {
 	public void fromApp(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
 		
-
 		printMessage("fromApp-Input", sessionId, message);
+		
+		if (message instanceof Quote ) {
+
+			printMessage("MENSAJE S_PRIMA  ", sessionId, message);
+
+			try {
+				autoEngine.validarS(sessionId, message);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		
 		
 		if (message instanceof QuoteRequest) {
 
@@ -253,23 +272,7 @@ public class AdapterIO extends MessageCracker implements Application {
 	}
 
 	public void onMessage(quickfix.fix44.Quote message, SessionID sessionID) throws FieldNotFound {
-		if (message instanceof Quote ) {
-
-			printMessage("MENSAJE S_PRIMA PARA SESSION 1 ", sessionID, message);
-
-			try {
-				autoEngine.validarS(sessionID, message);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (SessionNotFound e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		
 	}
 
 	public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {

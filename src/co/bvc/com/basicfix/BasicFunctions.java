@@ -31,8 +31,17 @@ public class BasicFunctions {
 	private static AdapterIO adapterIO;
 	private static int idCase;
 	private static int escenarioPrueba;
+	private static String iniciator;
 	
 //	private static RespuestaConstrucccionMsgFIX cache;
+
+	public static String getIniciator() {
+		return iniciator;
+	}
+
+	public static void setIniciator(String iniciator) {
+		BasicFunctions.iniciator = iniciator;
+	}
 
 	public static int getIdCase() {
 		return idCase;
