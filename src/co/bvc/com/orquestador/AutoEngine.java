@@ -57,14 +57,14 @@ public class AutoEngine {
 			Thread.sleep(5000);
 			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
 			System.out.println("++++++++++++++++ SECUENCIA ++++++++ "+ BasicFunctions.getIdCaseSeq());
-//			if (caso<BasicFunctions.getIdCase()) {
-//				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-//				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
-//				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-//				caso++;
+			if (caso<BasicFunctions.getIdCase()) {
+				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
+				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+				caso++;
 //				System.out.println("Generar reporte....");
 //				CreateReport.maina();
-//			}
+			}
 			
 			
 		}
@@ -286,11 +286,9 @@ public class AutoEngine {
 		BasicFunctions.addQuoteReqId(IdAfiliado, idQuoteReq);
 
 		if (DataAccess.validarContinuidadEjecucion()) {
-
 			ejecutarSiguientePaso();
-
 			System.out.println("** CONTINUAR ***");
-	
+			Thread.sleep(10000);	
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
@@ -325,8 +323,8 @@ public class AutoEngine {
 		if (DataAccess.validarContinuidadEjecucion()) {
 			
 			ejecutarSiguientePaso();
-
 			System.out.println("** CONTINUAR ***");
+			Thread.sleep(10000);
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
@@ -357,7 +355,7 @@ public class AutoEngine {
 		if (DataAccess.validarContinuidadEjecucion()) {
 			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
-
+			Thread.sleep(10000);
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
@@ -385,6 +383,7 @@ public class AutoEngine {
 		if (DataAccess.validarContinuidadEjecucion()) {
 			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
+			Thread.sleep(10000);
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
@@ -410,6 +409,7 @@ public class AutoEngine {
 		if (DataAccess.validarContinuidadEjecucion()) {
 //			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
+			Thread.sleep(10000);
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}

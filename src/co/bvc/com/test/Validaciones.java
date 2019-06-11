@@ -105,7 +105,6 @@ public class Validaciones {
 		}
 		System.out.println("----------------------------------------");
 		System.out.println("VALIDACION DE R CON R PRIMA");
-		System.out.println("  \n");
 		
 		for (int z = 0; z < cad.size(); z++) {
 			clavePrima = cad.get(z).split("=")[0];
@@ -296,7 +295,6 @@ public class Validaciones {
 		}
 		System.out.println("----------------------------------------");
 		System.out.println("VALIDACION DE S CON S PRIMA");
-		System.out.println("  \n");
 		for (int z = 0; z < cad.size(); z++) {
 			clavePrima = cad.get(z).split("=")[0];
 			valorPrima = cad.get(z).split("=")[1];
@@ -466,7 +464,6 @@ public class Validaciones {
 		}
 		System.out.println("----------------------------------------");
 		System.out.println("VALIDACION DEL AI ");
-		System.out.println("  \n");
 		for (int i = 0; i < cad.size(); i++) {
 			valor = cad.get(i).split("=")[0];
 			val = cad.get(i).split("=")[1];
@@ -603,7 +600,7 @@ public class Validaciones {
 
 		}
 		System.out.println("----------------------------------------");
-		System.out.println("VALIDACION DEL EXECUTION REPORT \n");
+		System.out.println(" VALIDACION DEL EXECUTION REPORT ");
 
 		for (int i = 0; i < cad.size(); i++) {
 			valor = cad.get(i).split("=")[0];
@@ -861,7 +858,7 @@ public class Validaciones {
 
 		}
 		System.out.println("----------------------------------------");
-		System.out.println("VALIDACION DEL EXECUTION REPORT \n");
+		System.out.println("VALIDACION DEL EXECUTION REPORT ");
 
 		for (int i = 0; i < cad.size(); i++) {
 			valor = cad.get(i).split("=")[0];

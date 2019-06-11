@@ -75,7 +75,7 @@ public class AdapterIO extends MessageCracker implements Application {
 		if (message instanceof Logon) {
 			try {
 				String negociador = message.getHeader().getString(50);
-				System.out.println("+++++++++++++++++++++\nNEGOCIADOR: " + negociador);
+				System.out.println("--------------------\nNEGOCIADOR: " + negociador +" \n--------------------");
 				ArrayList<String> listUsers = new ArrayList<String>();
 				ArrayList<String> listPass = new ArrayList<String>();
 				ArrayList<String> listID = new ArrayList<String>();
@@ -140,7 +140,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			e.printStackTrace();
 		}
 
-		System.out.println("*****************\n toAdmin - SALIDA : \n" + message + "\nPara la sessionId: " + sessionId);
+		System.out.println("---------------------\n toAdmin - SALIDA : \n" + message + "\nPara la sessionId: " + sessionId);
 
 	}
 
