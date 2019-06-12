@@ -109,10 +109,10 @@ public class DataAccess {
 
 	}
 
-	public static AutFixRfqDatosCache obtenerCache(String session) throws SQLException, InterruptedException {
+	public static AutFixRfqDatosCache obtenerCache(String sessionRec) throws SQLException, InterruptedException {
 		Thread.sleep(5000);
 		AutFixRfqDatosCache datosCache = null;
-		String queryInicio = "SELECT * FROM bvc_automation_db.aut_fix_rfq_cache WHERE  RECEIVER_SESSION = " + session;
+		String queryInicio = "SELECT * FROM bvc_automation_db.aut_fix_rfq_cache WHERE RECEIVER_SESSION = '" + sessionRec+"'" ;
 		ResultSet rs = DataAccess.getQuery(queryInicio);
 		System.out.println("RS " + rs);
 
@@ -191,9 +191,10 @@ public class DataAccess {
 
 		if (cantidadEscenarios > 0) {
 			return false;
-		}
+		}else {
 
 		return true;
+		}
 	}
 
 

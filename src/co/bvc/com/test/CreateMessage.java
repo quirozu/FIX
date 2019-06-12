@@ -60,9 +60,10 @@ public class CreateMessage {
 		ResultSet resultSetParties;
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 		try {
+			BasicFunctions.setIniciator(resultSet.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteReqID quoteReqID = new QuoteReqID(cIdRandom); // 131
+			QuoteReqID quoteReqID = new QuoteReqID(BasicFunctions.getIdEjecution()+"_R"); // 131
 			QuoteRequest quoteRequest = new QuoteRequest(quoteReqID); // 35 --> R
 			Header header = (Header) quoteRequest.getHeader();
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
@@ -80,7 +81,7 @@ public class CreateMessage {
 			List<String> list = new ArrayList<String>();
 			String idAfiliado = resultSet.getString("ID_AFILIADO");
 			list.add(idAfiliado);
-			// Parties
+//			 Parties
 			while (resultSetParties.next()) {
 				String rSession = resultSetParties.getString("RECEIVER_SESSION");
 				if (rSession != null) {
@@ -95,21 +96,19 @@ public class CreateMessage {
 			}
 			if(noRelatedSym.getInt(NoPartyIDs.FIELD) == 1){
 				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
+				BasicFunctions.setAllMarket(true);
 				list.clear();
-				Iterator<String> it = Login.getMapSessiones().keySet().iterator();
+				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
 				
-				while(it.hasNext()){
-				 idAfiliado = it.next();
-				 list.add(idAfiliado);
-				 System.out.println("Nuevo Afiliado: " + idAfiliado + " -> Session: " + Login.getMapSessiones().get(idAfiliado));
+				while(itSessiones.hasNext()){
+				 String idAfiliadoMap = itSessiones.next();
+				 list.add(idAfiliadoMap);
+				 System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: " + Login.getMapSessiones().get(idAfiliadoMap));
 				}
-				}
-//			QuoteRequest.NoRelatedSym.NoPartyIDs partie2 = new QuoteRequest.NoRelatedSym.NoPartyIDs();
-//			partie2.set(new PartyID("DCV"));
-//			partie2.set(new PartyIDSource('C'));
-//			partie2.set(new PartyRole(10));
-//			
-//			noRelatedSym.addGroup(partie2);
+				//Se asigna Session+r Para validar R prima al inicializador
+				list.add(idAfiliado+"R");				
+					
+			}
 
 			quoteRequest.addGroup(noRelatedSym);
 
@@ -149,7 +148,7 @@ public class CreateMessage {
 		try {
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteID quoteID = new QuoteID(cIdRandom);
+			QuoteID quoteID = new QuoteID(BasicFunctions.getIdEjecution()+"_S");
 			Quote quote = new Quote(quoteID); // 35 --> S
 
 			Header header = (Header) quote.getHeader();
@@ -168,8 +167,10 @@ public class CreateMessage {
 			// Parties
 			Quote.NoPartyIDs parte = new Quote.NoPartyIDs();
 
-			List<String> list = new ArrayList<String>();
-
+			List<String> list = new ArrayList<String>();			
+			
+			String idAfiliado = resultset.getString("ID_AFILIADO");
+			
 			while (resultSetParties.next()) {
 				String rSession = resultSetParties.getString("RECEIVER_SESSION");
 				if (rSession != null) {
@@ -180,6 +181,20 @@ public class CreateMessage {
 				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
 
 				quote.addGroup(parte);
+			}
+			
+			if(BasicFunctions.isAllMarket()){
+				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
+				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
+				list.clear();
+				while(itSessiones.hasNext()){
+				 String idAfiliadoMap = itSessiones.next();
+				 list.add(idAfiliadoMap);
+				 System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: " + Login.getMapSessiones().get(idAfiliadoMap));
+				}
+				//Se asigna Session+r Para validar RC prima al inicializador
+				list.add(BasicFunctions.getIniciator()+"R");				
+					
 			}
 
 			respuestaMessage.setListSessiones(list);
@@ -206,7 +221,7 @@ public class CreateMessage {
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 
 		try {
-			QuoteRespID quoteRespID = new QuoteRespID(cIdRandom);
+			QuoteRespID quoteRespID = new QuoteRespID(BasicFunctions.getIdEjecution()+"_AJ");
 			QuoteRespType qouteRespType = new QuoteRespType(resultset.getInt("RQ_QUORESPTYPE"));
 			QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
 
@@ -223,7 +238,7 @@ public class CreateMessage {
 			respuestaMessage.setMessage(quoteResponse);
 
 			List<String> list = new ArrayList<String>();
-			list.add("001");
+			list.add("007");
 			list.add("002");
 
 			respuestaMessage.setListSessiones(list);
@@ -274,8 +289,10 @@ public class CreateMessage {
 		System.out.println("** Z CREADO  **");
 		System.out.println(quoteCancel);
 		System.out.println("****************");
+
+		System.out.println("######################\n MENSAJE DE Z "+respuestaMessage.getMessage());
 		
 		return respuestaMessage;
-	}
+	}			
 
 }

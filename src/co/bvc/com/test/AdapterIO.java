@@ -14,8 +14,6 @@ import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.orquestador.AutoEngine;
 import quickfix.Application;
-import quickfix.ConfigError;
-import quickfix.DataDictionary;
 import quickfix.DoNotSend;
 import quickfix.FieldNotFound;
 import quickfix.IncorrectDataFormat;
@@ -25,17 +23,15 @@ import quickfix.RejectLogon;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
 import quickfix.UnsupportedMessageType;
-import quickfix.field.ClOrdID;
-import quickfix.field.OrdStatus;
 import quickfix.field.Password;
 import quickfix.field.PossDupFlag;
-import quickfix.field.TransactTime;
 import quickfix.field.Username;
 import quickfix.fix44.QuoteCancel;
 import quickfix.fix44.ExecutionReport;
 import quickfix.fix44.Logon;
 import quickfix.fix44.MessageCracker;
 import quickfix.fix44.Quote;
+import quickfix.fix44.QuoteCancel;
 import quickfix.fix44.QuoteRequest;
 import quickfix.fix44.QuoteResponse;
 import quickfix.fix44.QuoteStatusReport;
@@ -126,7 +122,7 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			}
 
-			message.setField(new PossDupFlag(true));
+//			message.setField(new PossDupFlag(true));
 
 		}
 
@@ -227,7 +223,50 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		if (message instanceof QuoteStatusReport && sessionId.toString().equals(Constantes.RQ_TRADER002)) {
 
-			printMessage("MENSAJE AI PARA SESSION 2 ", sessionId, message);
+			try {
+				autoEngine.validarS(sessionId, message);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		
+		
+		if (message instanceof QuoteRequest) {
+
+//			printMessage("MENSAJE R_PRIMA ", sessionId, message);
+
+			String idAfiliado = sessionId.toString().substring(8, 11);
+			BasicFunctions.addQuoteReqId(idAfiliado, message.getString(131));
+
+			System.out.println("\nID ESTABLECIDO EN " + BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado));
+
+			try {
+				Thread.sleep(5000);
+				autoEngine.validarR(sessionId, message);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
+		if (message instanceof QuoteStatusReport) {
+
+			printMessage("MENSAJE AI ", sessionId, message);
 			try {
 				autoEngine.validarAI(sessionId, message);
 			} catch (SQLException | InterruptedException e) {
@@ -238,33 +277,15 @@ public class AdapterIO extends MessageCracker implements Application {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-		}
-
-		if (message instanceof Quote && sessionId.toString().equals(Constantes.RQ_TRADER001)) {
-			
-			printMessage("MENSAJE S_PRIMA PARA SESSION 1 ", sessionId, message);
 
 		}
-
-		if (message instanceof QuoteResponse) {
-
-			printMessage("MENSAJE AJ ", sessionId, message);
-
-		}
-		
-//		if(message instanceof QuoteCancel) {
-//			printMessage("ZZZZZZZ... ", sessionId, message);
-//			
-//		}
 
 		crack(message, sessionId);
 	}
 
 	public void onMessage(ExecutionReport message, SessionID sessionID) throws FieldNotFound {
-		if (sessionID.toString().equals(Constantes.RQ_TRADER002)) {
 
-			printMessage("MENSAJE ER PARA 002 ", sessionID, message);
+			printMessage("MENSAJE ER", sessionID, message);
 
 			try {
 				autoEngine.validarAJ(sessionID, message);
@@ -275,28 +296,11 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (SessionNotFound e) {
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
-		}
-		if (sessionID.toString().equals(Constantes.RQ_TRADER001)) {
-			
-			printMessage("MENSAJE ER PARA 001 ", sessionID, message);
-			try {
-				autoEngine.validarAJ(sessionID, message);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (SessionNotFound e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
+		
+	
 	}
 
 	public void onMessage(quickfix.fix44.QuoteStatusRequest message, SessionID sessionID) throws FieldNotFound {
@@ -305,71 +309,32 @@ public class AdapterIO extends MessageCracker implements Application {
 	}
 
 	public void onMessage(quickfix.fix44.QuoteStatusReport message, SessionID sessionID) throws FieldNotFound {
-		if (message instanceof QuoteStatusReport) {
 
-			printMessage("MENSAJE AI  ", sessionID, message);
-
-			try {
-				autoEngine.validarAI(sessionID, message);
-			} catch (SQLException | InterruptedException e) {
-				e.printStackTrace();
-			} catch (SessionNotFound e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
 	}
 
 	public void onMessage(quickfix.fix44.QuoteRequest message, SessionID sessionID) throws FieldNotFound {
 		
-		if (message instanceof QuoteRequest) {
-
-//			printMessage("MENSAJE R_PRIMA ", sessionId, message);
-
-			String idAfiliado = sessionID.toString().substring(8, 11);
-			BasicFunctions.addQuoteReqId(idAfiliado, message.getString(131));
-
-			System.out.println("\nID ESTABLECIDO EN R_PRIMA " + BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado));
-
-			try {
-				Thread.sleep(5000);
-				autoEngine.validarR(sessionID, message);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (SessionNotFound e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
+		
 	}
 
 	public void onMessage(quickfix.fix44.Quote message, SessionID sessionID) throws FieldNotFound {
-		if (message instanceof Quote && sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
+		
+	}
 
-			printMessage("MENSAJE S_PRIMA PARA SESSION 1 ", sessionID, message);
-
+	/*public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {
+		
+          if (message instanceof QuoteCancel && sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
+			
+			printMessage("QuoteCancel de PEDRO", sessionID, message);
+			
 			try {
-				autoEngine.validarS(sessionID, message);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (SessionNotFound e) {
-				e.printStackTrace();
-			} catch (IOException e) {
+				autoEngine.validarZ(sessionID, message);
+			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-	}
+	}*/
 
 //	public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {
 //

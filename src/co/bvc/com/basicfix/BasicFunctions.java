@@ -6,25 +6,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import co.bvc.com.test.AdapterIO;
 import co.bvc.com.test.Login;
-import quickfix.Application;
-import quickfix.DefaultMessageFactory;
-import quickfix.FileLogFactory;
-import quickfix.FileStoreFactory;
-import quickfix.MessageFactory;
-import quickfix.Session;
-import quickfix.SessionID;
-import quickfix.SessionSettings;
-import quickfix.SocketInitiator;
+
 
 public class BasicFunctions {
 
 	private static Connection conn;
 	private static Login login;
 	private static Map<String, String> quoteReqId = new HashMap<String, String>();
+	private static String quoteIdGenered;
 	private static String quoteId;
 	private static String quoteIdGenered;
 	private static long idEjecution;
@@ -32,8 +23,26 @@ public class BasicFunctions {
 	private static AdapterIO adapterIO;
 	private static int idCase;
 	private static int escenarioPrueba;
+	private static String iniciator;
+	private static boolean allMarket = false;
 	
 //	private static RespuestaConstrucccionMsgFIX cache;
+
+	public static boolean isAllMarket() {
+		return allMarket;
+	}
+
+	public static void setAllMarket(boolean allMarket) {
+		BasicFunctions.allMarket = allMarket;
+	}
+
+	public static String getIniciator() {
+		return iniciator;
+	}
+
+	public static void setIniciator(String iniciator) {
+		BasicFunctions.iniciator = iniciator;
+	}
 
 	public static int getIdCase() {
 		return idCase;
@@ -85,6 +94,14 @@ public class BasicFunctions {
 		return quoteReqId;
 	}
 	
+	public static String getQuoteIdGenered() {
+		return quoteIdGenered;
+	}
+
+	public static void setQuoteIdGenered(String quoteIdGenered) {
+		BasicFunctions.quoteIdGenered = quoteIdGenered;
+	}
+
 	public static String getQuoteId() {
 		return quoteId;
 	}
@@ -142,7 +159,7 @@ public class BasicFunctions {
 	}
 
 	/**
-	 * Crea la conexión a la db y se la asigna a la variable conn de BasicFunctions
+	 * Crea la conexiï¿½n a la db y se la asigna a la variable conn de BasicFunctions
 	 * 
 	 * @return
 	 */

@@ -84,6 +84,12 @@ public class AutFixRfqDatosCache {
 	public void setIdEjecucion(long idEjecucion) {
 		this.idEjecucion = idEjecucion;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "AutFixRfqDatosCache [receiverSession=" + receiverSession + ", idCaseseq=" + idCaseseq + ", idCase="
+				+ idCase + ", idSecuencia=" + idSecuencia + ", estado=" + estado + ", fixQuoteReqId=" + fixQuoteReqId
+				+ ", idAfiliado=" + idAfiliado + ", idEjecucion=" + idEjecucion + "]";
+	}	
 	
 }
