@@ -163,36 +163,34 @@ public class CreateMessage {
 			// Parties
 			Quote.NoPartyIDs parte = new Quote.NoPartyIDs();
 
-			List<String> list = new ArrayList<String>();
-
-			
+			List<String> list = new ArrayList<String>();			
 			
 			String idAfiliado = resultset.getString("ID_AFILIADO");
+			
+			while (resultSetParties.next()) {
+				String rSession = resultSetParties.getString("RECEIVER_SESSION");
+				if (rSession != null) {
+					list.add(rSession);
+				}
+				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
+				parte.set(new PartyIDSource('C'));
+				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
+
+				quote.addGroup(parte);
+			}
 			
 			if(BasicFunctions.isAllMarket()){
 				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
 				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
-				
+				list.clear();
 				while(itSessiones.hasNext()){
 				 String idAfiliadoMap = itSessiones.next();
 				 list.add(idAfiliadoMap);
 				 System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: " + Login.getMapSessiones().get(idAfiliadoMap));
 				}
-				//Se asigna Session+r Para validar R prima al inicializador
-				list.add(idAfiliado+"S");				
+				//Se asigna Session+r Para validar RC prima al inicializador
+				list.add(BasicFunctions.getIniciator()+"R");				
 					
-			}else {
-				while (resultSetParties.next()) {
-					String rSession = resultSetParties.getString("RECEIVER_SESSION");
-					if (rSession != null) {
-						list.add(rSession);
-					}
-					parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
-					parte.set(new PartyIDSource('C'));
-					parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
-
-					quote.addGroup(parte);
-				}
 			}
 
 			respuestaMessage.setListSessiones(list);
@@ -236,7 +234,7 @@ public class CreateMessage {
 			respuestaMessage.setMessage(quoteResponse);
 
 			List<String> list = new ArrayList<String>();
-			list.add("001");
+			list.add("007");
 			list.add("002");
 
 			respuestaMessage.setListSessiones(list);
