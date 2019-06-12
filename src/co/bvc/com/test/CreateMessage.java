@@ -60,9 +60,10 @@ public class CreateMessage {
 		ResultSet resultSetParties;
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 		try {
+			BasicFunctions.setIniciator(resultSet.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteReqID quoteReqID = new QuoteReqID(cIdRandom); // 131
+			QuoteReqID quoteReqID = new QuoteReqID(BasicFunctions.getIdEjecution()+"_R"); // 131
 			QuoteRequest quoteRequest = new QuoteRequest(quoteReqID); // 35 --> R
 			Header header = (Header) quoteRequest.getHeader();
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
@@ -95,6 +96,7 @@ public class CreateMessage {
 			}
 			if(noRelatedSym.getInt(NoPartyIDs.FIELD) == 1){
 				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
+				BasicFunctions.setAllMarket(true);
 				list.clear();
 				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
 				
@@ -142,7 +144,7 @@ public class CreateMessage {
 		try {
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteID quoteID = new QuoteID(cIdRandom);
+			QuoteID quoteID = new QuoteID(BasicFunctions.getIdEjecution()+"_S");
 			Quote quote = new Quote(quoteID); // 35 --> S
 
 			Header header = (Header) quote.getHeader();
@@ -163,16 +165,34 @@ public class CreateMessage {
 
 			List<String> list = new ArrayList<String>();
 
-			while (resultSetParties.next()) {
-				String rSession = resultSetParties.getString("RECEIVER_SESSION");
-				if (rSession != null) {
-					list.add(rSession);
+			
+			
+			String idAfiliado = resultset.getString("ID_AFILIADO");
+			
+			if(BasicFunctions.isAllMarket()){
+				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
+				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
+				
+				while(itSessiones.hasNext()){
+				 String idAfiliadoMap = itSessiones.next();
+				 list.add(idAfiliadoMap);
+				 System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: " + Login.getMapSessiones().get(idAfiliadoMap));
 				}
-				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
-				parte.set(new PartyIDSource('C'));
-				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
+				//Se asigna Session+r Para validar R prima al inicializador
+				list.add(idAfiliado+"S");				
+					
+			}else {
+				while (resultSetParties.next()) {
+					String rSession = resultSetParties.getString("RECEIVER_SESSION");
+					if (rSession != null) {
+						list.add(rSession);
+					}
+					parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
+					parte.set(new PartyIDSource('C'));
+					parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
 
-				quote.addGroup(parte);
+					quote.addGroup(parte);
+				}
 			}
 
 			respuestaMessage.setListSessiones(list);
@@ -199,7 +219,7 @@ public class CreateMessage {
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 
 		try {
-			QuoteRespID quoteRespID = new QuoteRespID(cIdRandom);
+			QuoteRespID quoteRespID = new QuoteRespID(BasicFunctions.getIdEjecution()+"_AJ");
 			QuoteRespType qouteRespType = new QuoteRespType(resultset.getInt("RQ_QUORESPTYPE"));
 			QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
 

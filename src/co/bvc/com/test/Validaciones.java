@@ -77,14 +77,19 @@ public class Validaciones {
 		String cadenaPrima = message.toString();
 		String clavePrima;
 		String valorPrima;
+		
+
+			
+
 		ArrayList<String> cad = FragmentarCadena1(cadenaPrima);
 		ResultSet resultset;
+		try {
 		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
 				+ datosCache.getIdCaseseq();
-//		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-//				+ "WHERE ID_ESCENARIO = 'FIX_R' and ID_CASE = 1";
+
 
 		resultset = DataAccess.getQuery(queryMessageR);
+
 		String symbol = null, msgType = null, secSubTypec = null, side = null, orderQty = null, validuntiltime = null,
 				norelatedSymg = null, idCase = null, beginString = "FIX.4.4", SenderCompID = "EXC", noPartyId = null,
 				id_Escenario = null;
@@ -104,6 +109,9 @@ public class Validaciones {
 
 			id_Escenario = resultset.getString("ID_ESCENARIO");
 		}
+
+		
+		
 		System.out.println("----------------------------------------");
 		System.out.println("VALIDACION DE R CON R PRIMA");
 		System.out.println("  \n");
@@ -259,7 +267,12 @@ public class Validaciones {
 				break;
 			}
 		}
-//		String de = "INSERT INTO logs_fix (100,"+h+","+i+","+"TIPO"+","+"ESTADO"+","+contadorBuenos+","+contadorMalos+","+(contadorBuenos + contadorMalos)+",PRUEVA)";
+		}catch (Exception e) {
+			System.out.println("*************Error====================: "+e.getStackTrace());
+			e.printStackTrace();
+		}
+		
+		//		String de = "INSERT INTO logs_fix (100,"+h+","+i+","+"TIPO"+","+"ESTADO"+","+contadorBuenos+","+contadorMalos+","+(contadorBuenos + contadorMalos)+",PRUEVA)";
 //		data.setQuery(de);
 		System.out.println("----------------------------------------");
 		System.out.println("LAS VALIDACIONES CORRECTAS FUERON : " + contadorBuenos);
