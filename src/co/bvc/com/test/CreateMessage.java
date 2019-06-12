@@ -44,10 +44,9 @@ import quickfix.fix44.Message;
 import quickfix.fix44.Message.Header;
 
 public class CreateMessage {
-	
 
-
-	public RespuestaConstrucccionMsgFIX createR(ResultSet resultSet) throws SessionNotFound, SQLException, FieldNotFound {
+	public RespuestaConstrucccionMsgFIX createR(ResultSet resultSet)
+			throws SessionNotFound, SQLException, FieldNotFound {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
 
@@ -56,14 +55,15 @@ public class CreateMessage {
 				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ ="
 				+ BasicFunctions.getIdCaseSeq();
 
-		System.out.println("++++++++++++++++++++++++++++++++ ES ESTE +++++++++++++++++  "+ BasicFunctions.getIdCaseSeq());
+		System.out.println(
+				"++++++++++++++++++++++++++++++++ ES ESTE +++++++++++++++++  " + BasicFunctions.getIdCaseSeq());
 		ResultSet resultSetParties;
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 		try {
 			BasicFunctions.setIniciator(resultSet.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteReqID quoteReqID = new QuoteReqID(BasicFunctions.getIdEjecution()+"_R"); // 131
+			QuoteReqID quoteReqID = new QuoteReqID(BasicFunctions.getIdEjecution() + "_R"); // 131
 			QuoteRequest quoteRequest = new QuoteRequest(quoteReqID); // 35 --> R
 			Header header = (Header) quoteRequest.getHeader();
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
@@ -94,20 +94,21 @@ public class CreateMessage {
 
 				noRelatedSym.addGroup(parte);
 			}
-			if(noRelatedSym.getInt(NoPartyIDs.FIELD) == 1){
+			if (noRelatedSym.getInt(NoPartyIDs.FIELD) == 1) {
 				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
 				BasicFunctions.setAllMarket(true);
 				list.clear();
 				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
-				
-				while(itSessiones.hasNext()){
-				 String idAfiliadoMap = itSessiones.next();
-				 list.add(idAfiliadoMap);
-				 System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: " + Login.getMapSessiones().get(idAfiliadoMap));
+
+				while (itSessiones.hasNext()) {
+					String idAfiliadoMap = itSessiones.next();
+					list.add(idAfiliadoMap);
+					System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: "
+							+ Login.getMapSessiones().get(idAfiliadoMap));
 				}
-				//Se asigna Session+r Para validar R prima al inicializador
-				list.add(idAfiliado+"R");				
-					
+				// Se asigna Session+r Para validar R prima al inicializador
+				list.add(idAfiliado + "R");
+
 			}
 
 			quoteRequest.addGroup(noRelatedSym);
@@ -128,7 +129,7 @@ public class CreateMessage {
 		return null;
 	}
 
-	public RespuestaConstrucccionMsgFIX createS(ResultSet resultset, String strQuoteReqId) 
+	public RespuestaConstrucccionMsgFIX createS(ResultSet resultset, String strQuoteReqId)
 			throws SessionNotFound, SQLException {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
@@ -140,16 +141,16 @@ public class CreateMessage {
 
 		ResultSet resultSetParties;
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
-		
+
 		BasicFunctions.setQuoteIdGenered(cIdRandom);
-		
+
 		System.out.println("QUOTE ID GENERADO: " + BasicFunctions.getQuoteIdGenered());
 
 		try {
 			BasicFunctions.setReceptor(resultset.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			QuoteID quoteID = new QuoteID(BasicFunctions.getIdEjecution()+"_S");
+			QuoteID quoteID = new QuoteID(BasicFunctions.getIdEjecution() + "_S");
 			Quote quote = new Quote(quoteID); // 35 --> S
 
 			Header header = (Header) quote.getHeader();
@@ -168,10 +169,9 @@ public class CreateMessage {
 			// Parties
 			Quote.NoPartyIDs parte = new Quote.NoPartyIDs();
 
-			List<String> list = new ArrayList<String>();			
-			
-			String idAfiliado = resultset.getString("ID_AFILIADO");
-			
+			List<String> list = new ArrayList<String>();
+			list.add(BasicFunctions.getReceptor());
+
 			while (resultSetParties.next()) {
 				String rSession = resultSetParties.getString("RECEIVER_SESSION");
 				if (rSession != null) {
@@ -183,19 +183,20 @@ public class CreateMessage {
 
 				quote.addGroup(parte);
 			}
-			
-			if(BasicFunctions.isAllMarket()){
+
+			if (BasicFunctions.isAllMarket()) {
 				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
 				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
 				list.clear();
-				while(itSessiones.hasNext()){
-				 String idAfiliadoMap = itSessiones.next();
-				 list.add(idAfiliadoMap);
-				 System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: " + Login.getMapSessiones().get(idAfiliadoMap));
+				while (itSessiones.hasNext()) {
+					String idAfiliadoMap = itSessiones.next();
+					list.add(idAfiliadoMap);
+					System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: "
+							+ Login.getMapSessiones().get(idAfiliadoMap));
 				}
-				//Se asigna Session+r Para validar RC prima al inicializador
-				list.add(BasicFunctions.getIniciator()+"R");				
-					
+				// Se asigna Session+r Para validar RC prima al inicializador
+				list.add(BasicFunctions.getIniciator() + "R");
+
 			}
 
 			respuestaMessage.setListSessiones(list);
@@ -222,7 +223,7 @@ public class CreateMessage {
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 
 		try {
-			QuoteRespID quoteRespID = new QuoteRespID(BasicFunctions.getIdEjecution()+"_AJ");
+			QuoteRespID quoteRespID = new QuoteRespID(BasicFunctions.getIdEjecution() + "_AJ");
 			QuoteRespType qouteRespType = new QuoteRespType(resultset.getInt("RQ_QUORESPTYPE"));
 			QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
 
@@ -250,7 +251,7 @@ public class CreateMessage {
 			System.out.println("****************");
 
 			return respuestaMessage;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -258,31 +259,29 @@ public class CreateMessage {
 		return null;
 	}
 
-    public RespuestaConstrucccionMsgFIX createZ(final SessionID sessionId, final String strQuoteId) throws SessionNotFound {
-		
+	public RespuestaConstrucccionMsgFIX createZ(final SessionID sessionId, final String strQuoteId)
+			throws SessionNotFound {
 
 		System.out.println("------------------------------\nDATOS RECIBIDOS PARA Z....\nSession: " + sessionId
 				+ " - strQuoteId: \t" + strQuoteId);
-		
+
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
 
 		QuoteCancel quoteCancel = new QuoteCancel();
 		Header header = (Header) quoteCancel.getHeader();
 		header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
-		quoteCancel.setField(new QuoteCancelType(5));//RQ_QUOTECANCTYPE
+		quoteCancel.setField(new QuoteCancelType(5));// RQ_QUOTECANCTYPE
 		quoteCancel.setField(new QuoteID(strQuoteId));
-		
-		System.out.println("Nos Message Sent : " + quoteCancel); 
-		
+
+		System.out.println("Nos Message Sent : " + quoteCancel);
+
 		respuestaMessage.setMessage(quoteCancel);
-		
+
 		List<String> list = new ArrayList<String>();
-//		list.add(sessionId.toString().substring(8,11));
-		
-		
-		list.add("001");
-		list.add("002");
+
+		list.add(BasicFunctions.getIniciator());
+		list.add(BasicFunctions.getReceptor());
 
 		respuestaMessage.setListSessiones(list);
 
@@ -291,9 +290,9 @@ public class CreateMessage {
 		System.out.println(quoteCancel);
 		System.out.println("****************");
 
-		System.out.println("######################\n MENSAJE DE Z "+respuestaMessage.getMessage());
-		
+		System.out.println("######################\n MENSAJE DE Z " + respuestaMessage.getMessage());
+
 		return respuestaMessage;
-	}			
+	}
 
 }

@@ -138,7 +138,6 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		try {
 			printMessage("toApp", sessionId, message);
-//			crack(message, sessionId);
 		} catch (FieldNotFound e1) {
 			e1.printStackTrace();
 		} catch (Exception e) {
@@ -188,7 +187,6 @@ public class AdapterIO extends MessageCracker implements Application {
 		
 		if (message instanceof QuoteRequest) {
 
-//			printMessage("MENSAJE R_PRIMA ", sessionId, message);
 
 			String idAfiliado = sessionId.toString().substring(8, 11);
 			BasicFunctions.addQuoteReqId(idAfiliado, message.getString(131));
@@ -205,7 +203,6 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (SessionNotFound e) {
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -221,11 +218,17 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (SessionNotFound e) {
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			
+			// Lo hizo Yuli
+			if (message instanceof QuoteCancel) {
 
-		}
+				printMessage("CANCEL MENSAJE Z ", sessionId, message);
+				
+		        }
+			}
 
 		crack(message, sessionId);
 	}
@@ -235,6 +238,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			printMessage("MENSAJE ER", sessionID, message);
 
 			try {
+				Thread.sleep(5000);
 				autoEngine.validarAJ(sessionID, message);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -277,7 +281,6 @@ public class AdapterIO extends MessageCracker implements Application {
 			try {
 				autoEngine.validarZ(sessionID, message);
 			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
