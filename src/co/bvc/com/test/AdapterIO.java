@@ -386,7 +386,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		if (message instanceof QuoteCancel && sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
 			
-			printMessage("QuoteCancel de PEDRO", sessionID, message);
+			printMessage("QuoteCancel ", sessionID, message);
 			
 			try {
 				autoEngine.validarZ(sessionID, message);
