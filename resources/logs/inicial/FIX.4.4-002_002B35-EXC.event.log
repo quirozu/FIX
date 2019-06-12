@@ -548,3 +548,11 @@ java.lang.NullPointerException: Null field values are not allowed.
 20190611-22:04:27: Enqueued at pos 3: 8=FIX.4.49=29335=AI34=349=EXC52=20190611-22:04:06.98356=00257=002B3522=M48=2062654=155=TFIC1328042562=20190617-22:00:00117=77016056131=20190611-000000000010.00135=500000000297=16634=4.000762=RFQF453=4448=DCV447=C452=10448=001B27447=C452=12448=001447=C452=1448=002B35447=C452=3710=214
 20190611-22:04:27: Sent ResendRequest FROM: 2 TO: 2
 20190611-22:04:27: ResendRequest for messages FROM 2 TO 2 has been satisfied.
+20190612-14:48:34: Session FIX.4.4:002/002B35->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190612-14:48:34: Session state is not current; resetting FIX.4.4:002/002B35->EXC
+20190612-14:48:34: Created session: FIX.4.4:002/002B35->EXC
+20190612-14:48:34: Configured socket addresses for session: [/172.36.2.13:54402]
+20190612-14:48:34: MINA session created: local=/172.16.0.229:65299, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.13:54402
+20190612-14:48:35: Initiated logon request
+20190612-14:48:35: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190612-14:48:35: Received logon
