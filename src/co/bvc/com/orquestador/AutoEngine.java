@@ -206,6 +206,8 @@ public class AutoEngine {
 			
 			respConstruccion = createMesage.createZ(Login.getSessionOfAfiliado(idIAfiliado), BasicFunctions.getQuoteIdGenered());
 			
+			System.out.println("#################################### "+ respConstruccion);
+			
 			System.out.println("ID DE Z " + BasicFunctions.getQuoteIdGenered());
 			
 			for (String session : respConstruccion.getListSessiones()) {
