@@ -176,7 +176,7 @@ public class AutoEngine {
 //
 //			cargarCache(datosCache);
 			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
-		
+		break; 
 
 		case "FIX_AJ":
 
