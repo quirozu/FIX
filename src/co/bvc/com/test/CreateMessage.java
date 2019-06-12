@@ -142,6 +142,7 @@ public class CreateMessage {
 		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
 
 		try {
+			BasicFunctions.setReceptor(resultset.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
 
 			QuoteID quoteID = new QuoteID(BasicFunctions.getIdEjecution()+"_S");
@@ -234,8 +235,8 @@ public class CreateMessage {
 			respuestaMessage.setMessage(quoteResponse);
 
 			List<String> list = new ArrayList<String>();
-			list.add("007");
-			list.add("002");
+			list.add(BasicFunctions.getIniciator());
+			list.add(BasicFunctions.getReceptor());
 
 			respuestaMessage.setListSessiones(list);
 

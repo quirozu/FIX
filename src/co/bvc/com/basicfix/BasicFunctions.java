@@ -32,9 +32,18 @@ public class BasicFunctions {
 	private static int idCase;
 	private static int escenarioPrueba;
 	private static String iniciator;
+	private static String receptor;
 	private static boolean allMarket = false;
 	
 //	private static RespuestaConstrucccionMsgFIX cache;
+	
+	public static String getReceptor() {
+		return receptor;
+	}
+
+	public static void setReceptor(String receptor) {
+		BasicFunctions.receptor = receptor;
+	}
 
 	public static boolean isAllMarket() {
 		return allMarket;

@@ -75,10 +75,10 @@ public class AutoEngine {
 	public void enviarMensaje(ResultSet resultSet)
 			throws SessionNotFound, SQLException, InterruptedException, FieldNotFound {
 
-		String msgType;
+		String msgType = resultSet.getString("ID_ESCENARIO");
+		String idAfiliado = resultSet.getString("ID_AFILIADO");
+		
 		AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
-		msgType = resultSet.getString("ID_ESCENARIO");
-
 		RespuestaConstrucccionMsgFIX respConstruccion = new RespuestaConstrucccionMsgFIX();
 
 		switch (msgType) {
@@ -106,21 +106,8 @@ public class AutoEngine {
 				cargarCache(datosCache);
 			}
 
-			String idIAfiliado = resultSet.getString("ID_AFILIADO");
 
-//			// Construir mensaje a cache de la propia session.
-//			datosCache.setReceiverSession(idIAfiliado);
-//			datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
-//			datosCache.setIdCase(resultSet.getInt("ID_CASE"));
-//			datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
-//			datosCache.setEstado(resultSet.getString("ESTADO"));
-//			// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
-//			datosCache.setIdAfiliado(idIAfiliado);
-//			datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
-//
-//			cargarCache(datosCache);
-
-			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
+			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idAfiliado));
 
 			break;
 
@@ -131,7 +118,6 @@ public class AutoEngine {
 			System.out.println("** INGRESA A FIX_S **");
 			System.out.println("*********************");
 
-			String idAfiliado = resultSet.getString("ID_AFILIADO");
 
 			Iterator<String> it = BasicFunctions.getQuoteReqId().keySet().iterator();
 			while (it.hasNext()) {
@@ -156,26 +142,12 @@ public class AutoEngine {
 				datosCache.setEstado(resultSet.getString("ESTADO"));
 				// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
 				datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
-//				datosCache.setIdAfiliado(session);
 				datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
 
 				cargarCache(datosCache);
 			}
 
-			idIAfiliado = resultSet.getString("ID_AFILIADO");
-
-//			// Construir mensaje a cache de la propia session.
-//			datosCache.setReceiverSession(idIAfiliado);
-//			datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
-//			datosCache.setIdCase(resultSet.getInt("ID_CASE"));
-//			datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
-//			datosCache.setEstado(resultSet.getString("ESTADO"));
-//			// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
-//			datosCache.setIdAfiliado(idIAfiliado);
-//			datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
-//
-//			cargarCache(datosCache);
-			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
+			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idAfiliado));
 		break; 
 
 		case "FIX_AJ":
@@ -186,7 +158,7 @@ public class AutoEngine {
 
 			String quoteId = BasicFunctions.getQuoteId();
 
-			idIAfiliado = resultSet.getString("ID_AFILIADO");
+//			idIAfiliado = resultSet.getString("ID_AFILIADO");
 
 			respConstruccion = createMesage.createAJ(resultSet, quoteId);
 
@@ -205,7 +177,7 @@ public class AutoEngine {
 				cargarCache(datosCache);
 			}
 
-			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idIAfiliado));
+			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idAfiliado));
 
 			break;
 		case "FIX_Z":
@@ -314,7 +286,6 @@ public class AutoEngine {
 
 		eliminarDatoCache(IdContraFirm);
 
-//		String IdAfiliado = datosCache.getIdAfiliado();
 
 		String quoteId = messageIn.getString(117);
 		BasicFunctions.setQuoteId(quoteId);
@@ -348,10 +319,9 @@ public class AutoEngine {
 
 		eliminarDatoCache(IdContraFirm);
 
-//		String IdAfiliado = datosCache.getIdAfiliado();
 
 		if (DataAccess.validarContinuidadEjecucion()) {
-			ejecutarSiguientePaso();
+//			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
 
 		} else {

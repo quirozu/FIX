@@ -454,6 +454,7 @@ public class Validaciones {
 
 		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
 				+ datosCache.getIdCaseseq();
+		System.out.println("consulta: " + queryMessageR);
 
 		resultset = DataAccess.getQuery(queryMessageR);
 		ArrayList<String> cad = FragmentarCadena(cadena);
