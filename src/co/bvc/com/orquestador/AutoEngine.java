@@ -184,8 +184,7 @@ public class AutoEngine {
 			System.out.println("** INGRESA A FIX_Z **");
 			System.out.println("**********************");
 
-			respConstruccion = createMesage.createZ(Login.getSessionOfAfiliado(idAfiliado),
-					BasicFunctions.getQuoteIdGenered());
+			respConstruccion = createMesage.createZ(Login.getSessionOfAfiliado(idAfiliado), resultSet);
 
 			System.out.println("#################################### " + respConstruccion);
 

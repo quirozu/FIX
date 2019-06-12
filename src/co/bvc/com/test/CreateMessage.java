@@ -58,12 +58,14 @@ public class CreateMessage {
 		System.out.println(
 				"++++++++++++++++++++++++++++++++ ES ESTE +++++++++++++++++  " + BasicFunctions.getIdCaseSeq());
 		ResultSet resultSetParties;
-		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
+		
 		try {
 			BasicFunctions.setIniciator(resultSet.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
+			
+			String strQuoteReqId = BasicFunctions.getIdEjecution() + resultSet.getString("ID_CASE") + "_R";
 
-			QuoteReqID quoteReqID = new QuoteReqID(BasicFunctions.getIdEjecution() + "_R"); // 131
+			QuoteReqID quoteReqID = new QuoteReqID(strQuoteReqId); // 131
 			QuoteRequest quoteRequest = new QuoteRequest(quoteReqID); // 35 --> R
 			Header header = (Header) quoteRequest.getHeader();
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
@@ -129,7 +131,7 @@ public class CreateMessage {
 		return null;
 	}
 
-	public RespuestaConstrucccionMsgFIX createS(ResultSet resultset, String strQuoteReqId)
+	public RespuestaConstrucccionMsgFIX createS(ResultSet resultSet, String strQuoteReqId)
 			throws SessionNotFound, SQLException {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
@@ -140,30 +142,32 @@ public class CreateMessage {
 				+ BasicFunctions.getIdCaseSeq();
 
 		ResultSet resultSetParties;
-		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
-
-		BasicFunctions.setQuoteIdGenered(cIdRandom);
+//		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
+//
+//		BasicFunctions.setQuoteIdGenered(cIdRandom);
 
 		System.out.println("QUOTE ID GENERADO: " + BasicFunctions.getQuoteIdGenered());
 
 		try {
-			BasicFunctions.setReceptor(resultset.getString("ID_AFILIADO"));
+			BasicFunctions.setReceptor(resultSet.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
+			
+			String strQuoteId = BasicFunctions.getIdEjecution() + resultSet.getString("ID_CASE") + "_S";
 
-			QuoteID quoteID = new QuoteID(BasicFunctions.getIdEjecution() + "_S");
+			QuoteID quoteID = new QuoteID(strQuoteId);
 			Quote quote = new Quote(quoteID); // 35 --> S
 
 			Header header = (Header) quote.getHeader();
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
 			quote.setField(new QuoteReqID(strQuoteReqId)); // 131
-			quote.set(new Symbol(resultset.getString("RQ_SYMBOL")));
-			quote.setField(new SecuritySubType(resultset.getString("RQ_SECSUBTYPE")));
-			quote.setField(new OfferSize(resultset.getDouble("RQ_OFFERSIZE")));
-			quote.setField(new OfferYield(resultset.getDouble("RQ_OFFERYIELD")));
+			quote.set(new Symbol(resultSet.getString("RQ_SYMBOL")));
+			quote.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
+			quote.setField(new OfferSize(resultSet.getDouble("RQ_OFFERSIZE")));
+			quote.setField(new OfferYield(resultSet.getDouble("RQ_OFFERYIELD")));
 
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0");
-			LocalDateTime dateTime = LocalDateTime.parse(resultset.getString("RQ_VALIDUNTILTIME"), formatter);
+			LocalDateTime dateTime = LocalDateTime.parse(resultSet.getString("RQ_VALIDUNTILTIME"), formatter);
 			quote.setField(new ValidUntilTime(dateTime)); // "20190404-23:00:00";
 
 			// Parties
@@ -217,13 +221,14 @@ public class CreateMessage {
 
 	}
 
-	public RespuestaConstrucccionMsgFIX createAJ(ResultSet resultset, String strQuoteId) throws SessionNotFound {
+	public RespuestaConstrucccionMsgFIX createAJ(ResultSet resultset, String strQuoteId) throws SessionNotFound, SQLException {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
-		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
+		
+		String strQuoteRespId = BasicFunctions.getIdEjecution() + resultset.getString("ID_CASE") + "_AJ";
 
 		try {
-			QuoteRespID quoteRespID = new QuoteRespID(BasicFunctions.getIdEjecution() + "_AJ");
+			QuoteRespID quoteRespID = new QuoteRespID(strQuoteRespId);
 			QuoteRespType qouteRespType = new QuoteRespType(resultset.getInt("RQ_QUORESPTYPE"));
 			QuoteResponse quoteResponse = new QuoteResponse(quoteRespID, qouteRespType); // 35 --> AJ
 
@@ -259,11 +264,10 @@ public class CreateMessage {
 		return null;
 	}
 
-	public RespuestaConstrucccionMsgFIX createZ(final SessionID sessionId, final String strQuoteId)
-			throws SessionNotFound {
+	public RespuestaConstrucccionMsgFIX createZ(final SessionID sessionId, ResultSet resultSet)
+			throws SessionNotFound, SQLException {
 
-		System.out.println("------------------------------\nDATOS RECIBIDOS PARA Z....\nSession: " + sessionId
-				+ " - strQuoteId: \t" + strQuoteId);
+		System.out.println("------------------------------\nDATOS RECIBIDOS PARA Z....\nSession: " + sessionId);
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
 
@@ -272,12 +276,12 @@ public class CreateMessage {
 		header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
 		quoteCancel.setField(new QuoteCancelType(5));// RQ_QUOTECANCTYPE
-		quoteCancel.setField(new QuoteID(strQuoteId));
+		quoteCancel.setField(new QuoteID(BasicFunctions.getIdEjecution() + resultSet.getString("ID_CASE")+"_S"));
 
 		System.out.println("Nos Message Sent : " + quoteCancel);
 
 		respuestaMessage.setMessage(quoteCancel);
-
+ 
 		List<String> list = new ArrayList<String>();
 
 		list.add(BasicFunctions.getIniciator());
@@ -289,8 +293,6 @@ public class CreateMessage {
 		System.out.println("** Z CREADO  **");
 		System.out.println(quoteCancel);
 		System.out.println("****************");
-
-		System.out.println("######################\n MENSAJE DE Z " + respuestaMessage.getMessage());
 
 		return respuestaMessage;
 	}

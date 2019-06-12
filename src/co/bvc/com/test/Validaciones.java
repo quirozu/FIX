@@ -898,7 +898,7 @@ public class Validaciones {
 		
 		System.out.println("----------------------------------------");
 		System.out.println("---------------------");
-		System.out.println("-- VALIDACIONES ER --");
+		System.out.println("-- VALIDACIONES Z --");
 		System.out.println("LAS VALIDACIONES CORRECTAS FUERON : " + contadorBuenos);
 		System.out.println("LAS VALIDACIONES ERRADAS FUERON : " + contadorMalos);
 		System.out.println("TOTAL VALIDACIONES REALIZADAS : " + (contadorBuenos + contadorMalos));
