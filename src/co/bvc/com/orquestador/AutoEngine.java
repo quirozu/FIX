@@ -5,12 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
 import co.bvc.com.basicfix.BasicFunctions;
-import co.bvc.com.basicfix.Constantes;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import co.bvc.com.test.CreateMessage;
-import co.bvc.com.test.CreateReport;
 import co.bvc.com.test.Login;
 import co.bvc.com.test.Validaciones;
 import quickfix.FieldNotFound;
@@ -81,8 +79,9 @@ public class AutoEngine {
 		AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
 		RespuestaConstrucccionMsgFIX respConstruccion = new RespuestaConstrucccionMsgFIX();
 
+		System.out.println("*********************\n"+ msgType + "\n*********************");
 		switch (msgType) {
-
+		
 		case "FIX_R":
 
 			System.out.println("*********************");
@@ -180,7 +179,40 @@ public class AutoEngine {
 			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idAfiliado));
 
 			break;
+            
 		case "FIX_Z":
+			
+			System.out.println("**********************");
+			System.out.println("** INGRESA A FIX_Z **");
+			System.out.println("**********************");
+			
+			
+			respConstruccion = createMesage.createZ(Login.getSessionOfAfiliado(idAfiliado), BasicFunctions.getQuoteIdGenered());
+			
+			System.out.println("#################################### "+ respConstruccion);
+			
+			System.out.println("ID DE Z " + BasicFunctions.getQuoteIdGenered());
+			
+			for (String session : respConstruccion.getListSessiones()) {
+
+				// Construir mensaje a cache.
+				System.out.println("\n************************ INGRESA AL FOR \n************************ " + session);
+				datosCache.setReceiverSession(session);
+				datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
+				datosCache.setIdCase(resultSet.getInt("ID_CASE"));
+				datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
+				datosCache.setEstado(resultSet.getString("ESTADO"));
+				// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
+				datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
+				datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
+
+				cargarCache(datosCache);
+				
+				System.out.println("\n************************ SALE DEL FOR \n************************");
+			}
+	
+			
+            Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idAfiliado));
 
 			break;
 
@@ -358,16 +390,41 @@ public class AutoEngine {
 
 	}
 
+	public void validarZ(SessionID sessionId, Message messageIn) throws SQLException, InterruptedException, SessionNotFound, IOException, FieldNotFound {
+		
+		System.out.println("*************************");
+		System.out.println("** INGRESA A VALIDAR Z **");
+		System.out.println("*************************");
+		
+		String sIdAfiliado = sessionId.toString().substring(8, 11);
+		AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
+		Validaciones validaciones = new Validaciones();
+		validaciones.validarZ(datosCache, (quickfix.fix44.Message) messageIn);
+		
+		// Eliminar Registro en Cache.
+		eliminarDatoCache(sIdAfiliado);
+		
+		if (DataAccess.validarContinuidadEjecucion()) {
+			ejecutarSiguientePaso();
+			System.out.println("** CONTINUAR ***");
+		} else {
+			System.out.println("**** ESPERAR ****");
+		}
+
+		System.out.println("*********** SALIENDO DE VALIDAR Z ************");
+		Thread.sleep(5000);
+	}
+
+
 	public static void printMessage(String typeMsg, SessionID sessionId, Message message) throws FieldNotFound {
 		System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sessionId
 				+ "\nMENSAJE :" + message + "\n----------------------------");
 
 	}
-
-	public String SelectSessionID(ResultSet resultset) throws SQLException {
-		String IDSelessioned = (Constantes.PROTOCOL_FIX_VERSION + resultset.getString("ID_AFILIADO") + "/"
-				+ resultset.getString("RQ_TRADER") + "->EXC");
-
+	
+	/*public String SelectSessionID (ResultSet resultset) throws SQLException {
+		String IDSelessioned = (Constantes.PROTOCOL_FIX_VERSION + resultset.getString("ID_AFILIADO")+"/"+resultset.getString("RQ_TRADER")+"->EXC");
+		
 		return IDSelessioned;
-	}
+	}*/
 }
