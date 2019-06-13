@@ -76,7 +76,7 @@ public class AutoEngine {
 
 		String msgType = resultSet.getString("ID_ESCENARIO");
 		String idAfiliado = resultSet.getString("ID_AFILIADO");
-
+		System.out.println(resultSet);
 		AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
 		RespuestaConstrucccionMsgFIX respConstruccion = new RespuestaConstrucccionMsgFIX();
 
@@ -90,7 +90,7 @@ public class AutoEngine {
 			System.out.println("*********************");
 
 			respConstruccion = createMesage.createR(resultSet);
-
+			System.out.println(respConstruccion);
 			for (String session : respConstruccion.getListSessiones()) {
 
 				// Construir mensaje a cache.
@@ -412,6 +412,41 @@ public class AutoEngine {
 		System.out.println("********************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sessionId
 				+ "\nMENSAJE :" + message + "\n----------------------------");
 
+	}
+
+	public void validarAG(SessionID sessionId, Message message) throws SQLException, InterruptedException, SessionNotFound, IOException, FieldNotFound {
+		
+		System.out.println("*************************");
+		System.out.println("** INGRESA A validar AG **");
+		System.out.println("*************************");
+
+		String sIdAfiliado = sessionId.toString().substring(8, 11);
+		AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
+		Validaciones validaciones = new Validaciones();
+		validaciones.validarAG(datosCache, (quickfix.fix44.Message) message);
+
+		// Eliminar Registro en Cache.
+		DataAccess.limpiarCache();
+
+		if (DataAccess.validarContinuidadEjecucion()) {
+			ejecutarSiguienteEscenario();
+			System.out.println("** CONTINUAR ***");
+		} else {
+			System.out.println("**** ESPERAR ****");
+		}
+
+		System.out.println("*********** SALIENDO DE validarAI ************");
+	}
+	public void ejecutarSiguienteEscenario() throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
+		
+		int sec =BasicFunctions.getIdCase() + 1;
+		String query = "SELECT ID_CASESEQ FROM bvc_automation_db.aut_fix_rfq_datos"
+				+ " WHERE ID_CASE= "+sec+" ORDER BY ID_CASESEQ ASC LIMIT 1;";
+		
+		ResultSet resultset = DataAccess.getQuery(query);
+		
+		BasicFunctions.setIdCaseSeq(resultset.getInt("ID_CASESEQ"));
+		ejecutarSiguientePaso();
 	}
 
 }

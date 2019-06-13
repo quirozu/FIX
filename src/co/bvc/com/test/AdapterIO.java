@@ -9,6 +9,7 @@ import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.orquestador.AutoEngine;
 import quickfix.Application;
 import quickfix.DoNotSend;
+import quickfix.FieldException;
 import quickfix.FieldNotFound;
 import quickfix.IncorrectDataFormat;
 import quickfix.IncorrectTagValue;
@@ -26,6 +27,7 @@ import quickfix.fix44.MessageCracker;
 import quickfix.fix44.Quote;
 import quickfix.fix44.QuoteCancel;
 import quickfix.fix44.QuoteRequest;
+import quickfix.fix44.QuoteRequestReject;
 import quickfix.fix44.QuoteResponse;
 import quickfix.fix44.QuoteStatusReport;
 import quickfix.fix44.Reject;
@@ -53,7 +55,7 @@ public class AdapterIO extends MessageCracker implements Application {
 	}
 
 	@Override
-	public void toAdmin(Message message, SessionID sessionId) {
+	public void toAdmin(Message message, SessionID sessionId) throws FieldException {
 
 		try {
 			printMessage("toAdmin - ENTRADA", sessionId, message);
@@ -135,7 +137,7 @@ public class AdapterIO extends MessageCracker implements Application {
 	}
 
 	@Override
-	public void toApp(Message message, SessionID sessionId) throws DoNotSend {
+	public void toApp(Message message, SessionID sessionId) throws DoNotSend,FieldException {
 
 		try {
 			printMessage("toApp", sessionId, message);
@@ -149,7 +151,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 	@Override
 	public void fromAdmin(Message message, SessionID sessionId)
-			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {
+			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon,FieldException {
 
 		printMessage("fromAdmin-Input", sessionId, message);
 
@@ -158,6 +160,7 @@ public class AdapterIO extends MessageCracker implements Application {
 		} catch (UnsupportedMessageType e) {
 			e.printStackTrace();
 		}
+		
 //		if (message instanceof Reject ) {
 //
 //			printMessage("MENSAJE DE RECHAZO 3 ", sessionId, message);
@@ -180,11 +183,34 @@ public class AdapterIO extends MessageCracker implements Application {
 
 	@Override
 	public void fromApp(Message message, SessionID sessionId)
-			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
+			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType, FieldException {
+		try {
+			printMessage("fromApp-Input", sessionId, message);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
-		printMessage("fromApp-Input", sessionId, message);
-		
-		if (message instanceof Quote ) {
+		if (message instanceof QuoteRequestReject) {
+
+			try {
+				printMessage("MESAJE DE RECHAZO AG ", sessionId, message);
+				Thread.sleep(3000);
+				autoEngine.validarAG(sessionId, message);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (SessionNotFound e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch(FieldException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if (message instanceof Quote) {
 
 			printMessage("MENSAJE S_PRIMA  ", sessionId, message);
 
@@ -200,13 +226,12 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}catch(quickfix.FieldException e) {
+				e.printStackTrace();
 			}
 		}
 
-		
-		
 		if (message instanceof QuoteRequest) {
-
 
 			String idAfiliado = sessionId.toString().substring(8, 11);
 			BasicFunctions.addQuoteReqId(idAfiliado, message.getString(131));
@@ -224,6 +249,8 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
+			}catch(quickfix.FieldException e) {
+				e.printStackTrace();
 			}
 
 		}
@@ -240,39 +267,38 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
+			}catch(quickfix.FieldException e) {
+				e.printStackTrace();
 			}
-			
-			
+
 			// Lo hizo Yuli
 			if (message instanceof QuoteCancel) {
 
 				printMessage("CANCEL MENSAJE Z ", sessionId, message);
-				
-		        }
+
 			}
+		}
 
 		crack(message, sessionId);
 	}
 
 	public void onMessage(ExecutionReport message, SessionID sessionID) throws FieldNotFound {
 
-			printMessage("MENSAJE ER", sessionID, message);
+		printMessage("MENSAJE ER", sessionID, message);
 
-			try {
-				Thread.sleep(5000);
-				autoEngine.validarAJ(sessionID, message);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (SessionNotFound e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		try {
+			Thread.sleep(5000);
+			autoEngine.validarAJ(sessionID, message);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (SessionNotFound e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-		
-	
 	}
 
 	public void onMessage(quickfix.fix44.QuoteStatusRequest message, SessionID sessionID) throws FieldNotFound {
@@ -285,20 +311,19 @@ public class AdapterIO extends MessageCracker implements Application {
 	}
 
 	public void onMessage(quickfix.fix44.QuoteRequest message, SessionID sessionID) throws FieldNotFound {
-		
-		
+
 	}
 
 	public void onMessage(quickfix.fix44.Quote message, SessionID sessionID) throws FieldNotFound {
-		
+
 	}
 
 	public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {
-		
-          if (message instanceof QuoteCancel ) {
-			
+
+		if (message instanceof QuoteCancel) {
+
 			printMessage("QuoteCancel de PEDRO", sessionID, message);
-			
+
 			try {
 				Thread.sleep(3000);
 				autoEngine.validarZ(sessionID, message);
