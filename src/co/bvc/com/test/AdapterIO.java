@@ -28,6 +28,7 @@ import quickfix.fix44.QuoteCancel;
 import quickfix.fix44.QuoteRequest;
 import quickfix.fix44.QuoteResponse;
 import quickfix.fix44.QuoteStatusReport;
+import quickfix.fix44.Reject;
 
 public class AdapterIO extends MessageCracker implements Application {
 
@@ -157,6 +158,24 @@ public class AdapterIO extends MessageCracker implements Application {
 		} catch (UnsupportedMessageType e) {
 			e.printStackTrace();
 		}
+//		if (message instanceof Reject ) {
+//
+//			printMessage("MENSAJE DE RECHAZO 3 ", sessionId, message);
+//
+//			try {
+//				Thread.sleep(3000);
+//				autoEngine.validar3(sessionId, message);
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			} catch (SessionNotFound e) {
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 	}
 
 	@Override
@@ -170,6 +189,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			printMessage("MENSAJE S_PRIMA  ", sessionId, message);
 
 			try {
+				Thread.sleep(3000);
 				autoEngine.validarS(sessionId, message);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -212,6 +232,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 			printMessage("MENSAJE AI ", sessionId, message);
 			try {
+				Thread.sleep(3000);
 				autoEngine.validarAI(sessionId, message);
 			} catch (SQLException | InterruptedException e) {
 				e.printStackTrace();
@@ -274,11 +295,12 @@ public class AdapterIO extends MessageCracker implements Application {
 
 	public void onMessage(quickfix.fix44.QuoteCancel message, SessionID sessionID) throws FieldNotFound {
 		
-          if (message instanceof QuoteCancel && sessionID.toString().equals("FIX.4.4:001/001B27->EXC")) {
+          if (message instanceof QuoteCancel ) {
 			
 			printMessage("QuoteCancel de PEDRO", sessionID, message);
 			
 			try {
+				Thread.sleep(3000);
 				autoEngine.validarZ(sessionID, message);
 			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
 				e.printStackTrace();

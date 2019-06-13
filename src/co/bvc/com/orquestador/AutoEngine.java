@@ -9,6 +9,7 @@ import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import co.bvc.com.dao.domain.RespuestaConstrucccionMsgFIX;
 import co.bvc.com.test.CreateMessage;
+import co.bvc.com.test.CreateReport;
 import co.bvc.com.test.Login;
 import co.bvc.com.test.Validaciones;
 import quickfix.FieldNotFound;
@@ -56,14 +57,14 @@ public class AutoEngine {
 			Thread.sleep(5000);
 			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
 			System.out.println("++++++++++++++++ SECUENCIA ++++++++ " + BasicFunctions.getIdCaseSeq());
-//			if (caso<BasicFunctions.getIdCase()) {
-//				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-//				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
-//				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-//				caso++;
-//				System.out.println("Generar reporte....");
-//				CreateReport.maina();
-//			}
+			if (caso<BasicFunctions.getIdCase()) {
+				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
+				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+				caso++;
+				System.out.println("Generar reporte....");
+				CreateReport.maina();
+			}
 
 		}
 
@@ -345,7 +346,7 @@ public class AutoEngine {
 		eliminarDatoCache(IdContraFirm);
 
 		if (DataAccess.validarContinuidadEjecucion()) {
-//			ejecutarSiguientePaso();
+			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
 
 		} else {
@@ -413,12 +414,4 @@ public class AutoEngine {
 
 	}
 
-	/*
-	 * public String SelectSessionID (ResultSet resultset) throws SQLException {
-	 * String IDSelessioned = (Constantes.PROTOCOL_FIX_VERSION +
-	 * resultset.getString("ID_AFILIADO")+"/"+resultset.getString("RQ_TRADER")+
-	 * "->EXC");
-	 * 
-	 * return IDSelessioned; }
-	 */
 }
