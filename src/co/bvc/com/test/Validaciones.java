@@ -1647,8 +1647,8 @@ public class Validaciones {
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), targetCompId,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
-					System.out.println(" ID_AFILIADO (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
-							+ targetCompId);
+					System.out.println(
+							" ID_AFILIADO (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + targetCompId);
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), targetCompId,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 					contadorMalos++;
@@ -1664,8 +1664,8 @@ public class Validaciones {
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), targetSubId,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
-					System.out.println(" RQ_TRADER (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
-							+ targetSubId);
+					System.out.println(
+							" RQ_TRADER (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + targetSubId);
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), targetSubId,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 					contadorMalos++;
@@ -1703,116 +1703,29 @@ public class Validaciones {
 
 	}
 
-	public void validar3(AutFixRfqDatosCache datosCache, Message qr) throws SQLException {
+	public void validar3(AutFixRfqDatosCache datosCache, Message message) throws SQLException, FieldNotFound {
 
-		int contadorBuenos = 0;
-		int contadorMalos = 0;
-		String cadena = "" + qr;
 		ResultSet resultset;
 
 		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
+
 				+ datosCache.getIdCaseseq();
 
 		resultset = DataAccess.getQuery(queryMessageR);
 
-		ArrayList<String> cad = FragmentarCadena(cadena);
-		String valor;
-		String beginString = "FIX.4.4", senderCompId = "EXC", targetCompId = null, msgSeqNum = null, idCase = null,
-				idEscenario = null;
-		int idSecuencia = 0;
+		String idEscenario = null, idCase = null;
+
 		while (resultset.next()) {
 
-			targetCompId = resultset.getString("RQ_TARGET_COMP_ID");
-			msgSeqNum = resultset.getString("RQ_MSG_SEQ_NUM");
 			idEscenario = resultset.getString("ID_ESCENARIO");
+
 			idCase = resultset.getString("ID_CASE");
 
 		}
-		System.out.println("----------------------------------------");
-		System.out.println("VALIDACION DEL AG\n ");
 
-		for (int i = 0; i < cad.size(); i++) {
-			valor = cad.get(i).split("=")[0];
-			switch (valor) {
+		DataAccess.cargarLogs3(message, datosCache.getIdEjecucion(), idEscenario, idCase, datosCache.getIdSecuencia());
 
-			case "8":
-				if (cad.get(i).split("=")[1].equals(beginString)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje(" FIX.4.4", valor, beginString);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), beginString,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out.println(
-							" FIX.4.4 (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + beginString);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), beginString,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
-					contadorMalos++;
-				}
-				break;
-
-			case "34":
-				if (cad.get(i).split("=")[1].equals(msgSeqNum)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje(" RQ_MSG_SEQ_NUM", valor, msgSeqNum);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), msgSeqNum, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out.println(
-							" RQ_MSG_SEQ_NUM (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + msgSeqNum);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), msgSeqNum, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
-					contadorMalos++;
-				}
-				break;
-
-			case "49":
-				if (cad.get(i).split("=")[1].equals(senderCompId)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje(" EXC", valor, senderCompId);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), senderCompId,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out.println(" EXC (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + senderCompId);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), senderCompId,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
-					contadorMalos++;
-				}
-				break;
-
-			case "56":
-				if (cad.get(i).split("=")[1].equals(targetCompId)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje(" RQ_TARGET_COMP_ID", valor, targetCompId);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), targetCompId,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out.println(" RQ_TARGET_COMP_ID (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
-							+ targetCompId);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), targetCompId,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
-					contadorMalos++;
-				}
-				break;
-
-			default:
-				break;
-			}
-		}
-
-		System.out.println("----------------------------------------");
-		System.out.println("-- VALIDACIONES DE 3 --");
-		System.out.println("LAS VALIDACIONES CORRECTAS FUERON : " + contadorBuenos);
-		System.out.println("LAS VALIDACIONES ERRADAS FUERON : " + contadorMalos);
-		System.out.println("TOTAL VALIDACIONES REALIZADAS : " + (contadorBuenos + contadorMalos));
-		System.out.println("----------------------------------------");
+		System.out.println("************\n SE CARGO AL LOG VALIDAR 3 \n************ ");
 
 	}
 

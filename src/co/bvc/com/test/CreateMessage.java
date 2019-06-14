@@ -77,7 +77,7 @@ public class CreateMessage {
 			noRelatedSym.set(symbol);
 //			noRelatedSym.set(new Symbol(resultSet.getString("RQ_SYMBOL")));
 			noRelatedSym.setField(new SecurityIDSource("M"));
-			noRelatedSym.setField(new OrderQty(resultSet.getDouble("RQ_ORDERQTY")));
+//			noRelatedSym.setField(new OrderQty(resultSet.getDouble("RQ_ORDERQTY")));
 			noRelatedSym.setField(new StringField(54, resultSet.getString("RQ_SIDE")));
 			noRelatedSym.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
 			noRelatedSym.setField(new NoPartyIDs());

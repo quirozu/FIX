@@ -121,23 +121,34 @@ public class AdapterIO extends MessageCracker implements Application {
 //			message.setField(new PossDupFlag(true));
 
 		}
+		if (message instanceof Reject) {
 
-		try {
-			crack(message, sessionId);
-		} catch (UnsupportedMessageType e) {
-			e.printStackTrace();
-		} catch (FieldNotFound e) {
-			e.printStackTrace();
-		} catch (IncorrectTagValue e) {
-			e.printStackTrace();
+			try {
+				autoEngine.validar3(sessionId, message);
+			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
+				e.printStackTrace();
+			} catch (FieldNotFound e) {
+				e.printStackTrace();
+			}
+
+			try {
+				crack(message, sessionId);
+			} catch (UnsupportedMessageType e) {
+				e.printStackTrace();
+			} catch (FieldNotFound e) {
+				e.printStackTrace();
+			} catch (IncorrectTagValue e) {
+				e.printStackTrace();
+			}
+
+			System.out.println(
+					"*****************\n toAdmin - SALIDA : \n" + message + "\nPara la sessionId: " + sessionId);
 		}
-
-		System.out.println("*****************\n toAdmin - SALIDA : \n" + message + "\nPara la sessionId: " + sessionId);
 
 	}
 
 	@Override
-	public void toApp(Message message, SessionID sessionId) throws DoNotSend,FieldException {
+	public void toApp(Message message, SessionID sessionId) throws DoNotSend, FieldException {
 
 		try {
 			printMessage("toApp", sessionId, message);
@@ -151,7 +162,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 	@Override
 	public void fromAdmin(Message message, SessionID sessionId)
-			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon,FieldException {
+			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon, FieldException {
 
 		printMessage("fromAdmin-Input", sessionId, message);
 
@@ -160,25 +171,30 @@ public class AdapterIO extends MessageCracker implements Application {
 		} catch (UnsupportedMessageType e) {
 			e.printStackTrace();
 		}
-		
-//		if (message instanceof Reject ) {
-//
-//			printMessage("MENSAJE DE RECHAZO 3 ", sessionId, message);
-//
-//			try {
-//				Thread.sleep(3000);
-//				autoEngine.validar3(sessionId, message);
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			} catch (SessionNotFound e) {
-//				e.printStackTrace();
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
+		if (message instanceof Reject) {
+
+			try {
+				autoEngine.validar3(sessionId, message);
+			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
+				e.printStackTrace();
+			} catch (FieldNotFound e) {
+				e.printStackTrace();
+			}
+
+			try {
+				crack(message, sessionId);
+			} catch (UnsupportedMessageType e) {
+				e.printStackTrace();
+			} catch (FieldNotFound e) {
+				e.printStackTrace();
+			} catch (IncorrectTagValue e) {
+				e.printStackTrace();
+			}
+
+			System.out.println(
+					"*****************\n toAdmin - SALIDA : \n" + message + "\nPara la sessionId: " + sessionId);
+		}
+
 	}
 
 	@Override
@@ -190,7 +206,7 @@ public class AdapterIO extends MessageCracker implements Application {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		if (message instanceof QuoteRequestReject) {
 
 			try {
@@ -205,7 +221,7 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
-			} catch(FieldException e) {
+			} catch (FieldException e) {
 				e.printStackTrace();
 			}
 		}
@@ -226,7 +242,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}catch(quickfix.FieldException e) {
+			} catch (quickfix.FieldException e) {
 				e.printStackTrace();
 			}
 		}
@@ -249,7 +265,7 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}catch(quickfix.FieldException e) {
+			} catch (quickfix.FieldException e) {
 				e.printStackTrace();
 			}
 
@@ -267,7 +283,7 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}catch(quickfix.FieldException e) {
+			} catch (quickfix.FieldException e) {
 				e.printStackTrace();
 			}
 
@@ -309,7 +325,9 @@ public class AdapterIO extends MessageCracker implements Application {
 	public void onMessage(quickfix.fix44.QuoteStatusReport message, SessionID sessionID) throws FieldNotFound {
 
 	}
-	public void onMessage(quickfix.fix44.QuoteRequestReject message, SessionID sessionID) throws FieldNotFound,FieldException {
+
+	public void onMessage(quickfix.fix44.QuoteRequestReject message, SessionID sessionID)
+			throws FieldNotFound, FieldException {
 		printMessage("QuoteStatusRequest", sessionID, message);
 	}
 

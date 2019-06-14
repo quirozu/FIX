@@ -57,7 +57,7 @@ public class AutoEngine {
 			Thread.sleep(5000);
 			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
 			System.out.println("++++++++++++++++ SECUENCIA ++++++++ " + BasicFunctions.getIdCaseSeq());
-			if (caso<BasicFunctions.getIdCase()) {
+			if (caso < BasicFunctions.getIdCase()) {
 				Thread.sleep(5000);
 				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
 				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
@@ -415,8 +415,9 @@ public class AutoEngine {
 
 	}
 
-	public void validarAG(SessionID sessionId, Message message) throws SQLException, InterruptedException, SessionNotFound, IOException, FieldNotFound {
-		
+	public void validarAG(SessionID sessionId, Message message)
+			throws SQLException, InterruptedException, SessionNotFound, IOException, FieldNotFound {
+
 		System.out.println("*************************");
 		System.out.println("** INGRESA A validar AG **");
 		System.out.println("*************************");
@@ -429,27 +430,62 @@ public class AutoEngine {
 		// Eliminar Registro en Cache.
 		DataAccess.limpiarCache();
 
-			ejecutarSiguienteEscenario();
-			System.out.println("** CONTINUAR ***");
-		
+		ejecutarSiguienteEscenario();
+		System.out.println("** CONTINUAR ***");
 
 		System.out.println("*********** SALIENDO DE validarAI ************");
 	}
-	public void ejecutarSiguienteEscenario() throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
-		
-		int sec =BasicFunctions.getIdCase();
-		sec= sec +1;
-		System.out.println("+++++++++++++++++ "+sec);
-		String query = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos"
-				+ " WHERE ID_CASE= "+sec+" ORDER BY ID_CASESEQ ASC LIMIT 1;";
+
+	public void ejecutarSiguienteEscenario()
+			throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
+
+		int sec = BasicFunctions.getIdCase();
+		sec = sec + 1;
+		System.out.println("+++++++++++++++++ " + sec);
+		String query = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos" + " WHERE ID_CASE= " + sec
+				+ " ORDER BY ID_CASESEQ ASC LIMIT 1;";
 		System.out.println(query);
 		ResultSet resultset = DataAccess.getQuery(query);
-		while(resultset.next()) {
-		int cas =resultset.getInt("ID_CASESEQ");
-		System.out.println("+++++++++++++++++++++++++++++++ "+cas);
-		BasicFunctions.setIdCaseSeq(cas);
-		ejecutarSiguientePaso();
+		while (resultset.next()) {
+			int cas = resultset.getInt("ID_CASESEQ");
+			System.out.println("+++++++++++++++++++++++++++++++ " + cas);
+			BasicFunctions.setIdCaseSeq(cas);
+			ejecutarSiguientePaso();
 		}
+	}
+
+	public void validar3(SessionID sessionId, Message messageIn)
+
+			throws SQLException, InterruptedException, SessionNotFound, IOException, FieldNotFound {
+
+		System.out.println("*************************");
+
+		System.out.println("** INGRESA A VALIDAR 3 **");
+
+		System.out.println("*************************");
+
+		String sIdAfiliado = sessionId.toString().substring(8, 11);
+
+		AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
+
+		Validaciones validaciones = new Validaciones();
+
+		validaciones.validar3(datosCache, (quickfix.fix44.Message) messageIn);
+
+		// Eliminar Registro en Cache.
+
+		eliminarDatoCache(sIdAfiliado);
+
+		DataAccess.limpiarCache();
+
+		ejecutarSiguienteEscenario();
+
+		System.out.println("** CONTINUAR ***");
+
+		System.out.println("*********** SALIENDO DE VALIDAR 3 ************");
+
+		Thread.sleep(5000);
+
 	}
 
 }

@@ -11,6 +11,7 @@ import java.sql.Types;
 import java.util.LinkedList;
 
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
+import quickfix.FieldNotFound;
 import quickfix.Message;
 
 public class DataAccess {
@@ -21,7 +22,7 @@ public class DataAccess {
 	private static String HOST;
 	private static String PORT;
 	private static Connection conn = null;
-	
+
 	public static Connection getConnection() {
 		try {
 			if (conn == null) {
@@ -58,10 +59,10 @@ public class DataAccess {
 
 	public static int getFirstIdCaseSeq(int escenarioEjecucion) throws SQLException {
 
-		String queryInicio = "SELECT ID_CASESEQ FROM bvc_automation_db.aut_fix_rfq_datos"
-				+ " WHERE ID_CASE= "+escenarioEjecucion+" ORDER BY ID_CASESEQ ASC LIMIT 1";
+		String queryInicio = "SELECT ID_CASESEQ FROM bvc_automation_db.aut_fix_rfq_datos" + " WHERE ID_CASE= "
+				+ escenarioEjecucion + " ORDER BY ID_CASESEQ ASC LIMIT 1";
 		System.out.println(queryInicio);
-		
+
 		ResultSet rs = DataAccess.getQuery(queryInicio);
 		int idCaseSeq = -1;
 
@@ -113,7 +114,8 @@ public class DataAccess {
 	public static AutFixRfqDatosCache obtenerCache(String sessionRec) throws SQLException, InterruptedException {
 		Thread.sleep(5000);
 		AutFixRfqDatosCache datosCache = null;
-		String queryInicio = "SELECT * FROM bvc_automation_db.aut_fix_rfq_cache WHERE RECEIVER_SESSION = '" + sessionRec+"'" ;
+		String queryInicio = "SELECT * FROM bvc_automation_db.aut_fix_rfq_cache WHERE RECEIVER_SESSION = '" + sessionRec
+				+ "'";
 		ResultSet rs = DataAccess.getQuery(queryInicio);
 		System.out.println("RS " + rs);
 
@@ -192,11 +194,39 @@ public class DataAccess {
 
 		if (cantidadEscenarios > 0) {
 			return false;
-		}else {
+		} else {
 
-		return true;
+			return true;
 		}
 	}
 
+	public static void cargarLogs3(Message message, long ID_EJECUCION, String idEscenario, String idCase,
+			int idSecuencia) throws SQLException, FieldNotFound {
+
+		PreparedStatement ps = conn.prepareStatement(
+
+				"INSERT INTO `bvc_automation_db`.`aut_log_ejecucion`(`ID_EJECUCION`, `ID_ESCENARIO`, `COD_CASO`, `ID_SECUENCIA`, `FECHA_EJECUCION`, `ESTADO_EJECUCION`, `DESCRIPCION_VALIDACION`, `MENSAJE`, `CODIGO_ERROR`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+		ps.setLong(1, ID_EJECUCION);
+
+		ps.setString(2, idEscenario);
+
+		ps.setString(3, idCase);
+
+		ps.setInt(4, idSecuencia);
+
+		ps.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
+
+		ps.setString(6, "FALLIDO");
+
+		ps.setString(7, message.getString(58));
+
+		ps.setString(8, message.toString());
+
+		ps.setNull(9, Types.INTEGER);
+
+		ps.executeUpdate();
+
+	}
 
 }
