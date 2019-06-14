@@ -7,10 +7,6 @@ import java.util.List;
 
 import quickfix.Message;
 
-/**
- * @author yuliet.chavarria
- *
- */
 public class RespuestaConstrucccionMsgFIX {
 	
 	private Message message;

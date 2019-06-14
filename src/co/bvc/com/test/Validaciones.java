@@ -1111,51 +1111,29 @@ public class Validaciones {
 				String mensajeS = BasicFunctions.getIdEjecution() + "" + datosCache.getIdCase() + "_S";
 				String mensajeAJ = BasicFunctions.getIdEjecution() + "" + datosCache.getIdCase() + "_AJ";
 				
-				
-				System.out.println(" INICIADOR "+ BasicFunctions.getIniciator() + " MENSAJE S " + mensajeS + " MENSAJE AJ " + mensajeAJ
-						+ " TARGETCOMID " + qr.getHeader().getString(TargetCompID.FIELD) + "GETSTRING (11) " + qr.getString(11));
-				
-				if (qr.getHeader().getString(TargetCompID.FIELD).equals(BasicFunctions.getIniciator())) {
-					System.out.println(" ************************ PRIMER IF ***************** ");
-					
+				if (qr.getHeader().getString(TargetCompID.FIELD).equals(BasicFunctions.getIniciator())) {			
 					if (qr.getString(11).equals(mensajeAJ)) {
-						System.out.println("********************** SEGUNDO IF *********************");
+
 						DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), mensajeAJ,
 								cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 					} else {
-						System.out.println("********************** ELSE PRIMER IF *********************");
 						DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), mensajeAJ,
 								cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 					}
 
 				} else {
 					if (qr.getString(11).equals(mensajeS)) {
-						System.out.println("********************** ELSE TERCER IF *********************");
 						DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), mensajeS,
 								cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+						
 					} else {
-						System.out.println("********************** ELSE CUARTO IF *********************");
 						DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), mensajeS,
 								cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+						
 					}
 
 				}
-//				
-//				if (cad.get(i).split("=")[1].equals(ciordId)) {
-//
-//					contadorBuenos++;
-//
-//					cadenaDeMensaje("RQ_TRADER", valor, ciordId);
-//
-//					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), ciordId, cad.get(i).split("=")[1],
-//							idEscenario, idCase, idSecuencia, valor);
-//				} else {
-//					System.out
-//							.println(" RQ_TRADER (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + ciordId);
-//					contadorMalos++;
-//					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), ciordId, cad.get(i).split("=")[1],
-//							idEscenario, idCase, idSecuencia, valor);
-//				}
+				
 				break;
 			case "57":
 				if (cad.get(i).split("=")[1].equals(targetSubId)) {
@@ -1176,7 +1154,6 @@ public class Validaciones {
 				break;
 			case "56":
 				if (cad.get(i).split("=")[1].equals(targetComId)) {
-					validarParties8(datosCache, qr);
 					contadorBuenos++;
 
 					cadenaDeMensaje("ID_AFILIADO", valor, targetComId);
@@ -1228,8 +1205,6 @@ public class Validaciones {
 					contadorBuenos++;
 
 					cadenaDeMensaje("ER_EXECTYPE", valor, execType);
-//					System.out.println(
-//							"iguales:  Execution Report(150): " + cad.get(i).split("=")[1] + " bd: " + execType);
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), execType, cad.get(i).split("=")[1],
 							idEscenario, idCase, idSecuencia, valor);
 				} else {
@@ -1245,8 +1220,6 @@ public class Validaciones {
 					contadorBuenos++;
 
 					cadenaDeMensaje("ER_ORDSTATUS", valor, orderStatus);
-//					System.out.println(
-//							"iguales:  Execution Report(39): " + cad.get(i).split("=")[1] + " bd: " + orderStatus);
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), orderStatus,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
@@ -1459,44 +1432,6 @@ public class Validaciones {
 		System.out.println("LAS VALIDACIONES ERRADAS FUERON : " + contadorMalos);
 		System.out.println("TOTAL VALIDACIONES REALIZADAS : " + (contadorBuenos + contadorMalos));
 
-	}
-
-	public void validarParties8(AutFixRfqDatosCache datosCache, Message message) throws FieldNotFound, SQLException {
-
-//		System.out.println("+++++++++++++++++++++SI ENTRO A VALIDAR EL 11++++++++++++++++++++");
-
-//		String idAfiliadoMessage = message.getString(56);
-//		System.out.println(idAfiliadoMessage +"  "+ BasicFunctions.getIniciator());
-//		if (idAfiliadoMessage.equals(BasicFunctions.getIniciator())) {
-//			System.out.println("+++++++++++++++++++++SI ENTRO A VALIDAR EL 111++++++++++++++++++++");
-//			if (message.getString(11).equals(BasicFunctions.getIdEjecution() + datosCache.getIdCase() + "_AJ")) {
-//				System.out.println("+++++++++++++++++++++SI ENTRO A VALIDAR EL 112++++++++++++++++++++");
-//				DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(),
-//						BasicFunctions.getIdEjecution() + datosCache.getIdCase() + "_AJ", message.getString(11),
-//						"" + BasicFunctions.getEscenarioPrueba(), " " + datosCache.getIdCase(),
-//						datosCache.getIdSecuencia(), "11");
-//			} else {
-//				DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(),
-//						BasicFunctions.getIdEjecution() + datosCache.getIdCase() + "_AJ", message.getString(11),
-//						"" + BasicFunctions.getEscenarioPrueba(), " " + datosCache.getIdCase(),
-//						datosCache.getIdSecuencia(), "11");
-//			}
-//
-//		} else {
-//			if (message.getString(11).equals(BasicFunctions.getIdEjecution() + datosCache.getIdCase() + "_S")) {
-//
-//				DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(),
-//						BasicFunctions.getIdEjecution() + datosCache.getIdCase() + "_S", message.getString(11),
-//						"" + BasicFunctions.getEscenarioPrueba(), " " + datosCache.getIdCase(),
-//						datosCache.getIdSecuencia(), "11");
-//			} else {
-//				DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(),
-//						BasicFunctions.getIdEjecution() + datosCache.getIdCase() + "_S", message.getString(11),
-//						"" + BasicFunctions.getEscenarioPrueba(), " " + datosCache.getIdCase(),
-//						datosCache.getIdSecuencia(), "11");
-//			}
-//
-//		}
 	}
 
 	public void validarZ(AutFixRfqDatosCache datosCache, Message qr) throws SQLException {

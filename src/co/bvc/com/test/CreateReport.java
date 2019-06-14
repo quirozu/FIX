@@ -20,14 +20,10 @@ public class CreateReport {
 	@SuppressWarnings("static-access")
 	public static void maina() throws SQLException, IOException {
 
-		// Connection connection = null;
-		// DB_Connection obj_DB_Connection=new();
-		// connection=obj_DB_Connection.getConnection();
-
 		ResultSet rs = null;
 
 		String query = "SELECT ID_EJECUCION, ID_ESCENARIO, COD_CASO, ID_SECUENCIA, ESTADO_EJECUCION, DESCRIPCION_VALIDACION, MENSAJE, CODIGO_ERROR, DESC_ERROR FROM bvc_automation_db.aut_log_ejecucion logEjec LEFT JOIN `bvc_automation_db`.`aut_fix_rfq_codigo_error` codError on logEjec.CODIGO_ERROR = codError.ID_CODIGO WHERE ID_ESCENARIO LIKE \"%FIX%\" AND ID_EJECUCION = (SELECT max(ID_EJECUCION) FROM bvc_automation_db.aut_log_ejecucion WHERE ID_ESCENARIO LIKE \"%FIX%\") ORDER BY COD_CASO ASC, ID_SECUENCIA ASC;";
-		// PreparedStatement ps = connection.prepareStatement(query);
+
 		try {
 			rs = conexiona.getQuery(query);
 		} catch (SQLException e) {

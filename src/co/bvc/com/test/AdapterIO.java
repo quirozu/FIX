@@ -71,47 +71,22 @@ public class AdapterIO extends MessageCracker implements Application {
 				ArrayList<String> listUsers = new ArrayList<String>();
 				ArrayList<String> listPass = new ArrayList<String>();
 				ArrayList<String> listID = new ArrayList<String>();
-
-				ResultSet resultSet = DataAccess.getQuery("select A.USUARIO , A.CLAVE, A.ID_USUARIO\r\n"
-						+ "from bvc_automation_db.AUT_USUARIO A\r\n"
-						+ "inner join bvc_automation_db.aut_negociadores B\r\n" + "on A.ID_USUARIO = B.ID_USUARIO ");
-				while (resultSet.next()) {
-					listUsers.add(resultSet.getString("USUARIO"));
-					listPass.add(resultSet.getString("CLAVE"));
-					listID.add(resultSet.getString("ID_USUARIO"));
+				
+				String queryDatosTrader = "SELECT A.USUARIO , A.CLAVE, A.ID_USUARIO, B.NOM_USUARIO " + 
+						" FROM bvc_automation_db.AUT_USUARIO A INNER JOIN bvc_automation_db.aut_fix_rfq_aux_con B " + 
+						" ON A.ID_USUARIO = B.ID_USUARIO WHERE A.ESTADO = 'A' AND A.PERFIL_USUARIO = 'FIXCONNECTOR';";
+				
+				System.out.println(queryDatosTrader);
+				
+				ResultSet resultSet = DataAccess.getQuery(queryDatosTrader);
+				
+				while(resultSet.next()) {
+					if(resultSet.getString("NOM_USUARIO").equals(negociador)) {
+						message.setField(new Username(resultSet.getString("USUARIO")));
+						message.setField(new Password(resultSet.getString("CLAVE")));
+					}
 				}
-
-				switch (negociador) {
-				case "001B27":
-					System.out.println("User: " + listUsers.get(0));
-					message.setField(new Username(listUsers.get(0)));
-					message.setField(new Password(listPass.get(0)));
-					break;
-				case "002B35":
-					System.out.println("User: " + listUsers.get(1));
-					message.setField(new Username(listUsers.get(1)));
-					message.setField(new Password(listPass.get(1)));
-					break;
-				case "007B26":
-					System.out.println("User: " + listUsers.get(5));
-					message.setField(new Username(listUsers.get(5)));
-					message.setField(new Password(listPass.get(5)));
-					break;
-
-				case "010BWN":
-					System.out.println("User: " + listUsers.get(2));
-					message.setField(new Username(listUsers.get(2)));
-					message.setField(new Password(listPass.get(2)));
-					break;
-				case "013B17":
-					System.out.println("User: " + listUsers.get(3));
-					message.setField(new Username(listUsers.get(3)));
-					message.setField(new Password(listPass.get(3)));
-					break;
-				default:
-					break;
-				}
-
+				
 			} catch (FieldNotFound e) {
 				e.printStackTrace();
 			} catch (SQLException e) {

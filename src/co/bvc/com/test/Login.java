@@ -36,10 +36,6 @@ public class Login {
 		return mapSessiones.get(afiliado);
 	}
 
-//	public void setSessionID(String sessionID) {
-//		SessionID = sessionID;
-//	}
-
 	public void initiation() {
 
 		application = BasicFunctions.getAdapterIO();
@@ -53,7 +49,7 @@ public class Login {
 				mapSessiones.put(sessionID1.getSenderCompID(), sessionID1);
 				// BasicFunctions.logon(sessionID1);
 				System.out.println(
-						"SESSION ADICIONADA. CLAVE: " + sessionID1.getSenderCompID() + " VALOR: " + sessionID1);
+						"SESSION ADICIONADA. " + sessionID1.getSenderCompID() + " : " + sessionID1);
 			}
 
 			sessionID2 = startSession("sessionSettings2_35.cfg");
@@ -65,7 +61,7 @@ public class Login {
 				mapSessiones.put(sessionID2.getSenderCompID(), sessionID2);
 
 				System.out.println(
-						"SESSION ADICIONADA. CLAVE: " + sessionID2.getSenderCompID() + " VALOR: " + sessionID2);
+						"SESSION ADICIONADA. " + sessionID2.getSenderCompID() + " : " + sessionID2);
 			}
 
 			sessionID3 = startSession("sessionSettings2_37.cfg");
@@ -73,11 +69,9 @@ public class Login {
 				System.out.println("Conexi�n 3 errada");
 			} else {
 				Session.lookupSession(sessionID3).logon();
-
 				mapSessiones.put(sessionID3.getSenderCompID(), sessionID3);
-
 				System.out.println(
-						"SESSION ADICIONADA. CLAVE: " + sessionID3.getSenderCompID() + " VALOR: " + sessionID3);
+						"SESSION ADICIONADA. " + sessionID3.getSenderCompID() + " : " + sessionID3);
 			}
 
 			sessionID4 = startSession("sessionSettings1_19.cfg");
@@ -89,7 +83,7 @@ public class Login {
 				mapSessiones.put(sessionID4.getSenderCompID(), sessionID4);
 
 				System.out.println(
-						"SESSION ADICIONADA. CLAVE: " + sessionID4.getSenderCompID() + " VALOR: " + sessionID4);
+						"SESSION ADICIONADA. " + sessionID4.getSenderCompID() + " : " + sessionID4);
 			}
 
 			sessionID5 = startSession("sessionSettings1_20.cfg");
@@ -101,7 +95,7 @@ public class Login {
 				mapSessiones.put(sessionID5.getSenderCompID(), sessionID5);
 
 				System.out.println(
-						"SESSION ADICIONADA. CLAVE: " + sessionID5.getSenderCompID() + " VALOR: " + sessionID5);
+						"SESSION ADICIONADA. " + sessionID5.getSenderCompID() + " : " + sessionID5);
 			}
 
 			System.out.println("************************************");

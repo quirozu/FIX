@@ -76,15 +76,6 @@ public class BasicFunctions {
 		BasicFunctions.login = login;
 	}
 	
-
-//	public static String getQuoteReqId() {
-//		return quoteReqId;
-//	}
-//
-//	public static void setQuoteReqId(String quoteReqId) {
-//		BasicFunctions.quoteReqId = quoteReqId;
-//	}
-	
 	// Metodo de QuoteReqId
 	public static void addQuoteReqId(String k, String v) {
 		BasicFunctions.quoteReqId.put(k, v);
@@ -141,14 +132,6 @@ public class BasicFunctions {
 	public static void setAdapterIO(AdapterIO adapterIO) {
 		BasicFunctions.adapterIO = adapterIO;
 	}
-	
-//	public static RespuestaConstrucccionMsgFIX getCache() {
-//		return cache;
-//	}
-//
-//	public static void setCache(RespuestaConstrucccionMsgFIX cache) {
-//		BasicFunctions.cache = cache;
-//	}
 
 	public static int getEscenarioPrueba() {
 		return escenarioPrueba;

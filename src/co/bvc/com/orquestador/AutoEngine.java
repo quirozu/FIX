@@ -100,7 +100,6 @@ public class AutoEngine {
 				datosCache.setIdCase(resultSet.getInt("ID_CASE"));
 				datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
 				datosCache.setEstado(resultSet.getString("ESTADO"));
-				// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
 				datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
 				datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
 
@@ -139,7 +138,6 @@ public class AutoEngine {
 				datosCache.setIdCase(resultSet.getInt("ID_CASE"));
 				datosCache.setIdSecuencia(resultSet.getInt("ID_SECUENCIA"));
 				datosCache.setEstado(resultSet.getString("ESTADO"));
-				// datosCache.setFixQuoteReqId(resultSet.getString("FIX_QUOTE_REQ_ID"));
 				datosCache.setIdAfiliado(resultSet.getString("ID_AFILIADO"));
 				datosCache.setIdEjecucion(BasicFunctions.getIdEjecution());
 
@@ -270,8 +268,6 @@ public class AutoEngine {
 			// getcache
 			AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
 			validaciones.ValidarRPrima(datosCache, (quickfix.fix44.Message) messageIn);
-
-//		IdContraFirm = IdContraFirm.substring(0, 3);
 
 			// Eliminar Registro en Cache.
 			eliminarDatoCache(IdContraFirm);

@@ -45,7 +45,6 @@ public class ParametersRead {
         br = new BufferedReader(fr);
         String linea;
         while((linea=br.readLine())!=null) 
-//        	System.out.println(linea);
         return linea;
      }
      catch(Exception e){
