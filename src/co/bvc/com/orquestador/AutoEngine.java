@@ -58,6 +58,7 @@ public class AutoEngine {
 			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
 			System.out.println("++++++++++++++++ SECUENCIA ++++++++ " + BasicFunctions.getIdCaseSeq());
 			if (caso<BasicFunctions.getIdCase()) {
+				Thread.sleep(5000);
 				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
 				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
 				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
@@ -428,25 +429,27 @@ public class AutoEngine {
 		// Eliminar Registro en Cache.
 		DataAccess.limpiarCache();
 
-		if (DataAccess.validarContinuidadEjecucion()) {
 			ejecutarSiguienteEscenario();
 			System.out.println("** CONTINUAR ***");
-		} else {
-			System.out.println("**** ESPERAR ****");
-		}
+		
 
 		System.out.println("*********** SALIENDO DE validarAI ************");
 	}
 	public void ejecutarSiguienteEscenario() throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
 		
-		int sec =BasicFunctions.getIdCase() + 1;
-		String query = "SELECT ID_CASESEQ FROM bvc_automation_db.aut_fix_rfq_datos"
+		int sec =BasicFunctions.getIdCase();
+		sec= sec +1;
+		System.out.println("+++++++++++++++++ "+sec);
+		String query = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos"
 				+ " WHERE ID_CASE= "+sec+" ORDER BY ID_CASESEQ ASC LIMIT 1;";
-		
+		System.out.println(query);
 		ResultSet resultset = DataAccess.getQuery(query);
-		
-		BasicFunctions.setIdCaseSeq(resultset.getInt("ID_CASESEQ"));
+		while(resultset.next()) {
+		int cas =resultset.getInt("ID_CASESEQ");
+		System.out.println("+++++++++++++++++++++++++++++++ "+cas);
+		BasicFunctions.setIdCaseSeq(cas);
 		ejecutarSiguientePaso();
+		}
 	}
 
 }

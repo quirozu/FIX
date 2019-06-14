@@ -309,6 +309,9 @@ public class AdapterIO extends MessageCracker implements Application {
 	public void onMessage(quickfix.fix44.QuoteStatusReport message, SessionID sessionID) throws FieldNotFound {
 
 	}
+	public void onMessage(quickfix.fix44.QuoteRequestReject message, SessionID sessionID) throws FieldNotFound,FieldException {
+		printMessage("QuoteStatusRequest", sessionID, message);
+	}
 
 	public void onMessage(quickfix.fix44.QuoteRequest message, SessionID sessionID) throws FieldNotFound {
 

@@ -1591,9 +1591,9 @@ public class Validaciones {
 		int idSecuencia = 0;
 		while (resultset.next()) {
 
-			targetCompId = resultset.getString("RQ_TARGET_COMP_ID");
-			targetSubId = resultset.getString("RC_TARGET_SUB_ID");
-			securitySubType = resultset.getString("RQ_SECURITY_SUB_TYPE");
+			targetCompId = resultset.getString("ID_AFILIADO");
+			targetSubId = resultset.getString("RQ_TRADER");
+			securitySubType = resultset.getString("RS_SECSUBTYPE");
 			idEscenario = resultset.getString("ID_ESCENARIO");
 			idCase = resultset.getString("ID_CASE");
 
@@ -1642,12 +1642,12 @@ public class Validaciones {
 				if (cad.get(i).split("=")[1].equals(targetCompId)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" RQ_TARGET_COMP_ID", valor, targetCompId);
+					cadenaDeMensaje(" ID_AFILIADO", valor, targetCompId);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), targetCompId,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
-					System.out.println(" RQ_TARGET_COMP_ID (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
+					System.out.println(" ID_AFILIADO (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
 							+ targetCompId);
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), targetCompId,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
@@ -1659,12 +1659,12 @@ public class Validaciones {
 				if (cad.get(i).split("=")[1].equals(targetSubId)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" RC_TARGET_SUB_ID", valor, targetSubId);
+					cadenaDeMensaje(" RQ_TRADER", valor, targetSubId);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), targetSubId,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
-					System.out.println(" RC_TARGET_SUB_ID (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
+					System.out.println(" RQ_TRADER (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
 							+ targetSubId);
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), targetSubId,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
@@ -1676,12 +1676,12 @@ public class Validaciones {
 				if (cad.get(i).split("=")[1].equals(securitySubType)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" RQ_SECURITY_SUB_TYPE", valor, securitySubType);
+					cadenaDeMensaje(" RS_SECSUBTYPE", valor, securitySubType);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), securitySubType,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
-					System.out.println(" RQ_SECURITY_SUB_TYPE (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
+					System.out.println(" RS_SECSUBTYPE (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
 							+ securitySubType);
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), securitySubType,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
