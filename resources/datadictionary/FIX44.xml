@@ -373,18 +373,16 @@
       <component name="YieldData" required="N"/>
 	 -->
     </message>
-    <message name="QuoteRequestReject" msgtype="AG" msgcat="app">
+  <message name="QuoteRequestReject" msgtype="AG" msgcat="app">
      <field name="QuoteReqID" required="Y"/>
      <field name="QuoteRequestRejectReason" required="Y"/>
-	 <!--  group name="QuoteReqRjctGrp" required="Y"> -->
 	 <group name="NoRelatedSym" required="Y">
 		<component name="Instrument" required="Y"/>
-		
+		<field name="OrderQty" required="N"/>
 	 </group>
-	 <!--   field name="OrderQty" required="Y"/ -->
-	 <!--  /group> -->
+	 
 	 <field name="Text" required="N"/>
-    </message>
+  </message>
     <message name="RFQRequest" msgtype="AH" msgcat="app">
       <field name="RFQReqID" required="Y"/>
       <group name="NoRelatedSym" required="Y">
