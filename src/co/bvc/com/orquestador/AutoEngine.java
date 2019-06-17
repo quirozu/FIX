@@ -25,13 +25,13 @@ public class AutoEngine {
 	CreateMessage createMesage = new CreateMessage();
 
 	// metodo que inicia la ejecucion
-	public void iniciarEjecucion(int escenarioEjecucion)
+	public void iniciarEjecucion(int escenarioEjecucion, int escenarioFinal)
 			throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
 
 		BasicFunctions.createConn();
 		int firsIdCaseSec = BasicFunctions.getFirtsIdCaseSeq(escenarioEjecucion);
 		BasicFunctions.setEscenarioPrueba(escenarioEjecucion);
-
+		BasicFunctions.setEscenarioFinal(escenarioFinal);
 		if (firsIdCaseSec > 0) {
 			BasicFunctions.startVariables();
 			BasicFunctions.createLogin();
@@ -42,10 +42,12 @@ public class AutoEngine {
 		}
 	}
 
-	int caso = BasicFunctions.getEscenarioPrueba();
+	
 
 	public void ejecutarSiguientePaso()
 			throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
+		
+		int caso = BasicFunctions.getEscenarioFinal();
 		Thread.sleep(5000);
 		System.out.println("ID_CASESEQ: " + BasicFunctions.getIdCaseSeq());
 		ResultSet rsDatos = DataAccess.datosMensaje(BasicFunctions.getIdCaseSeq());
@@ -53,18 +55,21 @@ public class AutoEngine {
 
 			BasicFunctions.setIdCase(rsDatos.getInt("ID_CASE"));
 			System.out.println("Continua con el siguiente paso.");
-			enviarMensaje(rsDatos);
-			Thread.sleep(5000);
-			BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
-			System.out.println("++++++++++++++++ SECUENCIA ++++++++ " + BasicFunctions.getIdCaseSeq());
+			System.out.println("************************** " + caso);
+
 			if (caso < BasicFunctions.getIdCase()) {
 				Thread.sleep(5000);
 				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
 				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
 				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
 				caso++;
-				System.out.println("Generar reporte....");
+				System.out.println("GENERAR REPORTE....");
 				CreateReport.maina();
+			} else {
+				enviarMensaje(rsDatos);
+				Thread.sleep(5000);
+				BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
+				System.out.println("++++++++++++++++ SECUENCIA ++++++++ " + BasicFunctions.getIdCaseSeq());
 			}
 
 		}
@@ -193,7 +198,6 @@ public class AutoEngine {
 			for (String session : respConstruccion.getListSessiones()) {
 
 				// Construir mensaje a cache.
-				System.out.println("\n************************ INGRESA AL FOR \n************************ " + session);
 				datosCache.setReceiverSession(session);
 				datosCache.setIdCaseseq(resultSet.getInt("ID_CASESEQ"));
 				datosCache.setIdCase(resultSet.getInt("ID_CASE"));
@@ -205,7 +209,6 @@ public class AutoEngine {
 
 				cargarCache(datosCache);
 
-				System.out.println("\n************************ SALE DEL FOR \n************************");
 			}
 
 			Session.sendToTarget(respConstruccion.getMessage(), Login.getSessionOfAfiliado(idAfiliado));
@@ -250,7 +253,7 @@ public class AutoEngine {
 		// Obtener el ID_AFILIADO de la session.
 		String IdContraFirm = sessionId.toString().substring(8, 11);
 		Validaciones validaciones = new Validaciones();
-
+		Thread.sleep(5000);
 		// Se valida si R_prima llega al mismo iniciador
 		String targetCompId = messageIn.getHeader().getString(TargetCompID.FIELD);
 		System.out.println("TARGET COMP ID: " + targetCompId + " IDCONTRAFIRM: " + IdContraFirm + "INICIADOR "

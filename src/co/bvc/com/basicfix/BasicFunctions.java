@@ -9,7 +9,6 @@ import java.util.Map;
 import co.bvc.com.test.AdapterIO;
 import co.bvc.com.test.Login;
 
-
 public class BasicFunctions {
 
 	private static Connection conn;
@@ -24,10 +23,18 @@ public class BasicFunctions {
 	private static int escenarioPrueba;
 	private static String iniciator;
 	private static String receptor;
+	private static int escenarioFinal;
+
+	public static int getEscenarioFinal() {
+		return escenarioFinal;
+	}
+
+	public static void setEscenarioFinal(int escenarioFinal) {
+		BasicFunctions.escenarioFinal = escenarioFinal;
+	}
+
 	private static boolean allMarket = false;
-	
-//	private static RespuestaConstrucccionMsgFIX cache;
-	
+
 	public static String getReceptor() {
 		return receptor;
 	}
@@ -75,16 +82,16 @@ public class BasicFunctions {
 	public static void setLogin(Login login) {
 		BasicFunctions.login = login;
 	}
-	
+
 	// Metodo de QuoteReqId
 	public static void addQuoteReqId(String k, String v) {
 		BasicFunctions.quoteReqId.put(k, v);
 	}
-	
+
 	public static String getQuoteReqIdOfAfiliado(String afiliado) {
 		return BasicFunctions.quoteReqId.get(afiliado);
 	}
-	
+
 	public static void setQuoteReqId(Map<String, String> quoteReqId) {
 		BasicFunctions.quoteReqId = quoteReqId;
 	}
@@ -92,7 +99,7 @@ public class BasicFunctions {
 	public static Map<String, String> getQuoteReqId() {
 		return quoteReqId;
 	}
-	
+
 	public static String getQuoteIdGenered() {
 		return quoteIdGenered;
 	}
@@ -142,7 +149,8 @@ public class BasicFunctions {
 	}
 
 	/**
-	 * Crea la conexi�n a la db y se la asigna a la variable conn de BasicFunctions
+	 * Crea la conexi�n a la db y se la asigna a la variable conn de
+	 * BasicFunctions
 	 * 
 	 * @return
 	 */
@@ -166,7 +174,7 @@ public class BasicFunctions {
 	public static void createLogin() {
 		if (BasicFunctions.adapterIO == null) {
 			BasicFunctions.adapterIO = new AdapterIO();
-		
+
 		}
 
 		if (BasicFunctions.login == null) {
@@ -181,23 +189,25 @@ public class BasicFunctions {
 		System.out.println("ID_EJECUCION GENERADO : " + id_ejecution);
 
 		BasicFunctions.setIdEjecution(id_ejecution);
-		
+
 	}
-	
+
 	public static int getFirtsIdCaseSeq(int escenarioEjecucion) throws SQLException {
 		int firstIdDB = DataAccess.getFirstIdCaseSeq(escenarioEjecucion);
 		return firstIdDB;
 	}
 
-	
 	public static void imprimir(String vari) {
-		System.out.println("\n#####################\nCLASE: "+ vari.getClass()+ "VARIABLE: "+ vari + "\n#####################");
+		System.out.println(
+				"\n#####################\nCLASE: " + vari.getClass() + "VARIABLE: " + vari + "\n#####################");
 	}
+
 	public static void imprimir(int vari) {
-		System.out.println("\n#####################\nVARIABLE ENTERA: "+ vari + "\n#####################");
+		System.out.println("\n#####################\nVARIABLE ENTERA: " + vari + "\n#####################");
 	}
+
 	public static void imprimir(boolean vari) {
-		System.out.println("\n#####################\nVARIABLE BOOLEAN: "+ vari + "\n#####################");
+		System.out.println("\n#####################\nVARIABLE BOOLEAN: " + vari + "\n#####################");
 	}
 
 }

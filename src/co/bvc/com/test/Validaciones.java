@@ -3,11 +3,19 @@ package co.bvc.com.test;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import co.bvc.com.basicfix.BasicFunctions;
 import co.bvc.com.basicfix.DataAccess;
 import co.bvc.com.dao.domain.AutFixRfqDatosCache;
 import quickfix.FieldNotFound;
+import quickfix.Group;
+import quickfix.field.NoPartyIDs;
+import quickfix.field.PartyID;
+import quickfix.field.PartyRole;
 import quickfix.field.TargetCompID;
 import quickfix.fix44.Message;
 
@@ -939,10 +947,10 @@ public class Validaciones {
 
 	}
 
-	public void validarOcho(AutFixRfqDatosCache datosCache, Message qr) throws SQLException, FieldNotFound {
+	public void validarOcho(AutFixRfqDatosCache datosCache, Message message) throws SQLException, FieldNotFound {
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
-		String cadena = "" + qr;
+		String cadena = "" + message;
 		ResultSet resultset;
 		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
 				+ datosCache.getIdCaseseq();
@@ -950,7 +958,7 @@ public class Validaciones {
 		resultset = DataAccess.getQuery(queryMessageR);
 
 		ArrayList<String> cad = FragmentarCadena(cadena);
-		String valor;
+		String etiquetaFix, valorFix;
 		String execType = null, orderStatus = null, side = null, leaveQty = null, orderQty = null, price = null,
 				grosstradeamt = null, nopartyIds = null, secSubtype = null, reforderIdsCr = null, symbol = null,
 				SenderCompID = "EXC", beginString = "FIX.4.4", SecurityIDSource = "M", senderSubId = null,
@@ -958,6 +966,13 @@ public class Validaciones {
 				targetSubId = null, ciordId = null, execId = null, orderId = null, reforderId = null, cumQTy = null,
 				fillYield = null, trdmatchId = null;
 		int idSecuencia = 0;
+		
+		//Valores para grupos repetitivos de parties
+		String setLocVal = null, execFirmVal = null, execTraderVal = null, contraTraderVal = null, contraFirmVal = null, enterTraderVal = null, enterTraderVal1 = null;
+		int setLoc = 0, execFirm = 0, execTrader = 0, contraTrader = 0, contraFirm = 0, enterTrader = 0;
+				
+		// String ER_SETTLOCVAL 10, ER_EXECFIRMVAL 1, ER_EXECTRADERVAL 12, ER_CONTRATRADERVAL 37, ER_CONTRAFIRMVAL 17, ER_ENTERTRADERVAL 36
+				
 		while (resultset.next()) {
 			cumQTy = resultset.getString("ER_CUMQTY");
 			ciordId = resultset.getString("ER_CLORDID");
@@ -985,125 +1000,159 @@ public class Validaciones {
 			fillYield = resultset.getString("ER_FILLYIELD");
 			trdmatchId = resultset.getString("ER_TRMATCHID");
 			idEscenario = "FIX_8";
+			
+			//Si la session es la del iniciador
+			if(message.getHeader().getString(TargetCompID.FIELD).equals(BasicFunctions.getIniciator())) {
+				
+				execFirm	 	= resultset.getInt("ER_EXECFIRM"); // 1
+				execFirmVal 	= resultset.getString("ER_EXECFIRMVAL"); 
+				setLoc	 		= resultset.getInt("ER_SETTLOC"); //10
+				setLocVal 		= resultset.getString("ER_SETTLOCVAL"); 
+				execTrader	 	= resultset.getInt("ER_EXECTRADER"); // 12
+				execTraderVal 	= resultset.getString("ER_EXECTRADERVAL"); 
+				contraFirm	 	= resultset.getInt("ER_CONTRAFIRM"); // 17
+				contraFirmVal 	= resultset.getString("ER_CONTRAFIRMVAL"); 
+				enterTrader	 	= resultset.getInt("ER_ENTERTRADER"); // 36
+				enterTraderVal 	= resultset.getString("ER_ENTERTRADERVAL"); 
+				contraTrader	= resultset.getInt("ER_CONTRATRADER"); // 37
+				contraTraderVal = resultset.getString("ER_CONTRATRADERVAL");
+			
+			} else { 
+				// Si la session no es la del iniciador se invierten firma y trader por contrafirma y contratrader respectivamente.
+				execFirm	 	= resultset.getInt("ER_EXECFIRM"); // 1
+				execFirmVal 	= resultset.getString("ER_CONTRAFIRMVAL"); 
+				setLoc	 		= resultset.getInt("ER_SETTLOC"); //10
+				setLocVal 		= resultset.getString("ER_SETTLOCVAL"); 
+				execTrader	 	= resultset.getInt("ER_EXECTRADER"); // 12
+				execTraderVal 	= resultset.getString("ER_CONTRATRADERVAL");
+				contraFirm	 	= resultset.getInt("ER_CONTRAFIRM"); // 17
+				contraFirmVal 	= resultset.getString("ER_EXECFIRMVAL"); 
+				enterTrader	 	= resultset.getInt("ER_ENTERTRADER"); // 36
+				enterTraderVal 	= resultset.getString("ER_ENTERTRADERVAL1"); 
+				contraTrader	= resultset.getInt("ER_CONTRATRADER"); // 37	
+				contraTraderVal = resultset.getString("ER_EXECTRADERVAL"); 
+			}
+				
 
 		}
 		System.out.println("----------------------------------------");
 		System.out.println(" VALIDACION DEL EXECUTION REPORT\n ");
 
 		for (int i = 0; i < cad.size(); i++) {
-			valor = cad.get(i).split("=")[0];
-			switch (valor) {
+			etiquetaFix = cad.get(i).split("=")[0];
+			valorFix = cad.get(i).split("=")[1];
+			switch (etiquetaFix) {
 			case "880":
-				if (cad.get(i).split("=")[1].equals(trdmatchId)) {
+				if (valorFix.equals(trdmatchId)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" ER_TRMATCHID ", valor, trdmatchId);
+					cadenaDeMensaje(" ER_TRMATCHID ", etiquetaFix, trdmatchId);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), trdmatchId, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), trdmatchId, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" ER_TRMATCHID (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + trdmatchId);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), trdmatchId, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+							" ER_TRMATCHID (" + etiquetaFix + ") MSG: " + valorFix + " BD: " + trdmatchId);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), trdmatchId, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
 				}
 				break;
 			case "1623":
-				if (cad.get(i).split("=")[1].equals(fillYield)) {
+				if (valorFix.equals(fillYield)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" ER_FILLYIELD ", valor, fillYield);
+					cadenaDeMensaje(" ER_FILLYIELD ", etiquetaFix, fillYield);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), fillYield, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), fillYield, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" ER_FILLYIELD (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + fillYield);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), fillYield, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+							" ER_FILLYIELD (" + etiquetaFix + ") MSG: " + valorFix + " BD: " + fillYield);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), fillYield, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
 				}
 				break;
 			case "14":
-				if (cad.get(i).split("=")[1].equals(cumQTy)) {
+				if (valorFix.equals(cumQTy)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" ER_CUMQTY ", valor, cumQTy);
+					cadenaDeMensaje(" ER_CUMQTY ", etiquetaFix, cumQTy);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cumQTy, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), cumQTy, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					System.out.println(" ER_CUMQTY (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + cumQTy);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cumQTy, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					System.out.println(" ER_CUMQTY (" + etiquetaFix + ") MSG: " + valorFix + " BD: " + cumQTy);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), cumQTy, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
 				}
 				break;
 			case "22":
-				if (cad.get(i).split("=")[1].equals(SecurityIDSource)) {
+				if (valorFix.equals(SecurityIDSource)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" M ", valor, SecurityIDSource);
+					cadenaDeMensaje(" M ", etiquetaFix, SecurityIDSource);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), SecurityIDSource,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), SecurityIDSource,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out
-							.println(" M (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + SecurityIDSource);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), SecurityIDSource,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+							.println(" M (" + etiquetaFix + ") MSG: " + valorFix + " BD: " + SecurityIDSource);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), SecurityIDSource,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
 				}
 				break;
 			case "1080":
-				if (cad.get(i).split("=")[1].equals(reforderId)) {
+				if (valorFix.equals(reforderId)) {
 
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_REFORDERID", valor, reforderId);
+					cadenaDeMensaje("ER_REFORDERID", etiquetaFix, reforderId);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), reforderId, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), reforderId, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" ER_REFORDERID (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + reforderId);
+							" ER_REFORDERID (" + etiquetaFix + ") MSG: " + valorFix + " BD " + reforderId);
 					contadorMalos++;
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), reforderId, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), reforderId, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				}
 				break;
 			case "37":
-				if (cad.get(i).split("=")[1].equals(orderId)) {
+				if (valorFix.equals(orderId)) {
 
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_ORDERID", valor, orderId);
+					cadenaDeMensaje("ER_ORDERID", etiquetaFix, orderId);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), orderId, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), orderId, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out
-							.println(" ER_ORDERID (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + orderId);
+							.println(" ER_ORDERID (" + etiquetaFix + ") MSG: " + valorFix + " BD " + orderId);
 					contadorMalos++;
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), orderId, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), orderId, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				}
 				break;
 			case "17":
-				if (cad.get(i).split("=")[1].equals(execId)) {
+				if (valorFix.equals(execId)) {
 
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_EXECID", valor, execId);
+					cadenaDeMensaje("ER_EXECID", etiquetaFix, execId);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), execId, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), execId, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					System.out.println(" ER_EXECID (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + execId);
+					System.out.println(" ER_EXECID (" + etiquetaFix + ") MSG: " + valorFix + " BD " + execId);
 					contadorMalos++;
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), execId, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), execId, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				}
 				break;
 			case "11":
@@ -1111,24 +1160,24 @@ public class Validaciones {
 				String mensajeS = BasicFunctions.getIdEjecution() + "" + datosCache.getIdCase() + "_S";
 				String mensajeAJ = BasicFunctions.getIdEjecution() + "" + datosCache.getIdCase() + "_AJ";
 				
-				if (qr.getHeader().getString(TargetCompID.FIELD).equals(BasicFunctions.getIniciator())) {			
-					if (qr.getString(11).equals(mensajeAJ)) {
+				if (message.getHeader().getString(TargetCompID.FIELD).equals(BasicFunctions.getIniciator())) {			
+					if (message.getString(11).equals(mensajeAJ)) {
 
-						DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), mensajeAJ,
-								cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+						DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), mensajeAJ,
+								valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 					} else {
-						DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), mensajeAJ,
-								cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+						DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), mensajeAJ,
+								valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 					}
 
 				} else {
-					if (qr.getString(11).equals(mensajeS)) {
-						DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), mensajeS,
-								cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					if (message.getString(11).equals(mensajeS)) {
+						DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), mensajeS,
+								valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 						
 					} else {
-						DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), mensajeS,
-								cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+						DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), mensajeS,
+								valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 						
 					}
 
@@ -1136,285 +1185,285 @@ public class Validaciones {
 				
 				break;
 			case "57":
-				if (cad.get(i).split("=")[1].equals(targetSubId)) {
+				if (valorFix.equals(targetSubId)) {
 
 					contadorBuenos++;
 
-					cadenaDeMensaje("RQ_TRADER", valor, targetSubId);
+					cadenaDeMensaje("RQ_TRADER", etiquetaFix, targetSubId);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), targetSubId,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), targetSubId,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" RQ_TRADER (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + targetSubId);
+							" RQ_TRADER (" + etiquetaFix + ") MSG: " + valorFix + " BD " + targetSubId);
 					contadorMalos++;
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), targetSubId,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), targetSubId,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				}
 				break;
 			case "56":
-				if (cad.get(i).split("=")[1].equals(targetComId)) {
+				if (valorFix.equals(targetComId)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ID_AFILIADO", valor, targetComId);
+					cadenaDeMensaje("ID_AFILIADO", etiquetaFix, targetComId);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), targetComId,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), targetComId,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" ID_AFILIADO (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + targetComId);
+							" ID_AFILIADO (" + etiquetaFix + ") MSG: " + valorFix + " BD " + targetComId);
 					contadorMalos++;
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), targetComId,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), targetComId,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				}
 				break;
 			case "49":
-				if (cad.get(i).split("=")[1].equals(SenderCompID)) {
+				if (valorFix.equals(SenderCompID)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" EXC ", valor, SenderCompID);
+					cadenaDeMensaje(" EXC ", etiquetaFix, SenderCompID);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), SenderCompID,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), SenderCompID,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					System.out.println(" EXC (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + SenderCompID);
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), SenderCompID,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					System.out.println(" EXC (" + etiquetaFix + "): MSG" + valorFix + " BD: " + SenderCompID);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), SenderCompID,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 
 					contadorMalos++;
 				}
 				break;
 			case "8":
-				if (cad.get(i).split("=")[1].equals(beginString)) {
+				if (valorFix.equals(beginString)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" FIX.4.4 ", valor, beginString);
+					cadenaDeMensaje(" FIX.4.4 ", etiquetaFix, beginString);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), beginString,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), beginString,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" FIX.4.4 (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + beginString);
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), beginString,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+							" FIX.4.4 (" + etiquetaFix + "): MSG" + valorFix + " BD: " + beginString);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), beginString,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
 				}
 				break;
 			case "150":
-				if (cad.get(i).split("=")[1].equals(execType)) {
+				if (valorFix.equals(execType)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_EXECTYPE", valor, execType);
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), execType, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					cadenaDeMensaje("ER_EXECTYPE", etiquetaFix, execType);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), execType, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" ER_EXECTYPE (" + valor + "): MSG" + cad.get(i).split("=")[1] + " bd: " + execType);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), execType, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+							" ER_EXECTYPE (" + etiquetaFix + "): MSG" + valorFix + " bd: " + execType);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), execType, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
 				}
 				break;
 			case "39":
-				if (cad.get(i).split("=")[1].equals(orderStatus)) {
+				if (valorFix.equals(orderStatus)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_ORDSTATUS", valor, orderStatus);
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), orderStatus,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					cadenaDeMensaje("ER_ORDSTATUS", etiquetaFix, orderStatus);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), orderStatus,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" ER_ORDSTATUS (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + orderStatus);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), orderStatus,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+							" ER_ORDSTATUS (" + etiquetaFix + "): MSG" + valorFix + " BD: " + orderStatus);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), orderStatus,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
 				}
 				break;
 			case "54":
-				if (cad.get(i).split("=")[1].equals(side)) {
+				if (valorFix.equals(side)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_SIDE", valor, side);
+					cadenaDeMensaje("ER_SIDE", etiquetaFix, side);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), side, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), side, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					System.out.println(" ER_SIDE (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + side);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), side, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					System.out.println(" ER_SIDE (" + etiquetaFix + "): MSG" + valorFix + " BD: " + side);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), side, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
 				}
 				break;
 			case "151":
-				if (cad.get(i).split("=")[1].equals(leaveQty)) {
+				if (valorFix.equals(leaveQty)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_LEAVEQTY", valor, leaveQty);
+					cadenaDeMensaje("ER_LEAVEQTY", etiquetaFix, leaveQty);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), leaveQty, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), leaveQty, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" ER_LEAVEQTY (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + leaveQty);
+							" ER_LEAVEQTY (" + etiquetaFix + "): MSG" + valorFix + " BD: " + leaveQty);
 					contadorMalos++;
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), leaveQty, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), leaveQty, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				}
 				break;
 			case "38":
-				if (cad.get(i).split("=")[1].equals(orderQty)) {
+				if (valorFix.equals(orderQty)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_ORDERQTY", valor, orderQty);
+					cadenaDeMensaje("ER_ORDERQTY", etiquetaFix, orderQty);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), orderQty, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), orderQty, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" ER_ORDERQTY (" + valor + "): MSG" + cad.get(i).split("=")[1] + " bd: " + orderQty);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), orderQty, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+							" ER_ORDERQTY (" + etiquetaFix + "): MSG" + valorFix + " bd: " + orderQty);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), orderQty, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
 				}
 				break;
 			case "44":
-				if (cad.get(i).split("=")[1].equals(price)) {
+				if (valorFix.equals(price)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_PRICE", valor, price);
+					cadenaDeMensaje("ER_PRICE", etiquetaFix, price);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), price, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), price, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), price, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
-					System.out.println(" ER_PRICE (" + valor + "): MSG" + cad.get(i).split("=")[1] + " bd: " + price);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), price, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
+					System.out.println(" ER_PRICE (" + etiquetaFix + "): MSG" + valorFix + " bd: " + price);
 					contadorMalos++;
 				}
 				break;
 			case "381":
-				if (cad.get(i).split("=")[1].equals(grosstradeamt)) {
+				if (valorFix.equals(grosstradeamt)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_GROSSTRADEAMT", valor, grosstradeamt);
+					cadenaDeMensaje("ER_GROSSTRADEAMT", etiquetaFix, grosstradeamt);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), grosstradeamt,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), grosstradeamt,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), grosstradeamt,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
-					System.out.println(" ER_GROSSTRADEAMT(" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), grosstradeamt,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
+					System.out.println(" ER_GROSSTRADEAMT(" + etiquetaFix + "): MSG" + valorFix + " BD: "
 							+ grosstradeamt);
 					contadorMalos++;
 				}
 				break;
 			case "453":
-				if (cad.get(i).split("=")[1].equals(nopartyIds)) {
+				if (valorFix.equals(nopartyIds)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_NOPARTYIDS", valor, nopartyIds);
+					cadenaDeMensaje("ER_NOPARTYIDS", etiquetaFix, nopartyIds);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), nopartyIds, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), nopartyIds, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), nopartyIds, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), nopartyIds, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 					System.out.println(
-							" ER_NOPARTYIDS (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + nopartyIds);
+							" ER_NOPARTYIDS (" + etiquetaFix + "): MSG" + valorFix + " BD: " + nopartyIds);
 					contadorMalos++;
 				}
 				break;
 			case "762":
-				if (cad.get(i).split("=")[1].equals(secSubtype)) {
+				if (valorFix.equals(secSubtype)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_SECSUBTYPE", valor, secSubtype);
+					cadenaDeMensaje("ER_SECSUBTYPE", etiquetaFix, secSubtype);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), secSubtype, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), secSubtype, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), secSubtype, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), secSubtype, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 					System.out.println(
-							" ER_SECSUBTYPE (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + secSubtype);
+							" ER_SECSUBTYPE (" + etiquetaFix + "): MSG" + valorFix + " BD: " + secSubtype);
 					contadorMalos++;
 				}
 				break;
 			case "1081":
-				if (cad.get(i).split("=")[1].equals(reforderIdsCr)) {
+				if (valorFix.equals(reforderIdsCr)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_REFORDERIDSCR", valor, reforderIdsCr);
+					cadenaDeMensaje("ER_REFORDERIDSCR", etiquetaFix, reforderIdsCr);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), reforderIdsCr,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), reforderIdsCr,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), reforderIdsCr,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
-					System.out.println(" ER_REFORDERIDSCR (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), reforderIdsCr,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
+					System.out.println(" ER_REFORDERIDSCR (" + etiquetaFix + "): MSG" + valorFix + " BD: "
 							+ reforderIdsCr);
 					contadorMalos++;
 				}
 				break;
 			case "55":
-				if (cad.get(i).split("=")[1].equals(symbol)) {
+				if (valorFix.equals(symbol)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_SYMBOL", valor, symbol);
+					cadenaDeMensaje("ER_SYMBOL", etiquetaFix, symbol);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), symbol, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), symbol, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), symbol, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
-					System.out.println(" ER_SYMBOL (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + symbol);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), symbol, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
+					System.out.println(" ER_SYMBOL (" + etiquetaFix + "): MSG" + valorFix + " BD: " + symbol);
 					contadorMalos++;
 				}
 				break;
 			case "50":
-				if (cad.get(i).split("=")[1].equals(senderSubId)) {
+				if (valorFix.equals(senderSubId)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_SENDERSUBID", valor, senderSubId);
+					cadenaDeMensaje("ER_SENDERSUBID", etiquetaFix, senderSubId);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), senderSubId,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), senderSubId,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), senderSubId,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), senderSubId,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 					System.out.println(
-							" ER_SENDERSUBID (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + senderSubId);
+							" ER_SENDERSUBID (" + etiquetaFix + "): MSG" + valorFix + " BD: " + senderSubId);
 					contadorMalos++;
 				}
 				break;
 			case "20102":
-				if (cad.get(i).split("=")[1].equals(dirtyPrice)) {
+				if (valorFix.equals(dirtyPrice)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_DIRTYPRICE", valor, dirtyPrice);
+					cadenaDeMensaje("ER_DIRTYPRICE", etiquetaFix, dirtyPrice);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), dirtyPrice, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), dirtyPrice, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), dirtyPrice, cad.get(i).split("=")[1],
-							idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), dirtyPrice, valorFix,
+							idEscenario, idCase, idSecuencia, etiquetaFix);
 					System.out.println(
-							" ER_DIRTYPRICE (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + dirtyPrice);
+							" ER_DIRTYPRICE (" + etiquetaFix + "): MSG" + valorFix + " BD: " + dirtyPrice);
 					contadorMalos++;
 				}
 				break;
 			case "447":
-				if (cad.get(i).split("=")[1].equals(partyIdsSource)) {
+				if (valorFix.equals(partyIdsSource)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje("ER_PARTYIDSOURCE", valor, partyIdsSource);
+					cadenaDeMensaje("ER_PARTYIDSOURCE", etiquetaFix, partyIdsSource);
 
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), partyIdsSource,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), partyIdsSource,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), partyIdsSource,
-							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
-					System.out.println(" ER_PARTYIDSOURCE (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: "
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), partyIdsSource,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
+					System.out.println(" ER_PARTYIDSOURCE (" + etiquetaFix + "): MSG" + valorFix + " BD: "
 							+ partyIdsSource);
 					contadorMalos++;
 				}
@@ -1423,6 +1472,223 @@ public class Validaciones {
 			default:
 				break;
 			}
+		}
+		
+		//SE COMPARAN LOS VALORES EN LOS GRUPOS REPETITIVOS DE FIRMAS (453)
+		List<Group> groupParties = message.getGroups(NoPartyIDs.FIELD);
+		Map<Integer, String> grupos = new TreeMap<Integer,String>();
+							
+		for(Group firma:groupParties) {			
+			grupos.put(firma.getInt(PartyRole.FIELD), firma.getString(PartyID.FIELD));	//(452, 448)	
+		}
+		System.out.println("************************");
+		System.out.println("*** Grupos extraidos ***");
+		System.out.println("************************");
+		
+		Iterator<Integer> it = grupos.keySet().iterator();
+		while (it.hasNext()) {
+			Integer key = it.next();
+			String firm = grupos.get(key);
+			System.out.println("Clave: " + key + " -> Valor: " + grupos.get(key));
+			
+			switch(key) {
+			case 1: 
+				//Se compara el campo PartyRole(452) que es el NUMERO que identifica cada party
+				if (key.equals(execFirm)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyRole", key.toString(), ""+execFirm);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), key.toString(), execFirm+"",
+							idEscenario, idCase, idSecuencia, "452");
+				} else {
+					System.out.println(" PartyRole (452). MSG: " + key + " - DB: " + execFirm);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), key.toString(), execFirm+"",
+							idEscenario, idCase, idSecuencia, "452");
+					contadorMalos++;
+				}	
+				
+				//Se compara el campo PartyID(448) que es el NOMBRE que identifica cada party
+				if (firm.equals(execFirmVal)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyID", firm, execFirmVal);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), firm, execFirmVal,
+							idEscenario, idCase, idSecuencia, "448");
+				} else {
+					System.out.println(" PartyID (448). MSG: " + firm + " - DB: " + execFirmVal);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), firm, execFirmVal,
+							idEscenario, idCase, idSecuencia, "448");
+					contadorMalos++;
+				}			
+				
+				break;
+			
+			case 10: 
+				//Se compara el campo PartyRole(452) que es el NUMERO que identifica cada party
+				if (key.equals(setLoc)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyRole", key.toString(), ""+setLoc);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), key.toString(), setLoc+"",
+							idEscenario, idCase, idSecuencia, "452");
+				} else {
+					System.out.println(" PartyRole (452). MSG: " + key + " - DB: " + setLoc);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), key.toString(), setLoc+"",
+							idEscenario, idCase, idSecuencia, "452");
+					contadorMalos++;
+				}
+				
+				//Se compara el campo PartyID(448) que es el NOMBRE que identifica cada party
+				if (firm.equals(setLocVal)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyID", firm, setLocVal);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), firm, setLocVal,
+							idEscenario, idCase, idSecuencia, "448");
+				} else {
+					System.out.println(" PartyID (448). MSG: " + firm + " - DB: " + setLocVal);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), firm, setLocVal,
+							idEscenario, idCase, idSecuencia, "448");
+					contadorMalos++;
+				}			
+				
+				break;
+			
+				 
+			case 12: 
+				//Se compara el campo PartyRole(452) que es el NUMERO que identifica cada party
+				if (key.equals(execTrader)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyRole", key.toString(), ""+execTrader);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), key.toString(), execTrader+"",
+							idEscenario, idCase, idSecuencia, "452");
+				} else {
+					System.out.println(" PartyRole (452). MSG: " + key + " - DB: " + execTrader);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), key.toString(), execTrader+"",
+							idEscenario, idCase, idSecuencia, "452");
+					contadorMalos++;
+				}
+				
+				//Se compara el campo PartyID(448) que es el NOMBRE que identifica cada party
+				if (firm.equals(execTraderVal)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyID", firm, execTraderVal);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), firm, execTraderVal,
+							idEscenario, idCase, idSecuencia, "448");
+				} else {
+					System.out.println(" PartyID (448). MSG: " + firm + " - DB: " + execTraderVal);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), firm, execTraderVal,
+							idEscenario, idCase, idSecuencia, "448");
+					contadorMalos++;
+				}			
+				
+				break;
+			
+				 
+			case 17: 
+				//Se compara el campo PartyRole(452) que es el NUMERO que identifica cada party
+				if (key.equals(contraFirm)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyRole", key.toString(), ""+contraFirm);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), key.toString(), contraFirm+"",
+							idEscenario, idCase, idSecuencia, "452");
+				} else {
+					System.out.println(" PartyRole (452). MSG: " + key + " - DB: " + contraFirm);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), key.toString(), contraFirm+"",
+							idEscenario, idCase, idSecuencia, "452");
+					contadorMalos++;
+				}
+				
+				//Se compara el campo PartyID(448) que es el NOMBRE que identifica cada party
+				if (firm.equals(contraFirmVal)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyID", firm, contraFirmVal);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), firm, contraFirmVal,
+							idEscenario, idCase, idSecuencia, "448");
+				} else {
+					System.out.println(" PartyID (448). MSG: " + firm + " - DB: " + contraFirmVal);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), firm, contraFirmVal,
+							idEscenario, idCase, idSecuencia, "448");
+					contadorMalos++;
+				}			
+				
+				break;
+			
+				 	
+			case 36: 
+					//Se compara el campo PartyRole(452) que es el NUMERO que identifica cada party
+				if (key.equals(enterTrader)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyRole", key.toString(), ""+enterTrader);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), key.toString(), enterTrader+"",
+							idEscenario, idCase, idSecuencia, "452");
+				} else {
+					System.out.println(" PartyRole (452). MSG: " + key + " - DB: " + enterTrader);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), key.toString(), enterTrader+"",
+							idEscenario, idCase, idSecuencia, "452");
+					contadorMalos++;
+				}
+				
+				//Se compara el campo PartyID(448) que es el NOMBRE que identifica cada party
+				if (firm.equals(enterTraderVal)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyID", firm, enterTraderVal);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), firm, enterTraderVal,
+							idEscenario, idCase, idSecuencia, "448");
+				} else {
+					System.out.println(" PartyID (448). MSG: " + firm + " - DB: " + enterTraderVal);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), firm, enterTraderVal,
+							idEscenario, idCase, idSecuencia, "448");
+					contadorMalos++;
+				}			
+				
+				break;
+			
+			
+			case 37: 
+				//Se compara el campo PartyRole(452) que es el NUMERO que identifica cada party
+				if (key.equals(contraTrader)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyRole", key.toString(), " "+contraTrader);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), key.toString(), contraTrader+"",
+							idEscenario, idCase, idSecuencia, "452");
+				} else {
+					System.out.println(" PartyRole (452). MSG: " + key + " - DB: " + contraTrader);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), key.toString(), contraTrader+"",
+							idEscenario, idCase, idSecuencia, "452");
+					contadorMalos++;
+				}
+				
+				//Se compara el campo PartyID(448) que es el NOMBRE que identifica cada party
+				if (firm.equals(contraTraderVal)) {
+					contadorBuenos++;
+					cadenaDeMensaje("PartyID", firm, contraTraderVal);
+					
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), firm, contraTraderVal,
+							idEscenario, idCase, idSecuencia, "448");
+				} else {
+					System.out.println(" PartyID (448). MSG: " + firm + " - DB: " + contraTraderVal);
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), firm, contraTraderVal,
+							idEscenario, idCase, idSecuencia, "448");
+					contadorMalos++;
+				}			
+				
+				break;
+				
+				default: 
+					System.out.println("*************************************");
+					System.out.println("*** PAR NO ESPERADO: CLAVE: " + key + " -> "+ firm + "***");
+					System.out.println("*************************************");
+				
+			}
+			
 		}
 
 		System.out.println("----------------------------------------");
@@ -1433,6 +1699,8 @@ public class Validaciones {
 		System.out.println("TOTAL VALIDACIONES REALIZADAS : " + (contadorBuenos + contadorMalos));
 
 	}
+
+	
 
 	public void validarZ(AutFixRfqDatosCache datosCache, Message qr) throws SQLException {
 
