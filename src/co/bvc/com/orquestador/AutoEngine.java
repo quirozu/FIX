@@ -288,8 +288,8 @@ public class AutoEngine {
 				System.out.println("**** ESPERAR ****");
 			}
 		} catch (Exception e) {
-			System.out.println("Erorrrr/===============: " + e.getStackTrace() + e.getMessage());
-			e.printStackTrace();
+//			System.out.println("Erorrrr/===============: " + e.getStackTrace() + e.getMessage());
+//			e.printStackTrace();
 		}
 		System.out.println("*********** SALIENDO DE validarR ************");
 
@@ -305,7 +305,7 @@ public class AutoEngine {
 		// Obtener el ID_AFILIADO de la session
 		String IdContraFirm = sessionId.toString().substring(8, 11);
 		Validaciones validaciones = new Validaciones();
-
+		Thread.sleep(5000);
 		// getcache
 		AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
 
@@ -340,9 +340,9 @@ public class AutoEngine {
 		// getcache
 		AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
 		Validaciones validaciones = new Validaciones();
-
+	
 		validaciones.validarOcho(datosCache, (quickfix.fix44.Message) messageIn);
-
+		Thread.sleep(5000);
 		eliminarDatoCache(IdContraFirm);
 
 		if (DataAccess.validarContinuidadEjecucion()) {
