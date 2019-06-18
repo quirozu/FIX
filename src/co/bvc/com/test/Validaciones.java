@@ -126,13 +126,13 @@ public class Validaciones {
 
 					contadorBuenos++;
 
-					cadenaDeMensaje("M", clavePrima, securityIdSource);
+					cadenaDeMensaje("securityIdSource", clavePrima, securityIdSource);
 
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), securityIdSource,
 							cad.get(z).split("=")[1], id_Escenario, idCase, idSecuencia, clavePrima);
 				} else {
 					System.out.println(
-							" M (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD " + securityIdSource);
+							" securityIdSource (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD " + securityIdSource);
 					contadorMalos++;
 					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), securityIdSource,
 							cad.get(z).split("=")[1], id_Escenario, idCase, idSecuencia, clavePrima);
@@ -276,12 +276,12 @@ public class Validaciones {
 				if (cad.get(z).split("=")[1].equals(beginString)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" CADENA PRIMA", clavePrima, beginString);
+					cadenaDeMensaje(" beginString", clavePrima, beginString);
 
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), beginString,
 							cad.get(z).split("=")[1], id_Escenario, idCase, idSecuencia, clavePrima);
 				} else {
-					System.out.println(" CADENA PRIMA(" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD: "
+					System.out.println(" beginString(" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD: "
 							+ beginString);
 					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), beginString,
 							cad.get(z).split("=")[1], id_Escenario, idCase, idSecuencia, clavePrima);
@@ -308,12 +308,12 @@ public class Validaciones {
 				if (cad.get(z).split("=")[1].equals(SenderCompID)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" CADENA PRIMA ", clavePrima, SenderCompID);
+					cadenaDeMensaje(" SenderCompID ", clavePrima, SenderCompID);
 
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), SenderCompID,
 							cad.get(z).split("=")[1], id_Escenario, idCase, idSecuencia, clavePrima);
 				} else {
-					System.out.println(" CADENA PRIMA(" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD: "
+					System.out.println(" SenderCompID(" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD: "
 							+ SenderCompID);
 					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), SenderCompID,
 							cad.get(z).split("=")[1], id_Escenario, idCase, idSecuencia, clavePrima);
@@ -546,13 +546,13 @@ public class Validaciones {
 				if (cad.get(z).split("=")[1].equals(SecurityIDSource)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" M ", clavePrima, SecurityIDSource);
+					cadenaDeMensaje(" SecurityIDSource ", clavePrima, SecurityIDSource);
 
 					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), SecurityIDSource,
 							cad.get(z).split("=")[1], idEscenario, idCase, idSecuencia, clavePrima);
 				} else {
 					System.out.println(
-							" M (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD: " + SecurityIDSource);
+							" SecurityIDSource (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD: " + SecurityIDSource);
 					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), SecurityIDSource,
 							cad.get(z).split("=")[1], idEscenario, idCase, idSecuencia, clavePrima);
 					contadorMalos++;
@@ -562,13 +562,13 @@ public class Validaciones {
 				if (cad.get(z).split("=")[1].equals(SenderCompID)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" EXC ", clavePrima, SenderCompID);
+					cadenaDeMensaje(" SenderCompID ", clavePrima, SenderCompID);
 
 					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), SenderCompID,
 							cad.get(z).split("=")[1], idEscenario, idCase, idSecuencia, clavePrima);
 				} else {
 					System.out.println(
-							" EXC (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD: " + SenderCompID);
+							" SenderCompID (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD: " + SenderCompID);
 					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), SenderCompID,
 							cad.get(z).split("=")[1], idEscenario, idCase, idSecuencia, clavePrima);
 
@@ -579,13 +579,13 @@ public class Validaciones {
 				if (cad.get(z).split("=")[1].equals(beginString)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" FIX.4.4 ", clavePrima, beginString);
+					cadenaDeMensaje(" beginString ", clavePrima, beginString);
 
 					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), beginString,
 							cad.get(z).split("=")[1], idEscenario, idCase, idSecuencia, clavePrima);
 				} else {
 					System.out.println(
-							" FIX.4.4 (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD: " + beginString);
+							" beginString (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD: " + beginString);
 					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), beginString,
 							cad.get(z).split("=")[1], idEscenario, idCase, idSecuencia, clavePrima);
 					contadorMalos++;
@@ -756,13 +756,13 @@ public class Validaciones {
 				if (cad.get(i).split("=")[1].equals(SecurityIDSource)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" M ", valor, SecurityIDSource);
+					cadenaDeMensaje(" SecurityIDSource ", valor, SecurityIDSource);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), SecurityIDSource,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
 					System.out
-							.println(" M (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + SecurityIDSource);
+							.println(" SecurityIDSource (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + SecurityIDSource);
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), SecurityIDSource,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 					contadorMalos++;
@@ -822,12 +822,12 @@ public class Validaciones {
 				if (cad.get(i).split("=")[1].equals(SenderCompID)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" EXC ", valor, SenderCompID);
+					cadenaDeMensaje(" SenderCompID ", valor, SenderCompID);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), SenderCompID,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
-					System.out.println(" EXC (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + SenderCompID);
+					System.out.println(" SenderCompID (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + SenderCompID);
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), SenderCompID,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 
@@ -838,13 +838,13 @@ public class Validaciones {
 				if (cad.get(i).split("=")[1].equals(beginString)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" FIX.4.4 ", valor, beginString);
+					cadenaDeMensaje(" beginString ", valor, beginString);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), beginString,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
 					System.out.println(
-							" FIX.4.4 (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + beginString);
+							" beginString (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + beginString);
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), beginString,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 					contadorMalos++;
@@ -1093,13 +1093,13 @@ public class Validaciones {
 				if (valorFix.equals(SecurityIDSource)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" M ", etiquetaFix, SecurityIDSource);
+					cadenaDeMensaje(" SecurityIDSource ", etiquetaFix, SecurityIDSource);
 
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), SecurityIDSource,
 							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out
-							.println(" M (" + etiquetaFix + ") MSG: " + valorFix + " BD: " + SecurityIDSource);
+							.println(" SecurityIDSource (" + etiquetaFix + ") MSG: " + valorFix + " BD: " + SecurityIDSource);
 					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), SecurityIDSource,
 							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
@@ -1221,12 +1221,12 @@ public class Validaciones {
 				if (valorFix.equals(SenderCompID)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" EXC ", etiquetaFix, SenderCompID);
+					cadenaDeMensaje(" SenderCompID ", etiquetaFix, SenderCompID);
 
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), SenderCompID,
 							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
-					System.out.println(" EXC (" + etiquetaFix + "): MSG" + valorFix + " BD: " + SenderCompID);
+					System.out.println(" SenderCompID (" + etiquetaFix + "): MSG" + valorFix + " BD: " + SenderCompID);
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), SenderCompID,
 							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 
@@ -1237,13 +1237,13 @@ public class Validaciones {
 				if (valorFix.equals(beginString)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" FIX.4.4 ", etiquetaFix, beginString);
+					cadenaDeMensaje(" beginString ", etiquetaFix, beginString);
 
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), beginString,
 							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 				} else {
 					System.out.println(
-							" FIX.4.4 (" + etiquetaFix + "): MSG" + valorFix + " BD: " + beginString);
+							" beginString (" + etiquetaFix + "): MSG" + valorFix + " BD: " + beginString);
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), beginString,
 							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
@@ -1773,12 +1773,12 @@ public class Validaciones {
 				if (cad.get(i).split("=")[1].equals(SenderCompID)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" EXC ", valor, SenderCompID);
+					cadenaDeMensaje(" SenderCompID ", valor, SenderCompID);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), SenderCompID,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
-					System.out.println(" EXC (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + SenderCompID);
+					System.out.println(" SenderCompID (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + SenderCompID);
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), SenderCompID,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 
@@ -1789,13 +1789,13 @@ public class Validaciones {
 				if (cad.get(i).split("=")[1].equals(beginString)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" FIX.4.4 ", valor, beginString);
+					cadenaDeMensaje(" beginString ", valor, beginString);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), beginString,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
 					System.out.println(
-							" FIX.4.4 (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + beginString);
+							" beginString (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + beginString);
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), beginString,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 					contadorMalos++;
@@ -1885,13 +1885,13 @@ public class Validaciones {
 				if (cad.get(i).split("=")[1].equals(beginString)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" FIX.4.4", valor, beginString);
+					cadenaDeMensaje(" beginString", valor, beginString);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), beginString,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
 					System.out.println(
-							" FIX.4.4 (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + beginString);
+							" beginString (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + beginString);
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), beginString,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 					contadorMalos++;
@@ -1902,12 +1902,12 @@ public class Validaciones {
 				if (cad.get(i).split("=")[1].equals(senderCompId)) {
 					contadorBuenos++;
 
-					cadenaDeMensaje(" EXC", valor, senderCompId);
+					cadenaDeMensaje(" senderCompId", valor, senderCompId);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), senderCompId,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 				} else {
-					System.out.println(" EXC (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + senderCompId);
+					System.out.println(" senderCompId (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + senderCompId);
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), senderCompId,
 							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
 					contadorMalos++;
