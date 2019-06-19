@@ -24,6 +24,7 @@ public class BasicFunctions {
 	private static String iniciator;
 	private static String receptor;
 	private static int escenarioFinal;
+	private static boolean allMarket = false;
 
 	public static int getEscenarioFinal() {
 		return escenarioFinal;
@@ -32,8 +33,6 @@ public class BasicFunctions {
 	public static void setEscenarioFinal(int escenarioFinal) {
 		BasicFunctions.escenarioFinal = escenarioFinal;
 	}
-
-	private static boolean allMarket = false;
 
 	public static String getReceptor() {
 		return receptor;

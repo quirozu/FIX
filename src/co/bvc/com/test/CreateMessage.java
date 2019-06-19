@@ -62,6 +62,7 @@ public class CreateMessage {
 		ResultSet resultSetParties;
 		
 		try {
+			BasicFunctions.setAllMarket(false);
 			BasicFunctions.setIniciator(resultSet.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
 			
@@ -193,8 +194,10 @@ public class CreateMessage {
 			}
 
 			if (BasicFunctions.isAllMarket()) {
+				
 				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
 				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
+				
 				list.clear();
 				while (itSessiones.hasNext()) {
 					String idAfiliadoMap = itSessiones.next();
@@ -204,7 +207,7 @@ public class CreateMessage {
 				}
 				// Se asigna Session+r Para validar RC prima al inicializador
 				list.add(BasicFunctions.getIniciator() + "R");
-
+				
 			}
 
 			respuestaMessage.setListSessiones(list);
