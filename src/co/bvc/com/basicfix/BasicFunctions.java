@@ -181,6 +181,12 @@ public class BasicFunctions {
 			BasicFunctions.login.initiation();
 		}
 	}
+	public static void FinalLogin() {
+		
+			BasicFunctions.login = new Login();
+			BasicFunctions.login.Final();
+		
+	}
 
 	public static void startVariables() {
 		SimpleDateFormat SDF = new SimpleDateFormat("yyyMMddHmmss");

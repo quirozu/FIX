@@ -16,8 +16,10 @@ import quickfix.FieldNotFound;
 import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
+import quickfix.field.QuoteStatus;
 import quickfix.field.SenderSubID;
 import quickfix.field.TargetCompID;
+import quickfix.field.Text;
 import quickfix.Message;
 
 public class AutoEngine {
@@ -42,11 +44,9 @@ public class AutoEngine {
 		}
 	}
 
-	
-
 	public void ejecutarSiguientePaso()
 			throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
-		
+
 		int caso = BasicFunctions.getEscenarioFinal();
 		Thread.sleep(5000);
 		System.out.println("ID_CASESEQ: " + BasicFunctions.getIdCaseSeq());
@@ -65,6 +65,7 @@ public class AutoEngine {
 				caso++;
 				System.out.println("GENERAR REPORTE....");
 				CreateReport.maina();
+				BasicFunctions.FinalLogin();
 			} else {
 				enviarMensaje(rsDatos);
 				Thread.sleep(5000);
@@ -340,7 +341,7 @@ public class AutoEngine {
 		// getcache
 		AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
 		Validaciones validaciones = new Validaciones();
-	
+
 		validaciones.validarOcho(datosCache, (quickfix.fix44.Message) messageIn);
 		Thread.sleep(5000);
 		eliminarDatoCache(IdContraFirm);
@@ -363,6 +364,21 @@ public class AutoEngine {
 		System.out.println("** INGRESA A validarAI **");
 		System.out.println("*************************");
 
+		int quoteStatus = messageIn.getInt(QuoteStatus.FIELD);
+
+		if (quoteStatus == 9) {
+
+			String msgRechazo = messageIn.getString(Text.FIELD);
+			// Persistir msgRechazo
+			String sIdAfiliado = sessionId.toString().substring(8, 11);
+			AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
+			Validaciones validaciones = new Validaciones();
+			validaciones.validar3(datosCache, (quickfix.fix44.Message) messageIn);
+			// quitar sesiones en cache
+			DataAccess.limpiarCache();
+			ejecutarSiguienteEscenario();
+
+		}
 		String sIdAfiliado = sessionId.toString().substring(8, 11);
 		AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
 		Validaciones validaciones = new Validaciones();

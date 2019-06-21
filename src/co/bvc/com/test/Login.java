@@ -43,59 +43,54 @@ public class Login {
 		try {
 			sessionID1 = startSession("sessionSettings1_27.cfg");
 			if (sessionID1 == null) {
-				System.out.println("Conexi�n 1 errada");
+				System.out.println("Conexion 1 errada");
 			} else {
 				Session.lookupSession(sessionID1).logon();
 				mapSessiones.put(sessionID1.getSenderCompID(), sessionID1);
 				// BasicFunctions.logon(sessionID1);
-				System.out.println(
-						"SESSION ADICIONADA. " + sessionID1.getSenderCompID() + " : " + sessionID1);
+				System.out.println("SESSION ADICIONADA. " + sessionID1.getSenderCompID() + " : " + sessionID1);
 			}
 
 			sessionID2 = startSession("sessionSettings2_35.cfg");
 			if (sessionID2 == null) {
-				System.out.println("Conexi�n 2 errada");
+				System.out.println("Conexion 2 errada");
 			} else {
 				Session.lookupSession(sessionID2).logon();
 //				BasicFunctions.logon(sessionID2);
 				mapSessiones.put(sessionID2.getSenderCompID(), sessionID2);
 
-				System.out.println(
-						"SESSION ADICIONADA. " + sessionID2.getSenderCompID() + " : " + sessionID2);
+				System.out.println("SESSION ADICIONADA. " + sessionID2.getSenderCompID() + " : " + sessionID2);
 			}
 
 			sessionID3 = startSession("sessionSettings2_37.cfg");
 			if (sessionID3 == null) {
-				System.out.println("Conexi�n 3 errada");
+				System.out.println("Conexion 3 errada");
 			} else {
 				Session.lookupSession(sessionID3).logon();
 				mapSessiones.put(sessionID3.getSenderCompID(), sessionID3);
-				System.out.println(
-						"SESSION ADICIONADA. " + sessionID3.getSenderCompID() + " : " + sessionID3);
+				System.out.println("SESSION ADICIONADA. " + sessionID3.getSenderCompID() + " : " + sessionID3);
 			}
 
 			sessionID4 = startSession("sessionSettings1_19.cfg");
 			if (sessionID4 == null) {
-				System.out.println("Conexi�n 4 errada");
+				System.out.println("Conexion 4 errada");
 			} else {
 				Session.lookupSession(sessionID4).logon();
 
 				mapSessiones.put(sessionID4.getSenderCompID(), sessionID4);
 
-				System.out.println(
-						"SESSION ADICIONADA. " + sessionID4.getSenderCompID() + " : " + sessionID4);
+				System.out.println("SESSION ADICIONADA. " + sessionID4.getSenderCompID() + " : " + sessionID4);
 			}
 
 			sessionID5 = startSession("sessionSettings1_20.cfg");
 			if (sessionID5 == null) {
-				System.out.println("Conexi�n 5 errada");
+				System.out.println("Conexion 5 errada");
 			} else {
 				Session.lookupSession(sessionID5).logon();
 
 				mapSessiones.put(sessionID5.getSenderCompID(), sessionID5);
 
-				System.out.println(
-						"SESSION ADICIONADA. " + sessionID5.getSenderCompID() + " : " + sessionID5);
+				System.out.println("SESSION ADICIONADA. " + sessionID5.getSenderCompID() + " : " + sessionID5);
 			}
 
 			System.out.println("************************************");
@@ -104,6 +99,28 @@ public class Login {
 
 			System.out.println("*************************************");
 			System.out.println("***  SESIONES CREADAS E INICIADAS ***");
+			System.out.println("*************************************");
+
+		} catch (Exception exp) {
+			exp.printStackTrace();
+		} finally {
+			System.out.println(" ");
+
+		}
+
+	}
+
+	public void Final() {
+
+		try {
+		for (Map.Entry<String, SessionID> sesion : mapSessiones.entrySet()) {
+
+			Session.lookupSession(sesion.getValue()).logout();
+
+			}
+
+			System.out.println("*************************************");
+			System.out.println("***  SESIONES CERRADAS ***");
 			System.out.println("*************************************");
 
 		} catch (Exception exp) {
@@ -160,6 +177,26 @@ public class Login {
 
 			// Se ejecuta onCreate de AdapterIO
 			socketInitiator.start();
+			SessionID sessionID = socketInitiator.getSessions().get(0);
+
+			return sessionID;
+		} catch (Exception e) {
+			System.out.println("Error de conexion INET. Mensaje: " + e.getMessage());
+			return null;
+		}
+	}
+	private SessionID StopSession(String fileConf) {
+		try {
+			SessionSettings sessionSettings = new SessionSettings("resources\\" + fileConf);
+
+			FileStoreFactory fileStoreFactory = new FileStoreFactory(sessionSettings);
+			FileLogFactory fileLogFactory = new FileLogFactory(sessionSettings);
+			MessageFactory messageFactory = new DefaultMessageFactory();
+			SocketInitiator socketInitiator = new SocketInitiator(application, fileStoreFactory, sessionSettings, fileLogFactory,
+					messageFactory);
+
+			// Se ejecuta onCreate de AdapterIO
+			socketInitiator.stop();
 			SessionID sessionID = socketInitiator.getSessions().get(0);
 
 			return sessionID;

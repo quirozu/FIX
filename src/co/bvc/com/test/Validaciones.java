@@ -83,15 +83,12 @@ public class Validaciones {
 
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
-//		String cadenaPrima = "" + qr; 
 		String cadenaPrima = message.toString();
 		String clavePrima;
 		ArrayList<String> cad = FragmentarCadena1(cadenaPrima);
 		ResultSet resultset;
 		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
 				+ datosCache.getIdCaseseq();
-//		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos "
-//				+ "WHERE ID_ESCENARIO = 'FIX_R' and ID_CASE = 1";
 
 		resultset = DataAccess.getQuery(queryMessageR);
 		String symbol = null, msgType = null, secSubTypec = null, side = null, orderQty = null, validuntiltime = null,
@@ -106,7 +103,7 @@ public class Validaciones {
 			msgType = resultset.getString("RQ_MSGTYPE");
 			secSubTypec = resultset.getString("RQ_SECSUBTYPE");
 			side = resultset.getString("RQ_SIDE");
-			orderQty = resultset.getString("RS_ORDERQTY");
+			orderQty = resultset.getString("RQ_ORDERQTY");
 			validuntiltime = resultset.getString("RQ_VALIDUNTILTIME");
 			norelatedSymg = resultset.getString("RQ_NORELATEDSYM");
 			idCase = resultset.getString("ID_CASE");
@@ -139,40 +136,40 @@ public class Validaciones {
 				}
 				break;
 
-			case "57":
-				if (cad.get(z).split("=")[1].equals(targetSubId)) {
-
-					contadorBuenos++;
-
-					cadenaDeMensaje("RQ_TRADER", clavePrima, targetSubId);
-
-					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetSubId,
-							 id_Escenario, idCase, idSecuencia, clavePrima);
-				} else {
-					System.out.println(
-							" RQ_TRADER (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD " + targetSubId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetSubId,
-							 id_Escenario, idCase, idSecuencia, clavePrima);
-				}
-				break;
-			case "56":
-				if (cad.get(z).split("=")[1].equals(targetComId)) {
-
-					contadorBuenos++;
-
-					cadenaDeMensaje("ID_AFILIADO", clavePrima, targetComId);
-
-					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetComId,
-							 id_Escenario, idCase, idSecuencia, clavePrima);
-				} else {
-					System.out.println(" ID_AFILIADO (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD "
-							+ targetComId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetComId,
-							 id_Escenario, idCase, idSecuencia, clavePrima);
-				}
-				break;
+//			case "57":
+//				if (cad.get(z).split("=")[1].equals(targetSubId)) {
+//
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("RQ_TRADER", clavePrima, targetSubId);
+//
+//					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetSubId,
+//							 id_Escenario, idCase, idSecuencia, clavePrima);
+//				} else {
+//					System.out.println(
+//							" RQ_TRADER (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD " + targetSubId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetSubId,
+//							 id_Escenario, idCase, idSecuencia, clavePrima);
+//				}
+//				break;
+//			case "56":
+//				if (cad.get(z).split("=")[1].equals(targetComId)) {
+//
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("ID_AFILIADO", clavePrima, targetComId);
+//
+//					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetComId,
+//							 id_Escenario, idCase, idSecuencia, clavePrima);
+//				} else {
+//					System.out.println(" ID_AFILIADO (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD "
+//							+ targetComId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetComId,
+//							 id_Escenario, idCase, idSecuencia, clavePrima);
+//				}
+//				break;
 			case "55":
 				if (cad.get(z).split("=")[1].equals(symbol)) {
 
@@ -190,22 +187,22 @@ public class Validaciones {
 							 id_Escenario, idCase, idSecuencia, clavePrima);
 				}
 				break;
-			case "35":
-				if (cad.get(z).split("=")[1].equals(msgType)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje(" RQ_MSGTYPE", clavePrima, msgType);
-
-					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], msgType,
-							 id_Escenario, idCase, idSecuencia, cadenaPrima);
-				} else {
-					System.out.println(
-							" RQ_MSGTYPE (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD " + msgType);
-					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], msgType,
-							 id_Escenario, idCase, idSecuencia, clavePrima);
-					contadorMalos++;
-				}
-				break;
+//			case "35":
+//				if (cad.get(z).split("=")[1].equals(msgType)) {
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje(" RQ_MSGTYPE", clavePrima, msgType);
+//
+//					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], msgType,
+//							 id_Escenario, idCase, idSecuencia, cadenaPrima);
+//				} else {
+//					System.out.println(
+//							" RQ_MSGTYPE (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD " + msgType);
+//					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], msgType,
+//							 id_Escenario, idCase, idSecuencia, clavePrima);
+//					contadorMalos++;
+//				}
+//				break;
 			case "762":
 				if (cad.get(z).split("=")[1].equals(secSubTypec)) {
 					contadorBuenos++;
@@ -326,8 +323,6 @@ public class Validaciones {
 				break;
 			}
 		}
-//		String de = "INSERT INTO logs_fix (100,"+h+","+i+","+"TIPO"+","+"ESTADO"+","+contadorBuenos+","+contadorMalos+","+(contadorBuenos + contadorMalos)+",PRUEVA)";
-//		data.setQuery(de);
 		System.out.println("----------------------------------------");
 		System.out.println("LAS VALIDACIONES CORRECTAS FUERON : " + contadorBuenos);
 		System.out.println("LAS VALIDACIONES ERRADAS FUERON : " + contadorMalos);
@@ -427,40 +422,40 @@ public class Validaciones {
 				}
 				break;
 
-			case "57":
-				if (cad.get(z).split("=")[1].equals(targetSubId)) {
-
-					contadorBuenos++;
-
-					cadenaDeMensaje("RQ_TRADER", clavePrima, targetSubId);
-
-					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetSubId,
-							 idEscenario, idCase, idSecuencia, clavePrima);
-				} else {
-					System.out.println(
-							" RQ_TRADER (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD " + targetSubId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(messageIn, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetSubId,
-							 idEscenario, idCase, idSecuencia, clavePrima);
-				}
-				break;
-			case "56":
-				if (cad.get(z).split("=")[1].equals(targetComId)) {
-
-					contadorBuenos++;
-
-					cadenaDeMensaje("ID_AFILIADO", clavePrima, targetComId);
-
-					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetComId,
-							 idEscenario, idCase, idSecuencia, clavePrima);
-				} else {
-					System.out.println(" ID_AFILIADO (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD "
-							+ targetComId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(messageIn, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetComId,
-							 idEscenario, idCase, idSecuencia, clavePrima);
-				}
-				break;
+//			case "57":
+//				if (cad.get(z).split("=")[1].equals(targetSubId)) {
+//
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("RQ_TRADER", clavePrima, targetSubId);
+//
+//					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetSubId,
+//							 idEscenario, idCase, idSecuencia, clavePrima);
+//				} else {
+//					System.out.println(
+//							" RQ_TRADER (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD " + targetSubId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(messageIn, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetSubId,
+//							 idEscenario, idCase, idSecuencia, clavePrima);
+//				}
+//				break;
+//			case "56":
+//				if (cad.get(z).split("=")[1].equals(targetComId)) {
+//
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("ID_AFILIADO", clavePrima, targetComId);
+//
+//					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetComId,
+//							 idEscenario, idCase, idSecuencia, clavePrima);
+//				} else {
+//					System.out.println(" ID_AFILIADO (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD "
+//							+ targetComId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(messageIn, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], targetComId,
+//							 idEscenario, idCase, idSecuencia, clavePrima);
+//				}
+//				break;
 
 			case "55":
 				if (cad.get(z).split("=")[1].equals(symbol)) {
@@ -625,12 +620,12 @@ public class Validaciones {
 		int idSecuencia = 0;
 		while (resultset.next()) {
 			OfferSize = resultset.getString("RS_OFFERSIZE");
-			bidyield = resultset.getString("RQ_BIDYIELD");
-			bidSize = resultset.getString("RQ_BIDSIZE");
-			offerYield = resultset.getString("RQ_OFFERYIELD");
+			bidyield = resultset.getString("RS_BIDYIELD");
+			bidSize = resultset.getString("RS_BIDSIZE");
+			offerYield = resultset.getString("RS_OFFERYIELD");
 			quoteStatus = resultset.getString("RS_QUOTESTATUS");
-			targetComId = resultset.getString("ID_AFILIADO");
-			targetSubId = resultset.getString("RQ_TRADER");
+//			targetComId = resultset.getString("ID_AFILIADO");
+//			targetSubId = resultset.getString("RS_TRADER");
 			type = resultset.getString("RS_MSGTYPE");
 			symbol = resultset.getString("RS_SYMBOL");
 			subtype = resultset.getString("RS_SECSUBTYPE");
@@ -686,13 +681,13 @@ public class Validaciones {
 
 					contadorBuenos++;
 
-					cadenaDeMensaje("RQ_BIDYIELD", valor, bidyield);
+					cadenaDeMensaje("RS_BIDYIELD", valor, bidyield);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], bidyield, 
 							idEscenario, idCase, idSecuencia, valor);
 				} else {
 					System.out.println(
-							" RQ_BIDYIELD (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + bidyield);
+							" RS_BIDYIELD (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + bidyield);
 					contadorMalos++;
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], bidyield, 
 							idEscenario, idCase, idSecuencia, valor);
@@ -704,13 +699,13 @@ public class Validaciones {
 
 					contadorBuenos++;
 
-					cadenaDeMensaje("RQ_BIDSIZE", valor, bidSize);
+					cadenaDeMensaje("RS_BIDSIZE", valor, bidSize);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], bidSize, 
 							idEscenario, idCase, idSecuencia, valor);
 				} else {
 					System.out
-							.println(" RQ_BIDSIZE (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + bidSize);
+							.println(" RS_BIDSIZE (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + bidSize);
 					contadorMalos++;
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], bidSize, 
 							idEscenario, idCase, idSecuencia, valor);
@@ -722,13 +717,13 @@ public class Validaciones {
 
 					contadorBuenos++;
 
-					cadenaDeMensaje("RQ_OFFERYIELD", valor, offerYield);
+					cadenaDeMensaje("RS_OFFERYIELD", valor, offerYield);
 
 					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], offerYield, 
 							idEscenario, idCase, idSecuencia, valor);
 				} else {
 					System.out.println(
-							" RQ_OFFERYIELD (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + offerYield);
+							" RS_OFFERYIELD (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + offerYield);
 					contadorMalos++;
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], offerYield, 
 							idEscenario, idCase, idSecuencia, valor);
@@ -784,40 +779,40 @@ public class Validaciones {
 					contadorMalos++;
 				}
 				break;
-			case "57":
-				if (cad.get(i).split("=")[1].equals(targetSubId)) {
-
-					contadorBuenos++;
-
-					cadenaDeMensaje("RQ_TRADER", valor, targetSubId);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
-							 idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out.println(
-							" RQ_TRADER (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + targetSubId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
-							 idEscenario, idCase, idSecuencia, valor);
-				}
-				break;
-			case "56":
-				if (cad.get(i).split("=")[1].equals(targetComId)) {
-
-					contadorBuenos++;
-
-					cadenaDeMensaje("ID_AFILIADO", valor, targetComId);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetComId,
-							 idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out.println(
-							" ID_AFILIADO (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + targetComId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetComId,
-							 idEscenario, idCase, idSecuencia, valor);
-				}
-				break;
+//			case "57":
+//				if (cad.get(i).split("=")[1].equals(targetSubId)) {
+//
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("RQ_TRADER", valor, targetSubId);
+//
+//					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//				} else {
+//					System.out.println(
+//							" RQ_TRADER (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + targetSubId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//				}
+//				break;
+//			case "56":
+//				if (cad.get(i).split("=")[1].equals(targetComId)) {
+//
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("ID_AFILIADO", valor, targetComId);
+//
+//					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetComId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//				} else {
+//					System.out.println(
+//							" ID_AFILIADO (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + targetComId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetComId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//				}
+//				break;
 			case "49":
 				if (cad.get(i).split("=")[1].equals(SenderCompID)) {
 					contadorBuenos++;
@@ -1184,39 +1179,39 @@ public class Validaciones {
 				}
 				
 				break;
-			case "57":
-				if (valorFix.equals(targetSubId)) {
-
-					contadorBuenos++;
-
-					cadenaDeMensaje("RQ_TRADER", etiquetaFix, targetSubId);
-
-					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), targetSubId,
-							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
-				} else {
-					System.out.println(
-							" RQ_TRADER (" + etiquetaFix + ") MSG: " + valorFix + " BD " + targetSubId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), targetSubId,
-							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
-				}
-				break;
-			case "56":
-				if (valorFix.equals(targetComId)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje("ID_AFILIADO", etiquetaFix, targetComId);
-
-					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), targetComId,
-							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
-				} else {
-					System.out.println(
-							" ID_AFILIADO (" + etiquetaFix + ") MSG: " + valorFix + " BD " + targetComId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), targetComId,
-							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
-				}
-				break;
+//			case "57":
+//				if (valorFix.equals(targetSubId)) {
+//
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("RQ_TRADER", etiquetaFix, targetSubId);
+//
+//					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), targetSubId,
+//							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
+//				} else {
+//					System.out.println(
+//							" RQ_TRADER (" + etiquetaFix + ") MSG: " + valorFix + " BD " + targetSubId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), targetSubId,
+//							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
+//				}
+//				break;
+//			case "56":
+//				if (valorFix.equals(targetComId)) {
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("ID_AFILIADO", etiquetaFix, targetComId);
+//
+//					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), targetComId,
+//							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
+//				} else {
+//					System.out.println(
+//							" ID_AFILIADO (" + etiquetaFix + ") MSG: " + valorFix + " BD " + targetComId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), targetComId,
+//							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
+//				}
+//				break;
 			case "49":
 				if (valorFix.equals(SenderCompID)) {
 					contadorBuenos++;
@@ -1737,40 +1732,40 @@ public class Validaciones {
 			valor = cad.get(i).split("=")[0];
 			switch (valor) {
 
-			case "57":
-				if (cad.get(i).split("=")[1].equals(targetSubId)) {
-
-					contadorBuenos++;
-
-					cadenaDeMensaje("RQ_TRADER", valor, targetSubId);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
-							 idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out.println(
-							" RQ_TRADER (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + targetSubId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
-							 idEscenario, idCase, idSecuencia, valor);
-				}
-				break;
-			case "56":
-				if (cad.get(i).split("=")[1].equals(targetComId)) {
-
-					contadorBuenos++;
-
-					cadenaDeMensaje("ID_AFILIADO", valor, targetComId);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetComId,
-							 idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out.println(
-							" ID_AFILIADO (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + targetComId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetComId,
-							 idEscenario, idCase, idSecuencia, valor);
-				}
-				break;
+//			case "57":
+//				if (cad.get(i).split("=")[1].equals(targetSubId)) {
+//
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("RQ_TRADER", valor, targetSubId);
+//
+//					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//				} else {
+//					System.out.println(
+//							" RQ_TRADER (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + targetSubId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//				}
+//				break;
+//			case "56":
+//				if (cad.get(i).split("=")[1].equals(targetComId)) {
+//
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("ID_AFILIADO", valor, targetComId);
+//
+//					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetComId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//				} else {
+//					System.out.println(
+//							" ID_AFILIADO (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD " + targetComId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetComId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//				}
+//				break;
 			case "49":
 				if (cad.get(i).split("=")[1].equals(SenderCompID)) {
 					contadorBuenos++;
@@ -1869,8 +1864,8 @@ public class Validaciones {
 		int idSecuencia = 0;
 		while (resultset.next()) {
 
-			targetCompId = resultset.getString("ID_AFILIADO");
-			targetSubId = resultset.getString("RQ_TRADER");
+//			targetCompId = resultset.getString("ID_AFILIADO");
+//			targetSubId = resultset.getString("RS_TRADER");
 			securitySubType = resultset.getString("RS_SECSUBTYPE");
 			idEscenario = resultset.getString("ID_ESCENARIO");
 			idCase = resultset.getString("ID_CASE");
@@ -1916,39 +1911,39 @@ public class Validaciones {
 				}
 				break;
 
-			case "56":
-				if (cad.get(i).split("=")[1].equals(targetCompId)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje(" ID_AFILIADO", valor, targetCompId);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetCompId,
-							 idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out.println(
-							" ID_AFILIADO (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + targetCompId);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetCompId,
-							 idEscenario, idCase, idSecuencia, valor);
-					contadorMalos++;
-				}
-				break;
-
-			case "57":
-				if (cad.get(i).split("=")[1].equals(targetSubId)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje(" RQ_TRADER", valor, targetSubId);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
-							 idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out.println(
-							" RQ_TRADER (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + targetSubId);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
-							 idEscenario, idCase, idSecuencia, valor);
-					contadorMalos++;
-				}
-				break;
+//			case "56":
+//				if (cad.get(i).split("=")[1].equals(targetCompId)) {
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje(" ID_AFILIADO", valor, targetCompId);
+//
+//					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetCompId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//				} else {
+//					System.out.println(
+//							" ID_AFILIADO (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + targetCompId);
+//					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetCompId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//					contadorMalos++;
+//				}
+//				break;
+//
+//			case "57":
+//				if (cad.get(i).split("=")[1].equals(targetSubId)) {
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje(" RS_TRADER", valor, targetSubId);
+//
+//					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//				} else {
+//					System.out.println(
+//							" RS_TRADER (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + targetSubId);
+//					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], targetSubId,
+//							 idEscenario, idCase, idSecuencia, valor);
+//					contadorMalos++;
+//				}
+//				break;
 
 			case "762":
 				if (cad.get(i).split("=")[1].equals(securitySubType)) {
