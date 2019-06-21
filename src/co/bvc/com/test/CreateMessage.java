@@ -18,6 +18,8 @@ import quickfix.SessionID;
 import quickfix.SessionNotFound;
 import quickfix.StringField;
 import quickfix.field.BeginString;
+import quickfix.field.BidSize;
+import quickfix.field.BidYield;
 import quickfix.field.NoPartyIDs;
 import quickfix.field.OfferSize;
 import quickfix.field.OfferYield;
@@ -170,6 +172,9 @@ public class CreateMessage {
 			quote.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
 			quote.setField(new OfferSize(resultSet.getDouble("RQ_OFFERSIZE")));
 			quote.setField(new OfferYield(resultSet.getDouble("RQ_OFFERYIELD")));
+
+			quote.setField(new BidYield(resultSet.getDouble("RQ_BIDYIELD")));
+			quote.setField(new BidSize(resultSet.getDouble("RQ_BIDSIZE")));
 
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0");
 			LocalDateTime dateTime = LocalDateTime.parse(resultSet.getString("RQ_VALIDUNTILTIME"), formatter);
