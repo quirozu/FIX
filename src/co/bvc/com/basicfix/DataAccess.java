@@ -61,7 +61,6 @@ public class DataAccess {
 
 		String queryInicio = "SELECT ID_CASESEQ FROM bvc_automation_db.aut_fix_rfq_datos" + " WHERE ID_CASE= "
 				+ escenarioEjecucion + " ORDER BY ID_CASESEQ ASC LIMIT 1";
-		System.out.println(queryInicio);
 
 		ResultSet rs = DataAccess.getQuery(queryInicio);
 		int idCaseSeq = -1;

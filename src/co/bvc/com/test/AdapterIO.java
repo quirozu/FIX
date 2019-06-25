@@ -76,7 +76,6 @@ public class AdapterIO extends MessageCracker implements Application {
 						" FROM bvc_automation_db.AUT_USUARIO A INNER JOIN bvc_automation_db.aut_fix_rfq_aux_con B " + 
 						" ON A.ID_USUARIO = B.ID_USUARIO WHERE A.ESTADO = 'A' AND A.PERFIL_USUARIO = 'FIXCONNECTOR';";
 				
-				System.out.println(queryDatosTrader);
 				
 				ResultSet resultSet = DataAccess.getQuery(queryDatosTrader);
 				
@@ -99,6 +98,7 @@ public class AdapterIO extends MessageCracker implements Application {
 		if (message instanceof Reject) {
 
 			try {
+				Thread.sleep(3000);
 				autoEngine.validar3(sessionId, message);
 			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
 				e.printStackTrace();
@@ -149,6 +149,7 @@ public class AdapterIO extends MessageCracker implements Application {
 		if (message instanceof Reject) {
 
 			try {
+				Thread.sleep(3000);
 				autoEngine.validar3(sessionId, message);
 			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
 				e.printStackTrace();

@@ -59,7 +59,6 @@ public class CreateMessage {
 
 		System.out.println(
 				"++++++++++++++++++++++++++++++++ ES ESTE +++++++++++++++++  " + BasicFunctions.getIdCaseSeq());
-		System.out.println("CONSULTA: " + queryParties);
 		
 		ResultSet resultSetParties;
 		

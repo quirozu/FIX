@@ -448,7 +448,7 @@ public class AutoEngine {
 		ejecutarSiguienteEscenario();
 		System.out.println("** CONTINUAR ***");
 
-		System.out.println("*********** SALIENDO DE validarAI ************");
+		System.out.println("*********** SALIENDO DE validarAG ************");
 	}
 
 	public void ejecutarSiguienteEscenario()

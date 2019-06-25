@@ -608,7 +608,6 @@ public class Validaciones {
 
 		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
 				+ datosCache.getIdCaseseq();
-		System.out.println("consulta: " + queryMessageR);
 
 		resultset = DataAccess.getQuery(queryMessageR);
 		ArrayList<String> cad = FragmentarCadena(cadena);
@@ -1869,6 +1868,7 @@ public class Validaciones {
 			securitySubType = resultset.getString("RS_SECSUBTYPE");
 			idEscenario = resultset.getString("ID_ESCENARIO");
 			idCase = resultset.getString("ID_CASE");
+			idSecuencia = resultset.getInt("ID_SECUENCIA");
 
 		}
 		System.out.println("----------------------------------------");
