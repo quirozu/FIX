@@ -75,7 +75,7 @@ public class CreateMessage {
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 			QuoteRequest.NoRelatedSym noRelatedSym = new QuoteRequest.NoRelatedSym();
 
-			Symbol symbol = resultSet.getString("RQ_SYMBOL") == null ?  new Symbol("TFIT19PEDRO") :  new Symbol(resultSet.getString("RQ_SYMBOL"));
+			Symbol symbol = resultSet.getString("RQ_SYMBOL") == null ?  new Symbol("   ") :  new Symbol(resultSet.getString("RQ_SYMBOL"));
 			noRelatedSym.set(symbol);
 //			noRelatedSym.set(new Symbol(resultSet.getString("RQ_SYMBOL")));
 			noRelatedSym.setField(new SecurityIDSource("M"));
