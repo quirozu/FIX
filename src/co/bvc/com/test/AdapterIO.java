@@ -92,13 +92,13 @@ public class AdapterIO extends MessageCracker implements Application {
 				e.printStackTrace();
 			}
 
-//			message.setField(new PossDupFlag(true));
+			message.setField(new PossDupFlag(true));
 
 		}
 		if (message instanceof Reject) {
 
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 				autoEngine.validar3(sessionId, message);
 			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
 				e.printStackTrace();
@@ -149,7 +149,7 @@ public class AdapterIO extends MessageCracker implements Application {
 		if (message instanceof Reject) {
 
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 				autoEngine.validar3(sessionId, message);
 			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
 				e.printStackTrace();
@@ -187,7 +187,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 			try {
 				printMessage("MESAJE DE RECHAZO AG ", sessionId, message);
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 				autoEngine.validarAG(sessionId, message);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -207,7 +207,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			printMessage("MENSAJE S_PRIMA  ", sessionId, message);
 
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 				autoEngine.validarS(sessionId, message);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -251,7 +251,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 			printMessage("MENSAJE AI ", sessionId, message);
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 				autoEngine.validarAI(sessionId, message);
 			} catch (SQLException | InterruptedException e) {
 				e.printStackTrace();
@@ -322,7 +322,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			printMessage("QuoteCancel de PEDRO", sessionID, message);
 
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 				autoEngine.validarZ(sessionID, message);
 			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
 				e.printStackTrace();

@@ -75,7 +75,6 @@ public class AutoEngine {
 
 		}
 
-		System.out.println("FIN EJECUCION....");
 	}
 
 	public void enviarMensaje(ResultSet resultSet)
