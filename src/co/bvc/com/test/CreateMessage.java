@@ -57,16 +57,13 @@ public class CreateMessage {
 				+ "	ON linea.ID_CASESEQ = partes.RFQ_IDCASE\r\n" + "WHERE linea.ID_CASESEQ ="
 				+ BasicFunctions.getIdCaseSeq();
 
-		System.out.println(
-				"++++++++++++++++++++++++++++++++ ES ESTE +++++++++++++++++  " + BasicFunctions.getIdCaseSeq());
-		
 		ResultSet resultSetParties;
-		
+
 		try {
 			BasicFunctions.setAllMarket(false);
 			BasicFunctions.setIniciator(resultSet.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
-			
+
 			String strQuoteReqId = BasicFunctions.getIdEjecution() + resultSet.getString("ID_CASE") + "_R";
 
 			QuoteReqID quoteReqID = new QuoteReqID(strQuoteReqId); // 131
@@ -75,7 +72,8 @@ public class CreateMessage {
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 			QuoteRequest.NoRelatedSym noRelatedSym = new QuoteRequest.NoRelatedSym();
 
-			Symbol symbol = resultSet.getString("RQ_SYMBOL") == null ?  new Symbol("   ") :  new Symbol(resultSet.getString("RQ_SYMBOL"));
+			Symbol symbol = resultSet.getString("RQ_SYMBOL") == null ? new Symbol("   ")
+					: new Symbol(resultSet.getString("RQ_SYMBOL"));
 			noRelatedSym.set(symbol);
 //			noRelatedSym.set(new Symbol(resultSet.getString("RQ_SYMBOL")));
 			noRelatedSym.setField(new SecurityIDSource("M"));
@@ -157,7 +155,7 @@ public class CreateMessage {
 		try {
 			BasicFunctions.setReceptor(resultSet.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
-			
+
 			String strQuoteId = BasicFunctions.getIdEjecution() + resultSet.getString("ID_CASE") + "_S";
 
 			QuoteID quoteID = new QuoteID(strQuoteId);
@@ -198,10 +196,10 @@ public class CreateMessage {
 			}
 
 			if (BasicFunctions.isAllMarket()) {
-				
+
 				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
 				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
-				
+
 				list.clear();
 				while (itSessiones.hasNext()) {
 					String idAfiliadoMap = itSessiones.next();
@@ -211,7 +209,7 @@ public class CreateMessage {
 				}
 				// Se asigna Session+r Para validar RC prima al inicializador
 				list.add(BasicFunctions.getIniciator() + "R");
-				
+
 			}
 
 			respuestaMessage.setListSessiones(list);
@@ -232,10 +230,11 @@ public class CreateMessage {
 
 	}
 
-	public RespuestaConstrucccionMsgFIX createAJ(ResultSet resultset, String strQuoteId) throws SessionNotFound, SQLException {
+	public RespuestaConstrucccionMsgFIX createAJ(ResultSet resultset, String strQuoteId)
+			throws SessionNotFound, SQLException {
 
 		RespuestaConstrucccionMsgFIX respuestaMessage = new RespuestaConstrucccionMsgFIX();
-		
+
 		String strQuoteRespId = BasicFunctions.getIdEjecution() + resultset.getString("ID_CASE") + "_AJ";
 
 		try {
@@ -287,12 +286,12 @@ public class CreateMessage {
 		header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
 		quoteCancel.setField(new QuoteCancelType(5));// RQ_QUOTECANCTYPE
-		quoteCancel.setField(new QuoteID(BasicFunctions.getIdEjecution() + resultSet.getString("ID_CASE")+"_S"));
+		quoteCancel.setField(new QuoteID(BasicFunctions.getIdEjecution() + resultSet.getString("ID_CASE") + "_S"));
 
 		System.out.println("Nos Message Sent : " + quoteCancel);
 
 		respuestaMessage.setMessage(quoteCancel);
- 
+
 		List<String> list = new ArrayList<String>();
 
 		list.add(BasicFunctions.getIniciator());

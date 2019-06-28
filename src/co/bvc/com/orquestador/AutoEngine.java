@@ -82,6 +82,7 @@ public class AutoEngine {
 
 		String msgType = resultSet.getString("ID_ESCENARIO");
 		String idAfiliado = resultSet.getString("ID_AFILIADO");
+		String idCase = resultSet.getString("ID_CASE");
 		System.out.println(resultSet);
 		AutFixRfqDatosCache datosCache = new AutFixRfqDatosCache();
 		RespuestaConstrucccionMsgFIX respConstruccion = new RespuestaConstrucccionMsgFIX();
@@ -90,6 +91,17 @@ public class AutoEngine {
 		switch (msgType) {
 
 		case "FIX_R":
+			
+			
+			System.out.println("************************************************************");
+			System.out.println("************************************************************");
+			System.out.println("********                                            ********");
+			System.out.println("********  COMIENZA ESCENARIO "+ idCase + "                      ********");
+			System.out.println("********                                            ********");
+			System.out.println("************************************************************");
+			System.out.println("************************************************************");
+			
+			
 
 			System.out.println("*********************");
 			System.out.println("** INGRESA A FIX_R **");
@@ -191,7 +203,6 @@ public class AutoEngine {
 
 			respConstruccion = createMesage.createZ(Login.getSessionOfAfiliado(idAfiliado), resultSet);
 
-			System.out.println("#################################### " + respConstruccion);
 
 			System.out.println("ID DE Z " + BasicFunctions.getQuoteIdGenered());
 

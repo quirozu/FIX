@@ -319,7 +319,7 @@ public class AdapterIO extends MessageCracker implements Application {
 
 		if (message instanceof QuoteCancel) {
 
-			printMessage("QuoteCancel de PEDRO", sessionID, message);
+			printMessage("QuoteCancel", sessionID, message);
 
 			try {
 				Thread.sleep(5000);

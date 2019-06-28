@@ -1844,7 +1844,7 @@ public class Validaciones {
 
 	}
 
-	public void validarAG(AutFixRfqDatosCache datosCache, Message qr) throws SQLException {
+	public void validarAG(AutFixRfqDatosCache datosCache, Message qr) throws SQLException, FieldNotFound {
 
 		int contadorBuenos = 0;
 		int contadorMalos = 0;
@@ -1960,6 +1960,12 @@ public class Validaciones {
 							 idEscenario, idCase, idSecuencia, valor);
 					contadorMalos++;
 				}
+				break;
+				
+			case "58":
+				
+				DataAccess.cargarLogs3(qr, datosCache.getIdEjecucion(), idEscenario, idCase, datosCache.getIdSecuencia());
+				
 				break;
 
 			default:
