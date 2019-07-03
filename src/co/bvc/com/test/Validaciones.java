@@ -93,7 +93,7 @@ public class Validaciones {
 		resultset = DataAccess.getQuery(queryMessageR);
 		String symbol = null, msgType = null, secSubTypec = null, side = null, orderQty = null, validuntiltime = null,
 				norelatedSymg = null, idCase = null, beginString = "FIX.4.4", SenderCompID = "EXC", noPartyId = null,
-				id_Escenario = null, targetComId = null, targetSubId = null, securityIdSource = "M";
+				id_Escenario = null, targetComId = null, targetSubId = null, securityIdSource = "M",account= null;
 		int idSecuencia = 0;
 
 		while (resultset.next()) {
@@ -110,6 +110,7 @@ public class Validaciones {
 			idSecuencia = resultset.getInt("ID_SECUENCIA");
 			noPartyId = resultset.getString("RQ_NOPARTYIDS");
 			id_Escenario = resultset.getString("ID_ESCENARIO");
+			account = resultset.getString("RQ_ACCOUNT");
 
 		}
 		System.out.println("----------------------------------------");
@@ -118,6 +119,23 @@ public class Validaciones {
 		for (int z = 0; z < cad.size(); z++) {
 			clavePrima = cad.get(z).split("=")[0];
 			switch (clavePrima) {
+			case "1":
+				if (cad.get(z).split("=")[1].equals(account)) {
+
+					contadorBuenos++;
+
+					cadenaDeMensaje("account", clavePrima, account);
+
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], account,
+							 id_Escenario, idCase, idSecuencia, clavePrima);
+				} else {
+					System.out.println(
+							" account (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD " + account);
+					contadorMalos++;
+					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), cad.get(z).split("=")[1],
+							account, id_Escenario, idCase, idSecuencia, clavePrima);
+				}
+				break;
 			case "22":
 				if (cad.get(z).split("=")[1].equals(securityIdSource)) {
 
@@ -343,7 +361,7 @@ public class Validaciones {
 		resultset = DataAccess.getQuery(queryMessageR);
 		String msgType = null, OfferSize = null, secSubType = null, symbol = null, noPartyId = "5",
 				SecurityIDSource = "M", SenderCompID = "EXC", beginString = "FIX.4.4", idCase = null,
-				targetSubId = null, targetComId = null, idEscenario = null, offerYield = null, bidSize = null,
+				targetSubId = null, targetComId = null, idEscenario = null, offerYield = null, bidSize = null,account = null,
 				bidyield = null;
 		int idSecuencia = 0;
 
@@ -360,6 +378,7 @@ public class Validaciones {
 			idCase = resultset.getString("ID_CASE");
 			idSecuencia = resultset.getInt("ID_SECUENCIA");
 			idEscenario = resultset.getString("ID_ESCENARIO");
+			account = resultset.getString("RQ_ACCOUNT");
 
 		}
 		System.out.println("----------------------------------------");
@@ -368,6 +387,23 @@ public class Validaciones {
 			clavePrima = cad.get(z).split("=")[0];
 			switch (clavePrima) {
 
+			case "1":
+				if (cad.get(z).split("=")[1].equals(account)) {
+
+					contadorBuenos++;
+
+					cadenaDeMensaje("account", clavePrima, account);
+
+					DataAccess.cargarLogsExitosos(messageIn, datosCache.getIdEjecucion(), cad.get(z).split("=")[1], account,
+							 idEscenario, idCase, idSecuencia, clavePrima);
+				} else {
+					System.out.println(
+							" account (" + clavePrima + ") MSG: " + cad.get(z).split("=")[1] + " BD " + account);
+					contadorMalos++;
+					DataAccess.cargarLogsFallidos(messageIn, datosCache.getIdEjecucion(), cad.get(z).split("=")[1],
+							account, idEscenario, idCase, idSecuencia, clavePrima);
+				}
+				break;
 			case "632":
 				if (cad.get(z).split("=")[1].equals(bidyield)) {
 
@@ -615,7 +651,7 @@ public class Validaciones {
 		String type = null, symbol = null, subtype = null, side = null, order = null, latedsym = null, idCase = null,
 				offerYield = null, quoteStatus = null, beginString = "FIX.4.4", idEscenario = null,
 				SenderCompID = "EXC", targetSubId = null, targetComId = null, noPartyId = "5", SecurityIDSource = "M",
-				OfferSize = null, bidyield = null, bidSize = null, quoteCancelType = null;
+				OfferSize = null, bidyield = null, bidSize = null, quoteCancelType = null,account = null;
 		int idSecuencia = 0;
 		while (resultset.next()) {
 			OfferSize = resultset.getString("RS_OFFERSIZE");
@@ -635,6 +671,7 @@ public class Validaciones {
 			quoteCancelType = resultset.getString("RS_QUOTECANCELTYPE");
 			idSecuencia = resultset.getInt("ID_SECUENCIA");
 			idEscenario = "FIX_AI";
+			account = resultset.getString("RS_ACCOUNT");
 
 		}
 		System.out.println("----------------------------------------");
@@ -642,6 +679,23 @@ public class Validaciones {
 		for (int i = 0; i < cad.size(); i++) {
 			valor = cad.get(i).split("=")[0];
 			switch (valor) {
+			
+			case "1":
+				if (cad.get(i).split("=")[1].equals(account)) {
+					contadorBuenos++;
+
+					cadenaDeMensaje(" account ", valor, account);
+
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), account,
+							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+				} else {
+					System.out.println(
+							" account (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + account);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), account,
+							cad.get(i).split("=")[1], idEscenario, idCase, idSecuencia, valor);
+					contadorMalos++;
+				}
+				break;
 
 			case "298":
 				if (cad.get(i).split("=")[1].equals(quoteCancelType)) {
@@ -958,7 +1012,7 @@ public class Validaciones {
 				SenderCompID = "EXC", beginString = "FIX.4.4", SecurityIDSource = "M", senderSubId = null,
 				dirtyPrice = null, partyIdsSource = null, idCase = null, idEscenario = null, targetComId = null,
 				targetSubId = null, ciordId = null, execId = null, orderId = null, reforderId = null, cumQTy = null,
-				fillYield = null, trdmatchId = null;
+				fillYield = null, trdmatchId = null, account = null;
 		int idSecuencia = 0;
 		
 		//Valores para grupos repetitivos de parties
@@ -994,7 +1048,7 @@ public class Validaciones {
 			fillYield = resultset.getString("ER_FILLYIELD");
 			trdmatchId = resultset.getString("ER_TRMATCHID");
 			idEscenario = "FIX_8";
-			
+			account = resultset.getString("ER_ACCOUNT");
 			//Si la session es la del iniciador
 			if(message.getHeader().getString(TargetCompID.FIELD).equals(BasicFunctions.getIniciator())) {
 				
@@ -1052,6 +1106,7 @@ public class Validaciones {
 					contadorMalos++;
 				}
 				break;
+				
 			case "1623":
 				if (valorFix.equals(fillYield)) {
 					contadorBuenos++;
@@ -1224,6 +1279,22 @@ public class Validaciones {
 					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), SenderCompID,
 							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 
+					contadorMalos++;
+				}
+				break;
+			case "1":
+				if (valorFix.equals(account)) {
+					contadorBuenos++;
+
+					cadenaDeMensaje(" account ", etiquetaFix, account);
+
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), account,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
+				} else {
+					System.out.println(
+							" account (" + etiquetaFix + "): MSG" + valorFix + " BD: " + account);
+					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), account,
+							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
 					contadorMalos++;
 				}
 				break;

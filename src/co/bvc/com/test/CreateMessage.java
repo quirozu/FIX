@@ -80,6 +80,12 @@ public class CreateMessage {
 			noRelatedSym.setField(new OrderQty(resultSet.getDouble("RQ_ORDERQTY")));
 			noRelatedSym.setField(new StringField(54, resultSet.getString("RQ_SIDE")));
 			noRelatedSym.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
+			
+			if(resultSet.getString("RQ_ACCOUNT")==null){
+				
+			}else {
+			noRelatedSym.setField(new StringField(1, resultSet.getString("RQ_ACCOUNT")));
+			}
 			noRelatedSym.setField(new NoPartyIDs());
 
 			QuoteRequest.NoRelatedSym.NoPartyIDs parte = new QuoteRequest.NoRelatedSym.NoPartyIDs();
@@ -172,7 +178,12 @@ public class CreateMessage {
 
 			quote.setField(new BidYield(resultSet.getDouble("RQ_BIDYIELD")));
 			quote.setField(new BidSize(resultSet.getDouble("RQ_BIDSIZE")));
-
+			
+			if(resultSet.getString("RQ_ACCOUNT")==null) {
+				
+			}else {
+			quote.setField(new StringField(1, resultSet.getString("RQ_ACCOUNT")));
+			}
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0");
 			LocalDateTime dateTime = LocalDateTime.parse(resultSet.getString("RQ_VALIDUNTILTIME"), formatter);
 			quote.setField(new ValidUntilTime(dateTime)); // "20190404-23:00:00";
