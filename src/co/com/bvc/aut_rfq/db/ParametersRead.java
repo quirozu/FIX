@@ -1,4 +1,4 @@
-package co.bvc.com.basicfix;
+package co.com.bvc.aut_rfq.db;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -45,7 +45,6 @@ public class ParametersRead {
         br = new BufferedReader(fr);
         String linea;
         while((linea=br.readLine())!=null) 
-//        	System.out.println(linea);
         return linea;
      }
      catch(Exception e){

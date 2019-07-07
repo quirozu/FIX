@@ -1,4 +1,4 @@
-package co.bvc.com.test;
+package co.com.bvc.aut_rfq.basicfix;
 
 import java.util.Iterator;
 
