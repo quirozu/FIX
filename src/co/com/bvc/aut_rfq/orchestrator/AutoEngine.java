@@ -42,7 +42,6 @@ public class AutoEngine {
 			//Dentro de startVariables se inicializa ID_EJECUCION
 			BasicFunctions.startVariables();
 			
-			
 			//Se crea el login
 			adapterIO = new AdapterIO();
 			login = new Login(adapterIO);

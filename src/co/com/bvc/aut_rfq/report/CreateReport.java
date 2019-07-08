@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import co.bvc.com.basicfix.DataAccess;
+import co.com.bvc.aut_rfq.db.DataAccess;
 
 public class CreateReport {
 	static DataAccess conexiona = new DataAccess();

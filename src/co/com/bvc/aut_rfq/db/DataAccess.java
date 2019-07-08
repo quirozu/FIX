@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.sql.Types;
+import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.Properties;
 
@@ -18,6 +19,8 @@ import co.com.bvc.aut_rfq.basicfix.BasicFunctions;
 import co.com.bvc.aut_rfq.dao.domain.AutFixRfqDatosCache;
 import quickfix.FieldNotFound;
 import quickfix.Message;
+import quickfix.Session;
+import quickfix.SessionID;
 
 public class DataAccess {
 	
@@ -26,7 +29,7 @@ public class DataAccess {
 	private String driver;
 	private static Connection conn = null;
 	
-	private DataAccess(){
+	public DataAccess(){
 		
 		Properties prop = new Properties();
 		InputStream is = null;
@@ -38,20 +41,14 @@ public class DataAccess {
 			System.out.println(e.toString());
 		}
 		
-//		String driver = "com.mysql.jdbc.Driver";
-//		String _url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + _db;
-//		Class.forName(driver);
-//		conn = DriverManager.getConnection(_url, _usuario, _pwd);
-//		
-		
-		String url = "jdbc:mysql://" + prop.getProperty("servidor.ip") + ":" + prop.getProperty("servidor.port")
-		+ "/" + prop.getProperty("servidor.database");
+		String url = "jdbc:mysql://" + prop.getProperty("servidor.ip").trim() + ":" 
+		+ prop.getProperty("servidor.port").trim()	+ "/" + prop.getProperty("servidor.database").trim();
 		
 		System.out.println("URL: " + url);
 		
-		driver = prop.getProperty("servidor.driver");
-		usuario = prop.getProperty("servidor.username");
-		password = prop.getProperty("servidor.password");
+		driver = prop.getProperty("servidor.driver").trim();
+		usuario = prop.getProperty("servidor.username").trim();
+		password = prop.getProperty("servidor.password").trim();
 		  
 		try{
 		    Class.forName(driver);
@@ -70,35 +67,6 @@ public class DataAccess {
 		
 		return conn;
 	}
-
-//	private static String _usuario;
-//	private static String _pwd;
-//	private static String _db;
-//	private static String HOST;
-//	private static String PORT;
-//	private static Connection conn = null;
-//
-//	public static Connection getConnection() {
-//		try {
-//			if (conn == null) {
-//				ParametersRead p = new ParametersRead();
-//				String[] lineas = p.leerConexion();
-//				_usuario = lineas[0].split("=")[1].trim();
-//				_pwd = lineas[1].split("=")[1].trim();
-//				_db = lineas[2].split("=")[1].trim();
-//				HOST = lineas[3].split("=")[1].trim();
-//				PORT = lineas[4].split("=")[1].trim();
-//				String driver = "com.mysql.jdbc.Driver";
-//				String _url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + _db;
-//				Class.forName(driver);
-//				conn = DriverManager.getConnection(_url, _usuario, _pwd);
-//				System.out.println("Conectionesfull");
-//			}
-//		} catch (ClassNotFoundException | SQLException ex) {
-//			ex.printStackTrace();
-//		}
-//		return conn;
-//	}
 
 	public static ResultSet getQuery(String _query) throws SQLException {
 		Statement state = null;
