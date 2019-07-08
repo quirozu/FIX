@@ -133,7 +133,7 @@ public class Login {
 		return mapSessiones.get(afiliado);
 	}
 	
-	public Map<String, SessionID> getMapSessiones() {
+	public static Map<String, SessionID> getMapSessiones() {
 		return mapSessiones;
 	}
 

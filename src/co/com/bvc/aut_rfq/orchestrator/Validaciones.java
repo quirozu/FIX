@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import co.bvc.com.basicfix.BasicFunctions;
-import co.bvc.com.basicfix.DataAccess;
+import co.com.bvc.aut_rfq.basicfix.BasicFunctions;
 import co.com.bvc.aut_rfq.dao.domain.AutFixRfqDatosCache;
+import co.com.bvc.aut_rfq.db.DataAccess;
 import quickfix.FieldNotFound;
 import quickfix.Group;
 import quickfix.field.NoPartyIDs;
@@ -25,7 +25,7 @@ public class Validaciones {
 	private String CadenaSPrima;
 	private String CadenaRPrima = "";
 
-	DataAccess data = new DataAccess();
+//	DataAccess data = new DataAccess();
 	private String cadenaOcho;
 
 	public String getCadenaOcho() {

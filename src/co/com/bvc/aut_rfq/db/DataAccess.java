@@ -38,8 +38,16 @@ public class DataAccess {
 			System.out.println(e.toString());
 		}
 		
+//		String driver = "com.mysql.jdbc.Driver";
+//		String _url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + _db;
+//		Class.forName(driver);
+//		conn = DriverManager.getConnection(_url, _usuario, _pwd);
+//		
+		
 		String url = "jdbc:mysql://" + prop.getProperty("servidor.ip") + ":" + prop.getProperty("servidor.port")
 		+ "/" + prop.getProperty("servidor.database");
+		
+		System.out.println("URL: " + url);
 		
 		driver = prop.getProperty("servidor.driver");
 		usuario = prop.getProperty("servidor.username");

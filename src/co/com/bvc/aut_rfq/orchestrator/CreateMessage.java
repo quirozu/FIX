@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import co.bvc.com.basicfix.BasicFunctions;
-import co.bvc.com.basicfix.Constantes;
-import co.bvc.com.basicfix.DataAccess;
 import co.com.bvc.aut_rfq.adapter_inet.Login;
+import co.com.bvc.aut_rfq.basicfix.BasicFunctions;
+import co.com.bvc.aut_rfq.basicfix.Constantes;
 import co.com.bvc.aut_rfq.dao.domain.RespuestaConstrucccionMsgFIX;
+import co.com.bvc.aut_rfq.db.DataAccess;
 import quickfix.FieldNotFound;
 import quickfix.Session;
 import quickfix.SessionID;
