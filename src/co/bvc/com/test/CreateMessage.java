@@ -17,10 +17,13 @@ import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
 import quickfix.StringField;
+import quickfix.field.Account;
 import quickfix.field.BeginString;
+import quickfix.field.BidPx;
 import quickfix.field.BidSize;
 import quickfix.field.BidYield;
 import quickfix.field.NoPartyIDs;
+import quickfix.field.OfferPx;
 import quickfix.field.OfferSize;
 import quickfix.field.OfferYield;
 import quickfix.field.OrderQty;
@@ -80,12 +83,13 @@ public class CreateMessage {
 			noRelatedSym.setField(new OrderQty(resultSet.getDouble("RQ_ORDERQTY")));
 			noRelatedSym.setField(new StringField(54, resultSet.getString("RQ_SIDE")));
 			noRelatedSym.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
-			
-			if(resultSet.getString("RQ_ACCOUNT")==null){
-				
-			}else {
-			noRelatedSym.setField(new StringField(1, resultSet.getString("RQ_ACCOUNT")));
+
+			if (resultSet.getString("RQ_ACCOUNT") == null) {
+
+			} else {
+				noRelatedSym.setField(new StringField(1, resultSet.getString("RQ_ACCOUNT")));
 			}
+
 			noRelatedSym.setField(new NoPartyIDs());
 
 			QuoteRequest.NoRelatedSym.NoPartyIDs parte = new QuoteRequest.NoRelatedSym.NoPartyIDs();
@@ -93,6 +97,7 @@ public class CreateMessage {
 			List<String> list = new ArrayList<String>();
 			String idAfiliado = resultSet.getString("ID_AFILIADO");
 			list.add(idAfiliado);
+
 //			 Parties
 			while (resultSetParties.next()) {
 				String rSession = resultSetParties.getString("RECEIVER_SESSION");
@@ -106,23 +111,24 @@ public class CreateMessage {
 
 				noRelatedSym.addGroup(parte);
 			}
-			if (noRelatedSym.getInt(NoPartyIDs.FIELD) == 1) {
-				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
-				BasicFunctions.setAllMarket(true);
-				list.clear();
-				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
+			if (resultSet.getString("MERCADO").equalsIgnoreCase("RF")) {
+				if (noRelatedSym.getInt(NoPartyIDs.FIELD) == 1) {
+					System.out.println("\n\nPARA TODO EL MERCADO.....\n");
+					BasicFunctions.setAllMarket(true);
+					list.clear();
+					Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
 
-				while (itSessiones.hasNext()) {
-					String idAfiliadoMap = itSessiones.next();
-					list.add(idAfiliadoMap);
-					System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: "
-							+ Login.getMapSessiones().get(idAfiliadoMap));
+					while (itSessiones.hasNext()) {
+						String idAfiliadoMap = itSessiones.next();
+						list.add(idAfiliadoMap);
+						System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: "
+								+ Login.getMapSessiones().get(idAfiliadoMap));
+					}
+					// Se asigna Session+r Para validar R prima al inicializador
+					list.add(idAfiliado + "R");
+
 				}
-				// Se asigna Session+r Para validar R prima al inicializador
-				list.add(idAfiliado + "R");
-
 			}
-
 			quoteRequest.addGroup(noRelatedSym);
 
 			respuestaMessage.setMessage(quoteRequest);
@@ -156,7 +162,7 @@ public class CreateMessage {
 //
 //		BasicFunctions.setQuoteIdGenered(cIdRandom);
 
-		System.out.println("QUOTE ID GENERADO: " + BasicFunctions.getQuoteIdGenered());
+//		System.out.println("QUOTE ID GENERADO: " + BasicFunctions.getQuoteIdGenered());
 
 		try {
 			BasicFunctions.setReceptor(resultSet.getString("ID_AFILIADO"));
@@ -174,16 +180,31 @@ public class CreateMessage {
 			quote.set(new Symbol(resultSet.getString("RQ_SYMBOL")));
 			quote.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
 			quote.setField(new OfferSize(resultSet.getDouble("RQ_OFFERSIZE")));
-			quote.setField(new OfferYield(resultSet.getDouble("RQ_OFFERYIELD")));
 
-			quote.setField(new BidYield(resultSet.getDouble("RQ_BIDYIELD")));
-			quote.setField(new BidSize(resultSet.getDouble("RQ_BIDSIZE")));
+
 			
-			if(resultSet.getString("RQ_ACCOUNT")==null) {
+			if(resultSet.getString("RQ_ACCOUNT") != null) {
+				quote.setField(new Account(resultSet.getString("RQ_ACCOUNT")));
+				}	
+				if(resultSet.getString("RQ_OFFERSIZE") != null) {
+				quote.setField(new OfferSize(resultSet.getDouble("RQ_OFFERSIZE")));
+				}
+				if(resultSet.getString("RQ_OFFERYIELD") != null) {
+				quote.setField(new OfferYield(resultSet.getDouble("RQ_OFFERYIELD")));
+				}
+				if(resultSet.getString("RQ_BIDYIELD") != null) {
+				quote.setField(new BidYield(resultSet.getDouble("RQ_BIDYIELD")));
+				}
+				if(resultSet.getString("RQ_BIDSIZE") != null) {
+				quote.setField(new BidSize(resultSet.getDouble("RQ_BIDSIZE")));
+				}
+				if(resultSet.getString("RQ_BIDPX") != null) {
+				quote.setField(new BidPx(resultSet.getDouble("RQ_BIDPX")));
+				}
+				if(resultSet.getString("RQ_OFFERPX") != null) {
+				quote.setField(new OfferPx(resultSet.getDouble("RQ_OFFERPX")));
+				}
 				
-			}else {
-			quote.setField(new StringField(1, resultSet.getString("RQ_ACCOUNT")));
-			}
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0");
 			LocalDateTime dateTime = LocalDateTime.parse(resultSet.getString("RQ_VALIDUNTILTIME"), formatter);
 			quote.setField(new ValidUntilTime(dateTime)); // "20190404-23:00:00";
@@ -193,7 +214,8 @@ public class CreateMessage {
 
 			List<String> list = new ArrayList<String>();
 			list.add(BasicFunctions.getReceptor());
-
+			
+			if (resultSet.getString("MERCADO").equalsIgnoreCase("RF")) {
 			while (resultSetParties.next()) {
 				String rSession = resultSetParties.getString("RECEIVER_SESSION");
 				if (rSession != null) {
@@ -204,6 +226,10 @@ public class CreateMessage {
 				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
 
 				quote.addGroup(parte);
+			}
+			}else {
+				
+				list.add(BasicFunctions.getIniciator());				
 			}
 
 			if (BasicFunctions.isAllMarket()) {

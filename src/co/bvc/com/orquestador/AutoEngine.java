@@ -57,7 +57,7 @@ public class AutoEngine {
 			System.out.println("Continua con el siguiente paso.");
 			System.out.println("************************** " + caso);
 
-			if (caso < BasicFunctions.getIdCase()) {
+			if (caso < BasicFunctions.getIdCase() ) {
 				Thread.sleep(5000);
 				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
 				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
@@ -320,7 +320,7 @@ public class AutoEngine {
 		// getcache
 		AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
 
-		validaciones.ValidarSPrima(datosCache, messageIn);
+//		validaciones.ValidarSPrima(datosCache, messageIn);
 
 		eliminarDatoCache(IdContraFirm);
 
@@ -386,9 +386,16 @@ public class AutoEngine {
 			validaciones.validar3(datosCache, (quickfix.fix44.Message) messageIn);
 			// quitar sesiones en cache
 			DataAccess.limpiarCache();
-			ejecutarSiguienteEscenario();
+			
+			
+			if (DataAccess.validarContinuidadEjecucion()) {
+				ejecutarSiguienteEscenario();
+				System.out.println("** CONTINUAR ***");
+			} else {
+				System.out.println("**** ESPERAR ****");
+			}
 
-		}
+		}else {
 		String sIdAfiliado = sessionId.toString().substring(8, 11);
 		AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
 		Validaciones validaciones = new Validaciones();
@@ -402,6 +409,7 @@ public class AutoEngine {
 			System.out.println("** CONTINUAR ***");
 		} else {
 			System.out.println("**** ESPERAR ****");
+		}
 		}
 
 		System.out.println("*********** SALIENDO DE validarAI ************");

@@ -355,7 +355,7 @@ public class Validaciones {
 		String clavePrima;
 		ArrayList<String> cad = FragmentarCadena1(cadenaPrima);
 		ResultSet resultset;
-		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
+		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos WHERE ID_CASESEQ = "
 				+ datosCache.getIdCaseseq();
 
 		resultset = DataAccess.getQuery(queryMessageR);
@@ -650,10 +650,11 @@ public class Validaciones {
 		String valor;
 		String type = null, symbol = null, subtype = null, side = null, order = null, latedsym = null, idCase = null,
 				offerYield = null, quoteStatus = null, beginString = "FIX.4.4", idEscenario = null,
-				SenderCompID = "EXC", targetSubId = null, targetComId = null, noPartyId = "5", SecurityIDSource = "M",
+				SenderCompID = "EXC", targetSubId = null, targetComId = null, noPartyId = null, SecurityIDSource = "M",
 				OfferSize = null, bidyield = null, bidSize = null, quoteCancelType = null,account = null;
 		int idSecuencia = 0;
 		while (resultset.next()) {
+			noPartyId = resultset.getString("RS_NOPARTYIDS");
 			OfferSize = resultset.getString("RS_OFFERSIZE");
 			bidyield = resultset.getString("RS_BIDYIELD");
 			bidSize = resultset.getString("RS_BIDSIZE");
@@ -1090,22 +1091,22 @@ public class Validaciones {
 			etiquetaFix = cad.get(i).split("=")[0];
 			valorFix = cad.get(i).split("=")[1];
 			switch (etiquetaFix) {
-			case "880":
-				if (valorFix.equals(trdmatchId)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje(" ER_TRMATCHID ", etiquetaFix, trdmatchId);
-
-					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), valorFix, trdmatchId, 
-							idEscenario, idCase, idSecuencia, etiquetaFix);
-				} else {
-					System.out.println(
-							" ER_TRMATCHID (" + etiquetaFix + ") MSG: " + valorFix + " BD: " + trdmatchId);
-					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), valorFix, trdmatchId, 
-							idEscenario, idCase, idSecuencia, etiquetaFix);
-					contadorMalos++;
-				}
-				break;
+//			case "880":
+//				if (valorFix.equals(trdmatchId)) {
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje(" ER_TRMATCHID ", etiquetaFix, trdmatchId);
+//
+//					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), valorFix, trdmatchId, 
+//							idEscenario, idCase, idSecuencia, etiquetaFix);
+//				} else {
+//					System.out.println(
+//							" ER_TRMATCHID (" + etiquetaFix + ") MSG: " + valorFix + " BD: " + trdmatchId);
+//					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), valorFix, trdmatchId, 
+//							idEscenario, idCase, idSecuencia, etiquetaFix);
+//					contadorMalos++;
+//				}
+//				break;
 				
 			case "1623":
 				if (valorFix.equals(fillYield)) {
@@ -1188,22 +1189,22 @@ public class Validaciones {
 							idEscenario, idCase, idSecuencia, etiquetaFix);
 				}
 				break;
-			case "17":
-				if (valorFix.equals(execId)) {
-
-					contadorBuenos++;
-
-					cadenaDeMensaje("ER_EXECID", etiquetaFix, execId);
-
-					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), execId, valorFix,
-							idEscenario, idCase, idSecuencia, etiquetaFix);
-				} else {
-					System.out.println(" ER_EXECID (" + etiquetaFix + ") MSG: " + valorFix + " BD " + execId);
-					contadorMalos++;
-					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), execId, valorFix,
-							idEscenario, idCase, idSecuencia, etiquetaFix);
-				}
-				break;
+//			case "17":
+//				if (valorFix.equals(execId)) {
+//
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("ER_EXECID", etiquetaFix, execId);
+//
+//					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), execId, valorFix,
+//							idEscenario, idCase, idSecuencia, etiquetaFix);
+//				} else {
+//					System.out.println(" ER_EXECID (" + etiquetaFix + ") MSG: " + valorFix + " BD " + execId);
+//					contadorMalos++;
+//					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), execId, valorFix,
+//							idEscenario, idCase, idSecuencia, etiquetaFix);
+//				}
+//				break;
 			case "11":
 
 				String mensajeS = BasicFunctions.getIdEjecution() + "" + datosCache.getIdCase() + "_S";
@@ -1406,22 +1407,22 @@ public class Validaciones {
 					contadorMalos++;
 				}
 				break;
-			case "381":
-				if (valorFix.equals(grosstradeamt)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje("ER_GROSSTRADEAMT", etiquetaFix, grosstradeamt);
-
-					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), grosstradeamt,
-							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
-				} else {
-					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), grosstradeamt,
-							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
-					System.out.println(" ER_GROSSTRADEAMT(" + etiquetaFix + "): MSG" + valorFix + " BD: "
-							+ grosstradeamt);
-					contadorMalos++;
-				}
-				break;
+//			case "381":
+//				if (valorFix.equals(grosstradeamt)) {
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje("ER_GROSSTRADEAMT", etiquetaFix, grosstradeamt);
+//
+//					DataAccess.cargarLogsExitosos(message, datosCache.getIdEjecucion(), grosstradeamt,
+//							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
+//				} else {
+//					DataAccess.cargarLogsFallidos(message, datosCache.getIdEjecucion(), grosstradeamt,
+//							valorFix, idEscenario, idCase, idSecuencia, etiquetaFix);
+//					System.out.println(" ER_GROSSTRADEAMT(" + etiquetaFix + "): MSG" + valorFix + " BD: "
+//							+ grosstradeamt);
+//					contadorMalos++;
+//				}
+//				break;
 			case "453":
 				if (valorFix.equals(nopartyIds)) {
 					contadorBuenos++;
@@ -2058,7 +2059,6 @@ public class Validaciones {
 		ResultSet resultset;
 
 		String queryMessageR = "SELECT * FROM bvc_automation_db.aut_fix_rfq_datos " + "WHERE ID_CASESEQ = "
-
 				+ datosCache.getIdCaseseq();
 
 		resultset = DataAccess.getQuery(queryMessageR);

@@ -170,7 +170,7 @@ public class DataAccess {
 		ps.setInt(4, idSecuencia);
 		ps.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
 		ps.setString(6, "FALLIDO");
-		ps.setString(7, "(" + clavePrima + ") MSG: " + clave + " BD: " + valor);
+		ps.setString(7, "(" + clavePrima + ") MSG: " + valor + " BD: " + clave );
 		ps.setString(8, message.toString());
 		ps.setNull(9, Types.INTEGER);
 		ps.executeUpdate();
