@@ -82,10 +82,10 @@ public class DataAccess {
 
 	public static int getFirstIdCaseSeq(int escenarioEjecucion) throws SQLException {
 
-		String queryInicio = "SELECT ID_CASESEQ FROM aut_fix_rfq_datos" + " WHERE ID_CASE= "
+		String queryInicio = "SELECT ID_CASESEQ FROM aut_fix_rfq_datos WHERE ID_CASE= "
 				+ escenarioEjecucion + " ORDER BY ID_CASESEQ ASC LIMIT 1";
 
-		ResultSet rs = DataAccess.getQuery(queryInicio);
+		ResultSet rs = DataAccess.getQuery(queryInicio); 
 		int idCaseSeq = -1;
 
 		while (rs.next()) {
