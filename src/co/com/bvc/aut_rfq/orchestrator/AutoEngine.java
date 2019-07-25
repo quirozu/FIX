@@ -369,9 +369,9 @@ public class AutoEngine {
 
 		// getcache
 //		AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
-//		Validaciones validaciones = new Validaciones();
+		Validaciones validaciones = new Validaciones();
 
-//		validaciones.validarOcho(datosCache, (quickfix.fix44.Message) messageIn);
+		validaciones.validarOcho(datosCache, (quickfix.fix44.Message) messageIn);
 		Thread.sleep(3000);
 //		eliminarDatoCache(IdContraFirm);
 		cache.getListSessiones().remove(IdContraFirm);
