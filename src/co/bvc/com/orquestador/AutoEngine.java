@@ -383,7 +383,8 @@ public class AutoEngine {
 			String sIdAfiliado = sessionId.toString().substring(8, 11);
 			AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
 			Validaciones validaciones = new Validaciones();
-			validaciones.validar3(datosCache, (quickfix.fix44.Message) messageIn);
+//			validaciones.validar3(datosCache, (quickfix.fix44.Message) messageIn);
+			validaciones.validaAI(datosCache, (quickfix.fix44.Message) messageIn);
 			// quitar sesiones en cache
 			DataAccess.limpiarCache();
 			

@@ -651,7 +651,7 @@ public class Validaciones {
 		ArrayList<String> cad = FragmentarCadena(cadena);
 		String valor;
 		String type = null, symbol = null, subtype = null, side = null, order = null, latedsym = null, idCase = null,
-				offerYield = null, quoteStatus = null, beginString = "FIX.4.4", idEscenario = null,
+				offerYield = null, quoteStatus = null, beginString = "FIX.4.4", idEscenario = null, text = null,
 				SenderCompID = "EXC", targetSubId = null, targetComId = null, noPartyId = null, SecurityIDSource = "M",
 				OfferSize = null, bidyield = null, bidSize = null, quoteCancelType = null, account = null;
 		int idSecuencia = 0;
@@ -675,6 +675,7 @@ public class Validaciones {
 			idSecuencia = resultset.getInt("ID_SECUENCIA");
 			idEscenario = "FIX_AI";
 			account = resultset.getString("RS_ACCOUNT");
+			text = resultset.getString("RS_TEXT");
 
 		}
 		System.out.println("----------------------------------------");
@@ -695,6 +696,26 @@ public class Validaciones {
 					System.out.println(" account (" + valor + ") MSG: " + cad.get(i).split("=")[1] + " BD: " + account);
 					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], account,
 							idEscenario, idCase, idSecuencia, valor);
+					contadorMalos++;
+				}
+				break;
+			case "58":
+				Pattern pattern = Pattern.compile(".(\\d+).*");
+				Matcher matcher = pattern.matcher(cad.get(i).split("=")[1]);
+				matcher.matches();
+				String numTextMsg = matcher.group(1);
+				
+				if (numTextMsg.equals(text)) {
+					contadorBuenos++;
+
+					cadenaDeMensaje(" RS_SECSUBTYPE", valor, text);
+
+					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), numTextMsg, text, idEscenario,
+							idCase, idSecuencia, valor);
+				} else {
+					System.out.println(" RS_SECSUBTYPE (" + valor + "): MSG" + numTextMsg + " BD: " + text);
+					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), numTextMsg, text, idEscenario,
+							idCase, idSecuencia, valor);
 					contadorMalos++;
 				}
 				break;
@@ -1876,6 +1897,7 @@ public class Validaciones {
 					contadorMalos++;
 				}
 				break;
+				
 			case "298":
 				if (cad.get(i).split("=")[1].equals(quoteCancelType)) {
 					contadorBuenos++;

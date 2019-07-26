@@ -378,7 +378,7 @@
       <field name="QuoteRequestRejectReason" required="Y"/>
 	    <group name="NoRelatedSym" required="Y">
 			<component name="Instrument" required="Y"/>
-			<field name="OrderQty" required="N"/>
+			<field name="OrderQty" required="Y"/>
 		</group>
 	  <field name="Text" required="N"/>
     </message>
