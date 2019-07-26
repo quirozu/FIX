@@ -180,22 +180,22 @@ public class CreateReport {
 		pw.append(totalFallidos + "");
 		pw.append(",");
 		pw.append(String.format("%.2f", porcentaje).replace(",", ".") + "%");
-		pw.append(",");
-		pw.append("");
-		pw.append("\r\n");
-		porcentaje = (totalExitososCaso / (totalExitososCaso + totalFallidosCaso)) * 100;
-		pw.append("\r\n");
-		pw.append("TOTAL VALIDACIONES EXITOSAS:");
-		pw.append(",");
-		pw.append(totalExitososCaso + "");
-		pw.append("\r\n");
-		pw.append("TOTAL VALIDACIONES FALLIDAS:");
-		pw.append(",");
-		pw.append(totalFallidosCaso + "");
-		pw.append("\r\n");
-		pw.append("PORCENTAJE DE VALIDACIONES EXITOSAS: ");
-		pw.append(",");
-		pw.append(String.format("%.2f", porcentaje).replace(",", ".") + "%");
+//		pw.append(",");
+//		pw.append("");
+//		pw.append("\r\n");
+//		porcentaje = (totalExitososCaso / (totalExitososCaso + totalFallidosCaso)) * 100;
+//		pw.append("\r\n");
+//		pw.append("TOTAL VALIDACIONES EXITOSAS:");
+//		pw.append(",");
+//		pw.append(totalExitososCaso + "");
+//		pw.append("\r\n");
+//		pw.append("TOTAL VALIDACIONES FALLIDAS:");
+//		pw.append(",");
+//		pw.append(totalFallidosCaso + "");
+//		pw.append("\r\n");
+//		pw.append("PORCENTAJE DE VALIDACIONES EXITOSAS: ");
+//		pw.append(",");
+//		pw.append(String.format("%.2f", porcentaje).replace(",", ".") + "%");
 		
 
 		pw.append("\r\n");

@@ -159,7 +159,7 @@ public class DataAccess {
 		setQuery(strQueryLimpiar);
 	}
 
-	public static void cargarLogsFallidos(Message message, long ID_EJECUCION, String clave, String valor,
+	public static void cargarLogsFallidos(Message message, long ID_EJECUCION,  String valorMS, String claveDB,
 			String idEscenario, String idCase, int idSecuencia, String clavePrima) throws SQLException {
 
 		PreparedStatement ps = conn.prepareStatement(
@@ -170,7 +170,7 @@ public class DataAccess {
 		ps.setInt(4, idSecuencia);
 		ps.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
 		ps.setString(6, "FALLIDO");
-		ps.setString(7, "(" + clavePrima + ") MSG: " + valor + " BD: " + clave );
+		ps.setString(7, "(" + clavePrima + ") MSG: " + valorMS + " BD: " + claveDB );
 		ps.setString(8, message.toString());
 		ps.setNull(9, Types.INTEGER);
 		ps.executeUpdate();
