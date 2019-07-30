@@ -6,12 +6,12 @@ public enum Path {
     PATH_LOGS("resources\\logs\\inicial"),
   
     
-    PATH_CONFIG1_19("resources\\sessionSettings1_19.cfg"),
-    PATH_CONFIG1_20("resources\\sessionSettings1_20.cfg"),
-    PATH_CONFIG1_21("resources\\sessionSettings1_21.cfg"),
-    PATH_CONFIG1_27("resources\\sessionSettings1_27.cfg"),
-    PATH_CONFIG2_35("resources\\sessionSettings2_35.cfg"),
-    PATH_CONFIG2_37("resources\\sessionSettings2_37.cfg");
+    PATH_CONFIG1("resources\\sessionSettings1.cfg"),
+    PATH_CONFIG2("resources\\sessionSettings2.cfg"),
+    PATH_CONFIG3("resources\\sessionSettings3.cfg"),
+    PATH_CONFIG4("resources\\sessionSettings4.cfg"),
+    PATH_CONFIG5("resources\\sessionSettings5.cfg"),
+    PATH_CONFIG6("resources\\sessionSettings6.cfg");
 	
     private String code;
     Path(String code) {

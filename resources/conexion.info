@@ -1,1 +1,1 @@
-_usuario=cmonica,_pwd = T3st,_db = bvc_automation_db,HOST = 172.36.6.36,PORT = 3306
+_usuario=pmora,_pwd = T3st,_db = bvc_automation_db,HOST = 10.240.74.102,PORT = 3306

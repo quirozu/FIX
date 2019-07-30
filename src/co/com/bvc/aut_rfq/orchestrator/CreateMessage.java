@@ -158,9 +158,6 @@ public class CreateMessage {
 				+ BasicFunctions.getIdCaseSeq();
 
 		ResultSet resultSetParties;
-//		String cIdRandom = Integer.toString((int) ((Math.random() * 80_000_000) + 1_000_000));
-//
-//		BasicFunctions.setQuoteIdGenered(cIdRandom);
 
 		System.out.println("QUOTE ID GENERADO: " + BasicFunctions.getQuoteIdGenered());
 

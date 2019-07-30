@@ -119,7 +119,7 @@ public class AutoEngine {
 			System.out.println("*********************");
 
 			cache = createMesage.createR(resultSet);
-			System.out.println(cache);
+			System.out.println(cache.getMessage());
 //			for (String session : respConstruccion.getListSessiones()) {
 //
 //				// Construir mensaje a cache.
@@ -156,6 +156,7 @@ public class AutoEngine {
 			System.out.println("AFILIADO: " + idAfiliado + " QUOTERQID: " + quoteReqId);
 
 			cache = createMesage.createS(resultSet, quoteReqId);
+			System.out.println(cache.getMessage());
 
 //			for (String session : respConstruccion.getListSessiones()) {
 //				System.out.println("SESSION EN S" + session);
@@ -186,6 +187,7 @@ public class AutoEngine {
 //			idIAfiliado = resultSet.getString("ID_AFILIADO");
 
 			cache = createMesage.createAJ(resultSet, quoteId);
+			System.out.println(cache.getMessage());
 
 //			for (String session : respConstruccion.getListSessiones()) {
 //
@@ -213,7 +215,7 @@ public class AutoEngine {
 			System.out.println("**********************");
 
 			cache = createMesage.createZ(login.getSessionOfAfiliado(idAfiliado), resultSet);
-
+			System.out.println(cache.getMessage());
 
 			System.out.println("ID DE Z " + BasicFunctions.getQuoteIdGenered());
 
@@ -268,9 +270,9 @@ public class AutoEngine {
 	public void validarR(SessionID sessionId, Message messageIn)
 			throws SQLException, InterruptedException, FieldNotFound, SessionNotFound, IOException {
 
-		System.out.println("*************************");
-		System.out.println("** INGRESA A VALIDAR R **");
-		System.out.println("*************************");
+		System.out.println("************************************");
+		System.out.println("** INGRESA A VALIDAR R AUTOENGINE **");
+		System.out.println("************************************");
 
 		// Obtener el ID_AFILIADO de la session.
 //		String IdContraFirm = sessionId.toString().substring(8, 11);
@@ -324,9 +326,9 @@ public class AutoEngine {
 	public void validarS(SessionID sessionId, Message messageIn)
 			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound, IOException {
 
-		System.out.println("************************");
-		System.out.println("** INGRESA A validarS **");
-		System.out.println("************************");
+		System.out.println("************************************");
+		System.out.println("** INGRESA A VALIDAR S AUTOENGINE **");
+		System.out.println("************************************");
 
 		// Obtener el ID_AFILIADO de la session
 //		String IdContraFirm = sessionId.toString().substring(8, 11);
@@ -360,9 +362,9 @@ public class AutoEngine {
 	public void validarAJ(SessionID sessionId, Message messageIn)
 			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound, IOException {
 
-		System.out.println("*************************");
-		System.out.println("** INGRESA A validarAJ **");
-		System.out.println("*************************");
+		System.out.println("*************************************");
+		System.out.println("** INGRESA A VALIDAR AJ AUTOENGINE **");
+		System.out.println("*************************************");
 		// Obtener el ID_AFILIADO de la session
 //		String IdContraFirm = sessionId.toString().substring(8, 11);
 		String IdContraFirm = sessionId.getSenderCompID();
@@ -391,41 +393,59 @@ public class AutoEngine {
 	public void validarAI(SessionID sessionId, Message messageIn)
 			throws SQLException, InterruptedException, SessionNotFound, IOException, FieldNotFound {
 
-		System.out.println("*************************");
-		System.out.println("** INGRESA A validarAI **");
-		System.out.println("*************************");
+		System.out.println("************************************");
+		System.out.println("** INGRESA A VALIDAR Z AUTOENGINE **");
+		System.out.println("************************************");
 
 		int quoteStatus = messageIn.getInt(QuoteStatus.FIELD);
+		String sIdAfiliado = sessionId.getSenderCompID();
 
-		if (quoteStatus == 9) {
+		if (quoteStatus == 9 || quoteStatus == 17) {
 
 			String msgRechazo = messageIn.getString(Text.FIELD);
+			System.out.println("AI DE RECHAZO. "+msgRechazo);
 			// Persistir msgRechazo
-			String sIdAfiliado = sessionId.toString().substring(8, 11);
-			AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
+//			String sIdAfiliado = sessionId.toString().substring(8, 11);
+//			String sIdAfiliado = sessionId.getSenderCompID();
+			
+//			datosCache = obtenerCache(sIdAfiliado);
 			Validaciones validaciones = new Validaciones();
 			validaciones.validar3(datosCache, (quickfix.fix44.Message) messageIn);
 			// quitar sesiones en cache
 			DataAccess.limpiarCache();
 			ejecutarSiguienteEscenario();
 
+		} else {
+		
+			cache.getListSessiones().remove(sIdAfiliado);
+	
+	//		if (DataAccess.validarContinuidadEjecucion()) {
+			if(cache.getListSessiones().size() == 0) {
+				ejecutarSiguientePaso();
+				System.out.println("** CONTINUAR ***");
+	
+			} else {
+				System.out.println("**** ESPERAR ****");
+			}
+	
+			System.out.println("*********** SALIENDO DE VALIDAR AJ  ************");
 		}
-		String sIdAfiliado = sessionId.toString().substring(8, 11);
-		AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
-		Validaciones validaciones = new Validaciones();
-		validaciones.validaAI(datosCache, (quickfix.fix44.Message) messageIn);
+		
+//		AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
+//		Validaciones validaciones = new Validaciones();
+//		validaciones.validaAI(datosCache, (quickfix.fix44.Message) messageIn);
 
 		// Eliminar Registro en Cache.
-		eliminarDatoCache(sIdAfiliado);
-
-		if (DataAccess.validarContinuidadEjecucion()) {
-			ejecutarSiguientePaso();
-			System.out.println("** CONTINUAR ***");
-		} else {
-			System.out.println("**** ESPERAR ****");
-		}
-
-		System.out.println("*********** SALIENDO DE validarAI ************");
+//		eliminarDatoCache(sIdAfiliado);
+//
+//		if (DataAccess.validarContinuidadEjecucion()) {
+//			ejecutarSiguientePaso();
+//			System.out.println("** CONTINUAR ***");
+//		} else {
+//			System.out.println("**** ESPERAR ****");
+//		}
+//
+//		System.out.println("*********** SALIENDO DE validarAI ************");
 
 	}
 

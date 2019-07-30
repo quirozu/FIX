@@ -191,7 +191,7 @@ public class BasicFunctions {
 //	}
 
 	public static void startVariables() {
-		SimpleDateFormat SDF = new SimpleDateFormat("yyyMMddHmmss");
+		SimpleDateFormat SDF = new SimpleDateFormat("yyyyMMddHHmmss");
 		long id_ejecution = Long.parseLong(SDF.format(new Date()));
 		System.out.println("ID_EJECUCION GENERADO : " + id_ejecution);
 
