@@ -320,7 +320,7 @@ public class AutoEngine {
 		// getcache
 		AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
 
-//		validaciones.ValidarSPrima(datosCache, messageIn);
+		validaciones.ValidarSPrima(datosCache, (quickfix.fix44.Message) messageIn);
 
 		eliminarDatoCache(IdContraFirm);
 

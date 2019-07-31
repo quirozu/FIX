@@ -6883,8 +6883,7 @@
       <value enum="1" description="30_360"/>
       <value enum="2" description="NL365"/>
     </field>
-	<field number="21012" name="DirtyPrice" type="PRICE"/>
-	<!-- Falta 21012 -->
+	<field number="20102" name="DirtyPrice" type="PRICE"/>
 
   </fields>
 </fix>

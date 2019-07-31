@@ -244,3 +244,64 @@
 20190726-20:21:52: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
 20190726-20:22:53: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
 20190726-20:23:54: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-13:47:35: Session FIX.4.4:073/073X01->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190729-13:47:35: Session state is not current; resetting FIX.4.4:073/073X01->EXC
+20190729-13:47:35: Created session: FIX.4.4:073/073X01->EXC
+20190729-13:47:35: Configured socket addresses for session: [/172.36.2.21:50216]
+20190729-13:47:37: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-13:48:38: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-13:49:38: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-14:26:17: Session FIX.4.4:073/073X01->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190729-14:26:17: Created session: FIX.4.4:073/073X01->EXC
+20190729-14:26:17: Configured socket addresses for session: [/172.36.2.21:50216]
+20190729-14:26:19: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-15:54:05: Session FIX.4.4:073/073X01->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190729-15:54:05: Created session: FIX.4.4:073/073X01->EXC
+20190729-15:54:05: Configured socket addresses for session: [/172.36.2.21:50216]
+20190729-15:54:07: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-15:55:08: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-15:56:09: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-15:57:09: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-15:58:10: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-15:59:11: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-16:00:11: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-16:01:12: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-16:02:13: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-18:53:29: Session FIX.4.4:073/073X01->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190729-18:53:29: Created session: FIX.4.4:073/073X01->EXC
+20190729-18:53:29: Configured socket addresses for session: [/172.36.2.21:50216]
+20190729-18:53:31: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190729-18:54:32: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190730-14:19:38: Session FIX.4.4:073/073X01->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190730-14:19:38: Session state is not current; resetting FIX.4.4:073/073X01->EXC
+20190730-14:19:38: Created session: FIX.4.4:073/073X01->EXC
+20190730-14:19:38: Configured socket addresses for session: [/172.36.2.21:50216]
+20190730-14:19:40: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190730-14:20:41: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190730-14:21:42: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190730-14:22:42: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190730-14:51:11: Session FIX.4.4:073/073X01->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190730-14:51:11: Created session: FIX.4.4:073/073X01->EXC
+20190730-14:51:11: Configured socket addresses for session: [/172.36.2.21:50216]
+20190730-14:51:13: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-19:40:14: Session FIX.4.4:073/073X01->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190731-19:40:14: Session state is not current; resetting FIX.4.4:073/073X01->EXC
+20190731-19:40:14: Created session: FIX.4.4:073/073X01->EXC
+20190731-19:40:14: Configured socket addresses for session: [/172.36.2.21:50216]
+20190731-19:40:16: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-19:41:17: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-19:45:42: Session FIX.4.4:073/073X01->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190731-19:45:42: Created session: FIX.4.4:073/073X01->EXC
+20190731-19:45:42: Configured socket addresses for session: [/172.36.2.21:50216]
+20190731-19:45:44: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-19:46:45: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-20:39:25: Session FIX.4.4:073/073X01->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190731-20:39:25: Created session: FIX.4.4:073/073X01->EXC
+20190731-20:39:25: Configured socket addresses for session: [/172.36.2.21:50216]
+20190731-20:39:27: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-20:40:28: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-20:41:29: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-20:42:30: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-20:43:30: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-20:44:31: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
+20190731-20:45:32: java.net.ConnectException during connection to /172.36.2.21:50216: java.net.ConnectException: Connection refused: no further information (Next retry in 60000 milliseconds)
