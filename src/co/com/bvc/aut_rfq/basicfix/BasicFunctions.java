@@ -27,6 +27,24 @@ public class BasicFunctions {
 	private static String receptor;
 	private static int escenarioFinal;
 	private static boolean allMarket = false;
+	private static int numEscenario = 11;
+	private static int idTcrSeq = 21;
+
+	public static int getNumEscenario() {
+		return numEscenario;
+	}
+
+	public static void setNumEscenario(int numEscenario) {
+		BasicFunctions.numEscenario = numEscenario;
+	}
+
+	public static int getIdTcrSeq() {
+		return idTcrSeq;
+	}
+
+	public static void setIdTcrSeq(int idTcrSeq) {
+		BasicFunctions.idTcrSeq = idTcrSeq;
+	}
 
 	public static int getEscenarioFinal() {
 		return escenarioFinal;
@@ -172,23 +190,6 @@ public class BasicFunctions {
 	 * 
 	 * @return
 	 */
-//	public static void createLogin() {
-//		if (BasicFunctions.adapterIO == null) {
-//			BasicFunctions.adapterIO = new AdapterIO();
-//
-//		}
-//
-//		if (BasicFunctions.login == null) {
-//			BasicFunctions.login = new Login();
-//			BasicFunctions.login.initiation();
-//		}
-//	}
-//	public static void FinalLogin() {
-//		
-//			BasicFunctions.login = new Login();
-//			BasicFunctions.login.endSessions();
-//		
-//	}
 
 	public static void startVariables() {
 		SimpleDateFormat SDF = new SimpleDateFormat("yyyyMMddHHmmss");

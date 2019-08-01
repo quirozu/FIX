@@ -291,7 +291,7 @@ public class AdapterIO extends MessageCracker implements Application {
 		try {
 			printMessage("MENSAJE ER", sessionID, message);
 			Thread.sleep(5000);
-			autoEngine.validarAJ(sessionID, message);
+			autoEngine.validarER(sessionID, message);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
@@ -309,8 +309,19 @@ public class AdapterIO extends MessageCracker implements Application {
 	}
 
 	public static void printMessage(String typeMsg, SessionID sID, Message msg) throws FieldNotFound {
-		System.out.println("***************************\nTIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sID + "\n");
-		if(msg != null) System.out.println(msg);
-		System.out.println("\n**************************");
+		if(msg != null) {
+			String msgType = msg.getHeader().getString(35);
+			String de = msg.getHeader().getString(49);
+			String para = msg.getHeader().getString(56);
+		
+			System.out.println("***************************\n" + msgType + " - " + de + " => " + para + " FROM: " + typeMsg + " Session: " + sID);
+			System.out.println(msg);
+//		
+		} else {
+			System.out.println("TIPO DE MENSAJE: " + typeMsg + "- SESSION:" + sID);
+		}
+		
+		System.out.println("***************************");
 	}
+	
 }

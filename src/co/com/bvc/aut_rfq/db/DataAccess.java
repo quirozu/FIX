@@ -44,7 +44,7 @@ public class DataAccess {
 		String url = "jdbc:mysql://" + prop.getProperty("servidor.ip").trim() + ":" 
 		+ prop.getProperty("servidor.port").trim()	+ "/" + prop.getProperty("servidor.database").trim();
 		
-		System.out.println("URL: " + url);
+//		System.out.println("URL: " + url);
 		
 		driver = prop.getProperty("servidor.driver").trim();
 		usuario = prop.getProperty("servidor.username").trim();
@@ -87,14 +87,15 @@ public class DataAccess {
 
 		ResultSet rs = DataAccess.getQuery(queryInicio); 
 		int idCaseSeq = -1;
-
+		
 		while (rs.next()) {
-
 			idCaseSeq = rs.getInt("ID_CASESEQ");
 			BasicFunctions.setIdCaseSeq(idCaseSeq);
-			BasicFunctions.imprimir(idCaseSeq);
-
+			
+//			BasicFunctions.imprimir(idCaseSeq);
 		}
+
+		System.out.println("PRIMER ID_CASESEQ: "+idCaseSeq);
 		return idCaseSeq;
 	}
 
@@ -132,6 +133,24 @@ public class DataAccess {
 		ps.executeUpdate();
 
 	}
+//	
+//	public static void cargarDataTCR(Message message) throws SQLException {
+//
+//		PreparedStatement ps = conn.prepareStatement(
+//				"INSERT INTO `aut_fix_tcr_datos` VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, )");
+//		ps.setInt(1, BasicFunctions.getIdTcrSeq());
+//		ps.setInt(2, datosCache.getIdCaseseq());
+//		ps.setInt(3, datosCache.getIdCase());
+//		ps.setInt(4, datosCache.getIdSecuencia());
+//		ps.setString(5, datosCache.getEstado());
+//		ps.setString(6, datosCache.getFixQuoteReqId());
+//		ps.setString(7, datosCache.getIdAfiliado());
+//		ps.setLong(8, datosCache.getIdEjecucion());
+//		ps.executeUpdate();
+//
+//	}
+
+	
 
 	public static AutFixRfqDatosCache obtenerCache(String sessionRec) throws SQLException, InterruptedException {
 		Thread.sleep(5000);
@@ -249,5 +268,7 @@ public class DataAccess {
 		ps.executeUpdate();
 
 	}
+	
+
 
 }

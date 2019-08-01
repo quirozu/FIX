@@ -12,6 +12,13 @@ public class MainRFQ {
 
 	public static void main(String[] args) throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
 		
+		System.out.println("   __                     _                 __     ___    ____ \r\n" + 
+				"  / /    ___    __ _   __| |  ___  _ __    /__\\   / __\\  /___ \\\r\n" + 
+				" / /    / _ \\  / _` | / _` | / _ \\| '__|  / \\//  / _\\   //  / /\r\n" + 
+				"/ /___ | (_) || (_| || (_| ||  __/| |    / _  \\ / /    / \\_/ / \r\n" + 
+				"\\____/  \\___/  \\__,_| \\__,_| \\___||_|    \\/ \\_/ \\/     \\___,_\\ \r\n" + 
+				"                                                               ");
+		
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System. in);
 		

@@ -158,6 +158,8 @@ public class CreateMessage {
 				+ BasicFunctions.getIdCaseSeq();
 
 		ResultSet resultSetParties;
+		
+		BasicFunctions.setQuoteIdGenered(BasicFunctions.getIdEjecution() + resultSet.getString("ID_CASE") + "_S");
 
 		System.out.println("QUOTE ID GENERADO: " + BasicFunctions.getQuoteIdGenered());
 
@@ -165,7 +167,7 @@ public class CreateMessage {
 			BasicFunctions.setReceptor(resultSet.getString("ID_AFILIADO"));
 			resultSetParties = DataAccess.getQuery(queryParties);
 
-			String strQuoteId = BasicFunctions.getIdEjecution() + resultSet.getString("ID_CASE") + "_S";
+			String strQuoteId = BasicFunctions.getQuoteIdGenered();
 
 			QuoteID quoteID = new QuoteID(strQuoteId);
 			Quote quote = new Quote(quoteID); // 35 --> S

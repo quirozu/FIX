@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 
 import co.com.bvc.aut_rfq.adapter_inet.AdapterIO;
@@ -19,6 +21,7 @@ import quickfix.SessionID;
 import quickfix.SessionNotFound;
 import quickfix.field.QuoteStatus;
 import quickfix.field.SenderSubID;
+import quickfix.field.Symbol;
 import quickfix.field.TargetCompID;
 import quickfix.field.Text;
 import quickfix.Message;
@@ -43,6 +46,10 @@ public class AutoEngine {
 		if (firsIdCaseSec > 0) {
 			//Dentro de startVariables se inicializa ID_EJECUCION
 			BasicFunctions.startVariables();
+			
+			//Limpiar tabla de anulaciones 10 en adelante
+			String queryAnulaciones = "DELETE FROM aut_fix_tcr_datos WHERE ID_CASESEQ > 20;";
+			DataAccess.setQuery(queryAnulaciones);
 			
 			//Se crea el login
 			adapterIO = new AdapterIO();
@@ -359,22 +366,92 @@ public class AutoEngine {
 
 	}
 
-	public void validarAJ(SessionID sessionId, Message messageIn)
+	public void validarER(SessionID sessionId, Message message)
 			throws InterruptedException, SQLException, FieldNotFound, SessionNotFound, IOException {
 
 		System.out.println("*************************************");
-		System.out.println("** INGRESA A VALIDAR AJ AUTOENGINE **");
+		System.out.println("** INGRESA A CARGAR ER AUTOENGINE **");
 		System.out.println("*************************************");
+		
+		String idAfiliado =message.getHeader().getString(TargetCompID.FIELD);
+		String account = message.getString(1);
+		
+		if(idAfiliado.equals(BasicFunctions.getIniciator())) {
+			String contraFirm=null, symbol=null, rueda=null, eti487=null,
+					rec856_0 = null, rec856_1=null, rec856_2=null, lastPX=null, lastQty=null, transTime=null,
+					validUntilTime=null, settDate=null, tradeDate=null, trMatchId=null, 
+					arTTT=null, arTraderRepType=null, arTraStatus=null, ampDCV=null;
+			int side = 0;
+			
+			symbol = message.getString(Symbol.FIELD);
+			rueda = message.getString(762);
+			
+//			eti487 = idAfiliado.equals(BasicFunctions.getIniciator()) ? "0" : "2";
+			eti487 = "0";
+			rec856_0 = "96";
+			rec856_2 = "99";
+			lastPX = message.getString(31);
+			lastQty = message.getString(32);
+			transTime = message.getString(60);
+			validUntilTime = "2019-08-30 21:00:00";
+			settDate = message.getString(64);
+			tradeDate = message.getString(64);
+			trMatchId = message.getString(880);
+			side = message.getInt(54);
+			account = message.getString(1);
+			arTTT = "0";
+			arTraderRepType = "96";
+			arTraStatus = "0";
+			ampDCV = null;
+			
+			String queryInsertIni = "INSERT INTO `aut_fix_tcr_datos` (`ID_CASESEQ`, `ID_CASE`, `ID_SECUENCIA`, `ESTADO`, `ID_ESCENARIO`, "
+					+ "`MERCADO`, `ACCION`, `ID_AFILIADO`, `CONTRAFIRM`, `AE_POSDUPFLAG`, `AE_SYMBOL`, `AE_SECSUBTYPE`, `AE_SECIDSOURCE`, "
+					+ "`AE_TRADTRANTYPE`, `AE_TRADEREPTYPE`, `AE_RECTREPTYPE1`, `AE_RECTREPTYPE2`, `AE_TRDTYPE`, `AE_EXECTYPE`, `AE_MATCHSTATUS`, "
+					+ "`AE_CURRENCY`, `AE_LASTPX`, `AE_LASTQTY`, `AE_TRANSTIME`, `AE_VALIDUNTILTIME`, `AE_SETTDATE`, `AE_TRADEDATE`, `AE_GROSSTRADEAMT`, "
+					+ "`AE_TRMATCHID`, `AE_NOSIDES`, `AE_SIDE`, `AE_PARTYIDSOURCE`, `AE_ACCOUNT`, `AR_TRADTRANTYPE`, `AR_TRADEREPTYPE`, `AR_TRDRPTSTATUS`, "
+					+ "`AR_TRANSTIME`, `ER_EXECTYPE`,`AMP_DCV`) " 
+					+ " VALUES ("+BasicFunctions.getIdTcrSeq()+", "+BasicFunctions.getNumEscenario()+", '1', 'A', 'FIX_AE',"
+					+ " 'DV', 'N', '"+BasicFunctions.getIniciator()+"', '"+BasicFunctions.getReceptor()+"', 'Y', '"+ symbol+"', '"+rueda+"', 'M',"
+					+ " '0', '96', NULL, '99', '22', 'F', '0', "
+					+ " 'COP', "+lastPX+", "+lastQty+", '"+transTime+"', NULL, '"+settDate+"', '"+tradeDate+"', '250', '"
+					+ trMatchId+"', '1', '"+side+"', 'C', '"+account+"', '0', '96', '0', '20190716-10:00:00.000', 'H',NULL);";
+			
+			System.out.println("CONSULTA INSERCION INICIADOR: "+queryInsertIni);
+			
+			DataAccess.setQuery(queryInsertIni);
+			
+			BasicFunctions.setIdTcrSeq(BasicFunctions.getIdTcrSeq()+1);
+			
+			String queryInsertRec = "INSERT INTO `aut_fix_tcr_datos` (`ID_CASESEQ`, `ID_CASE`, `ID_SECUENCIA`, `ESTADO`, `ID_ESCENARIO`, "
+					+ "`MERCADO`, `ACCION`, `ID_AFILIADO`, `CONTRAFIRM`, `AE_POSDUPFLAG`, `AE_SYMBOL`, `AE_SECSUBTYPE`, `AE_SECIDSOURCE`, "
+					+ "`AE_TRADTRANTYPE`, `AE_TRADEREPTYPE`, `AE_RECTREPTYPE1`, `AE_RECTREPTYPE2`, `AE_TRDTYPE`, `AE_EXECTYPE`, `AE_MATCHSTATUS`, "
+					+ "`AE_CURRENCY`, `AE_LASTPX`, `AE_LASTQTY`, `AE_TRANSTIME`, `AE_VALIDUNTILTIME`, `AE_SETTDATE`, `AE_TRADEDATE`, `AE_GROSSTRADEAMT`, "
+					+ "`AE_TRMATCHID`, `AE_NOSIDES`, `AE_SIDE`, `AE_PARTYIDSOURCE`, `AE_ACCOUNT`, `AR_TRADTRANTYPE`, `AR_TRADEREPTYPE`, `AR_TRDRPTSTATUS`, "
+					+ "`AR_TRANSTIME`, `ER_EXECTYPE`,`AMP_DCV`) " 
+					+ " VALUES ("+BasicFunctions.getIdTcrSeq()+", '"+BasicFunctions.getNumEscenario()+"', '2', 'A', 'FIX_AE_R',"
+					+ " 'DV', 'N', '"+BasicFunctions.getReceptor()+"', '"+BasicFunctions.getIniciator()+"', 'Y', '"+ symbol+"', '"+rueda+"', 'M',"
+					+ " '2', '97', '14', '99', '22', 'F', '0', "
+					+ " 'COP', "+lastPX+", "+lastQty+", '"+transTime+"', '2019-08-30 21:00:00','"+settDate+"', '"+tradeDate+"', '250', '"
+					+ trMatchId+"', '1', '"+(3-side)+"', 'C', '"+account+"', NULL, NULL, NULL, NULL, 'H','1');";
+			
+			System.out.println("CONSULTA INSERCION RECEPTOR: "+queryInsertRec);
+			
+			DataAccess.setQuery(queryInsertRec);
+			BasicFunctions.setIdTcrSeq(BasicFunctions.getIdTcrSeq()+1);
+			BasicFunctions.setNumEscenario(BasicFunctions.getNumEscenario()+1);
+
+		} 
+		
 		// Obtener el ID_AFILIADO de la session
 //		String IdContraFirm = sessionId.toString().substring(8, 11);
 		String IdContraFirm = sessionId.getSenderCompID();
 
 		// getcache
 //		AutFixRfqDatosCache datosCache = obtenerCache(IdContraFirm);
-		Validaciones validaciones = new Validaciones();
-
-		validaciones.validarOcho(datosCache, (quickfix.fix44.Message) messageIn);
-		Thread.sleep(3000);
+//		Validaciones validaciones = new Validaciones();
+//
+//		validaciones.validarOcho(datosCache, (quickfix.fix44.Message) messageIn);
+//		Thread.sleep(3000);
 //		eliminarDatoCache(IdContraFirm);
 		cache.getListSessiones().remove(IdContraFirm);
 
@@ -386,16 +463,19 @@ public class AutoEngine {
 		} else {
 			System.out.println("**** ESPERAR ****");
 		}
+		
+		String rolle = idAfiliado.equals(BasicFunctions.getIniciator()) ? "INICIADOR." : "RECEPTOR.";
 
-		System.out.println("*********** SALIENDO DE validarAJ ************");
+		System.out.println("*********** SALIENDO DE VALIDAR ER " + rolle );
 	}
+	
 
 	public void validarAI(SessionID sessionId, Message messageIn)
 			throws SQLException, InterruptedException, SessionNotFound, IOException, FieldNotFound {
 
-		System.out.println("************************************");
-		System.out.println("** INGRESA A VALIDAR Z AUTOENGINE **");
-		System.out.println("************************************");
+		System.out.println("*************************************");
+		System.out.println("** INGRESA A VALIDAR AI AUTOENGINE **");
+		System.out.println("*************************************");
 
 		int quoteStatus = messageIn.getInt(QuoteStatus.FIELD);
 		String sIdAfiliado = sessionId.getSenderCompID();
