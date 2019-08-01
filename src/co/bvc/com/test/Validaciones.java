@@ -361,7 +361,7 @@ public class Validaciones {
 				+ datosCache.getIdCaseseq();
 
 		resultset = DataAccess.getQuery(queryMessageR);
-		String msgType = null, OfferSize = null, secSubType = null, symbol = null, noPartyId = "5",
+		String msgType = null, OfferSize = null, secSubType = null, symbol = null, noPartyId = null,
 				SecurityIDSource = "M", SenderCompID = "EXC", beginString = "FIX.4.4", idCase = null,
 				targetSubId = null, targetComId = null, idEscenario = null, offerYield = null, bidSize = null,
 				account = null, bidyield = null;
@@ -381,6 +381,7 @@ public class Validaciones {
 			idSecuencia = resultset.getInt("ID_SECUENCIA");
 			idEscenario = resultset.getString("ID_ESCENARIO");
 			account = resultset.getString("RQ_ACCOUNT");
+			noPartyId = resultset.getString("RQ_NOPARTYIDS");
 
 		}
 		System.out.println("----------------------------------------");
