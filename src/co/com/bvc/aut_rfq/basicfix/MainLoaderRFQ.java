@@ -8,7 +8,7 @@ import co.com.bvc.aut_rfq.orchestrator.AutoEngine;
 import quickfix.FieldNotFound;
 import quickfix.SessionNotFound;
 
-public class MainRFQ {
+public class MainLoaderRFQ {
 
 	public static void main(String[] args) throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
 		

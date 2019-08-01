@@ -1,14 +1,11 @@
 package co.com.bvc.aut_rfq.basicfix;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import co.com.bvc.aut_rfq.adapter_inet.AdapterIO;
-import co.com.bvc.aut_rfq.adapter_inet.Login;
 import co.com.bvc.aut_rfq.db.DataAccess;
 
 public class BasicFunctions {
@@ -20,7 +17,6 @@ public class BasicFunctions {
 	private static String quoteId;
 	private static long idEjecution;
 	private static int idCaseSeq;
-//	private static AdapterIO adapterIO;
 	private static int idCase;
 	private static int escenarioPrueba;
 	private static String iniciator;

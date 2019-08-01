@@ -72,7 +72,7 @@ public class AdapterIO extends MessageCracker implements Application {
 		if (message instanceof Logon) {
 			try {
 				String trader = message.getHeader().getString(SenderSubID.FIELD); //50
-				System.out.println("+++++++++++++++++++++\nARMANDO LOGIN PARA TRADER: " + trader);
+//				System.out.println("+++++++++++++++++++++\nARMANDO LOGIN PARA TRADER: " + trader);
 				
 				String queryDatosTrader = "SELECT A.USUARIO , A.CLAVE, A.ID_USUARIO, B.NOM_USUARIO " + 
 						" FROM AUT_USUARIO A INNER JOIN aut_fix_rfq_aux_con B " + 
@@ -105,43 +105,20 @@ public class AdapterIO extends MessageCracker implements Application {
 			}
 		}
 		
-//		if (message instanceof Reject) {
-//
-//			try {
-//				Thread.sleep(5000);
-//				autoEngine.validar3(sessionId, message);
-//			} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
-//				e.printStackTrace();
-//			} catch (FieldNotFound e) {
-//				e.printStackTrace();
-//			}
-//
-//			try {
-//				crack(message, sessionId);
-//			} catch (UnsupportedMessageType e) {
-//				e.printStackTrace();
-//			} catch (FieldNotFound e) {
-//				e.printStackTrace();
-//			} catch (IncorrectTagValue e) {
-//				e.printStackTrace();
-//			}
-//			
+//		try {
+//			printMessage("toAdmin - output", sessionId, null);
+//		} catch (FieldNotFound e) {
+//			e.printStackTrace();
 //		}
-		
-		try {
-			printMessage("toAdmin - output", sessionId, null);
-		} catch (FieldNotFound e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Override
 	public void fromAdmin(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon, FieldException {
 		
-//		if(message instanceof Heartbeat) {
-//			printMessage("CERO", sessionId, null);
-//		} else {
+		if(message instanceof Heartbeat) {
+			printMessage("CERO", sessionId, null);
+		} else {
 
 			try {
 				printMessage("fromAdmin-Input", sessionId, message);
@@ -150,7 +127,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			} catch (UnsupportedMessageType e) {
 				e.printStackTrace();
 			}
-//		}
+		}
 			
 	}
 
@@ -180,9 +157,6 @@ public class AdapterIO extends MessageCracker implements Application {
 	}
 	
 	public void onMessage(QuoteRequest message, SessionID sessionId) throws FieldNotFound {
-		
-//		String idAfiliado = sessionId.toString().substring(8, 11);		
-//		BasicFunctions.addQuoteReqId(idAfiliado, message.getString(131));
 		
 		try {
 			printMessage("MESAJE R-PRIMA ", sessionId, message);
