@@ -406,6 +406,7 @@ public class AutoEngine {
 		eliminarDatoCache(sIdAfiliado);
 
 		if (DataAccess.validarContinuidadEjecucion()) {
+			Thread.sleep(3000);
 			ejecutarSiguientePaso();
 			System.out.println("** CONTINUAR ***");
 		} else {

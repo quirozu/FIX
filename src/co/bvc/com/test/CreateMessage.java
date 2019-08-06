@@ -75,18 +75,22 @@ public class CreateMessage {
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 			QuoteRequest.NoRelatedSym noRelatedSym = new QuoteRequest.NoRelatedSym();
 
-			Symbol symbol = resultSet.getString("RQ_SYMBOL") == null ? new Symbol("   ")
-					: new Symbol(resultSet.getString("RQ_SYMBOL"));
-			noRelatedSym.set(symbol);
-//			noRelatedSym.set(new Symbol(resultSet.getString("RQ_SYMBOL")));
+//			Symbol symbol = resultSet.getString("RQ_SYMBOL") == null ? new Symbol("   ")
+//					: new Symbol(resultSet.getString("RQ_SYMBOL"));
+//			noRelatedSym.set(symbol);
+
+			if (resultSet.getString("RQ_SYMBOL") != null) {
+				noRelatedSym.setField(new Symbol(resultSet.getString("RQ_SYMBOL")));
+			}
 			noRelatedSym.setField(new SecurityIDSource("M"));
 			noRelatedSym.setField(new OrderQty(resultSet.getDouble("RQ_ORDERQTY")));
-			noRelatedSym.setField(new StringField(54, resultSet.getString("RQ_SIDE")));
-			noRelatedSym.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
-
-			if (resultSet.getString("RQ_ACCOUNT") == null) {
-
-			} else {
+			if (resultSet.getString("RQ_SIDE") != null) {
+				noRelatedSym.setField(new StringField(54, resultSet.getString("RQ_SIDE")));
+			}
+			if (resultSet.getString("RQ_SECSUBTYPE") != null) {
+				noRelatedSym.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
+			}
+			if (resultSet.getString("RQ_ACCOUNT") != null) {
 				noRelatedSym.setField(new StringField(1, resultSet.getString("RQ_ACCOUNT")));
 			}
 
@@ -100,12 +104,16 @@ public class CreateMessage {
 
 //			 Parties
 			while (resultSetParties.next()) {
-				String rSession = resultSetParties.getString("RECEIVER_SESSION");
+				String rSession = null;
+				if (resultSetParties.getString("RECEIVER_SESSION") != null) {
+					rSession = resultSetParties.getString("RECEIVER_SESSION");
+				}
 				if (rSession != null) {
 					list.add(rSession);
 				}
-
-				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
+				if (resultSetParties.getString("RQ_PARTYID") != null) {
+					parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
+				}
 				parte.set(new PartyIDSource('C'));
 				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
 
@@ -177,34 +185,36 @@ public class CreateMessage {
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
 			quote.setField(new QuoteReqID(strQuoteReqId)); // 131
-			quote.set(new Symbol(resultSet.getString("RQ_SYMBOL")));
-			quote.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
+			if (resultSet.getString("RQ_SYMBOL") != null) {
+				quote.set(new Symbol(resultSet.getString("RQ_SYMBOL")));
+			}
+			if (resultSet.getString("RQ_SECSUBTYPE") != null) {
+				quote.setField(new SecuritySubType(resultSet.getString("RQ_SECSUBTYPE")));
+			}
 			quote.setField(new OfferSize(resultSet.getDouble("RQ_OFFERSIZE")));
 
-
-			
-			if(resultSet.getString("RQ_ACCOUNT") != null) {
+			if (resultSet.getString("RQ_ACCOUNT") != null) {
 				quote.setField(new Account(resultSet.getString("RQ_ACCOUNT")));
-				}	
-				if(resultSet.getString("RQ_OFFERSIZE") != null) {
+			}
+			if (resultSet.getString("RQ_OFFERSIZE") != null) {
 				quote.setField(new OfferSize(resultSet.getDouble("RQ_OFFERSIZE")));
-				}
-				if(resultSet.getString("RQ_OFFERYIELD") != null) {
+			}
+			if (resultSet.getString("RQ_OFFERYIELD") != null) {
 				quote.setField(new OfferYield(resultSet.getDouble("RQ_OFFERYIELD")));
-				}
-				if(resultSet.getString("RQ_BIDYIELD") != null) {
+			}
+			if (resultSet.getString("RQ_BIDYIELD") != null) {
 				quote.setField(new BidYield(resultSet.getDouble("RQ_BIDYIELD")));
-				}
-				if(resultSet.getString("RQ_BIDSIZE") != null) {
+			}
+			if (resultSet.getString("RQ_BIDSIZE") != null) {
 				quote.setField(new BidSize(resultSet.getDouble("RQ_BIDSIZE")));
-				}
-				if(resultSet.getString("RQ_BIDPX") != null) {
+			}
+			if (resultSet.getString("RQ_BIDPX") != null) {
 				quote.setField(new BidPx(resultSet.getDouble("RQ_BIDPX")));
-				}
-				if(resultSet.getString("RQ_OFFERPX") != null) {
+			}
+			if (resultSet.getString("RQ_OFFERPX") != null) {
 				quote.setField(new OfferPx(resultSet.getDouble("RQ_OFFERPX")));
-				}
-				
+			}
+
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0");
 			LocalDateTime dateTime = LocalDateTime.parse(resultSet.getString("RQ_VALIDUNTILTIME"), formatter);
 			quote.setField(new ValidUntilTime(dateTime)); // "20190404-23:00:00";
@@ -214,22 +224,22 @@ public class CreateMessage {
 
 			List<String> list = new ArrayList<String>();
 			list.add(BasicFunctions.getReceptor());
-			
-			if (resultSet.getString("MERCADO").equalsIgnoreCase("RF")) {
-			while (resultSetParties.next()) {
-				String rSession = resultSetParties.getString("RECEIVER_SESSION");
-				if (rSession != null) {
-					list.add(rSession);
-				}
-				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
-				parte.set(new PartyIDSource('C'));
-				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
 
-				quote.addGroup(parte);
-			}
-			}else {
-				
-				list.add(BasicFunctions.getIniciator());				
+			if (resultSet.getString("MERCADO").equalsIgnoreCase("RF")) {
+				while (resultSetParties.next()) {
+					String rSession = resultSetParties.getString("RECEIVER_SESSION");
+					if (rSession != null) {
+						list.add(rSession);
+					}
+					parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
+					parte.set(new PartyIDSource('C'));
+					parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
+
+					quote.addGroup(parte);
+				}
+			} else {
+
+				list.add(BasicFunctions.getIniciator());
 			}
 
 			if (BasicFunctions.isAllMarket()) {
@@ -283,9 +293,15 @@ public class CreateMessage {
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
 			quoteResponse.setField(new QuoteID(strQuoteId));
-			quoteResponse.setField(new StringField(54, resultset.getString("RQ_SIDE")));
-			quoteResponse.set(new Symbol(resultset.getString("RQ_SYMBOL")));
-			quoteResponse.setField(new StringField(762, resultset.getString("RQ_SECSUBTYPE")));
+			if (resultset.getString("RQ_SIDE") != null) {
+				quoteResponse.setField(new StringField(54, resultset.getString("RQ_SIDE")));
+			}
+			if (resultset.getString("RQ_SYMBOL") != null) {
+				quoteResponse.set(new Symbol(resultset.getString("RQ_SYMBOL")));
+			}
+			if (resultset.getString("RQ_SECSUBTYPE") != null) {
+				quoteResponse.setField(new StringField(762, resultset.getString("RQ_SECSUBTYPE")));
+			}
 
 			System.out.println("NOS Message Sent : " + quoteResponse);
 

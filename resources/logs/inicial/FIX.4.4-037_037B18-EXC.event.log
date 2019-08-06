@@ -570,3 +570,31 @@
 20190801-14:00:55: Initiated logout request
 20190801-14:00:55: Received logout response
 20190801-14:00:55: Disconnecting: Received logout response
+20190801-19:41:12: Session FIX.4.4:037/037B18->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190801-19:41:12: Created session: FIX.4.4:037/037B18->EXC
+20190801-19:41:12: Configured socket addresses for session: [/172.36.2.21:54414]
+20190801-19:41:12: MINA session created: local=/172.36.1.20:58153, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54414
+20190801-19:41:14: Initiated logon request
+20190801-19:41:14: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190801-19:41:14: Received logon
+20190801-19:42:26: Initiated logout request
+20190801-19:42:26: Received logout response
+20190801-19:42:26: Disconnecting: Received logout response
+20190801-19:53:12: Session FIX.4.4:037/037B18->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190801-19:53:12: Created session: FIX.4.4:037/037B18->EXC
+20190801-19:53:12: Configured socket addresses for session: [/172.36.2.21:54414]
+20190801-19:53:12: MINA session created: local=/172.36.1.20:58329, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54414
+20190801-19:53:14: Initiated logon request
+20190801-19:53:14: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190801-19:53:14: Received logon
+20190801-20:01:56: Initiated logout request
+20190801-20:01:56: Received logout response
+20190801-20:01:56: Disconnecting: Received logout response
+20190805-18:42:53: Session FIX.4.4:037/037B18->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190805-18:42:53: Session state is not current; resetting FIX.4.4:037/037B18->EXC
+20190805-18:42:53: Created session: FIX.4.4:037/037B18->EXC
+20190805-18:42:53: Configured socket addresses for session: [/172.36.2.21:54414]
+20190805-18:42:53: MINA session created: local=/172.36.1.20:52363, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54414
+20190805-18:42:55: Initiated logon request
+20190805-18:42:55: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190805-18:42:55: Received logon
