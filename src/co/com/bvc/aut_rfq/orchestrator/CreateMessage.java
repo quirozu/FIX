@@ -209,7 +209,7 @@ public class CreateMessage {
 				parte.set(new PartyIDSource('C'));
 				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
 
-				quote.addGroup(parte);
+				//quote.addGroup(parte);
 			}
 
 			if (BasicFunctions.isAllMarket()) {
@@ -265,7 +265,8 @@ public class CreateMessage {
 			quoteResponse.setField(new QuoteID(strQuoteId));
 			quoteResponse.setField(new StringField(54, resultset.getString("RQ_SIDE")));
 			quoteResponse.set(new Symbol(resultset.getString("RQ_SYMBOL")));
-			quoteResponse.setField(new StringField(762, resultset.getString("RQ_SECSUBTYPE")));
+			quoteResponse.setField(new SecuritySubType(resultset.getString("RQ_SECSUBTYPE")));
+//			quoteResponse.setField(new StringField(762, resultset.getString("RQ_SECSUBTYPE")));
 
 			System.out.println("NOS Message Sent : " + quoteResponse);
 

@@ -25,6 +25,23 @@ public class BasicFunctions {
 	private static boolean allMarket = false;
 	private static int numEscenario = 11;
 	private static int idTcrSeq = 21;
+	private static Map<String, String> cuentas = new HashMap<String, String>();
+
+	public static void addCuenta(String k, String v) {
+		BasicFunctions.cuentas.put(k, v);
+	}
+
+	public static String getCuentaOfAfiliado(String afiliado) {
+		return BasicFunctions.cuentas.get(afiliado);
+	}
+	
+	public static Map<String, String> getCuentas() {
+		return cuentas;
+	}
+
+	public static void setCuentas(Map<String, String> cuentas) {
+		BasicFunctions.cuentas = cuentas;
+	}
 
 	public static int getNumEscenario() {
 		return numEscenario;
@@ -82,22 +99,6 @@ public class BasicFunctions {
 		BasicFunctions.idCase = d;
 	}
 
-//	public static Connection getConn() {
-//		return conn;
-//	}
-//
-//	public static void setConn(Connection conn) {
-//		BasicFunctions.conn = conn;
-//	}
-//
-//	public static Login getLogin() {
-//		return login;
-//	}
-//
-//	public static void setLogin(Login login) {
-//		BasicFunctions.login = login;
-//	}
-
 	// Metodo de QuoteReqId
 	public static void addQuoteReqId(String k, String v) {
 		BasicFunctions.quoteReqId.put(k, v);
@@ -147,14 +148,6 @@ public class BasicFunctions {
 		BasicFunctions.idCaseSeq = idCaseSeq;
 	}
 
-//	public static AdapterIO getAdapterIO() {
-//		return adapterIO;
-//	}
-//
-//	public static void setAdapterIO(AdapterIO adapterIO) {
-//		BasicFunctions.adapterIO = adapterIO;
-//	}
-
 	public static int getEscenarioPrueba() {
 		return escenarioPrueba;
 	}
@@ -163,34 +156,10 @@ public class BasicFunctions {
 		BasicFunctions.escenarioPrueba = escenarioPrueba;
 	}
 
-	/**
-	 * Crea la conexi�n a la db y se la asigna a la variable conn de
-	 * BasicFunctions
-	 * 
-	 * @return
-	 */
-//	public static boolean createConn() {
-//		boolean retorno = false;
-//
-//		//
-//		BasicFunctions.conn = DataAccess.getConnection();
-//		if (BasicFunctions.conn != null) {
-//			retorno = true;
-//		}
-//
-//		return retorno;
-//	}
-
-	/**
-	 * Se crea el adaptador y las sessiones y el login con el motor de INET
-	 * 
-	 * @return
-	 */
-
 	public static void startVariables() {
 		SimpleDateFormat SDF = new SimpleDateFormat("yyyyMMddHHmmss");
 		long id_ejecution = Long.parseLong(SDF.format(new Date()));
-		System.out.println("ID_EJECUCION GENERADO : " + id_ejecution);
+		System.out.println("ID_EJECUCION GENERADO : " + id_ejecution + "\n");
 
 		BasicFunctions.setIdEjecution(id_ejecution);
 

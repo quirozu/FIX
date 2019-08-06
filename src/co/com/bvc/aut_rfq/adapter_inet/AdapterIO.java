@@ -44,19 +44,19 @@ public class AdapterIO extends MessageCracker implements Application {
 	
 	@Override
 	public void onCreate(SessionID sessionId) {
-		System.out.println("*****************\nonCreate - sessionId: " + sessionId);
+		System.out.println("onCreate - sessionId: " + sessionId);
 
 	}
 
 	@Override
 	public void onLogon(SessionID sessionId) {
-		System.out.println("*****************\nonLogon - sessionId: " + sessionId);
+		System.out.println("onLogon - sessionId: " + sessionId);
 
 	}
 
 	@Override
 	public void onLogout(SessionID sessionId) {
-		System.out.println("*****************\nonLogout - sessionId: " + sessionId);
+		System.out.println("onLogout - sessionId: " + sessionId);
 
 	}
 
@@ -164,7 +164,7 @@ public class AdapterIO extends MessageCracker implements Application {
 			BasicFunctions.addQuoteReqId(idAfiliado, message.getString(QuoteReqID.FIELD));
 			System.out.println("\nID ESTABLECIDO EN " + BasicFunctions.getQuoteReqIdOfAfiliado(idAfiliado));
 			
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			autoEngine.validarR(sessionId, message);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -182,7 +182,7 @@ public class AdapterIO extends MessageCracker implements Application {
 	public void onMessage(QuoteRequestReject message, SessionID sessionId) throws FieldNotFound, FieldException {
 		try {
 			printMessage("MESAJE AG ", sessionId, message);
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			autoEngine.validarAG(sessionId, message);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -201,7 +201,7 @@ public class AdapterIO extends MessageCracker implements Application {
 		
 		try {
 			printMessage("MENSAJE AI ", sessionId, message);
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			autoEngine.validarAI(sessionId, message);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -220,7 +220,7 @@ public class AdapterIO extends MessageCracker implements Application {
 		
 		try {
 			printMessage("MENSAJE S-PRIMA  ", sessionId, message);
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			autoEngine.validarS(sessionId, message);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -239,7 +239,7 @@ public class AdapterIO extends MessageCracker implements Application {
 	public void onMessage(QuoteCancel message, SessionID sessionId) throws FieldNotFound {
 		try {
 			printMessage("MENSAJE Z ", sessionId, message);
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			autoEngine.validarZ(sessionId, message);
 		} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
 			e.printStackTrace();
@@ -251,7 +251,7 @@ public class AdapterIO extends MessageCracker implements Application {
 	public void onMessage(Reject message, SessionID sessionId) {
 		try {
 			printMessage("MENSAJE 3 ", sessionId, message);
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			autoEngine.validar3(sessionId, message);
 		} catch (SQLException | InterruptedException | SessionNotFound | IOException e) {
 			e.printStackTrace();

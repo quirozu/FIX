@@ -44,7 +44,7 @@ public class Login {
 			is = new FileInputStream("resources//session_setting.properties");
 			prop.load(is);
 		} catch(IOException e) {
-			System.out.println(e.toString());
+			System.out.println("Excepcion: "+e.toString());
 		}
 		
 		//Por cada archivo configurado en session_setting.properties se crea una sesion
@@ -54,6 +54,7 @@ public class Login {
 			String k = obj.toString();
 			String v = prop.getProperty(k);
 			
+			System.out.println("****************************\n");
 			System.out.println(obj + ": " + v);
 			
 			try {
@@ -63,15 +64,15 @@ public class Login {
 				} else {
 					Session.lookupSession(sessionId).logon();
 					mapSessiones.put(sessionId.getSenderCompID(), sessionId);
-					// BasicFunctions.logon(sessionID1);
 					System.out.println("SESSION ADICIONADA. " + sessionId.getSenderCompID() + " : " + sessionId);
+					System.out.println("****************************\n");
 				}
 			} catch (Exception e2) {
 				System.out.println(e2.toString());
 			}
 		}
 		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 
 		System.out.println("*************************************");
 		System.out.println("***  SESIONES CREADAS E INICIADAS ***");
@@ -93,7 +94,7 @@ public class Login {
 			// Se ejecuta onCreate de AdapterIO
 			socketInitiator.start();
 			SessionID sessionId = socketInitiator.getSessions().get(0);
-
+			
 			return sessionId;
 		} catch (Exception e) {
 			System.out.println("Error de conexion INET. Mensaje: " + e.getMessage());
