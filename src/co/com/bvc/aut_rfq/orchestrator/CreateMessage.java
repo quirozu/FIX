@@ -137,6 +137,9 @@ public class CreateMessage {
 			System.out.println("***************");
 			System.out.println("** R CREADO  **");
 			System.out.println(quoteRequest);
+			for(String sess:list) {
+				System.out.println(sess);
+			}
 			System.out.println("***************");
 
 			return respuestaMessage;
@@ -199,35 +202,36 @@ public class CreateMessage {
 
 			List<String> list = new ArrayList<String>();
 			list.add(BasicFunctions.getReceptor());
+			list.add(BasicFunctions.getIniciator());
 
-			while (resultSetParties.next()) {
-				String rSession = resultSetParties.getString("RECEIVER_SESSION");
-				if (rSession != null) {
-					list.add(rSession);
-				}
-				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
-				parte.set(new PartyIDSource('C'));
-				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
+//			while (resultSetParties.next()) {
+//				String rSession = resultSetParties.getString("RECEIVER_SESSION");
+//				if (rSession != null) {
+//					list.add(rSession);
+//				}
+//				parte.set(new PartyID(resultSetParties.getString("RQ_PARTYID")));
+//				parte.set(new PartyIDSource('C'));
+//				parte.set(new PartyRole(resultSetParties.getInt("RQ_PARTYROLE")));
+//
+//				//quote.addGroup(parte);
+//			}
 
-				//quote.addGroup(parte);
-			}
-
-			if (BasicFunctions.isAllMarket()) {
-
-				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
-				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
-
-				list.clear();
-				while (itSessiones.hasNext()) {
-					String idAfiliadoMap = itSessiones.next();
-					list.add(idAfiliadoMap);
-					System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: "
-							+ Login.getMapSessiones().get(idAfiliadoMap));
-				}
-				// Se asigna Session+r Para validar RC prima al inicializador
-				list.add(BasicFunctions.getIniciator() + "R");
-
-			}
+//			if (BasicFunctions.isAllMarket()) {
+//
+//				System.out.println("\n\nPARA TODO EL MERCADO.....\n");
+//				Iterator<String> itSessiones = Login.getMapSessiones().keySet().iterator();
+//
+//				list.clear();
+//				while (itSessiones.hasNext()) {
+//					String idAfiliadoMap = itSessiones.next();
+//					list.add(idAfiliadoMap);
+//					System.out.println("Nuevo Afiliado: " + idAfiliadoMap + " -> Session: "
+//							+ Login.getMapSessiones().get(idAfiliadoMap));
+//				}
+//				// Se asigna Session+r Para validar RC prima al inicializador
+//				list.add(BasicFunctions.getIniciator() + "R");
+//
+//			}
 
 			respuestaMessage.setListSessiones(list);
 			respuestaMessage.setMessage(quote);
@@ -235,6 +239,9 @@ public class CreateMessage {
 			System.out.println("***************");
 			System.out.println("** S CREADO  **");
 			System.out.println(quote);
+			for(String sess:list) {
+				System.out.println(sess);
+			}
 			System.out.println("***************");
 
 			return respuestaMessage;

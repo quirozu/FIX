@@ -299,7 +299,9 @@ public class AutoEngine {
 		cache.getListSessiones().remove(idAfiliado);
 
 		String quoteId = messageIn.getString(117);
+		
 		BasicFunctions.setQuoteId(quoteId);
+		System.out.println("QUOTEID RECUPERADO: "+BasicFunctions.getQuoteId());
 
 //		if (DataAccess.validarContinuidadEjecucion()) {
 		if(cache.getListSessiones().size() == 0) {
@@ -446,7 +448,7 @@ public class AutoEngine {
 				System.out.println("**** ESPERAR ****");
 			}
 	
-			System.out.println("*********** SALIENDO DE VALIDAR AJ  ************");
+			System.out.println("*********** SALIENDO DE VALIDAR AI  ************");
 		}
 		
 	}
