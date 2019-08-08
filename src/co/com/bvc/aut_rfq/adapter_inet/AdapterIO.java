@@ -148,9 +148,10 @@ public class AdapterIO extends MessageCracker implements Application {
 	public void fromApp(Message message, SessionID sessionId)
 			throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType, FieldException {
 		try {
-			printMessage("fromApp-Input", sessionId, message);
+//			printMessage("fromApp-Input", sessionId, message);
+			System.out.println("*** PASO POR FROMAPP ***");
 			crack(message, sessionId);
-			printMessage("fromApp-Output",sessionId, null);
+//			printMessage("fromApp-Output",sessionId, null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -10,8 +10,6 @@ import co.com.bvc.aut_rfq.db.DataAccess;
 
 public class BasicFunctions {
 
-//	private static Connection conn;
-//	private static Login login;
 	private static Map<String, String> quoteReqId = new HashMap<String, String>();
 	private static String quoteIdGenered;
 	private static String quoteId;

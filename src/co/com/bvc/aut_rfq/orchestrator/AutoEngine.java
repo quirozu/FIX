@@ -59,7 +59,7 @@ public class AutoEngine {
 			//Se crea el login
 			adapterIO = new AdapterIO();
 			login = new Login(adapterIO);
-			DataAccess.limpiarCache();
+//			DataAccess.limpiarCache();
 			ejecutarSiguientePaso();
 		} else {
 			System.out.println("NO HAY DATOS EN LA BASE DE DATOS...");
@@ -69,49 +69,45 @@ public class AutoEngine {
 	public void ejecutarSiguientePaso()
 			throws SQLException, SessionNotFound, InterruptedException, IOException, FieldNotFound {
 
-//		int caso = BasicFunctions.getEscenarioFinal();
-//		Thread.sleep(5000);
 		System.out.println("SIGUIENTE PASO ID_CASESEQ: " + BasicFunctions.getIdCaseSeq());
 		ResultSet rsDatos = DataAccess.datosMensaje(BasicFunctions.getIdCaseSeq());
-		while (rsDatos.next()) {
+		
+		int total = 0;
+		while(rsDatos.next()) {
+			total++;
+		}
+		
+		if (total > 0) {
+			rsDatos.beforeFirst();
+			while(rsDatos.next()) {
 			
-			int caso = rsDatos.getString("ID_CASE") == null ? 0 : rsDatos.getInt("ID_CASE");
-
-			BasicFunctions.setIdCase(caso);
-			System.out.println("Continua con el siguiente paso.");
-			System.out.println("************************** " + caso);
-			
-			if(BasicFunctions.getIdCase()>0 && BasicFunctions.getIdCase()<=BasicFunctions.getEscenarioFinal()) {
-				enviarMensaje(rsDatos);
-				Thread.sleep(2000);
-				BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
-				System.out.println("++++++++++++++++ SECUENCIA INCREMENTADA A " + BasicFunctions.getIdCaseSeq() + "++++++++++++++++");
-			} else {
-				System.out.println("\nGENERANDO REPORtTE...");
+				int caso = rsDatos.getString("ID_CASE") == null ? 0 : rsDatos.getInt("ID_CASE");
+	
+				BasicFunctions.setIdCase(caso);
+				System.out.println("Continua con el siguiente paso.");
+				System.out.println("************************** " + caso);
+				
+				if(BasicFunctions.getIdCase()>0 && BasicFunctions.getIdCase()<=BasicFunctions.getEscenarioFinal()) {
+					enviarMensaje(rsDatos);
+					Thread.sleep(2000);
+					BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
+					System.out.println("++++++++++++++++ SECUENCIA INCREMENTADA A " + BasicFunctions.getIdCaseSeq() + "++++++++++++++++");
+				} else {
+					System.out.println("\nGENERANDO REPORTE...");
+					CreateReport.maina();
+					login.endSessions();
+					System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+					System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
+					System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
+				}
+			}
+		} else {
+				System.out.println("\nGENERANDO REPORTE...");
 				CreateReport.maina();
 				login.endSessions();
 				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
 				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
 				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-			}
-
-//			if (caso < BasicFunctions.getIdCase()) {
-//				Thread.sleep(5000);
-//				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-//				System.out.println("++++++++++++++ FIN DE EJECUCION ++++++++++++");
-//				System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
-//				caso++;
-//				System.out.println("GENERAR REPORTE....");
-//				CreateReport.maina();
-//				login.endSessions();
-////				BasicFunctions.FinalLogin();
-//			} else {
-//				enviarMensaje(rsDatos);
-//				Thread.sleep(5000);
-//				BasicFunctions.setIdCaseSeq(BasicFunctions.getIdCaseSeq() + 1);
-//				System.out.println("++++++++++++++++ SECUENCIA ++++++++ " + BasicFunctions.getIdCaseSeq());
-//			}
-
 		}
 
 	}
@@ -122,7 +118,6 @@ public class AutoEngine {
 		String msgType = resultSet.getString("ID_ESCENARIO");
 		String idAfiliado = resultSet.getString("ID_AFILIADO");
 		String idCase = resultSet.getString("ID_CASE");
-		//System.out.println(resultSet);
 		datosCache = new AutFixRfqDatosCache();
 		RespuestaConstrucccionMsgFIX respConstruccion = new RespuestaConstrucccionMsgFIX();
 
@@ -542,20 +537,7 @@ public class AutoEngine {
 		System.out.println("** CONTINUAR CON EL SIGUIENTE ESCENARIO***");
 		ejecutarSiguienteEscenario();
 		
-//		
-//		String sIdAfiliado = sessionId.toString().substring(8, 11);
-//		
-//		AutFixRfqDatosCache datosCache = obtenerCache(sIdAfiliado);
-//		Validaciones validaciones = new Validaciones();
-//		validaciones.validar3(datosCache, (quickfix.fix44.Message) messageIn);
-//
-//		DataAccess.limpiarCache();
-//
-//		ejecutarSiguienteEscenario();
-//		System.out.println("** CONTINUAR ***");
-//		System.out.println("*********** SALIENDO DE VALIDAR 3 ************");
 
-//		Thread.sleep(5000);
 
 	}
 

@@ -8,10 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import co.com.bvc.aut_rfq.basicfix.BasicFunctions;
-import co.com.bvc.aut_rfq.db.DataAccess;
-import co.com.bvc.aut_rfq.orchestrator.AutoEngine;
-import co.com.bvc.aut_rfq.orchestrator.Path;
 import quickfix.Application;
 import quickfix.DefaultMessageFactory;
 import quickfix.FileLogFactory;
@@ -54,7 +50,7 @@ public class Login {
 			String k = obj.toString();
 			String v = prop.getProperty(k);
 			
-			System.out.println("****************************\n");
+			System.out.println("****************************");
 			System.out.println(obj + ": " + v);
 			
 			try {
