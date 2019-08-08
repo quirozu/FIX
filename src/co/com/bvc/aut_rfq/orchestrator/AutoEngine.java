@@ -327,7 +327,7 @@ public class AutoEngine {
 		if(idAfiliado.equals(BasicFunctions.getIniciator())) {
 			String contraFirm=null, symbol=null, rueda=null, eti487=null,
 					rec856_0 = null, rec856_1=null, rec856_2=null, lastPX=null, lastQty=null, transTime=null,
-					validUntilTime=null, settDate=null, tradeDate=null, trMatchId=null, 
+					validUntilTime=null, settDate=null, tradeDate=null, grossTradeAmt=null, trMatchId=null, 
 					arTTT=null, arTraderRepType=null, arTraStatus=null, ampDCV=null;
 			int side = 0;
 			
@@ -344,6 +344,7 @@ public class AutoEngine {
 			validUntilTime = "2019-08-30 21:00:00";
 			settDate = message.getString(64);
 			tradeDate = message.getString(64);
+			grossTradeAmt = message.getString(381);
 			trMatchId = message.getString(880);
 			side = message.getInt(54);
 			account = message.getString(1);
@@ -355,13 +356,13 @@ public class AutoEngine {
 			String queryInsertIni = "INSERT INTO `aut_fix_tcr_datos` (`ID_CASESEQ`, `ID_CASE`, `ID_SECUENCIA`, `ESTADO`, `ID_ESCENARIO`, "
 					+ "`MERCADO`, `ACCION`, `ID_AFILIADO`, `CONTRAFIRM`, `AE_POSDUPFLAG`, `AE_SYMBOL`, `AE_SECSUBTYPE`, `AE_SECIDSOURCE`, "
 					+ "`AE_TRADTRANTYPE`, `AE_TRADEREPTYPE`, `AE_RECTREPTYPE1`, `AE_RECTREPTYPE2`, `AE_TRDTYPE`, `AE_EXECTYPE`, `AE_MATCHSTATUS`, "
-					+ "`AE_CURRENCY`, `AE_LASTPX`, `AE_LASTQTY`, `AE_TRANSTIME`, `AE_VALIDUNTILTIME`, `AE_SETTDATE`, `AE_TRADEDATE`, `AE_GROSSTRADEAMT`, "
+					+ "`AE_CURRENCY`, `AE_LASTPX`, `AE_LASTQTY`, `AE_DIRTYPRICE`, `AE_TRANSTIME`, `AE_VALIDUNTILTIME`, `AE_SETTDATE`, `AE_TRADEDATE`, `AE_GROSSTRADEAMT`, "
 					+ "`AE_TRMATCHID`, `AE_NOSIDES`, `AE_SIDE`, `AE_PARTYIDSOURCE`, `AE_ACCOUNT`, `AR_TRADTRANTYPE`, `AR_TRADEREPTYPE`, `AR_TRDRPTSTATUS`, "
 					+ "`AR_TRANSTIME`, `ER_EXECTYPE`,`AMP_DCV`) " 
 					+ " VALUES ("+BasicFunctions.getIdTcrSeq()+", "+BasicFunctions.getNumEscenario()+", '1', 'A', 'FIX_AE',"
 					+ " 'DV', 'N', '"+BasicFunctions.getIniciator()+"', '"+BasicFunctions.getReceptor()+"', 'Y', '"+ symbol+"', '"+rueda+"', 'M',"
 					+ " '0', '96', NULL, '99', '22', 'F', '0', "
-					+ " 'COP', "+lastPX+", "+lastQty+", '"+transTime+"', NULL, '"+settDate+"', '"+tradeDate+"', '250', '"
+					+ " 'COP', "+lastPX+", "+lastQty+", NULL, '"+transTime+"', NULL, '"+settDate+"', '"+tradeDate+"', '"+grossTradeAmt+"', '"
 					+ trMatchId+"', '1', '"+side+"', 'C', '"+account+"', '0', '96', '0', '20190716-10:00:00.000', 'H',NULL);";
 			
 			System.out.println("CONSULTA INSERCION INICIADOR: "+queryInsertIni);
@@ -373,13 +374,13 @@ public class AutoEngine {
 			String queryInsertRec = "INSERT INTO `aut_fix_tcr_datos` (`ID_CASESEQ`, `ID_CASE`, `ID_SECUENCIA`, `ESTADO`, `ID_ESCENARIO`, "
 					+ "`MERCADO`, `ACCION`, `ID_AFILIADO`, `CONTRAFIRM`, `AE_POSDUPFLAG`, `AE_SYMBOL`, `AE_SECSUBTYPE`, `AE_SECIDSOURCE`, "
 					+ "`AE_TRADTRANTYPE`, `AE_TRADEREPTYPE`, `AE_RECTREPTYPE1`, `AE_RECTREPTYPE2`, `AE_TRDTYPE`, `AE_EXECTYPE`, `AE_MATCHSTATUS`, "
-					+ "`AE_CURRENCY`, `AE_LASTPX`, `AE_LASTQTY`, `AE_TRANSTIME`, `AE_VALIDUNTILTIME`, `AE_SETTDATE`, `AE_TRADEDATE`, `AE_GROSSTRADEAMT`, "
+					+ "`AE_CURRENCY`, `AE_LASTPX`, `AE_LASTQTY`, `AE_DIRTYPRICE`, `AE_TRANSTIME`, `AE_VALIDUNTILTIME`, `AE_SETTDATE`, `AE_TRADEDATE`, `AE_GROSSTRADEAMT`, "
 					+ "`AE_TRMATCHID`, `AE_NOSIDES`, `AE_SIDE`, `AE_PARTYIDSOURCE`, `AE_ACCOUNT`, `AR_TRADTRANTYPE`, `AR_TRADEREPTYPE`, `AR_TRDRPTSTATUS`, "
 					+ "`AR_TRANSTIME`, `ER_EXECTYPE`,`AMP_DCV`) " 
 					+ " VALUES ("+BasicFunctions.getIdTcrSeq()+", '"+BasicFunctions.getNumEscenario()+"', '2', 'A', 'FIX_AE_R',"
 					+ " 'DV', 'N', '"+BasicFunctions.getReceptor()+"', '"+BasicFunctions.getIniciator()+"', 'Y', '"+ symbol+"', '"+rueda+"', 'M',"
 					+ " '2', '97', '14', '99', '22', 'F', '0', "
-					+ " 'COP', "+lastPX+", "+lastQty+", '"+transTime+"', '2019-08-30 21:00:00','"+settDate+"', '"+tradeDate+"', '250', '"
+					+ " 'COP', "+lastPX+", "+lastQty+", NULL, '"+transTime+"', '2019-08-30 21:00:00','"+settDate+"', '"+tradeDate+"', '"+grossTradeAmt+"', '"
 					+ trMatchId+"', '1', '"+(3-side)+"', 'C', '"+accountContraFirm+"', NULL, NULL, NULL, NULL, 'H','1');";
 			
 			System.out.println("CONSULTA INSERCION RECEPTOR: "+queryInsertRec);

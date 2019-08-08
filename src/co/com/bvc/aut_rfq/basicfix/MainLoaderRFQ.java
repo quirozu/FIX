@@ -25,9 +25,9 @@ public class MainLoaderRFQ {
 		int escenarioInicial = 0;
 		int escenarioFinal = 0;
 				
-		System.out.println("DIGITE PRIMER ESCENARIO A PROBAR...");
+		System.out.println("DIGITE PRIMER ESCENARIO A CARGAR...");
 		escenarioInicial = reader.nextInt();
-		System.out.println("DIGITE ULTIMO ESCENARIO A PROBAR...");
+		System.out.println("DIGITE ULTIMO ESCENARIO A CARGAR...");
 		escenarioFinal = reader.nextInt();
 		
 		if (escenarioFinal < escenarioInicial) {
