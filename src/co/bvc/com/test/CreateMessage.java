@@ -75,13 +75,13 @@ public class CreateMessage {
 			header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 			QuoteRequest.NoRelatedSym noRelatedSym = new QuoteRequest.NoRelatedSym();
 
-//			Symbol symbol = resultSet.getString("RQ_SYMBOL") == null ? new Symbol("   ")
-//					: new Symbol(resultSet.getString("RQ_SYMBOL"));
-//			noRelatedSym.set(symbol);
+			Symbol symbol = resultSet.getString("RQ_SYMBOL") == null ? new Symbol("   ")
+					: new Symbol(resultSet.getString("RQ_SYMBOL"));
+			noRelatedSym.set(symbol);
 
-			if (resultSet.getString("RQ_SYMBOL") != null) {
-				noRelatedSym.setField(new Symbol(resultSet.getString("RQ_SYMBOL")));
-			}
+//			if (resultSet.getString("RQ_SYMBOL") != null) {
+//				noRelatedSym.setField(new Symbol(resultSet.getString("RQ_SYMBOL")));
+//			}
 			noRelatedSym.setField(new SecurityIDSource("M"));
 			noRelatedSym.setField(new OrderQty(resultSet.getDouble("RQ_ORDERQTY")));
 			if (resultSet.getString("RQ_SIDE") != null) {
