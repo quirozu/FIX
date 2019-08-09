@@ -1882,22 +1882,22 @@ public class Validaciones {
 					contadorMalos++;
 				}
 				break;
-			case "117":
-				if (cad.get(i).split("=")[1].equals(quoteId)) {
-					contadorBuenos++;
-
-					cadenaDeMensaje(" RQ_QUOTEID", valor, quoteId);
-
-					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], quoteId,
-							idEscenario, idCase, idSecuencia, valor);
-				} else {
-					System.out
-							.println(" RQ_QUOTEID (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + quoteId);
-					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], quoteId,
-							idEscenario, idCase, idSecuencia, valor);
-					contadorMalos++;
-				}
-				break;
+//			case "117":
+//				if (cad.get(i).split("=")[1].equals(quoteId)) {
+//					contadorBuenos++;
+//
+//					cadenaDeMensaje(" RQ_QUOTEID", valor, quoteId);
+//
+//					DataAccess.cargarLogsExitosos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], quoteId,
+//							idEscenario, idCase, idSecuencia, valor);
+//				} else {
+//					System.out
+//							.println(" RQ_QUOTEID (" + valor + "): MSG" + cad.get(i).split("=")[1] + " BD: " + quoteId);
+//					DataAccess.cargarLogsFallidos(qr, datosCache.getIdEjecucion(), cad.get(i).split("=")[1], quoteId,
+//							idEscenario, idCase, idSecuencia, valor);
+//					contadorMalos++;
+//				}
+//				break;
 				
 			case "298":
 				if (cad.get(i).split("=")[1].equals(quoteCancelType)) {

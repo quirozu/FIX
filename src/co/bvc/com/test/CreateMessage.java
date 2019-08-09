@@ -338,7 +338,7 @@ public class CreateMessage {
 		Header header = (Header) quoteCancel.getHeader();
 		header.setField(new BeginString(Constantes.PROTOCOL_FIX_VERSION)); // 8
 
-		quoteCancel.setField(new QuoteCancelType(5));// RQ_QUOTECANCTYPE
+		quoteCancel.setField(new QuoteCancelType(resultSet.getInt("RQ_QUOCANCTYPE")));// RQ_QUOTECANCTYPE
 		quoteCancel.setField(new QuoteID(BasicFunctions.getIdEjecution() + resultSet.getString("ID_CASE") + "_S"));
 
 		System.out.println("Nos Message Sent : " + quoteCancel);

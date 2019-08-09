@@ -26,3 +26,395 @@
 20190806-21:41:14: Initiated logon request
 20190806-21:41:14: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
 20190806-21:41:14: Received logon
+20190808-15:51:10: Session FIX.4.4:051/051B17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190808-15:51:10: Session state is not current; resetting FIX.4.4:051/051B17->EXC
+20190808-15:51:10: Created session: FIX.4.4:051/051B17->EXC
+20190808-15:51:10: Configured socket addresses for session: [/172.36.2.21:54404]
+20190808-15:51:10: MINA session created: local=/172.36.1.20:62427, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-15:51:12: Initiated logon request
+20190808-15:51:12: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-15:51:12: Received logon
+20190808-15:52:03: Session FIX.4.4:051/051B17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190808-15:52:03: Created session: FIX.4.4:051/051B17->EXC
+20190808-15:52:03: Configured socket addresses for session: [/172.36.2.21:54404]
+20190808-15:52:03: MINA session created: local=/172.36.1.20:62487, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-15:52:05: Initiated logon request
+20190808-15:52:05: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-15:52:05: Received logon
+20190808-15:53:38: Session FIX.4.4:051/051B17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190808-15:53:38: Created session: FIX.4.4:051/051B17->EXC
+20190808-15:53:38: Configured socket addresses for session: [/172.36.2.21:54404]
+20190808-15:53:38: MINA session created: local=/172.36.1.20:62549, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-15:53:41: Initiated logon request
+20190808-15:53:41: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-15:53:41: Received logon
+20190808-15:57:33: Session FIX.4.4:051/051B17->EXC schedule is daily, 00:00:00-UTC - 23:59:59-UTC
+20190808-15:57:33: Created session: FIX.4.4:051/051B17->EXC
+20190808-15:57:33: Configured socket addresses for session: [/172.36.2.21:54404]
+20190808-15:57:33: MINA session created: local=/172.36.1.20:62628, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-15:57:35: Initiated logon request
+20190808-15:57:35: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-15:57:35: Received logon
+20190808-16:43:00: Disconnecting: Encountered END_OF_STREAM
+20190808-16:43:00: MINA session created: local=/172.36.1.20:63036, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:43:01: Initiated logon request
+20190808-16:43:12: Disconnecting: Timed out waiting for logon response
+20190808-16:44:01: MINA session created: local=/172.36.1.20:63080, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:44:02: Initiated logon request
+20190808-16:44:02: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-16:44:02: Received logon
+20190808-16:45:03: Disconnecting: Encountered END_OF_STREAM
+20190808-16:45:03: MINA session created: local=/172.36.1.20:63112, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:45:03: Initiated logon request
+20190808-16:45:14: Disconnecting: Timed out waiting for logon response
+20190808-16:46:04: MINA session created: local=/172.36.1.20:63164, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:46:04: Initiated logon request
+20190808-16:46:04: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-16:46:04: Received logon
+20190808-16:47:06: Disconnecting: Encountered END_OF_STREAM
+20190808-16:47:07: MINA session created: local=/172.36.1.20:63197, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:47:07: Initiated logon request
+20190808-16:47:18: Disconnecting: Timed out waiting for logon response
+20190808-16:48:07: MINA session created: local=/172.36.1.20:63250, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:48:08: Initiated logon request
+20190808-16:48:08: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-16:48:08: Received logon
+20190808-16:49:10: Disconnecting: Encountered END_OF_STREAM
+20190808-16:49:10: MINA session created: local=/172.36.1.20:63288, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:49:11: Initiated logon request
+20190808-16:49:22: Disconnecting: Timed out waiting for logon response
+20190808-16:50:11: MINA session created: local=/172.36.1.20:63340, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:50:12: Initiated logon request
+20190808-16:50:12: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-16:50:12: Received logon
+20190808-16:51:14: Disconnecting: Encountered END_OF_STREAM
+20190808-16:51:14: MINA session created: local=/172.36.1.20:63374, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:51:15: Initiated logon request
+20190808-16:51:26: Disconnecting: Timed out waiting for logon response
+20190808-16:52:15: MINA session created: local=/172.36.1.20:63425, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:52:16: Initiated logon request
+20190808-16:52:16: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-16:52:16: Received logon
+20190808-16:53:18: Disconnecting: Encountered END_OF_STREAM
+20190808-16:53:19: MINA session created: local=/172.36.1.20:63474, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:53:19: Initiated logon request
+20190808-16:53:30: Disconnecting: Timed out waiting for logon response
+20190808-16:54:19: MINA session created: local=/172.36.1.20:63517, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-16:54:19: Initiated logon request
+20190808-16:54:19: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-16:54:19: Received logon
+20190808-17:02:15: Disconnecting: Encountered END_OF_STREAM
+20190808-17:02:15: MINA session created: local=/172.36.1.20:63612, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-17:02:16: Initiated logon request
+20190808-17:02:27: Disconnecting: Timed out waiting for logon response
+20190808-17:03:16: MINA session created: local=/172.36.1.20:63654, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-17:03:17: Initiated logon request
+20190808-17:03:17: Logon contains ResetSeqNumFlag=Y, resetting sequence numbers to 1
+20190808-17:03:17: Received logon
+20190808-19:18:04: Disconnecting: Encountered END_OF_STREAM
+20190808-19:18:04: MINA session created: local=/172.36.1.20:64724, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:18:06: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:18:06: Initiated logon request
+20190808-19:18:16: Disconnecting: Timed out waiting for logon response
+20190808-19:19:04: MINA session created: local=/172.36.1.20:64768, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:19:06: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:19:06: Initiated logon request
+20190808-19:19:06: Disconnecting: Encountered END_OF_STREAM
+20190808-19:20:06: MINA session created: local=/172.36.1.20:64809, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:20:07: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:20:07: Initiated logon request
+20190808-19:20:07: Disconnecting: Encountered END_OF_STREAM
+20190808-19:21:06: MINA session created: local=/172.36.1.20:64853, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:21:07: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:21:07: Initiated logon request
+20190808-19:21:07: Disconnecting: Encountered END_OF_STREAM
+20190808-19:22:06: MINA session created: local=/172.36.1.20:64899, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:22:07: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:22:07: Initiated logon request
+20190808-19:22:07: Disconnecting: Encountered END_OF_STREAM
+20190808-19:23:06: MINA session created: local=/172.36.1.20:64943, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:23:07: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:23:07: Initiated logon request
+20190808-19:23:07: Disconnecting: Encountered END_OF_STREAM
+20190808-19:24:06: MINA session created: local=/172.36.1.20:64986, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:24:07: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:24:07: Initiated logon request
+20190808-19:24:07: Disconnecting: Encountered END_OF_STREAM
+20190808-19:25:06: MINA session created: local=/172.36.1.20:65033, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:25:07: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:25:07: Initiated logon request
+20190808-19:25:07: Disconnecting: Encountered END_OF_STREAM
+20190808-19:26:06: MINA session created: local=/172.36.1.20:65074, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:26:07: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:26:08: Initiated logon request
+20190808-19:26:08: Disconnecting: Encountered END_OF_STREAM
+20190808-19:27:06: MINA session created: local=/172.36.1.20:65120, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:27:08: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:27:08: Initiated logon request
+20190808-19:27:08: Disconnecting: Encountered END_OF_STREAM
+20190808-19:28:07: MINA session created: local=/172.36.1.20:65177, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:28:08: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:28:08: Disconnecting: Encountered END_OF_STREAM
+20190808-19:28:08: Initiated logon request
+20190808-19:29:07: MINA session created: local=/172.36.1.20:65221, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:29:08: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:29:08: Initiated logon request
+20190808-19:29:19: Disconnecting: Timed out waiting for logon response
+20190808-19:30:08: MINA session created: local=/172.36.1.20:65263, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:30:09: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:30:09: Initiated logon request
+20190808-19:30:09: Disconnecting: Encountered END_OF_STREAM
+20190808-19:31:09: MINA session created: local=/172.36.1.20:65310, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:31:10: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:31:10: Initiated logon request
+20190808-19:31:10: Disconnecting: Encountered END_OF_STREAM
+20190808-19:32:10: MINA session created: local=/172.36.1.20:65351, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:32:11: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:32:11: Initiated logon request
+20190808-19:32:11: Disconnecting: Encountered END_OF_STREAM
+20190808-19:33:11: MINA session created: local=/172.36.1.20:65395, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:33:12: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:33:12: Initiated logon request
+20190808-19:33:12: Disconnecting: Encountered END_OF_STREAM
+20190808-19:34:12: MINA session created: local=/172.36.1.20:65440, class org.apache.mina.transport.socket.nio.NioSocketSession, remote=/172.36.2.21:54404
+20190808-19:34:13: Application exception in toAdmin()
+java.lang.NullPointerException
+	at co.bvc.com.test.AdapterIO.toAdmin(AdapterIO.java:83)
+	at quickfix.Session.sendRaw(Session.java:2528)
+	at quickfix.Session.generateLogon(Session.java:1989)
+	at quickfix.Session.next(Session.java:1889)
+	at quickfix.mina.SessionConnector$SessionTimerTask.run(SessionConnector.java:329)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+20190808-19:34:13: Initiated logon request
+20190808-19:34:13: Disconnecting: Encountered END_OF_STREAM
