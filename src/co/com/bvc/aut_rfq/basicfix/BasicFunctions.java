@@ -21,8 +21,8 @@ public class BasicFunctions {
 	private static String receptor;
 	private static int escenarioFinal;
 	private static boolean allMarket = false;
-	private static int numEscenario = 11;
-	private static int idTcrSeq = 21;
+	private static int numEscenario;
+	private static int idTcrSeq;
 	private static Map<String, String> cuentas = new HashMap<String, String>();
 
 	public static void addCuenta(String k, String v) {
@@ -160,6 +160,8 @@ public class BasicFunctions {
 		System.out.println("ID_EJECUCION GENERADO : " + id_ejecution + "\n");
 
 		BasicFunctions.setIdEjecution(id_ejecution);
+		BasicFunctions.setNumEscenario(1);
+		BasicFunctions.setIdTcrSeq(1);
 
 	}
 

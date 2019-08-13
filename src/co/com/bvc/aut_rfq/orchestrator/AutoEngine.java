@@ -52,8 +52,8 @@ public class AutoEngine {
 			BasicFunctions.addCuenta("045", "RP001");
 			BasicFunctions.addCuenta("051", "RT001");
 			
-			//Limpiar tabla de anulaciones 10 en adelante
-			String queryAnulaciones = "DELETE FROM aut_fix_tcr_datos WHERE ID_CASESEQ > 20;";
+			//Limpiar tabla de anulaciones
+			String queryAnulaciones = "DELETE FROM aut_fix_tcr_datos WHERE ID_CASESEQ > 0;";
 			DataAccess.setQuery(queryAnulaciones);
 			
 			//Se crea el login

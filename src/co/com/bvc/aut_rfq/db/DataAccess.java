@@ -252,6 +252,26 @@ public class DataAccess {
 
 	}
 	
+	public void modificarEscenrios() {
+		
+//		-- Mensaje de rechazo por contraparte compra
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='25';
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_TRADEREPTYPE`='98', `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='26';
+//		-- Mensaje de rechazo por contraparte venta
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='31';
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_TRADEREPTYPE`='98', `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='32';
+//		-- Bolsa rechaza anulacion
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='33';
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98', `AMP_DCV`='0' WHERE `ID_CASESEQ`='34';
+//		-- Mensaje mal armado por precio
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98', `AE_LASTPX`='4200' WHERE `ID_CASESEQ`='37';
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98', `AE_LASTPX`='4200' WHERE `ID_CASESEQ`='38';
+//		-- Bolsa rechaza anulacion
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='39';
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98', `AMP_DCV`='0' WHERE `ID_CASESEQ`='40';
+
+	}
+	
 
 
 }
