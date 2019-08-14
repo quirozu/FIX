@@ -254,21 +254,45 @@ public class DataAccess {
 	
 	public void modificarEscenrios() {
 		
-//		-- Mensaje de rechazo por contraparte compra
-//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='25';
-//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_TRADEREPTYPE`='98', `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='26';
-//		-- Mensaje de rechazo por contraparte venta
-//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='31';
-//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_TRADEREPTYPE`='98', `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='32';
-//		-- Bolsa rechaza anulacion
-//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='33';
-//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98', `AMP_DCV`='0' WHERE `ID_CASESEQ`='34';
-//		-- Mensaje mal armado por precio
-//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98', `AE_LASTPX`='4200' WHERE `ID_CASESEQ`='37';
-//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98', `AE_LASTPX`='4200' WHERE `ID_CASESEQ`='38';
-//		-- Bolsa rechaza anulacion
-//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='39';
-//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98', `AMP_DCV`='0' WHERE `ID_CASESEQ`='40';
+//		-- CAMBIA EL CAMPO 487 a 2 y otros
+//		UPDATE `aut_fix_tcr_datos` SET `AE_TRADTRANTYPE`='2', `AR_TRADTRANTYPE`='2', `AR_TRDRPTSTATUS`='1', `AR_TRADREPREASON`='99', `AR_TEXT`='1512' WHERE `ID_CASESEQ`='5';
+//
+//		-- CAMBIA EL CAMPO 856 a 14 y otros
+//		UPDATE `aut_fix_tcr_datos` SET `AE_TRADEREPTYPE`='14', `AR_TRADEREPTYPE`='14', `AR_TRDRPTSTATUS`='1', `AR_TRADREPREASON`='99', `AR_TEXT`='1512' WHERE `ID_CASESEQ`='7';
+//
+//		-- CAMBIA MATCHID PARA TRATAR DE ANULAR NUEVAMENTE
+//		CREATE TEMPORARY TABLE t_aux
+//		SELECT AE_TRMATCHID FROM aut_fix_tcr_datos WHERE ID_CASESEQ = 1;
+//		UPDATE aut_fix_tcr_datos T1,t_aux SET T1.AE_TRMATCHID = t_aux.AE_TRMATCHID, T1.AE_TRADEREPTYPE='96', T1.AR_TRDRPTSTATUS='1', T1.AR_TRADREPREASON='99', T1.AR_TEXT='369'
+//		WHERE T1.ID_CASESEQ='9';
+//		DROP TEMPORARY TABLE t_aux;
+//
+//		-- CONTRAPARTE RECHAZA POR COMPRA
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98'  WHERE `ID_CASESEQ`='11';
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_TRADEREPTYPE`='98', `AE_RECTREPTYPE2`='98', `AMP_DCV`='0' WHERE `ID_CASESEQ`='12';
+//		-- CONTRAPARTE RECHAZA POR VENTA
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_RECTREPTYPE2`='98' WHERE `ID_CASESEQ`='13';
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_TRADEREPTYPE`='98', `AE_RECTREPTYPE2`='98', `AMP_DCV`='0' WHERE `ID_CASESEQ`='14';
+//
+//		-- AE_R MAL ARMADO POR 487
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AR_TRADTRANTYPE`='1', `AR_TRADEREPTYPE`='97', `AR_TRDRPTSTATUS`='1', `AR_TRADREPREASON`='99', `AR_TEXT`='1512', `AE_TRADTRANTYPE`='1' WHERE `ID_CASESEQ`='16';
+//		-- UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET  `AR_TRDRPTSTATUS`='1' WHERE `ID_CASESEQ`='16';
+//
+//		-- AE_R MAL ARMADO POR 586
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_TRADEREPTYPE`='90', `AE_RECTREPTYPE2`='90' WHERE `ID_CASESEQ`='18';
+//
+//		-- SOLICITUD INEXISTENTE
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_TRMATCHID`='201901010000000000', `AR_TRDRPTSTATUS`='1', `AR_TRADREPREASON`='99', `AR_TEXT`='138' WHERE `ID_CASESEQ`='21';
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AE_TRMATCHID`='201901010000000000' WHERE `ID_CASESEQ`='22';
+//
+//		-- BOLSA RECHAZA SOLICITUD DE ANULACIÓN COMPRA
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AMP_DCV`='0' WHERE `ID_CASESEQ`='24';
+//		-- BOLSA RECHAZA SOLICITUD DE ANULACIÓN VENTA
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `AMP_DCV`='0' WHERE `ID_CASESEQ`='26';
+//
+//		-- SOLICITUD YA SE ENCUENTRA EN TRÁMITE
+//		UPDATE `bvc_automation_db`.`aut_fix_tcr_datos` SET `ID_ESCENARIO`='FIX_AE', `ID_AFILIADO`='045', `CONTRAFIRM`='037', `AE_TRADTRANTYPE`='0', `AE_TRADEREPTYPE`='96', `AR_TRADTRANTYPE`='0', `AR_TRADEREPTYPE`='96', `AR_TRDRPTSTATUS`='1', `AR_TRADREPREASON`='99', `AR_TEXT`='369' WHERE `ID_CASESEQ`='30';
+//
 
 	}
 	

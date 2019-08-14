@@ -365,7 +365,7 @@ public class AutoEngine {
 					+ " 'COP', "+lastPX+", "+lastQty+", NULL, '"+transTime+"', NULL, '"+settDate+"', '"+tradeDate+"', '"+grossTradeAmt+"', '"
 					+ trMatchId+"', '1', '"+side+"', 'C', '"+account+"', '0', '96', '0', '20190716-10:00:00.000', 'H',NULL);";
 			
-			System.out.println("CONSULTA INSERCION INICIADOR: "+queryInsertIni);
+//			System.out.println("CONSULTA INSERCION INICIADOR: "+queryInsertIni);
 			
 			DataAccess.setQuery(queryInsertIni);
 			
@@ -383,7 +383,7 @@ public class AutoEngine {
 					+ " 'COP', "+lastPX+", "+lastQty+", NULL, '"+transTime+"', '2019-08-30 21:00:00','"+settDate+"', '"+tradeDate+"', '"+grossTradeAmt+"', '"
 					+ trMatchId+"', '1', '"+(3-side)+"', 'C', '"+accountContraFirm+"', NULL, NULL, NULL, NULL, 'H','1');";
 			
-			System.out.println("CONSULTA INSERCION RECEPTOR: "+queryInsertRec);
+//			System.out.println("CONSULTA INSERCION RECEPTOR: "+queryInsertRec);
 			
 			DataAccess.setQuery(queryInsertRec);
 			BasicFunctions.setIdTcrSeq(BasicFunctions.getIdTcrSeq()+1);
